@@ -1,0 +1,95 @@
+[gd_resource type="Resource" script_class="Player" load_steps=16 format=3 uid="uid://cci6niwebhk0p"]
+
+[ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4rrbc"]
+[ext_resource type="Script" path="res://Resources/Player.gd" id="1_5gnap"]
+[ext_resource type="Script" path="res://Resources/FarmerData.gd" id="1_ygrdx"]
+[ext_resource type="Script" path="res://Resources/FruitData.gd" id="2_fxvng"]
+[ext_resource type="Script" path="res://Resources/JuiceLevelData.gd" id="4_87in5"]
+[ext_resource type="Script" path="res://Resources/TransportData.gd" id="5_f40ry"]
+[ext_resource type="Script" path="res://Resources/UpdateData.gd" id="6_qmrx1"]
+[ext_resource type="Script" path="res://Resources/WaterTankData.gd" id="7_un5f6"]
+
+[sub_resource type="Resource" id="Resource_re3a3"]
+script = ExtResource("1_ygrdx")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_0sadf"]
+script = ExtResource("2_fxvng")
+name = ""
+level = 0
+tier = 0
+cost = 0.0
+speed = 0.0
+
+[sub_resource type="Resource" id="Resource_ig7rs"]
+script = ExtResource("1_4rrbc")
+name = ""
+level = 0
+capacity = 0
+cost = 0.0
+
+[sub_resource type="Resource" id="Resource_3xyuv"]
+script = ExtResource("4_87in5")
+name = ""
+description = ""
+cost = 0.0
+value = 0
+
+[sub_resource type="Resource" id="Resource_4f4lj"]
+script = ExtResource("5_f40ry")
+name = ""
+level = 0
+capacity = 0
+cost = 0.0
+
+[sub_resource type="Resource" id="Resource_l8c5f"]
+script = ExtResource("6_qmrx1")
+name = ""
+description = ""
+type = 0
+cost = 0.0
+level = 0
+maxLevel = 0
+
+[sub_resource type="Resource" id="Resource_ke5we"]
+script = ExtResource("7_un5f6")
+time = 60
+cost = 0.0
+count = 1
+
+[resource]
+script = ExtResource("1_5gnap")
+money = 0.0
+gems = 0
+JuiceHouse = Array[ExtResource("1_4rrbc")]([SubResource("Resource_ig7rs")])
+house0Id = 1
+house1Id = 0
+house2Id = 0
+house3Id = 0
+Fruits = Array[ExtResource("2_fxvng")]([SubResource("Resource_0sadf")])
+Transport = Array[ExtResource("5_f40ry")]([SubResource("Resource_4f4lj")])
+slots = 4
+transport0Id = 1
+transport1Id = 0
+transport2Id = 0
+transport3Id = 0
+transport4Id = 0
+transport5Id = 0
+transport6Id = 0
+transport7Id = 0
+transport8Id = 0
+transport9Id = 0
+transport10Id = 0
+transport11Id = 0
+transport12Id = 0
+transport13Id = 0
+transport14Id = 0
+WaterTank = SubResource("Resource_ke5we")
+JuiceLevel = Array[ExtResource("4_87in5")]([SubResource("Resource_3xyuv")])
+juiceLevel = 0
+Update = Array[ExtResource("6_qmrx1")]([SubResource("Resource_l8c5f")])
+updateCount = 0
+Farmer = Array[ExtResource("1_ygrdx")]([SubResource("Resource_re3a3")])
