@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dces421mjwxim"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 0.419608, 1)
+offset_left = 10.0
+offset_top = 83.0
+offset_right = 464.0
+offset_bottom = 577.0

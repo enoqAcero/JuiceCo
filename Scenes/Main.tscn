@@ -1,32 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=9 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
-[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="2_goenv"]
-[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="2_xa36h"]
+[ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
+[ext_resource type="PackedScene" uid="uid://c33e12csse0rd" path="res://Scenes/Upgrades.tscn" id="3_uhmey"]
+[ext_resource type="PackedScene" uid="uid://c07rm36i3qevf" path="res://Scenes/Boost.tscn" id="4_n2rnl"]
+[ext_resource type="PackedScene" uid="uid://dces421mjwxim" path="res://Scenes/Menu.tscn" id="5_muedq"]
+[ext_resource type="PackedScene" uid="uid://ckrss1aux8vav" path="res://Scenes/Shop.tscn" id="6_feofs"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="7_4o3gd"]
+[ext_resource type="PackedScene" uid="uid://pyylsjt5onnc" path="res://Scenes/JuiceHouse.tscn" id="8_kddff"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dpbrn")
+metadata/_edit_horizontal_guides_ = [668.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(240, 427)
-script = ExtResource("2_goenv")
+script = ExtResource("7_4o3gd")
 
-[node name="A" type="Sprite2D" parent="."]
-position = Vector2(223, 413)
-texture = ExtResource("2_xa36h")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="A2" type="Sprite2D" parent="."]
-position = Vector2(-547, -402)
-texture = ExtResource("2_xa36h")
+[node name="runButton" type="Button" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 725.0
+offset_right = 454.0
+offset_bottom = 814.0
+text = "RUN!"
 
-[node name="A3" type="Sprite2D" parent="."]
-position = Vector2(-649, 1142)
-texture = ExtResource("2_xa36h")
+[node name="fieldButton" type="Button" parent="CanvasLayer"]
+offset_left = 198.0
+offset_top = 668.0
+offset_right = 280.0
+offset_bottom = 719.0
+text = "Field"
 
-[node name="A4" type="Sprite2D" parent="."]
-position = Vector2(868, 1183)
-texture = ExtResource("2_xa36h")
+[node name="Field" parent="CanvasLayer" instance=ExtResource("2_cgc2k")]
+visible = false
 
-[node name="A5" type="Sprite2D" parent="."]
-position = Vector2(940, -421)
-texture = ExtResource("2_xa36h")
+[node name="upgradeButton" type="Button" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 668.0
+offset_right = 194.0
+offset_bottom = 719.0
+text = "Upgrades
+"
+
+[node name="Upgrades" parent="CanvasLayer" instance=ExtResource("3_uhmey")]
+visible = false
+
+[node name="boostButton" type="Button" parent="CanvasLayer"]
+offset_left = 283.0
+offset_top = 668.0
+offset_right = 365.0
+offset_bottom = 719.0
+text = "Boost"
+
+[node name="Boost" parent="CanvasLayer" instance=ExtResource("4_n2rnl")]
+visible = false
+
+[node name="menuButton" type="Button" parent="CanvasLayer"]
+offset_left = 368.0
+offset_top = 668.0
+offset_right = 450.0
+offset_bottom = 719.0
+text = "Menu"
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_muedq")]
+visible = false
+
+[node name="shopButton" type="Button" parent="CanvasLayer"]
+offset_left = 26.0
+offset_top = 668.0
+offset_right = 108.0
+offset_bottom = 719.0
+text = "Shop"
+
+[node name="Shop" parent="CanvasLayer" instance=ExtResource("6_feofs")]
+visible = false
+
+[node name="JuiceHouse" parent="CanvasLayer" instance=ExtResource("8_kddff")]
+visible = false
+z_index = 1
+position = Vector2(-1, 42)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 129.0
+offset_top = 99.0
+offset_right = 321.0
+offset_bottom = 213.0
+text = "JUICE HOUSE
+"
+
+[connection signal="pressed" from="CanvasLayer/fieldButton" to="." method="_on_field_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/upgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/boostButton" to="." method="_on_boost_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
