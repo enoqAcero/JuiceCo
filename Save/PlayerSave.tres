@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Player" load_steps=16 format=3 uid="uid://cci6niwebhk0p"]
+[gd_resource type="Resource" script_class="Player" load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4rrbc"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_5gnap"]

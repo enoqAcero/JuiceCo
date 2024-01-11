@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=4 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="2_goenv"]
+[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="2_xa36h"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dpbrn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(240, 427)
+script = ExtResource("2_goenv")
+
+[node name="A" type="Sprite2D" parent="."]
+position = Vector2(223, 413)
+texture = ExtResource("2_xa36h")
+
+[node name="A2" type="Sprite2D" parent="."]
+position = Vector2(-547, -402)
+texture = ExtResource("2_xa36h")
+
+[node name="A3" type="Sprite2D" parent="."]
+position = Vector2(-649, 1142)
+texture = ExtResource("2_xa36h")
+
+[node name="A4" type="Sprite2D" parent="."]
+position = Vector2(868, 1183)
+texture = ExtResource("2_xa36h")
+
+[node name="A5" type="Sprite2D" parent="."]
+position = Vector2(940, -421)
+texture = ExtResource("2_xa36h")
