@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c07rm36i3qevf"]
+
+[node name="Boost" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(1, 0.376471, 1, 1)
+offset_left = 19.0
+offset_top = 111.0
+offset_right = 441.0
+offset_bottom = 606.0

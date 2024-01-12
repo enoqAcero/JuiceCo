@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://pyylsjt5onnc"]
+
+[ext_resource type="Script" path="res://Scripts/JuiceHouse.gd" id="1_eijnn"]
+[ext_resource type="PackedScene" uid="uid://csa81m87x06kh" path="res://Scenes/JuiceHouseBox2.tscn" id="2_o7sdm"]
+[ext_resource type="PackedScene" uid="uid://cnjd2fjj2c4d8" path="res://Scenes/JuiceHouseBox1.tscn" id="3_pb1vb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r8hlm"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fqmnr"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ss8xi"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="JuiceHouse" type="Node2D"]
+script = ExtResource("1_eijnn")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 479.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 771.0
+theme_override_constants/separation = 0
+
+[node name="Color" type="ColorRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+color = Color(0.403922, 0.403922, 0.403922, 1)
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Color"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 479.0
+offset_bottom = 30.0
+text = "Juice House"
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="Panel/VBoxContainer/Color"]
+layout_mode = 2
+offset_left = 425.0
+offset_top = 6.0
+offset_right = 463.0
+offset_bottom = 28.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 57.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Max Capacity"
+label_settings = SubResource("LabelSettings_r8hlm")
+
+[node name="CapacityLabel" type="Label" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_fqmnr")
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Utilization
+"
+label_settings = SubResource("LabelSettings_ss8xi")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Panel/VBoxContainer/Panel"]
+layout_mode = 2
+offset_right = 479.0
+offset_bottom = 651.0
+size_flags_vertical = 3
+color = Color(0.619608, 0.619608, 0.619608, 1)
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 470.0
+offset_bottom = 643.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/Panel/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 463.0
+offset_bottom = 630.0
+
+[node name="Empty1" parent="." instance=ExtResource("2_o7sdm")]
+position = Vector2(35, 136)
+
+[node name="Empty2" parent="." instance=ExtResource("2_o7sdm")]
+position = Vector2(246, 136)
+
+[node name="Empty3" parent="." instance=ExtResource("2_o7sdm")]
+position = Vector2(34, 445)
+
+[node name="Empty4" parent="." instance=ExtResource("2_o7sdm")]
+position = Vector2(245, 446)
+
+[node name="House1" parent="." instance=ExtResource("3_pb1vb")]
+visible = false
+position = Vector2(35, 136)
+
+[node name="House2" parent="." instance=ExtResource("3_pb1vb")]
+visible = false
+position = Vector2(246, 135)
+
+[node name="House3" parent="." instance=ExtResource("3_pb1vb")]
+visible = false
+position = Vector2(34, 444)
+
+[node name="House4" parent="." instance=ExtResource("3_pb1vb")]
+visible = false
+position = Vector2(245, 446)
+
+[connection signal="pressed" from="Panel/VBoxContainer/Color/Close" to="." method="_on_close_pressed"]
