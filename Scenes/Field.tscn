@@ -1,9 +1,962 @@
-[gd_scene format=3 uid="uid://bc8vtgcgh7vxg"]
+[gd_scene load_steps=5 format=3 uid="uid://bc8vtgcgh7vxg"]
+
+[ext_resource type="Script" path="res://Scripts/Field.gd" id="1_dcyj0"]
+[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="2_pusqm"]
+
+[sub_resource type="Animation" id="Animation_0h4e5"]
+resource_name = "Panel0ProgressBar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScrollContainer/Control/VBoxContainer/Panel0/ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fuosa"]
+_data = {
+"Panel0ProgressBar": SubResource("Animation_0h4e5")
+}
 
 [node name="Field" type="Node2D"]
+script = ExtResource("1_dcyj0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 68.0
-offset_top = 171.0
-offset_right = 421.0
-offset_bottom = 677.0
+offset_left = -29.0
+offset_top = -29.0
+offset_right = 517.0
+offset_bottom = 904.0
+color = Color(0.309804, 0.0196078, 0.309804, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 343.0
+offset_top = 19.0
+offset_right = 456.0
+offset_bottom = 57.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_top = 75.0
+offset_right = 480.0
+offset_bottom = 728.0
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(0, 2500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_right = 486.0
+offset_bottom = 2306.0
+
+[node name="Panel0" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel0"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel0"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel0"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel0/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel0/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel0/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel0"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel1" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel1"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel1"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel1"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel1/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel1/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel1/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel1"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel2"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel2"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel2"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel2/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel2/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel2/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel2"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel3"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel3"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel3"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel3/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel3/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel3/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel3"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel4"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel4"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel4"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel4/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel4/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel4/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel4"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel5"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel5"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel5"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel5/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel5/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel5/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel5"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel6" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel6"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel6"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel6"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel6/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel6/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel6/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel6"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel7" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel7"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel7"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel7"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel7/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel7/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel7/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel7"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel8" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel8"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel8"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel8"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel8/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel8/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel8/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel8"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel9" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel9"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel9"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel9"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel9/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel9/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel9/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel9"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel10" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel10"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel10"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel10"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel10/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel10/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel10/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel10"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel11" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel11"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel11"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel11"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel11/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel11/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel11/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel11"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel12" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel12"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel12"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel12"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel12/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel12/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel12/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel12"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel13" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel13"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel13"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel13"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel13/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel13/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel13/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel13"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel14" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/Control/VBoxContainer/Panel14"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 468.0
+offset_bottom = 82.0
+
+[node name="A" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel14"]
+position = Vector2(65.7188, 46.8437)
+scale = Vector2(0.339461, 0.321994)
+texture = ExtResource("2_pusqm")
+
+[node name="Button" type="Button" parent="ScrollContainer/Control/VBoxContainer/Panel14"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 87.0
+offset_right = 468.0
+offset_bottom = 139.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel14/Button"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 51.0
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostNumber" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel14/Button"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 328.0
+offset_bottom = 26.0
+text = "CostNumber"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostAbb" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel14/Button"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 22.0
+offset_right = 327.0
+offset_bottom = 48.0
+text = "abb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel14"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 97.0
+offset_right = 98.0
+offset_bottom = 128.0
+text = "00/00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fuosa")
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

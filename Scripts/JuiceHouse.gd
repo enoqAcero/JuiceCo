@@ -58,7 +58,6 @@ func _ready():
 	house3ProgressBar = $House4.get_node(houseProgressBarPath)
 	house3Sprite = $House4.get_node(houseSpritePath)
 	
-	GlobalVariables.loadData()
 	loadHouses()
 
 #Carga y actualiza la casa correspondiente actual
@@ -131,7 +130,4 @@ func _on_close_pressed():
 	
 func save():
 	ResourceSaver.save(GlobalVariables.player, "res://Save/PlayerSave.tres")
-
-
-		
 
