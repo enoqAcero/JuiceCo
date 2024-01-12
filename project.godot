@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="JuiceCo"
+config/name="JuiceCoBueno"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
+
+[autoload]
+
+GlobalVariables="*res://Scripts/GlobalVariables.gd"
 
 [display]
 

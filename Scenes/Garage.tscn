@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://b3gg2wrxhabaq"]
+[gd_scene load_steps=3 format=3 uid="uid://b3gg2wrxhabaq"]
+
+[ext_resource type="Script" path="res://Scripts/Garage.gd" id="1_bjwhx"]
+[ext_resource type="Script" path="res://Scripts/vehicles.gd" id="1_urs3p"]
 
 [node name="Garage" type="Node2D"]
+script = ExtResource("1_bjwhx")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 479.0
+offset_bottom = 780.0
+script = ExtResource("1_urs3p")
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+offset_left = 348.0
+offset_top = 19.0
+offset_right = 460.0
+offset_bottom = 63.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

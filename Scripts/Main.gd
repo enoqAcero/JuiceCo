@@ -72,9 +72,9 @@ func _on_shop_button_pressed():
 	controlEscenasShop = showScene($CanvasLayer/Shop, controlEscenasShop)
 
 
-
-
-
-
 func _on_button_pressed():
 	$CanvasLayer/JuiceHouse.show()
+
+
+func _on_button_2_pressed():
+	$CanvasLayer/Garage.show()

@@ -1,6 +1,5 @@
 extends Node2D
 
-var player
 
 var EmptyHouseButtonNodePath = "Panel/VBoxContainer/BuildHouse"
 var UpgradeHouseButtonNodePath = "Panel/Upgrade"
@@ -31,6 +30,8 @@ var house3ProgressBar
 var house3Sprite
 
 func _ready():
+	
+	
 	$Empty1.get_node(EmptyHouseButtonNodePath).pressed.connect(Callable(buyHouse).bind(0))
 	$Empty2.get_node(EmptyHouseButtonNodePath).pressed.connect(Callable(buyHouse).bind(1))
 	$Empty3.get_node(EmptyHouseButtonNodePath).pressed.connect(Callable(buyHouse).bind(2))
@@ -57,15 +58,16 @@ func _ready():
 	house3ProgressBar = $House4.get_node(houseProgressBarPath)
 	house3Sprite = $House4.get_node(houseSpritePath)
 	
-	loadData()
+	GlobalVariables.loadData()
+	loadHouses()
 
 #Carga y actualiza la casa correspondiente actual
 func loadHouses():
 	print("LOad HOuse")
-	houseID0 = player.house0Id - 1
-	houseID1 = player.house1Id - 1
-	houseID2 = player.house2Id - 1
-	houseID3 = player.house3Id - 1
+	houseID0 = GlobalVariables.player.house0Id - 1
+	houseID1 = GlobalVariables.player.house1Id - 1
+	houseID2 = GlobalVariables.player.house2Id - 1
+	houseID3 = GlobalVariables.player.house3Id - 1
 	
 	if houseID0 < 0:
 		$Empty1.show()
@@ -73,7 +75,7 @@ func loadHouses():
 	else:
 		$Empty1.hide()
 		$House1.show()
-		house0Name.text =  player.JuiceHouse[houseID0].name
+		house0Name.text = GlobalVariables.player.JuiceHouse[houseID0].name
 		
 	if houseID1 < 0:
 		$Empty2.show()
@@ -81,7 +83,7 @@ func loadHouses():
 	else:
 		$Empty2.hide()
 		$House2.show()
-		house1Name.text =  player.JuiceHouse[houseID1].name
+		house1Name.text =  GlobalVariables.player.JuiceHouse[houseID1].name
 		
 	if houseID2 < 0:
 		$Empty3.show()
@@ -89,7 +91,7 @@ func loadHouses():
 	else:
 		$Empty3.hide()
 		$House3.show()
-		house2Name.text =  player.JuiceHouse[houseID2].name
+		house2Name.text =  GlobalVariables.player.JuiceHouse[houseID2].name
 		
 	if houseID3 < 0:
 		$Empty4.show()
@@ -97,7 +99,7 @@ func loadHouses():
 	else:
 		$Empty4.hide()
 		$House4.show()
-		house3Name.text =  player.JuiceHouse[houseID3].name
+		house3Name.text =  GlobalVariables.player.JuiceHouse[houseID3].name
 	save()
 	
 #funcion cuando se compra una casa cuando antes no se tenia nada
@@ -105,19 +107,19 @@ func buyHouse(index : int):
 	print("BUYHOUSE",index)
 
 	if index == 0:
-		player.house0Id += 1
+		GlobalVariables.player.house0Id += 1
 	elif index == 1:
-		player.house1Id += 1
+		GlobalVariables.player.house1Id += 1
 	elif index == 2:
-		player.house2Id += 1
+		GlobalVariables.player.house2Id += 1
 	elif index == 3:
-		player.house3Id += 1
+		GlobalVariables.player.house3Id += 1
 	loadHouses()
 		
 	
 #funcion cuando se quiere mejorar una casa que ya existe
 func upgradeHouse(index : int):
-	player.house0Id += 1
+	GlobalVariables.player.house0Id += 1
 	loadHouses()
 	
 	
@@ -128,14 +130,8 @@ func _on_close_pressed():
 	hide()
 	
 func save():
-	ResourceSaver.save(player, "res://Save/PlayerSave.tres")
+	ResourceSaver.save(GlobalVariables.player, "res://Save/PlayerSave.tres")
 
-func loadData():
-	if ResourceLoader.exists("res://Save/PlayerSave.tres"):
-		player = ResourceLoader.load("res://Save/PlayerSave.tres")
-	else:
-		var newPlayerData = Player.new()
-		ResourceSaver.save(newPlayerData, ("res://Save/PlayerSave.tres"))
-		player = ResourceLoader.load("res://Save/PlayerSave.tres")
+
 		
-	loadHouses()
+
