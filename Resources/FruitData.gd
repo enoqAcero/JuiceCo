@@ -9,5 +9,5 @@ class_name FruitData
 @export var liters : float
 @export var multiplier : float
 @export var speed : float
-@export var currentValue : float
+@export var currentProgress : float
 @export var skin : Texture2D

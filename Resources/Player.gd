@@ -2,6 +2,7 @@ extends Resource
 
 class_name Player
 
+@export var liters : float
 @export var money : float
 @export var gems : int
 

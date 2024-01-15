@@ -1,22 +1,33 @@
-[gd_resource type="Resource" script_class="Player" load_steps=9 format=3 uid="uid://c8ewpqhyb0j3k"]
+[gd_resource type="Resource" script_class="Player" load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
 [ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_fk37v"]
 [ext_resource type="Script" path="res://Resources/TransportData.gd" id="2_webxm"]
-[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="3_ybvww"]
+[ext_resource type="Texture2D" path="res://a.png" id="3_ybvww"]
 
 [sub_resource type="Resource" id="Resource_hs0wn"]
 script = ExtResource("1_fk37v")
 name = "Blueberry"
-level = 40
-tier = 3
-cost = 1745.67
+level = 60
+tier = 4
+cost = 4198.49
 liters = 1.0
 multiplier = 1.05
-speed = 5.0
-currentValue = 95.95
+speed = 0.625
+currentProgress = 74.0
 skin = ExtResource("3_ybvww")
+
+[sub_resource type="Resource" id="Resource_v863b"]
+script = ExtResource("1_fk37v")
+name = "asaa"
+level = 81
+tier = 5
+cost = 1.21739e+06
+liters = 2.0
+multiplier = 1.06
+speed = 3.75
+currentProgress = 10.0
 
 [sub_resource type="Resource" id="Resource_yabiq"]
 script = ExtResource("1_4wlhr")
@@ -35,6 +46,7 @@ skin = ExtResource("3_ybvww")
 
 [resource]
 script = ExtResource("1_fhr83")
+liters = 0.0
 money = 0.0
 gems = 0
 JuiceHouse = Array[ExtResource("1_4wlhr")]([SubResource("Resource_yabiq")])
@@ -42,7 +54,7 @@ house0Id = 1
 house1Id = 1
 house2Id = 1
 house3Id = 1
-Fruits = Array[ExtResource("1_fk37v")]([SubResource("Resource_hs0wn")])
+Fruits = Array[ExtResource("1_fk37v")]([SubResource("Resource_hs0wn"), SubResource("Resource_v863b")])
 Transport = Array[ExtResource("2_webxm")]([SubResource("Resource_61nqt")])
 slots = 4
 transport0Id = 1
