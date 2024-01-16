@@ -230,8 +230,7 @@ func saveCurrentProgress(index : int):
 	currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
 
 func cashOut(index : int):
-	#GlobalVariables.player.liters += GlobalVariables.player.Fruits[index].liters * GlobalVariables.player.Fruits[index].level
-	var n : float = 1000000000000000.0
-	print("litros: ",n)
+	pass
+	GlobalVariables.player.liters += GlobalVariables.player.Fruits[index].liters * GlobalVariables.player.Fruits[index].level
 func _on_button_pressed():
 	hide()

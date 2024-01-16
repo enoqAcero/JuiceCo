@@ -1,10 +1,146 @@
-[gd_scene format=3 uid="uid://dces421mjwxim"]
+[gd_scene load_steps=4 format=3 uid="uid://dces421mjwxim"]
+
+[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="1_6svht"]
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ymngt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8c4h0"]
+font_size = 26
+font_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Node2D"]
+script = ExtResource("1_ymngt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-self_modulate = Color(1, 1, 0.419608, 1)
-offset_left = 10.0
-offset_top = 83.0
-offset_right = 464.0
-offset_bottom = 577.0
+offset_left = 31.0
+offset_top = 102.0
+offset_right = 458.0
+offset_bottom = 510.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 21.0
+offset_top = 109.0
+offset_right = 462.0
+offset_bottom = 611.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Help"
+label_settings = SubResource("LabelSettings_8c4h0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Label"]
+position = Vector2(74, -54)
+scale = Vector2(0.335294, 0.314346)
+texture = ExtResource("1_6svht")
+
+[node name="Button" type="Button" parent="GridContainer/Label/Sprite2D"]
+offset_left = -104.0
+offset_top = -102.0
+offset_right = 98.0
+offset_bottom = 102.0
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Reset"
+label_settings = SubResource("LabelSettings_8c4h0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Label2"]
+position = Vector2(74, -54)
+scale = Vector2(0.335294, 0.314346)
+texture = ExtResource("1_6svht")
+
+[node name="Button" type="Button" parent="GridContainer/Label2/Sprite2D"]
+offset_left = -104.0
+offset_top = -102.0
+offset_right = 98.0
+offset_bottom = 102.0
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Settings"
+label_settings = SubResource("LabelSettings_8c4h0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Label3"]
+position = Vector2(74, -54)
+scale = Vector2(0.335294, 0.314346)
+texture = ExtResource("1_6svht")
+
+[node name="Button" type="Button" parent="GridContainer/Label3/Sprite2D"]
+offset_left = -104.0
+offset_top = -102.0
+offset_right = 98.0
+offset_bottom = 102.0
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "About"
+label_settings = SubResource("LabelSettings_8c4h0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Label4"]
+position = Vector2(74, -54)
+scale = Vector2(0.335294, 0.314346)
+texture = ExtResource("1_6svht")
+
+[node name="Button" type="Button" parent="GridContainer/Label4/Sprite2D"]
+offset_left = -104.0
+offset_top = -102.0
+offset_right = 98.0
+offset_bottom = 102.0
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Stats"
+label_settings = SubResource("LabelSettings_8c4h0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Label5"]
+position = Vector2(74, -54)
+scale = Vector2(0.335294, 0.314346)
+texture = ExtResource("1_6svht")
+
+[node name="Button" type="Button" parent="GridContainer/Label5/Sprite2D"]
+offset_left = -104.0
+offset_top = -102.0
+offset_right = 98.0
+offset_bottom = 102.0
+
+[node name="Label6" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "aaaaaa"
+label_settings = SubResource("LabelSettings_8c4h0")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Label6"]
+position = Vector2(74, -54)
+scale = Vector2(0.335294, 0.314346)
+texture = ExtResource("1_6svht")
+
+[node name="Button" type="Button" parent="GridContainer/Label6/Sprite2D"]
+offset_left = -104.0
+offset_top = -102.0
+offset_right = 98.0
+offset_bottom = 102.0

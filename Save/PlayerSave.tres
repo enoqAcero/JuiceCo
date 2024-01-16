@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Player" load_steps=10 format=3]
+[gd_resource type="Resource" script_class="Player" load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
@@ -9,25 +9,25 @@
 [sub_resource type="Resource" id="Resource_hs0wn"]
 script = ExtResource("1_fk37v")
 name = "Blueberry"
-level = 60
-tier = 4
-cost = 4198.49
+level = 107
+tier = 6
+cost = 41590.1
 liters = 1.0
 multiplier = 1.05
-speed = 0.625
-currentProgress = 74.0
+speed = 0.15625
+currentProgress = 79.0
 skin = ExtResource("3_ybvww")
 
 [sub_resource type="Resource" id="Resource_v863b"]
 script = ExtResource("1_fk37v")
 name = "asaa"
-level = 81
-tier = 5
-cost = 1.21739e+06
-liters = 2.0
+level = 300
+tier = 8
+cost = 4.24046e+11
+liters = 5.0
 multiplier = 1.06
-speed = 3.75
-currentProgress = 10.0
+speed = 0.46875
+currentProgress = 50.0
 
 [sub_resource type="Resource" id="Resource_yabiq"]
 script = ExtResource("1_4wlhr")
@@ -40,25 +40,36 @@ cost = 0.0
 script = ExtResource("2_webxm")
 name = "bike"
 level = 0
-capacity = 0
+capacity = 50
 cost = 0.0
 skin = ExtResource("3_ybvww")
 
+[sub_resource type="Resource" id="Resource_wjh8m"]
+script = ExtResource("2_webxm")
+name = ""
+level = 0
+capacity = 200
+cost = 0.0
+
 [resource]
 script = ExtResource("1_fhr83")
-liters = 0.0
+liters = 840461.0
 money = 0.0
 gems = 0
+seeds = 0
+resets = 0
+sesionEarnings = 0.0
+lifetimeEarnings = 0.0
 JuiceHouse = Array[ExtResource("1_4wlhr")]([SubResource("Resource_yabiq")])
 house0Id = 1
 house1Id = 1
 house2Id = 1
 house3Id = 1
 Fruits = Array[ExtResource("1_fk37v")]([SubResource("Resource_hs0wn"), SubResource("Resource_v863b")])
-Transport = Array[ExtResource("2_webxm")]([SubResource("Resource_61nqt")])
+Transport = Array[ExtResource("2_webxm")]([SubResource("Resource_61nqt"), SubResource("Resource_wjh8m")])
 slots = 4
 transport0Id = 1
-transport1Id = 0
+transport1Id = 2
 transport2Id = 0
 transport3Id = 0
 transport4Id = 0

@@ -6,6 +6,12 @@ class_name Player
 @export var money : float
 @export var gems : int
 
+#stats variables
+@export var seeds : int
+@export var resets : int
+@export var sesionEarnings : float
+@export var lifetimeEarnings : float
+
 #JuiceHouse Variables
 @export var JuiceHouse : Array[JuiceHouseData]
 @export var house0Id = 1
