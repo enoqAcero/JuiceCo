@@ -18,6 +18,8 @@ class_name Player
 @export var house1Id : int
 @export var house2Id : int
 @export var house3Id : int
+#Current JuiceHouse Data
+@export var CurrentJuiceHouse : Array[CurrentHouseData]
 
 #FruitsVariables
 @export var Fruits : Array[FruitData]

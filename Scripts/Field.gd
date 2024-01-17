@@ -1,5 +1,7 @@
 extends Node2D
 
+var rng = RandomNumberGenerator.new()
+
 var panelNode0Button
 var panelNode1Button
 var panelNode2Button
@@ -158,6 +160,8 @@ func loadPanelData(index : int):
 	currentPanelButtonCost.text = str(GlobalVariables.player.Fruits[index].cost)
 	currentPanelButtonAbb.text = "NoAbb"
 	currentPanelProgressBar = GlobalVariables.player.Fruits[index].currentProgress
+	if GlobalVariables.player.Fruits[index].speed == 0:
+		GlobalVariables.player.Fruits[index].speed = 10000
 	currentPanelTimer.wait_time = (GlobalVariables.player.Fruits[index].speed)/100
 	currentPanelTimer.start()
 	
@@ -230,7 +234,68 @@ func saveCurrentProgress(index : int):
 	currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
 
 func cashOut(index : int):
-	pass
-	GlobalVariables.player.liters += GlobalVariables.player.Fruits[index].liters * GlobalVariables.player.Fruits[index].level
+	var houseId = rng.randi_range(0,3)
+	var houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
+	var frutasObtenidas = GlobalVariables.player.Fruits[index].level
+	
+	if GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+		for i in range(0,3):
+			houseLvl = GlobalVariables.player.CurrentJuiceHouse[i].houseLvl
+			if GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+				if i == 3:
+					GlobalVariables.maxHouseCapacity = true
+			else:
+				houseId = i
+					
+	if GlobalVariables.maxHouseCapacity == false:			
+		if index == 0:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount += frutasObtenidas
+			GlobalVariables.totalBlueberryCount += frutasObtenidas
+		elif index == 1:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].cerezaCount += frutasObtenidas
+			GlobalVariables.totalCerezaCount += frutasObtenidas
+		elif index == 2:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].fresaCount += frutasObtenidas
+			GlobalVariables.totalFresaCount += frutasObtenidas
+		elif index == 3:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].limonCount += frutasObtenidas
+			GlobalVariables.totalLimonCount += frutasObtenidas
+		elif index == 4:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].duraznoCount += frutasObtenidas
+			GlobalVariables.totalDuraznoCount += frutasObtenidas
+		elif index == 5:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].manzanaCount += frutasObtenidas
+			GlobalVariables.totalManzanaCount += frutasObtenidas
+		elif index == 6:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].naranjaCount += frutasObtenidas
+			GlobalVariables.totalNaranjaCount += frutasObtenidas
+		elif index == 7:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].aguacateCount += frutasObtenidas
+			GlobalVariables.totalAguacateCount += frutasObtenidas
+		elif index == 8:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].mangoCount += frutasObtenidas
+			GlobalVariables.totalMangoCount += frutasObtenidas
+		elif index == 9:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].dragonfruitCount += frutasObtenidas
+			GlobalVariables.totalDragonfruitCount += frutasObtenidas
+		elif index == 10:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].cocoCount += frutasObtenidas
+			GlobalVariables.totalCocoCount += frutasObtenidas
+		elif index == 11:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].ananaCount += frutasObtenidas
+			GlobalVariables.totalAnanaCount += frutasObtenidas
+		elif index == 12:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].papayaCount += frutasObtenidas
+			GlobalVariables.totalPapayaCount += frutasObtenidas
+		elif index == 13:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].melonCount += frutasObtenidas
+			GlobalVariables.totalMelonCount += frutasObtenidas
+		elif index == 14:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount += frutasObtenidas
+			GlobalVariables.totalSandiaCount += frutasObtenidas
+			
+		GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity += frutasObtenidas
+
+	
 func _on_button_pressed():
 	hide()

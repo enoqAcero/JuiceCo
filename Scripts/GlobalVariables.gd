@@ -3,14 +3,28 @@ extends Node
 
 var player 
 
-
-
-
-
+var maxHouseCapacity = false
+var maxTransportCapacity = false
 
 var litersAbbreviation
 var moneyAbbreviation
 var abbFactor
+
+var totalBlueberryCount = 0
+var totalCerezaCount = 0
+var totalFresaCount = 0
+var totalLimonCount = 0
+var totalDuraznoCount = 0
+var totalManzanaCount = 0
+var totalNaranjaCount = 0
+var totalAguacateCount = 0
+var totalMangoCount = 0
+var totalDragonfruitCount = 0
+var totalCocoCount = 0
+var totalAnanaCount = 0
+var totalPapayaCount = 0
+var totalMelonCount = 0
+var totalSandiaCount = 0
 
 func _ready():
 	loadResource()
@@ -26,6 +40,7 @@ func loadResource():
 		
 	SignalManager.loadData.emit()
 	SignalManager.loadHouses.emit()
+	getHouseLvl()
 		
 #gets the abbreviation needed for the amount of money sent to the function
 #and gets the abbFactor to
@@ -156,3 +171,14 @@ func getMoneyString(money : float):
 	
 	return result
 	
+	
+func getHouseLvl():
+	for i in range (0, 3):
+		if i == 0:
+			player.CurrentJuiceHouse[i].houseLvl = player.house0Id - 1
+		elif i == 1:
+			player.CurrentJuiceHouse[i].houseLvl = player.house1Id - 1
+		elif i == 2:
+			player.CurrentJuiceHouse[i].houseLvl = player.house2Id - 1
+		elif i == 3:
+			player.CurrentJuiceHouse[i].houseLvl = player.house3Id - 1

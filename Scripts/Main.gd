@@ -7,10 +7,9 @@ var controlEscenasBoost = false
 var controlEscenasMenu = false
 var controlEscenasShop = false
 
-var litersString : String
-
 var totalTransportCapacity = 0
 var totalJuiceHouseCapacity = 0
+
 
 
 var fruitScriptPath = preload("res://Scripts/PathFollow.gd")
@@ -31,8 +30,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	litersString =  GlobalVariables.getMoneyString(GlobalVariables.player.liters)
-	$CanvasLayer/Money.text ="Liters: " + litersString
+	pass
 
 
 #obtener la capacidad total de los transportes
@@ -47,17 +45,48 @@ func getTotalTransportCapacity():
 #obtener la capacidad total de las casas de jugo
 func getJuiceHouseCapacity():
 	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
-	
 	for i in range (0, houseIdArray.size()):
 		if houseIdArray[i] >= 1:
 			var id = houseIdArray[i]
 			totalJuiceHouseCapacity += GlobalVariables.player.JuiceHouse[id - 1].capacity
+			
+func countFruits():
+	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
+	for i in range (0, houseIdArray.size()):
+		if houseIdArray[i] >= 1:
+			GlobalVariables.totalBlueberryCount += GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount
+			GlobalVariables.totalCerezaCount += GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount
+			GlobalVariables.totalFresaCount += GlobalVariables.player.CurrentJuiceHouse[i].fresaCount
+			GlobalVariables.totalLimonCount += GlobalVariables.player.CurrentJuiceHouse[i].limonCount
+			GlobalVariables.totalDuraznoCount += GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount
+			GlobalVariables.totalManzanaCount += GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount
+			GlobalVariables.totalNaranjaCount += GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount
+			GlobalVariables.totalAguacateCount += GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount
+			GlobalVariables.totalMangoCount += GlobalVariables.player.CurrentJuiceHouse[i].mangoCount
+			GlobalVariables.totalDragonfruitCount += GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount
+			GlobalVariables.totalCocoCount += GlobalVariables.player.CurrentJuiceHouse[i].cocoCount
+			GlobalVariables.totalAnanaCount += GlobalVariables.player.CurrentJuiceHouse[i].ananaCount
+			GlobalVariables.totalPapayaCount += GlobalVariables.player.CurrentJuiceHouse[i].papayaCount
+			GlobalVariables.totalMelonCount += GlobalVariables.player.CurrentJuiceHouse[i].melonCount
+			GlobalVariables.totalSandiaCount += GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount
+			
+func calculateMoneyFromLiters(litrosPorSegundo : float):
+	var currentJuiceLevel = GlobalVariables.player.juiceLevel
+	var moneyString : String
+	if litrosPorSegundo >= totalTransportCapacity:
+		GlobalVariables.maxTransportCapacity = true
+		
+	GlobalVariables.player.money += litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value
+	moneyString = GlobalVariables.getMoneyString(GlobalVariables.player.money)
+	$CanvasLayer/Money.text ="Money: " + moneyString
+	
 	
 #esta  funcion se manda a ejecturar despues de cargar el recurso en la variabale player
 #se usa para evitar utilizar una variable antes de cargar los datos de player
 func loadData():
 	getTotalTransportCapacity()
 	getJuiceHouseCapacity()
+	countFruits()
 	
 func save():
 	ResourceSaver.save(GlobalVariables.player, savePath)
@@ -129,3 +158,31 @@ func instanceFruit():
 
 func _on_run_timer_timeout():
 	runButtonControl = false
+
+
+func _on_produce_juice_timer_timeout():
+	var litros = 0
+	var litrosPorSegundo : float
+	litros += GlobalVariables.totalBlueberryCount * GlobalVariables.player.Fruits[0].liters
+	litros += GlobalVariables.totalCerezaCount * GlobalVariables.player.Fruits[1].liters
+	litros += GlobalVariables.totalFresaCount * GlobalVariables.player.Fruits[2].liters
+	litros += GlobalVariables.totalLimonCount * GlobalVariables.player.Fruits[3].liters
+	litros += GlobalVariables.totalDuraznoCount * GlobalVariables.player.Fruits[4].liters
+	litros += GlobalVariables.totalManzanaCount * GlobalVariables.player.Fruits[5].liters
+	litros += GlobalVariables.totalNaranjaCount * GlobalVariables.player.Fruits[6].liters
+	litros += GlobalVariables.totalAguacateCount * GlobalVariables.player.Fruits[7].liters
+	litros += GlobalVariables.totalMangoCount * GlobalVariables.player.Fruits[8].liters
+	litros += GlobalVariables.totalDragonfruitCount * GlobalVariables.player.Fruits[9].liters
+	litros += GlobalVariables.totalCocoCount * GlobalVariables.player.Fruits[10].liters
+	litros += GlobalVariables.totalAnanaCount * GlobalVariables.player.Fruits[11].liters
+	litros += GlobalVariables.totalPapayaCount * GlobalVariables.player.Fruits[12].liters
+	litros += GlobalVariables.totalMelonCount * GlobalVariables.player.Fruits[13].liters
+	litros += GlobalVariables.totalSandiaCount * GlobalVariables.player.Fruits[14].liters
+	
+	litrosPorSegundo = litros * 0.1
+	calculateMoneyFromLiters(litrosPorSegundo)
+
+
+
+
+

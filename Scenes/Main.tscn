@@ -112,6 +112,10 @@ offset_right = 152.0
 offset_bottom = 172.0
 text = "Garage"
 
+[node name="ProduceJuiceTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/fieldButton" to="." method="_on_field_button_pressed"]
@@ -121,3 +125,4 @@ text = "Garage"
 [connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]
