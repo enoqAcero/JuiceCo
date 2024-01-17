@@ -25,6 +25,7 @@ func loadResource():
 		player = ResourceLoader.load("res://Save/PlayerSave.tres")
 		
 	SignalManager.loadData.emit()
+	SignalManager.loadHouses.emit()
 		
 #gets the abbreviation needed for the amount of money sent to the function
 #and gets the abbFactor to

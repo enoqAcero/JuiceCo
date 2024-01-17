@@ -33,4 +33,4 @@ func _ready():
 		var button = Button.new()
 		button.text = "Buy"
 		vehicle_container.add_child(button)
-
+		

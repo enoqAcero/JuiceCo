@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt3llv2q4w0ja"]
+
+[ext_resource type="Script" path="res://Scripts/HouseShop.gd" id="1_bhqaw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 3.0
+offset_top = 80.0
+offset_right = 479.0
+offset_bottom = 609.0
+script = ExtResource("1_bhqaw")
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(475, 6000)
+layout_mode = 2
+
+[node name="VboxPrincipalVShop" type="VBoxContainer" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 50

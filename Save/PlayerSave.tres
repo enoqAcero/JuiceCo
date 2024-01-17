@@ -1,75 +1,302 @@
-[gd_resource type="Resource" script_class="Player" load_steps=11 format=3]
+[gd_resource type="Resource" script_class="Player" load_steps=42 format=3]
 
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
-[ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_fk37v"]
+[ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_hnv06"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
+[ext_resource type="Texture2D" path="res://a.png" id="2_vc0li"]
 [ext_resource type="Script" path="res://Resources/TransportData.gd" id="2_webxm"]
-[ext_resource type="Texture2D" path="res://a.png" id="3_ybvww"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/Proyecto nuevo (5).png" id="3_edhc7"]
+[ext_resource type="Script" path="res://Resources/UpdateData.gd" id="5_4cb2e"]
 
-[sub_resource type="Resource" id="Resource_hs0wn"]
-script = ExtResource("1_fk37v")
-name = "Blueberry"
-level = 107
-tier = 6
-cost = 41590.1
+[sub_resource type="Resource" id="Resource_tjrh3"]
+script = ExtResource("1_hnv06")
+name = "Mango"
+level = 20
+tier = 2
+cost = 2.6533
 liters = 1.0
 multiplier = 1.05
-speed = 0.15625
-currentProgress = 79.0
-skin = ExtResource("3_ybvww")
-
-[sub_resource type="Resource" id="Resource_v863b"]
-script = ExtResource("1_fk37v")
-name = "asaa"
-level = 300
-tier = 8
-cost = 4.24046e+11
-liters = 5.0
-multiplier = 1.06
-speed = 0.46875
-currentProgress = 50.0
+speed = 2.5
+currentProgress = 42.0
+skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_yabiq"]
 script = ExtResource("1_4wlhr")
-name = "aaaa"
+name = "Juice Stand"
 level = 0
 capacity = 0
 cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_llnyg"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_7u4r8"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_v47h1"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_6m8d8"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_jhoeh"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_d04iu"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_os6yq"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_2wn1h"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_mnib8"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_iwnm5"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_qqbbh"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_avsdw"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_7owmo"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_abavy"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_fgd5y"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_q31mc"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_d0kc2"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_57b6y"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
+
+[sub_resource type="Resource" id="Resource_n4djl"]
+script = ExtResource("1_4wlhr")
+name = "Juice Stand"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("2_qt1ax")
 
 [sub_resource type="Resource" id="Resource_61nqt"]
 script = ExtResource("2_webxm")
 name = "bike"
 level = 0
-capacity = 50
+capacity = 0
 cost = 0.0
-skin = ExtResource("3_ybvww")
+skin = ExtResource("3_edhc7")
 
-[sub_resource type="Resource" id="Resource_wjh8m"]
+[sub_resource type="Resource" id="Resource_gv7iv"]
 script = ExtResource("2_webxm")
-name = ""
+name = "Motorcycle"
 level = 0
-capacity = 200
+capacity = 0
 cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_iblnd"]
+script = ExtResource("2_webxm")
+name = "Minivan"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_2163h"]
+script = ExtResource("2_webxm")
+name = "Pickup Truck"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_tgqbg"]
+script = ExtResource("2_webxm")
+name = "Box Truck"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_8437x"]
+script = ExtResource("2_webxm")
+name = "Trailer"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_8k85f"]
+script = ExtResource("2_webxm")
+name = "Double Trailer"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_pwg3q"]
+script = ExtResource("2_webxm")
+name = "Train"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_qgl27"]
+script = ExtResource("2_webxm")
+name = "Bullet Train"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_btecv"]
+script = ExtResource("2_webxm")
+name = "Lightspeed Train"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_rkygy"]
+script = ExtResource("2_webxm")
+name = "Teleportation Center"
+level = 0
+capacity = 0
+cost = 0.0
+skin = ExtResource("3_edhc7")
+
+[sub_resource type="Resource" id="Resource_02beu"]
+script = ExtResource("5_4cb2e")
+name = ""
+description = ""
+type = 0
+cost = 0.0
+level = 0
+maxLevel = 0
 
 [resource]
 script = ExtResource("1_fhr83")
-liters = 840461.0
+liters = 887.0
 money = 0.0
 gems = 0
 seeds = 0
 resets = 0
 sesionEarnings = 0.0
 lifetimeEarnings = 0.0
-JuiceHouse = Array[ExtResource("1_4wlhr")]([SubResource("Resource_yabiq")])
-house0Id = 1
+JuiceHouse = Array[ExtResource("1_4wlhr")]([SubResource("Resource_yabiq"), SubResource("Resource_llnyg"), SubResource("Resource_7u4r8"), SubResource("Resource_v47h1"), SubResource("Resource_6m8d8"), SubResource("Resource_jhoeh"), SubResource("Resource_d04iu"), SubResource("Resource_os6yq"), SubResource("Resource_2wn1h"), SubResource("Resource_mnib8"), SubResource("Resource_iwnm5"), SubResource("Resource_qqbbh"), SubResource("Resource_avsdw"), SubResource("Resource_7owmo"), SubResource("Resource_abavy"), SubResource("Resource_fgd5y"), SubResource("Resource_q31mc"), SubResource("Resource_d0kc2"), SubResource("Resource_57b6y"), SubResource("Resource_n4djl")])
+house0Id = 17
 house1Id = 1
 house2Id = 1
 house3Id = 1
-Fruits = Array[ExtResource("1_fk37v")]([SubResource("Resource_hs0wn"), SubResource("Resource_v863b")])
-Transport = Array[ExtResource("2_webxm")]([SubResource("Resource_61nqt"), SubResource("Resource_wjh8m")])
+Fruits = Array[ExtResource("1_hnv06")]([SubResource("Resource_tjrh3")])
+Transport = Array[ExtResource("2_webxm")]([SubResource("Resource_61nqt"), SubResource("Resource_gv7iv"), SubResource("Resource_iblnd"), SubResource("Resource_2163h"), SubResource("Resource_tgqbg"), SubResource("Resource_8437x"), SubResource("Resource_8k85f"), SubResource("Resource_pwg3q"), SubResource("Resource_qgl27"), SubResource("Resource_btecv"), SubResource("Resource_rkygy")])
 slots = 4
 transport0Id = 1
-transport1Id = 2
+transport1Id = 0
 transport2Id = 0
 transport3Id = 0
 transport4Id = 0
@@ -85,6 +312,6 @@ transport13Id = 0
 transport14Id = 0
 JuiceLevel = Array[Resource("res://Resources/JuiceLevelData.gd")]([])
 juiceLevel = 0
-Update = Array[Resource("res://Resources/UpdateData.gd")]([])
+Update = Array[ExtResource("5_4cb2e")]([SubResource("Resource_02beu")])
 updateCount = 0
 Farmer = Array[Resource("res://Resources/FarmerData.gd")]([])

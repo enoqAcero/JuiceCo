@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnjd2fjj2c4d8"]
+[gd_scene load_steps=4 format=3 uid="uid://cnjd2fjj2c4d8"]
 
+[ext_resource type="Script" path="res://Scripts/JuiceHouseBox1.gd" id="1_m08i5"]
 [ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="1_u01th"]
+[ext_resource type="PackedScene" uid="uid://bt3llv2q4w0ja" path="res://Scenes/HouseJuiceShop.tscn" id="3_vey2b"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_m08i5")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(200, 300)
@@ -41,8 +44,15 @@ scale = Vector2(0.173529, 0.17616)
 texture = ExtResource("1_u01th")
 
 [node name="Upgrade" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 106.0
 offset_top = 221.0
 offset_right = 181.0
 offset_bottom = 252.0
 text = "Upgrade"
+
+[node name="HouseJuiceShop" parent="Panel" instance=ExtResource("3_vey2b")]
+visible = false
+z_index = 2
+
+[connection signal="pressed" from="Panel/Upgrade" to="." method="_on_upgrade_pressed"]

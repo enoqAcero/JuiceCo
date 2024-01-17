@@ -43,6 +43,7 @@ func getTotalTransportCapacity():
 		if trasportIdArray[i] >= 1:
 			var id = trasportIdArray[i]
 			totalTransportCapacity += GlobalVariables.player.Transport[id - 1].capacity
+			
 #obtener la capacidad total de las casas de jugo
 func getJuiceHouseCapacity():
 	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
