@@ -26,6 +26,10 @@ var totalPapayaCount = 0
 var totalMelonCount = 0
 var totalSandiaCount = 0
 
+
+var multiplier : float = 0
+var multiplierSteps = 0.1
+
 func _ready():
 	loadResource()
 	

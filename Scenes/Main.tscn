@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=12 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
@@ -9,8 +9,10 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="7_4o3gd"]
 [ext_resource type="PackedScene" uid="uid://pyylsjt5onnc" path="res://Scenes/JuiceHouse.tscn" id="8_kddff"]
 [ext_resource type="PackedScene" uid="uid://b3gg2wrxhabaq" path="res://Scenes/Garage.tscn" id="9_b4178"]
+[ext_resource type="PackedScene" uid="uid://dh2j4eukundbg" path="res://Scenes/WaterTank.tscn" id="10_lanya"]
+[ext_resource type="PackedScene" uid="uid://bpo2g24224cbx" path="res://Scenes/PhysicalJuiceHouse.tscn" id="10_wudyb"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["fruit", "mango"]]
 script = ExtResource("1_dpbrn")
 metadata/_edit_horizontal_guides_ = [668.0]
 
@@ -28,7 +30,7 @@ offset_bottom = 814.0
 text = "RUN!"
 
 [node name="RunTimer" type="Timer" parent="CanvasLayer/runButton"]
-wait_time = 0.3
+wait_time = 0.05
 one_shot = true
 
 [node name="fieldButton" type="Button" parent="CanvasLayer"]
@@ -97,24 +99,50 @@ offset_bottom = 109.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 270.0
-offset_top = 288.0
-offset_right = 462.0
-offset_bottom = 402.0
-text = "JUICE HOUSE
+[node name="Multiplier" type="Label" parent="CanvasLayer"]
+offset_left = -60.0
+offset_top = -38.0
+offset_right = 157.0
+offset_bottom = 76.0
+text = "x0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaterTank" parent="CanvasLayer" instance=ExtResource("10_lanya")]
+visible = false
+
+[node name="house" parent="." instance=ExtResource("10_wudyb")]
+position = Vector2(344, 532)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="house"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -17.0
+offset_top = -19.0
+offset_right = 12.0
+offset_bottom = 22.0
+text = "
 "
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 18.0
-offset_top = 84.0
-offset_right = 152.0
-offset_bottom = 172.0
+offset_left = 24.0
+offset_top = 267.0
+offset_right = 158.0
+offset_bottom = 355.0
 text = "Garage"
 
 [node name="ProduceJuiceTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="FruitSpawn" type="Label" parent="."]
+offset_left = 409.0
+offset_top = 20.0
+offset_right = 461.0
+offset_bottom = 46.0
+text = "Spawn"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
@@ -123,6 +151,6 @@ autostart = true
 [connection signal="pressed" from="CanvasLayer/boostButton" to="." method="_on_boost_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/menuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="house/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="timeout" from="ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]

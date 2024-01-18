@@ -1,5 +1,7 @@
 extends Node2D
 
+var rng = RandomNumberGenerator.new()
+
 var savePath = "res://Save/PlayerSave.tres"
 var controlEscenasField = false
 var controlEscenasUpgrades = false
@@ -12,12 +14,17 @@ var totalJuiceHouseCapacity = 0
 
 
 
-var fruitScriptPath = preload("res://Scripts/PathFollow.gd")
-var mango = preload("res://Scenes/Fruits/Fruit1Path.tscn")
+var mango = preload("res://Scenes/Fruits/Mango.tscn")
 var fruits =[mango, mango]
 var fruitInstance = []
 var runTimerNode
 var runButtonControl = false
+
+
+var multiplierOn = false
+var multiplierLabel
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,12 +33,27 @@ func _ready():
 	SignalManager.loadData.connect(loadData)
 	
 	runTimerNode = $CanvasLayer/runButton/RunTimer
-
+	multiplierLabel = $CanvasLayer/Multiplier
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	
+	if GlobalVariables.multiplier <= GlobalVariables.multiplierSteps/10:
+		GlobalVariables.multiplier = 0
 
+	if GlobalVariables.multiplier == 0:
+		multiplierLabelUpdate(1)
+	else:
+		multiplierLabelUpdate(0)
+	
+	multiplierLabel.text = "x " + str(GlobalVariables.multiplier)
+	
+
+func multiplierLabelUpdate(control : int):
+	if control == 0:
+		multiplierLabel.scale = Vector2(1.2, 1.2)
+	else: 
+		multiplierLabel.scale = Vector2(1, 1)
 
 #obtener la capacidad total de los transportes
 func getTotalTransportCapacity():
@@ -54,29 +76,30 @@ func countFruits():
 	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
 	for i in range (0, houseIdArray.size()):
 		if houseIdArray[i] >= 1:
-			GlobalVariables.totalBlueberryCount += GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount
-			GlobalVariables.totalCerezaCount += GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount
-			GlobalVariables.totalFresaCount += GlobalVariables.player.CurrentJuiceHouse[i].fresaCount
-			GlobalVariables.totalLimonCount += GlobalVariables.player.CurrentJuiceHouse[i].limonCount
-			GlobalVariables.totalDuraznoCount += GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount
-			GlobalVariables.totalManzanaCount += GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount
-			GlobalVariables.totalNaranjaCount += GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount
-			GlobalVariables.totalAguacateCount += GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount
-			GlobalVariables.totalMangoCount += GlobalVariables.player.CurrentJuiceHouse[i].mangoCount
-			GlobalVariables.totalDragonfruitCount += GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount
-			GlobalVariables.totalCocoCount += GlobalVariables.player.CurrentJuiceHouse[i].cocoCount
-			GlobalVariables.totalAnanaCount += GlobalVariables.player.CurrentJuiceHouse[i].ananaCount
-			GlobalVariables.totalPapayaCount += GlobalVariables.player.CurrentJuiceHouse[i].papayaCount
-			GlobalVariables.totalMelonCount += GlobalVariables.player.CurrentJuiceHouse[i].melonCount
-			GlobalVariables.totalSandiaCount += GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount
+			GlobalVariables.totalBlueberryCount = GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount
+			GlobalVariables.totalCerezaCount = GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount
+			GlobalVariables.totalFresaCount = GlobalVariables.player.CurrentJuiceHouse[i].fresaCount
+			GlobalVariables.totalLimonCount = GlobalVariables.player.CurrentJuiceHouse[i].limonCount
+			GlobalVariables.totalDuraznoCount = GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount
+			GlobalVariables.totalManzanaCount = GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount
+			GlobalVariables.totalNaranjaCount = GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount
+			GlobalVariables.totalAguacateCount = GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount
+			GlobalVariables.totalMangoCount = GlobalVariables.player.CurrentJuiceHouse[i].mangoCount
+			GlobalVariables.totalDragonfruitCount = GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount
+			GlobalVariables.totalCocoCount = GlobalVariables.player.CurrentJuiceHouse[i].cocoCount
+			GlobalVariables.totalAnanaCount = GlobalVariables.player.CurrentJuiceHouse[i].ananaCount
+			GlobalVariables.totalPapayaCount = GlobalVariables.player.CurrentJuiceHouse[i].papayaCount
+			GlobalVariables.totalMelonCount = GlobalVariables.player.CurrentJuiceHouse[i].melonCount
+			GlobalVariables.totalSandiaCount = GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount
 			
 func calculateMoneyFromLiters(litrosPorSegundo : float):
 	var currentJuiceLevel = GlobalVariables.player.juiceLevel
 	var moneyString : String
 	if litrosPorSegundo >= totalTransportCapacity:
 		GlobalVariables.maxTransportCapacity = true
-		
-	GlobalVariables.player.money += litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value
+	
+	GlobalVariables.player.litersPerSecond = litrosPorSegundo
+	GlobalVariables.player.money += litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value * (GlobalVariables.multiplier + 1)
 	moneyString = GlobalVariables.getMoneyString(GlobalVariables.player.money)
 	$CanvasLayer/Money.text ="Money: " + moneyString
 	
@@ -92,10 +115,90 @@ func save():
 	ResourceSaver.save(GlobalVariables.player, savePath)
 	
 func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		GlobalVariables.player.time = Time.get_datetime_string_from_system()
 		save()
+	if what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		calculateTime()
+		
+func calculateTime():
+	var prevTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.time)
+	var currentTime = Time.get_unix_time_from_datetime_string(Time.get_datetime_string_from_system())
+	var elapsedTime = currentTime - prevTime
+	calculateFruitsFromTime(elapsedTime)
 	
-
+func calculateMoneyFromTime(elapsedTime):
+	var moneyEarned = GlobalVariables.player.litersPerSecond * elapsedTime
+	var moneyEarnedLabel = $CanvasLayer/WaterTank.get_node("Money")
+	moneyEarnedLabel.text = "Money Earned While Away: \n" + str(moneyEarned)
+	$CanvasLayer/WaterTank.show()
+	GlobalVariables.player.money += moneyEarned
+	save()
+	
+func calculateFruitsFromTime(elapsedTime):
+	var BlueberryCount : int = 0
+	var CerezaCount : int = 0
+	var FresaCount : int = 0
+	var LimonCount : int = 0
+	var DuraznoCount : int = 0
+	var ManzanaCount : int = 0
+	var NaranjaCount : int = 0
+	var AguacateCount : int = 0
+	var MangoCount : int = 0
+	var DragonfruitCount : int = 0
+	var CocoCount : int = 0
+	var AnanaCount : int = 0
+	var PapayaCount : int = 0
+	var MelonCount : int = 0
+	var SandiaCount : int = 0
+	
+	var frutasTotal : int = 0
+	
+	BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level
+	CerezaCount = (elapsedTime / GlobalVariables.player.Fruits[1].speed) * GlobalVariables.player.Fruits[1].level
+	FresaCount = (elapsedTime / GlobalVariables.player.Fruits[2].speed) * GlobalVariables.player.Fruits[2].level
+	LimonCount = (elapsedTime / GlobalVariables.player.Fruits[3].speed) * GlobalVariables.player.Fruits[3].level
+	DuraznoCount = (elapsedTime / GlobalVariables.player.Fruits[4].speed) * GlobalVariables.player.Fruits[4].level
+	ManzanaCount = (elapsedTime / GlobalVariables.player.Fruits[5].speed) * GlobalVariables.player.Fruits[5].level
+	NaranjaCount = (elapsedTime / GlobalVariables.player.Fruits[6].speed) * GlobalVariables.player.Fruits[6].level
+	AguacateCount = (elapsedTime / GlobalVariables.player.Fruits[7].speed) * GlobalVariables.player.Fruits[7].level
+	MangoCount = (elapsedTime / GlobalVariables.player.Fruits[8].speed) * GlobalVariables.player.Fruits[8].level
+	DragonfruitCount = (elapsedTime / GlobalVariables.player.Fruits[9].speed) * GlobalVariables.player.Fruits[9].level
+	CocoCount = (elapsedTime / GlobalVariables.player.Fruits[10].speed) * GlobalVariables.player.Fruits[10].level
+	AnanaCount = (elapsedTime / GlobalVariables.player.Fruits[11].speed) * GlobalVariables.player.Fruits[11].level
+	PapayaCount = (elapsedTime / GlobalVariables.player.Fruits[12].speed) * GlobalVariables.player.Fruits[12].level
+	MelonCount = (elapsedTime / GlobalVariables.player.Fruits[13].speed) * GlobalVariables.player.Fruits[13].level
+	SandiaCount = (elapsedTime / GlobalVariables.player.Fruits[14].speed) * GlobalVariables.player.Fruits[14].level
+	frutasTotal = BlueberryCount+CerezaCount+FresaCount+LimonCount+DuraznoCount+ManzanaCount+NaranjaCount+AguacateCount+MangoCount+DragonfruitCount+CocoCount+AnanaCount+PapayaCount+MelonCount+SandiaCount
+	
+	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
+	for i in range (0, houseIdArray.size()):
+		if houseIdArray[i] >= 1:
+			GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount += (BlueberryCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount += (CerezaCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].fresaCount += (FresaCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].limonCount += (LimonCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount += (DuraznoCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount += (ManzanaCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount += (NaranjaCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount += (AguacateCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].mangoCount += (MangoCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount += (DragonfruitCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].cocoCount += (CocoCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].ananaCount += (AnanaCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].papayaCount += (PapayaCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].melonCount += (MelonCount - 1) / 4
+			GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount += (SandiaCount - 1) / 4
+			
+	
+	
+	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Fruits")
+	fruitsEarnedLabel.text = "Fruits Earned While Away: \n" + str(frutasTotal)
+	
+	countFruits()
+	calculateMoneyFromTime(elapsedTime)
+	
+	
 # Oculta todas las escenas
 func hideScene():
 	$CanvasLayer/Field.visible = false
@@ -140,8 +243,6 @@ func _on_button_2_pressed():
 	$CanvasLayer/Garage.show()
 
 
-
-
 func _on_run_button_pressed():
 	if runButtonControl == false:
 		instanceFruit()
@@ -149,12 +250,30 @@ func _on_run_button_pressed():
 		runButtonControl = true
 	
 func instanceFruit():
-	var fruitType = fruits[randi() % (fruits.size() - 1)]
+	var randFruit = randi() % (fruits.size() - 1)
+	var fruitType = fruits[randFruit]
 	var fruit = fruitType.instantiate()
-	#fruit.set_script(fruitScriptPath)
-	add_child(fruit)
-	#fruitInstance.append(fruit)
+	var fruitI = fruit
+	var dirX
+	var dirY
+	
+	fruitI.add_to_group("fruit")
+	
+	if randFruit == 0:
+		fruitI.add_to_group("mango")
+		
+	fruit.houseName = "house"
 
+	dirX = rng.randi_range(-20,20)
+	dirY = rng.randi_range(-20,20)
+
+	fruit.position.x = $FruitSpawn.position.x + dirX
+	fruit.position.y = $FruitSpawn.position.y + dirY
+
+	fruitInstance.append(fruitI)
+	add_child(fruit)
+	GlobalVariables.multiplier += GlobalVariables.multiplierSteps
+	
 
 func _on_run_timer_timeout():
 	runButtonControl = false
