@@ -37,7 +37,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
+		
 	if GlobalVariables.multiplier <= GlobalVariables.multiplierSteps/10:
 		GlobalVariables.multiplier = 0
 
@@ -118,24 +118,36 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		GlobalVariables.player.time = Time.get_datetime_string_from_system()
 		save()
-	if what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		get_tree().paused = true
+	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_READY:
+		get_tree().paused = false
 		calculateTime()
 		
 func calculateTime():
 	var prevTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.time)
 	var currentTime = Time.get_unix_time_from_datetime_string(Time.get_datetime_string_from_system())
 	var elapsedTime = currentTime - prevTime
-	calculateFruitsFromTime(elapsedTime)
+	
+	calculateMoneyFromTime(elapsedTime)
+	
 	
 func calculateMoneyFromTime(elapsedTime):
 	var moneyEarned = GlobalVariables.player.litersPerSecond * elapsedTime
+	var moneyEarnedString : String
 	var moneyEarnedLabel = $CanvasLayer/WaterTank.get_node("Money")
-	moneyEarnedLabel.text = "Money Earned While Away: \n" + str(moneyEarned)
+	moneyEarnedString = GlobalVariables.getMoneyString(moneyEarned)
+	moneyEarnedLabel.text = "Money Earned While Away: \n" + moneyEarnedString
 	$CanvasLayer/WaterTank.show()
 	GlobalVariables.player.money += moneyEarned
+	calculateFruitsFromTime(elapsedTime)
 	save()
 	
 func calculateFruitsFromTime(elapsedTime):
+	
+	var frutasTotal : int = 0
+	var fruitsEarnedString : String
+	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Fruits")
+	
 	var BlueberryCount : int = 0
 	var CerezaCount : int = 0
 	var FresaCount : int = 0
@@ -152,7 +164,8 @@ func calculateFruitsFromTime(elapsedTime):
 	var MelonCount : int = 0
 	var SandiaCount : int = 0
 	
-	var frutasTotal : int = 0
+	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
+	var houseCount = 0
 	
 	BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level
 	CerezaCount = (elapsedTime / GlobalVariables.player.Fruits[1].speed) * GlobalVariables.player.Fruits[1].level
@@ -171,32 +184,37 @@ func calculateFruitsFromTime(elapsedTime):
 	SandiaCount = (elapsedTime / GlobalVariables.player.Fruits[14].speed) * GlobalVariables.player.Fruits[14].level
 	frutasTotal = BlueberryCount+CerezaCount+FresaCount+LimonCount+DuraznoCount+ManzanaCount+NaranjaCount+AguacateCount+MangoCount+DragonfruitCount+CocoCount+AnanaCount+PapayaCount+MelonCount+SandiaCount
 	
-	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
+	
+	
 	for i in range (0, houseIdArray.size()):
 		if houseIdArray[i] >= 1:
-			GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount += (BlueberryCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount += (CerezaCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].fresaCount += (FresaCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].limonCount += (LimonCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount += (DuraznoCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount += (ManzanaCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount += (NaranjaCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount += (AguacateCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].mangoCount += (MangoCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount += (DragonfruitCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].cocoCount += (CocoCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].ananaCount += (AnanaCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].papayaCount += (PapayaCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].melonCount += (MelonCount - 1) / 4
-			GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount += (SandiaCount - 1) / 4
+			houseCount += 1
+			
+	for i in range (0, houseIdArray.size()):
+		if houseIdArray[i] >= 1:
+			GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount += (BlueberryCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount += (CerezaCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].fresaCount += (FresaCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].limonCount += (LimonCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount += (DuraznoCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount += (ManzanaCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount += (NaranjaCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount += (AguacateCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].mangoCount += (MangoCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount += (DragonfruitCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].cocoCount += (CocoCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].ananaCount += (AnanaCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].papayaCount += (PapayaCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].melonCount += (MelonCount - 1) / houseCount
+			GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount += (SandiaCount - 1) / houseCount
 			
 	
 	
-	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Fruits")
-	fruitsEarnedLabel.text = "Fruits Earned While Away: \n" + str(frutasTotal)
+	
+	fruitsEarnedString = GlobalVariables.getMoneyString(frutasTotal)
+	fruitsEarnedLabel.text = "Fruits Earned While Away: \n" + fruitsEarnedString
 	
 	countFruits()
-	calculateMoneyFromTime(elapsedTime)
 	
 	
 # Oculta todas las escenas
