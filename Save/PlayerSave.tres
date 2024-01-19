@@ -1,22 +1,23 @@
-[gd_resource type="Resource" script_class="Player" load_steps=63 format=3]
+[gd_resource type="Resource" script_class="Player" load_steps=65 format=3 uid="uid://b3ts7yqxdmyp2"]
 
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
 [ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_hnv06"]
 [ext_resource type="Script" path="res://Resources/CurrentHouseData.gd" id="1_tiua4"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
-[ext_resource type="Texture2D" path="res://a.png" id="2_vc0li"]
+[ext_resource type="Texture2D" uid="uid://ddpm084j3857i" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
+[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="2_vc0li"]
 [ext_resource type="Script" path="res://Resources/TransportData.gd" id="2_webxm"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/Proyecto nuevo (5).png" id="3_edhc7"]
+[ext_resource type="Texture2D" uid="uid://d1yuc8yfg857c" path="res://Assets/Vehicles/Proyecto nuevo (5).png" id="3_edhc7"]
 [ext_resource type="Script" path="res://Resources/UpdateData.gd" id="5_4cb2e"]
 [ext_resource type="Script" path="res://Resources/JuiceLevelData.gd" id="6_1veyw"]
+[ext_resource type="Script" path="res://Resources/WaterTankData.gd" id="10_fv6wq"]
 
 [sub_resource type="Resource" id="Resource_4usv6"]
 script = ExtResource("1_tiua4")
 houseLvl = 16
-currentCapacity = 64369.0
-blueberryCount = 51534
-cerezaCount = 40333
+currentCapacity = 102016.0
+blueberryCount = 517366
+cerezaCount = 387465
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -34,9 +35,9 @@ sandiaCount = 0
 [sub_resource type="Resource" id="Resource_ayy6n"]
 script = ExtResource("1_tiua4")
 houseLvl = 0
-currentCapacity = 61233.0
-blueberryCount = 48874
-cerezaCount = 39789
+currentCapacity = 98500.0
+blueberryCount = 515485
+cerezaCount = 385762
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -54,9 +55,9 @@ sandiaCount = 0
 [sub_resource type="Resource" id="Resource_twegh"]
 script = ExtResource("1_tiua4")
 houseLvl = 0
-currentCapacity = 64798.0
-blueberryCount = 50929
-cerezaCount = 41375
+currentCapacity = 104286.0
+blueberryCount = 518114
+cerezaCount = 388995
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -74,9 +75,9 @@ sandiaCount = 0
 [sub_resource type="Resource" id="Resource_mv7fm"]
 script = ExtResource("1_tiua4")
 houseLvl = 0
-currentCapacity = 63177.0
-blueberryCount = 50506
-cerezaCount = 40011
+currentCapacity = 101110.0
+blueberryCount = 516502
+cerezaCount = 387265
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -100,7 +101,7 @@ cost = 7.04001
 liters = 1.0
 multiplier = 1.05
 speed = 0.625
-currentProgress = 49.0
+currentProgress = 43.0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_ndit5"]
@@ -112,7 +113,7 @@ cost = 100832.0
 liters = 2.0
 multiplier = 1.15
 speed = 1.25
-currentProgress = 99.0
+currentProgress = 78.0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_18k3f"]
@@ -124,7 +125,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_mk5ko"]
 script = ExtResource("1_hnv06")
@@ -135,7 +136,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_4eucy"]
 script = ExtResource("1_hnv06")
@@ -146,7 +147,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_hctvc"]
 script = ExtResource("1_hnv06")
@@ -157,7 +158,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_4rsyl"]
 script = ExtResource("1_hnv06")
@@ -168,7 +169,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_0r8ri"]
 script = ExtResource("1_hnv06")
@@ -179,7 +180,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_sba82"]
 script = ExtResource("1_hnv06")
@@ -190,7 +191,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_fyike"]
 script = ExtResource("1_hnv06")
@@ -201,7 +202,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_250cw"]
 script = ExtResource("1_hnv06")
@@ -212,7 +213,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_s8y17"]
 script = ExtResource("1_hnv06")
@@ -223,7 +224,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_m5cmx"]
 script = ExtResource("1_hnv06")
@@ -234,7 +235,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_b1wc0"]
 script = ExtResource("1_hnv06")
@@ -245,7 +246,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_4lkqe"]
 script = ExtResource("1_hnv06")
@@ -256,7 +257,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 58.0
+currentProgress = 60.0
 
 [sub_resource type="Resource" id="Resource_yabiq"]
 script = ExtResource("1_4wlhr")
@@ -522,13 +523,19 @@ cost = 0.0
 level = 0
 maxLevel = 0
 
+[sub_resource type="Resource" id="Resource_h0e3q"]
+script = ExtResource("10_fv6wq")
+time = 60
+cost = 0.0
+count = 12
+
 [resource]
 script = ExtResource("1_fhr83")
 liters = 907.0
-money = 4.07897e+07
+money = 2.61104e+09
 gems = 0
-litersPerSecond = 13061.0
-time = "2024-01-19T09:44:43"
+litersPerSecond = 129120.0
+time = "2024-01-19T11:36:35"
 seeds = 0
 resets = 0
 sesionEarnings = 0.0
@@ -557,6 +564,7 @@ transport11Id = 0
 transport12Id = 0
 transport13Id = 0
 transport14Id = 0
+WaterTank = SubResource("Resource_h0e3q")
 JuiceLevel = Array[ExtResource("6_1veyw")]([SubResource("Resource_eklfi")])
 juiceLevel = 0
 Update = Array[ExtResource("5_4cb2e")]([SubResource("Resource_02beu")])

@@ -124,17 +124,27 @@ func _notification(what):
 		calculateTime()
 		
 func calculateTime():
+	var maxTime = GlobalVariables.player.WaterTank.time * GlobalVariables.player.WaterTank.count
 	var prevTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.time)
 	var currentTime = Time.get_unix_time_from_datetime_string(Time.get_datetime_string_from_system())
 	var elapsedTime = currentTime - prevTime
 	
+	var timeProgressBarNode = $CanvasLayer/WaterTank.get_node("ProgressBar")
+	
+	if maxTime <= elapsedTime:
+		elapsedTime = maxTime
+	
+	timeProgressBarNode.max_value = maxTime
+	timeProgressBarNode.value = (maxTime - elapsedTime)
+	
 	calculateMoneyFromTime(elapsedTime)
 	
-	
+
 func calculateMoneyFromTime(elapsedTime):
 	var moneyEarned = GlobalVariables.player.litersPerSecond * elapsedTime
 	var moneyEarnedString : String
 	var moneyEarnedLabel = $CanvasLayer/WaterTank.get_node("Money")
+	
 	moneyEarnedString = GlobalVariables.getMoneyString(moneyEarned)
 	moneyEarnedLabel.text = "Money Earned While Away: \n" + moneyEarnedString
 	$CanvasLayer/WaterTank.show()

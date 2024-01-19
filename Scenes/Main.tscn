@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=13 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://b3gg2wrxhabaq" path="res://Scenes/Garage.tscn" id="9_b4178"]
 [ext_resource type="PackedScene" uid="uid://dh2j4eukundbg" path="res://Scenes/WaterTank.tscn" id="10_lanya"]
 [ext_resource type="PackedScene" uid="uid://bpo2g24224cbx" path="res://Scenes/PhysicalJuiceHouse.tscn" id="10_wudyb"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2x17k"]
+vertices = PackedVector2Array(-85, -110, -376, -119, -378, -311, 376, -306, 281, -107, 388, 491, 302, 491)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-85, -110, 281, -107, 302, 491, 388, 491, 376, -306, -378, -311, -376, -119)])
 
 [node name="Main" type="Node2D" groups=["fruit", "mango"]]
 script = ExtResource("1_dpbrn")
@@ -136,13 +141,16 @@ wait_time = 0.1
 autostart = true
 
 [node name="FruitSpawn" type="Label" parent="."]
-offset_left = 409.0
-offset_top = 20.0
-offset_right = 461.0
-offset_bottom = 46.0
+offset_left = -163.0
+offset_top = -205.0
+offset_right = -111.0
+offset_bottom = -179.0
 text = "Spawn"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_2x17k")
 
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
