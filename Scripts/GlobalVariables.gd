@@ -4,6 +4,7 @@ extends Node
 var player 
 
 var maxHouseCapacity = false
+var houseCount : int
 var maxTransportCapacity = false
 
 var litersAbbreviation
@@ -25,6 +26,7 @@ var totalAnanaCount = 0
 var totalPapayaCount = 0
 var totalMelonCount = 0
 var totalSandiaCount = 0
+var totalFruits = 0
 
 
 var multiplier : float = 0

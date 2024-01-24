@@ -14,10 +14,10 @@
 
 [sub_resource type="Resource" id="Resource_4usv6"]
 script = ExtResource("1_tiua4")
-houseLvl = 16
-currentCapacity = 102016.0
-blueberryCount = 517366
-cerezaCount = 387465
+houseLvl = 0
+currentCapacity = 50.0
+blueberryCount = 0
+cerezaCount = 61
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -35,9 +35,9 @@ sandiaCount = 0
 [sub_resource type="Resource" id="Resource_ayy6n"]
 script = ExtResource("1_tiua4")
 houseLvl = 0
-currentCapacity = 98500.0
-blueberryCount = 515485
-cerezaCount = 385762
+currentCapacity = 50.0
+blueberryCount = 82
+cerezaCount = 0
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -55,9 +55,9 @@ sandiaCount = 0
 [sub_resource type="Resource" id="Resource_twegh"]
 script = ExtResource("1_tiua4")
 houseLvl = 0
-currentCapacity = 104286.0
-blueberryCount = 518114
-cerezaCount = 388995
+currentCapacity = 50.0
+blueberryCount = 41
+cerezaCount = 61
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -75,9 +75,9 @@ sandiaCount = 0
 [sub_resource type="Resource" id="Resource_mv7fm"]
 script = ExtResource("1_tiua4")
 houseLvl = 0
-currentCapacity = 101110.0
-blueberryCount = 516502
-cerezaCount = 387265
+currentCapacity = 61.0
+blueberryCount = 0
+cerezaCount = 61
 fresaCount = 0
 limonCount = 0
 duraznoCount = 0
@@ -97,11 +97,11 @@ script = ExtResource("1_hnv06")
 name = "Mango"
 level = 41
 tier = 3
-cost = 7.04001
+cost = 35.2
 liters = 1.0
 multiplier = 1.05
-speed = 0.625
-currentProgress = 43.0
+speed = 1.25
+currentProgress = 37.0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_ndit5"]
@@ -109,11 +109,11 @@ script = ExtResource("1_hnv06")
 name = "durazno"
 level = 61
 tier = 4
-cost = 100832.0
+cost = 87680.0
 liters = 2.0
 multiplier = 1.15
-speed = 1.25
-currentProgress = 78.0
+speed = 2.5
+currentProgress = 35.0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_18k3f"]
@@ -124,8 +124,8 @@ tier = 0
 cost = 0.0
 liters = 0.0
 multiplier = 0.0
-speed = 10000.0
-currentProgress = 60.0
+speed = 5.0
+currentProgress = 73.0
 
 [sub_resource type="Resource" id="Resource_mk5ko"]
 script = ExtResource("1_hnv06")
@@ -136,7 +136,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_4eucy"]
 script = ExtResource("1_hnv06")
@@ -147,7 +147,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_hctvc"]
 script = ExtResource("1_hnv06")
@@ -158,7 +158,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_4rsyl"]
 script = ExtResource("1_hnv06")
@@ -169,7 +169,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_0r8ri"]
 script = ExtResource("1_hnv06")
@@ -180,7 +180,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_sba82"]
 script = ExtResource("1_hnv06")
@@ -191,7 +191,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_fyike"]
 script = ExtResource("1_hnv06")
@@ -202,7 +202,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_250cw"]
 script = ExtResource("1_hnv06")
@@ -213,7 +213,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_s8y17"]
 script = ExtResource("1_hnv06")
@@ -224,7 +224,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_m5cmx"]
 script = ExtResource("1_hnv06")
@@ -235,7 +235,7 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_b1wc0"]
 script = ExtResource("1_hnv06")
@@ -246,24 +246,24 @@ cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_4lkqe"]
 script = ExtResource("1_hnv06")
 name = ""
-level = 0
+level = 1
 tier = 0
 cost = 0.0
 liters = 0.0
 multiplier = 0.0
 speed = 10000.0
-currentProgress = 60.0
+currentProgress = 63.0
 
 [sub_resource type="Resource" id="Resource_yabiq"]
 script = ExtResource("1_4wlhr")
 name = "Juice Stand"
 level = 0
-capacity = 0
+capacity = 50
 cost = 0.0
 skin = ExtResource("2_qt1ax")
 
@@ -271,7 +271,7 @@ skin = ExtResource("2_qt1ax")
 script = ExtResource("1_4wlhr")
 name = "Juice Stand"
 level = 0
-capacity = 0
+capacity = 200
 cost = 0.0
 skin = ExtResource("2_qt1ax")
 
@@ -391,7 +391,7 @@ skin = ExtResource("2_qt1ax")
 script = ExtResource("1_4wlhr")
 name = "Juice Stand"
 level = 0
-capacity = 0
+capacity = 20000
 cost = 0.0
 skin = ExtResource("2_qt1ax")
 
@@ -531,17 +531,18 @@ count = 12
 
 [resource]
 script = ExtResource("1_fhr83")
-liters = 907.0
-money = 2.61104e+09
+liters = 0.0
+money = 68179.2
 gems = 0
-litersPerSecond = 129120.0
-time = "2024-01-19T11:36:35"
+litersPerSecond = 48.9
+fruitsPerSecond = 56.0
+time = "2024-01-22T15:02:34"
 seeds = 0
 resets = 0
 sesionEarnings = 0.0
 lifetimeEarnings = 0.0
 JuiceHouse = Array[ExtResource("1_4wlhr")]([SubResource("Resource_yabiq"), SubResource("Resource_llnyg"), SubResource("Resource_7u4r8"), SubResource("Resource_v47h1"), SubResource("Resource_6m8d8"), SubResource("Resource_jhoeh"), SubResource("Resource_d04iu"), SubResource("Resource_os6yq"), SubResource("Resource_2wn1h"), SubResource("Resource_mnib8"), SubResource("Resource_iwnm5"), SubResource("Resource_qqbbh"), SubResource("Resource_avsdw"), SubResource("Resource_7owmo"), SubResource("Resource_abavy"), SubResource("Resource_fgd5y"), SubResource("Resource_q31mc"), SubResource("Resource_d0kc2"), SubResource("Resource_57b6y"), SubResource("Resource_n4djl")])
-house0Id = 17
+house0Id = 1
 house1Id = 1
 house2Id = 1
 house3Id = 1

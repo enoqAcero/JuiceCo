@@ -6,6 +6,7 @@ class_name Player
 @export var money : float
 @export var gems : int
 @export var litersPerSecond : float
+@export var fruitsPerSecond : float
 @export var time : String
 
 #stats variables

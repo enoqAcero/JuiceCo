@@ -234,20 +234,42 @@ func saveCurrentProgress(index : int):
 	currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
 
 func cashOut(index : int):
-	var houseId = rng.randi_range(0,3)
+
+	var houseId = rng.randi_range(0, GlobalVariables.houseCount)
 	var houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
 	var frutasObtenidas = GlobalVariables.player.Fruits[index].level
+	var houseControl = false
 	
+
+		
 	if GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
-		for i in range(0,3):
+	
+		for i in range(0, GlobalVariables.houseCount):
 			houseLvl = GlobalVariables.player.CurrentJuiceHouse[i].houseLvl
 			if GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+				var capacityDif = GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity - GlobalVariables.player.JuiceHouse[houseLvl].capacity
+				if capacityDif >= 0:
+					GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity = GlobalVariables.player.JuiceHouse[houseLvl].capacity
+					houseControl = true
 				if i == 3:
 					GlobalVariables.maxHouseCapacity = true
 			else:
+				houseControl = false
 				houseId = i
+				
+				
+	if GlobalVariables.player.house0Id <= 0:
+		GlobalVariables.player.house0Id = 1
+		houseId = 0
+	if GlobalVariables.player.house1Id <= 0:
+		houseId = 0
+	if GlobalVariables.player.house2Id <= 0:
+		houseId = 0
+	if GlobalVariables.player.house3Id <= 0:
+		houseId = 0
 					
-	if GlobalVariables.maxHouseCapacity == false:			
+					
+	if GlobalVariables.maxHouseCapacity == false and houseControl == false:			
 		if index == 0:
 			GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount += frutasObtenidas
 			GlobalVariables.totalBlueberryCount += frutasObtenidas
