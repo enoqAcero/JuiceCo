@@ -377,7 +377,7 @@ func instanceFruit():
 	var dirY
 	
 	fruitI.add_to_group("fruit")
-	
+
 	if randFruit == 0:
 		fruitI.add_to_group("mango")
 		

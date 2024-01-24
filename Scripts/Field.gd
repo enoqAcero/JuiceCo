@@ -236,40 +236,34 @@ func saveCurrentProgress(index : int):
 func cashOut(index : int):
 
 	var houseId = rng.randi_range(0, GlobalVariables.houseCount)
-	var houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
+	var houseLvl
 	var frutasObtenidas = GlobalVariables.player.Fruits[index].level
 	var houseControl = false
 	
-
+	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == true:
+		for i in range (0, GlobalVariables.houseCount):
+			if GlobalVariables.player.CurrentJuiceHouse[i].fullSandiaHouse == false:
+				houseId = i
+				break
+			elif i == 3:
+				GlobalVariables.maxHouseCapacity = true
+				
+	houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
+		
 		
 	if GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+		GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = true
+	else:
+		GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = false
+		
+	if GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+		GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse = true
+		GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount = GlobalVariables.player.JuiceHouse[houseLvl].capacity
 	
-		for i in range(0, GlobalVariables.houseCount):
-			houseLvl = GlobalVariables.player.CurrentJuiceHouse[i].houseLvl
-			if GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
-				var capacityDif = GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity - GlobalVariables.player.JuiceHouse[houseLvl].capacity
-				if capacityDif >= 0:
-					GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity = GlobalVariables.player.JuiceHouse[houseLvl].capacity
-					houseControl = true
-				if i == 3:
-					GlobalVariables.maxHouseCapacity = true
-			else:
-				houseControl = false
-				houseId = i
-				
-				
-	if GlobalVariables.player.house0Id <= 0:
-		GlobalVariables.player.house0Id = 1
-		houseId = 0
-	if GlobalVariables.player.house1Id <= 0:
-		houseId = 0
-	if GlobalVariables.player.house2Id <= 0:
-		houseId = 0
-	if GlobalVariables.player.house3Id <= 0:
-		houseId = 0
-					
-					
-	if GlobalVariables.maxHouseCapacity == false and houseControl == false:			
+	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
+		SandiaExchange(houseId)
+
+	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == false and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:			
 		if index == 0:
 			GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount += frutasObtenidas
 			GlobalVariables.totalBlueberryCount += frutasObtenidas
@@ -317,7 +311,16 @@ func cashOut(index : int):
 			GlobalVariables.totalSandiaCount += frutasObtenidas
 			
 		GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity += frutasObtenidas
-
+		
+		if GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = true
+			
+	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
+		SandiaExchange(houseId)
+		
+func SandiaExchange(houseId : int):
+	print("SnadiaExchange", houseId)
+	GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity = 0
 	
 func _on_button_pressed():
 	hide()

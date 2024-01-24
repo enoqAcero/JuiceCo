@@ -3,6 +3,8 @@ extends Resource
 class_name CurrentHouseData
 
 @export var houseLvl : int = 0
+@export var fullHouse : bool = false
+@export var fullSandiaHouse : bool = false
 @export var currentCapacity : float = 0
 @export var blueberryCount : int = 0
 @export var cerezaCount : int = 0
