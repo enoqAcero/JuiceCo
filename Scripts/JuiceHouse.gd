@@ -63,7 +63,7 @@ func _ready():
 
 #Carga y actualiza la casa correspondiente actual
 func loadHouses():
-	print("LOad HOuse")
+	
 	houseID0 = GlobalVariables.player.house0Id - 1
 	houseID1 = GlobalVariables.player.house1Id - 1
 	houseID2 = GlobalVariables.player.house2Id - 1

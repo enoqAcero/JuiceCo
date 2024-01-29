@@ -25,7 +25,7 @@ var totalCocoCount = 0
 var totalAnanaCount = 0
 var totalPapayaCount = 0
 var totalMelonCount = 0
-var totalSandiaCount = 0
+var totalSandiaCount : float = 0
 var totalFruits = 0
 
 
@@ -43,7 +43,7 @@ func loadResource():
 		var newPlayerData = Player.new()
 		ResourceSaver.save(newPlayerData, ("res://Save/PlayerSave.tres"))
 		player = ResourceLoader.load("res://Save/PlayerSave.tres")
-		
+	
 	SignalManager.loadData.emit()
 	SignalManager.loadHouses.emit()
 	getHouseLvl()

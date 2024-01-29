@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4b7p23nleolx"]
+
+[ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="1_j862b"]
+[ext_resource type="Texture2D" uid="uid://btorl2i4nm8j0" path="res://Assets/Buttons/BotonBuy_1.png" id="2_tlhnh"]
+[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="3_j576o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ouo4p"]
+font_size = 30
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 316.0
+offset_bottom = 143.0
+color = Color(0.239216, 0.478431, 0.6, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You Won: "
+label_settings = SubResource("LabelSettings_ouo4p")
+
+[node name="close" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_j862b")
+texture_pressed = ExtResource("2_tlhnh")
+texture_disabled = ExtResource("1_j862b")
+
+[node name="Label" type="Label" parent="VBoxContainer/close"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 275.0
+offset_bottom = 59.0
+text = "Close"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(155, 24)
+scale = Vector2(0.0686275, 0.0654008)
+texture = ExtResource("3_j576o")

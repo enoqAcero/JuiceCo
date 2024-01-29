@@ -7,7 +7,14 @@ class_name Player
 @export var gems : int
 @export var litersPerSecond : float
 @export var fruitsPerSecond : float
+@export var farmValue : float
 @export var time : String
+
+
+#adPowerUps
+@export var multGananciasActive : bool
+@export var gemYdineroActive : bool
+@export var gemasActive : bool
 
 #stats variables
 @export var seeds : int

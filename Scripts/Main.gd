@@ -11,7 +11,7 @@ var controlEscenasShop = false
 
 var totalTransportCapacity = 0
 var totalJuiceHouseCapacity = 0
-var litrosPorSegundo : float = 0.0
+
 
 
 
@@ -30,12 +30,15 @@ var farmValue : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	GlobalVariables.loadResource()
-	SignalManager.loadData.connect(loadData)
 	
 	runTimerNode = $CanvasLayer/runButton/RunTimer
 	multiplierLabel = $CanvasLayer/Multiplier
+	
+	GlobalVariables.loadResource()
+	SignalManager.loadData.connect(loadData)
+	
+	SignalManager.loadData.emit()
+	SignalManager.loadHouses.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -66,6 +69,7 @@ func getTotalTransportCapacity():
 		if trasportIdArray[i] >= 1:
 			var id = trasportIdArray[i]
 			totalTransportCapacity += GlobalVariables.player.Transport[id - 1].capacity
+
 	
 			
 #obtener la capacidad total de las casas de jugo
@@ -147,16 +151,26 @@ func countFruits():
 			GlobalVariables.totalFruits += GlobalVariables.totalSandiaCount
 			
 func calculateMoneyFromLiters(litrosPorSegundo : float):
+	print("litrosPor segundo: ", litrosPorSegundo)
+
 	var currentJuiceLevel = GlobalVariables.player.juiceLevel
 	var moneyString : String
+	var multGananciasMultiplier = 1
+	if GlobalVariables.player.multGananciasActive == true:
+		multGananciasMultiplier = 2
+		
+	
 	if litrosPorSegundo >= totalTransportCapacity:
 		litrosPorSegundo = totalTransportCapacity
-		GlobalVariables.maxTransportCapacity = true
+		GlobalVariables.maxTransportCapacity = true 
 	
 	
-	GlobalVariables.player.money += litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value * (GlobalVariables.multiplier + 1)
+	GlobalVariables.player.money += (litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value * (GlobalVariables.multiplier + 1)) * multGananciasMultiplier
 	moneyString = GlobalVariables.getMoneyString(GlobalVariables.player.money)
-	$CanvasLayer/Money.text ="Money: " + moneyString
+	$CanvasLayer/Money.text = "Money: " + moneyString
+	$CanvasLayer/moneyPerSec.text = "MoneyPerSec: " + str(litrosPorSegundo)
+
+	
 	
 	
 #esta  funcion se manda a ejecturar despues de cargar el recurso en la variabale player
@@ -210,7 +224,7 @@ func calculateMoneyFromTime(elapsedTime):
 	
 func calculateFruitsFromTime(elapsedTime):
 	
-	var frutasTotal : int = 0
+	var frutasTotal : float = 0
 	var fruitsEarnedString : String
 	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Fruits")
 	
@@ -228,11 +242,12 @@ func calculateFruitsFromTime(elapsedTime):
 	var AnanaCount : int = 0
 	var PapayaCount : int = 0
 	var MelonCount : int = 0
-	var SandiaCount : int = 0
+	var SandiaCount : float = 0
 	
 	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
 
 	
+	#sucede cuando se calcula el farm value elapsed time = 1
 	if not elapsedTime == 1:
 		BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level
 		CerezaCount = (elapsedTime / GlobalVariables.player.Fruits[1].speed) * GlobalVariables.player.Fruits[1].level
@@ -249,13 +264,13 @@ func calculateFruitsFromTime(elapsedTime):
 		PapayaCount = (elapsedTime / GlobalVariables.player.Fruits[12].speed) * GlobalVariables.player.Fruits[12].level
 		MelonCount = (elapsedTime / GlobalVariables.player.Fruits[13].speed) * GlobalVariables.player.Fruits[13].level
 		SandiaCount = (elapsedTime / GlobalVariables.player.Fruits[14].speed) * GlobalVariables.player.Fruits[14].level
+		
 		frutasTotal = BlueberryCount+CerezaCount+FresaCount+LimonCount+DuraznoCount+ManzanaCount+NaranjaCount+AguacateCount+MangoCount+DragonfruitCount+CocoCount+AnanaCount+PapayaCount+MelonCount+SandiaCount
 		GlobalVariables.player.fruitsPerSecond = frutasTotal/elapsedTime
 		
 				
 				
 		for i in range (0, GlobalVariables.houseCount):
-			print(i)
 			if houseIdArray[i] >= 1:
 				GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount += (BlueberryCount ) / GlobalVariables.houseCount
 				GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount += (CerezaCount ) / GlobalVariables.houseCount
@@ -399,7 +414,9 @@ func _on_run_timer_timeout():
 
 
 func _on_produce_juice_timer_timeout():
-	var litros = 0
+	var litros : float = 0.0
+	var litrosPorSegundo : float = 0.0
+	
 	
 	litros += GlobalVariables.totalBlueberryCount * GlobalVariables.player.Fruits[0].liters
 	litros += GlobalVariables.totalCerezaCount * GlobalVariables.player.Fruits[1].liters
@@ -418,8 +435,15 @@ func _on_produce_juice_timer_timeout():
 	litros += GlobalVariables.totalSandiaCount * GlobalVariables.player.Fruits[14].liters
 	
 	litrosPorSegundo = litros * 0.1
+	
+	var a = GlobalVariables.totalSandiaCount * GlobalVariables.player.Fruits[14].liters
+	
 	GlobalVariables.player.litersPerSecond = litrosPorSegundo
 	calculateMoneyFromLiters(litrosPorSegundo)
+	print("litrosPor segundo: ", litrosPorSegundo)
+	
+	
+	
 
 
 
@@ -447,8 +471,9 @@ func calculateFarmValue():
 		Pv = 0
 	
 		
-	#print(P - houseCapacity)
+
 	farmValue = 30000 * juiceValue * fruitsPerMin * earningBonus * maxRunningFruitBonusEq * L * (Pc + (0.2 * Pu) + (Pv**0.6) + (0.25 * Pp))
+	GlobalVariables.player.farmValue = farmValue
 	farmValueString = GlobalVariables.getMoneyString(farmValue)
 	$CanvasLayer/FarmValue.text = "FarmValue: " + farmValueString
 	

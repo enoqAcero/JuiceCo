@@ -20,5 +20,5 @@ class_name CurrentHouseData
 @export var ananaCount : int = 0
 @export var papayaCount : int = 0
 @export var melonCount : int = 0
-@export var sandiaCount : int = 0
+@export var sandiaCount : float = 0
 

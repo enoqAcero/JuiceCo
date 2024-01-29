@@ -238,7 +238,7 @@ func cashOut(index : int):
 	var houseId = rng.randi_range(0, GlobalVariables.houseCount)
 	var houseLvl
 	var frutasObtenidas = GlobalVariables.player.Fruits[index].level
-	var houseControl = false
+	
 	
 	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == true:
 		for i in range (0, GlobalVariables.houseCount):
@@ -248,79 +248,122 @@ func cashOut(index : int):
 			elif i == 3:
 				GlobalVariables.maxHouseCapacity = true
 				
-	houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
-		
-		
-	if GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
-		GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = true
-	else:
-		GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = false
-		
-	if GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
-		GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse = true
-		GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount = GlobalVariables.player.JuiceHouse[houseLvl].capacity
 	
-	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
-		SandiaExchange(houseId)
-
-	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == false and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:			
-		if index == 0:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount += frutasObtenidas
-			GlobalVariables.totalBlueberryCount += frutasObtenidas
-		elif index == 1:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].cerezaCount += frutasObtenidas
-			GlobalVariables.totalCerezaCount += frutasObtenidas
-		elif index == 2:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].fresaCount += frutasObtenidas
-			GlobalVariables.totalFresaCount += frutasObtenidas
-		elif index == 3:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].limonCount += frutasObtenidas
-			GlobalVariables.totalLimonCount += frutasObtenidas
-		elif index == 4:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].duraznoCount += frutasObtenidas
-			GlobalVariables.totalDuraznoCount += frutasObtenidas
-		elif index == 5:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].manzanaCount += frutasObtenidas
-			GlobalVariables.totalManzanaCount += frutasObtenidas
-		elif index == 6:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].naranjaCount += frutasObtenidas
-			GlobalVariables.totalNaranjaCount += frutasObtenidas
-		elif index == 7:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].aguacateCount += frutasObtenidas
-			GlobalVariables.totalAguacateCount += frutasObtenidas
-		elif index == 8:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].mangoCount += frutasObtenidas
-			GlobalVariables.totalMangoCount += frutasObtenidas
-		elif index == 9:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].dragonfruitCount += frutasObtenidas
-			GlobalVariables.totalDragonfruitCount += frutasObtenidas
-		elif index == 10:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].cocoCount += frutasObtenidas
-			GlobalVariables.totalCocoCount += frutasObtenidas
-		elif index == 11:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].ananaCount += frutasObtenidas
-			GlobalVariables.totalAnanaCount += frutasObtenidas
-		elif index == 12:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].papayaCount += frutasObtenidas
-			GlobalVariables.totalPapayaCount += frutasObtenidas
-		elif index == 13:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].melonCount += frutasObtenidas
-			GlobalVariables.totalMelonCount += frutasObtenidas
-		elif index == 14:
-			GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount += frutasObtenidas
-			GlobalVariables.totalSandiaCount += frutasObtenidas
-			
-		GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity += frutasObtenidas
+		
+	if GlobalVariables.maxHouseCapacity == false:
+		
+		houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
 		
 		if GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
 			GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = true
+		else:
+			GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = false
 			
-	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
-		SandiaExchange(houseId)
+	
+		if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
+			SandiaExchange(houseId)
+
+		if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == false and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:			
+			if index == 0:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount += frutasObtenidas
+				GlobalVariables.totalBlueberryCount += frutasObtenidas
+			elif index == 1:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].cerezaCount += frutasObtenidas
+				GlobalVariables.totalCerezaCount += frutasObtenidas
+			elif index == 2:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].fresaCount += frutasObtenidas
+				GlobalVariables.totalFresaCount += frutasObtenidas
+			elif index == 3:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].limonCount += frutasObtenidas
+				GlobalVariables.totalLimonCount += frutasObtenidas
+			elif index == 4:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].duraznoCount += frutasObtenidas
+				GlobalVariables.totalDuraznoCount += frutasObtenidas
+			elif index == 5:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].manzanaCount += frutasObtenidas
+				GlobalVariables.totalManzanaCount += frutasObtenidas
+			elif index == 6:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].naranjaCount += frutasObtenidas
+				GlobalVariables.totalNaranjaCount += frutasObtenidas
+			elif index == 7:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].aguacateCount += frutasObtenidas
+				GlobalVariables.totalAguacateCount += frutasObtenidas
+			elif index == 8:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].mangoCount += frutasObtenidas
+				GlobalVariables.totalMangoCount += frutasObtenidas
+			elif index == 9:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].dragonfruitCount += frutasObtenidas
+				GlobalVariables.totalDragonfruitCount += frutasObtenidas
+			elif index == 10:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].cocoCount += frutasObtenidas
+				GlobalVariables.totalCocoCount += frutasObtenidas
+			elif index == 11:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].ananaCount += frutasObtenidas
+				GlobalVariables.totalAnanaCount += frutasObtenidas
+			elif index == 12:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].papayaCount += frutasObtenidas
+				GlobalVariables.totalPapayaCount += frutasObtenidas
+			elif index == 13:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].melonCount += frutasObtenidas
+				GlobalVariables.totalMelonCount += frutasObtenidas
+			elif index == 14:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount += frutasObtenidas
+				GlobalVariables.totalSandiaCount += frutasObtenidas
+				
+			GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity += frutasObtenidas
+			
+			if GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+				GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse = true
+				
+		if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
+			SandiaExchange(houseId)
 		
 func SandiaExchange(houseId : int):
-	print("SnadiaExchange", houseId)
-	GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity = 0
+	
+	var litros : float = 0
+	var sandiaCount : float = 0
+	var divisor = (126180517478400*40)
+	
+	var houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
+	
+	
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount * GlobalVariables.player.Fruits[0].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].cerezaCount * GlobalVariables.player.Fruits[1].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].fresaCount * GlobalVariables.player.Fruits[2].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].limonCount * GlobalVariables.player.Fruits[3].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].duraznoCount * GlobalVariables.player.Fruits[4].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].manzanaCount * GlobalVariables.player.Fruits[5].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].naranjaCount * GlobalVariables.player.Fruits[6].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].aguacateCount * GlobalVariables.player.Fruits[7].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].mangoCount * GlobalVariables.player.Fruits[8].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].dragonfruitCount * GlobalVariables.player.Fruits[9].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].cocoCount * GlobalVariables.player.Fruits[10].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].ananaCount * GlobalVariables.player.Fruits[11].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].papayaCount * GlobalVariables.player.Fruits[12].liters
+	litros += GlobalVariables.player.CurrentJuiceHouse[houseId].melonCount * GlobalVariables.player.Fruits[13].liters
+	
+	GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].cerezaCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].fresaCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].limonCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].duraznoCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].manzanaCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].naranjaCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].aguacateCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].mangoCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].dragonfruitCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].cocoCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].ananaCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].papayaCount = 0
+	GlobalVariables.player.CurrentJuiceHouse[houseId].melonCount = 0
+
+	
+	sandiaCount = (litros/divisor)
+	GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount += sandiaCount
+	GlobalVariables.player.CurrentJuiceHouse[houseId].currentCapacity = sandiaCount
+
+	if GlobalVariables.player.CurrentJuiceHouse[houseId].sandiaCount >= GlobalVariables.player.JuiceHouse[houseLvl].capacity:
+		GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse = true
 	
 func _on_button_pressed():
 	hide()
