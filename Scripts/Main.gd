@@ -8,6 +8,7 @@ var controlEscenasUpgrades = false
 var controlEscenasBoost = false
 var controlEscenasMenu = false
 var controlEscenasShop = false
+var controlEscenasModalJuiceLvl = false
 
 var totalTransportCapacity = 0
 var totalJuiceHouseCapacity = 0
@@ -151,15 +152,16 @@ func countFruits():
 			GlobalVariables.totalFruits += GlobalVariables.totalSandiaCount
 			
 func calculateMoneyFromLiters(litrosPorSegundo : float):
-	print("litrosPor segundo: ", litrosPorSegundo)
+	#print("litrosPor segundo: ", litrosPorSegundo)
 
 	var currentJuiceLevel = GlobalVariables.player.juiceLevel
 	var moneyString : String
 	var multGananciasMultiplier = 1
+	
 	if GlobalVariables.player.multGananciasActive == true:
 		multGananciasMultiplier = 2
 		
-	
+	#print("litros multiplier: ",multGananciasMultiplier)
 	if litrosPorSegundo >= totalTransportCapacity:
 		litrosPorSegundo = totalTransportCapacity
 		GlobalVariables.maxTransportCapacity = true 
@@ -168,7 +170,7 @@ func calculateMoneyFromLiters(litrosPorSegundo : float):
 	GlobalVariables.player.money += (litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value * (GlobalVariables.multiplier + 1)) * multGananciasMultiplier
 	moneyString = GlobalVariables.getMoneyString(GlobalVariables.player.money)
 	$CanvasLayer/Money.text = "Money: " + moneyString
-	$CanvasLayer/moneyPerSec.text = "MoneyPerSec: " + str(litrosPorSegundo)
+	$CanvasLayer/moneyPerSec.text = "MoneyPerSec: " + str(litrosPorSegundo * multGananciasMultiplier)
 
 	
 	
@@ -340,6 +342,7 @@ func hideScene():
 	$CanvasLayer/Boost.visible = false
 	$CanvasLayer/Menu.visible = false
 	$CanvasLayer/Shop.visible = false
+	$CanvasLayer/ModalJuiceLvl.visible = false
 
 # Muestra la escena especificada
 func showScene(scene, controlEscenas):
@@ -435,12 +438,10 @@ func _on_produce_juice_timer_timeout():
 	litros += GlobalVariables.totalSandiaCount * GlobalVariables.player.Fruits[14].liters
 	
 	litrosPorSegundo = litros * 0.1
-	
-	var a = GlobalVariables.totalSandiaCount * GlobalVariables.player.Fruits[14].liters
-	
+		
 	GlobalVariables.player.litersPerSecond = litrosPorSegundo
 	calculateMoneyFromLiters(litrosPorSegundo)
-	print("litrosPor segundo: ", litrosPorSegundo)
+	#print("litrosPor segundo: ", litrosPorSegundo)
 	
 	
 	
@@ -470,7 +471,17 @@ func calculateFarmValue():
 	if Pv <= 0:
 		Pv = 0
 	
-		
+	print(P)
+	print(Pc)
+	print(Pu)
+	print(Pv)
+	print(Pp)
+	print(L)
+	print(juiceValue)
+	print(fruitsPerMin)
+	print(earningBonus)
+	print(maxRunningFruitBonusEq)
+	
 
 	farmValue = 30000 * juiceValue * fruitsPerMin * earningBonus * maxRunningFruitBonusEq * L * (Pc + (0.2 * Pu) + (Pv**0.6) + (0.25 * Pp))
 	GlobalVariables.player.farmValue = farmValue
@@ -480,3 +491,7 @@ func calculateFarmValue():
 
 func _on_timer_timeout():
 	calculateFarmValue()
+
+
+func _on_juice_lvl_pressed():
+	controlEscenasModalJuiceLvl = showScene($CanvasLayer/ModalJuiceLvl, controlEscenasModalJuiceLvl)

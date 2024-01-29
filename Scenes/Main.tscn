@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=15 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dh2j4eukundbg" path="res://Scenes/WaterTank.tscn" id="10_lanya"]
 [ext_resource type="PackedScene" uid="uid://bpo2g24224cbx" path="res://Scenes/PhysicalJuiceHouse.tscn" id="10_wudyb"]
 [ext_resource type="PackedScene" uid="uid://dnlowaumxp2p" path="res://Scenes/adControl.tscn" id="12_3urwt"]
+[ext_resource type="PackedScene" uid="uid://3j4nys6t5v5t" path="res://Scenes/ModalJuicesLvl.tscn" id="12_gl3jr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2x17k"]
 vertices = PackedVector2Array(-85, -110, -376, -119, -378, -311, 376, -306, 281, -107, 388, 491, 302, 491)
@@ -130,12 +131,27 @@ text = "FarmValue :"
 autostart = true
 
 [node name="adControl" parent="CanvasLayer" instance=ExtResource("12_3urwt")]
+offset_left = 286.0
+offset_top = 159.0
+offset_right = 326.0
+offset_bottom = 199.0
 
 [node name="moneyPerSec" type="Label" parent="CanvasLayer"]
 offset_left = 236.0
 offset_top = 627.0
 offset_right = 276.0
 offset_bottom = 650.0
+
+[node name="ModalJuiceLvl" parent="CanvasLayer" instance=ExtResource("12_gl3jr")]
+visible = false
+position = Vector2(-6, 56)
+
+[node name="JuiceLvl" type="Button" parent="CanvasLayer"]
+offset_left = 31.0
+offset_top = 432.0
+offset_right = 98.0
+offset_bottom = 481.0
+text = "JuiceLvl"
 
 [node name="house" parent="." instance=ExtResource("10_wudyb")]
 position = Vector2(344, 532)
@@ -181,6 +197,7 @@ navigation_polygon = SubResource("NavigationPolygon_2x17k")
 [connection signal="pressed" from="CanvasLayer/menuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/FarmValue/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/JuiceLvl" to="." method="_on_juice_lvl_pressed"]
 [connection signal="pressed" from="house/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="timeout" from="ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]

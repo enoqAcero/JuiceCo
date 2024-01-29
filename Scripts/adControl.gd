@@ -12,6 +12,8 @@ var gemasTimer
 
 var adModalNode
 var adRewardNode
+var adRewardLabel
+var adRewardSprite
 
 #0 = multGanancias, 1 = gemYdinero, 2 = gemas
 var adIndex = -1
@@ -31,6 +33,8 @@ func _ready():
 	
 	adModalNode = $adModal
 	adRewardNode = $adRewardModal
+	adRewardLabel = $adRewardModal.get_node("VBoxContainer/Label")
+	adRewardSprite = $adRewardModal.get_node("VBoxContainer/Sprite2D")
 	
 	multGananciasTimer.one_shot = true
 	gemYdineroTimer.one_shot = true
@@ -100,11 +104,21 @@ func cancel():
 func _on_ad_reward_modal_visibility_changed():
 	if adRewardNode.visible == true:
 		var gemReward = 3
-		var farmValueMultiplier = 5
-		var moneyReward = GlobalVariables.player.farmValue * farmValueMultiplier
-		var prob = rand.randi_range(0, 100)
-		
-		if prob < 80:
-			GlobalVariables.player.money += moneyReward
-		else:
-			GlobalVariables.player.gems += gemReward
+		if adIndex == 1:
+			var farmValueMultiplier = 5
+			var moneyReward = GlobalVariables.player.farmValue * farmValueMultiplier
+			var prob = rand.randi_range(0, 100)
+			
+			if prob < 80:
+				var reward : String
+				print(moneyReward)
+				reward = GlobalVariables.getMoneyString(moneyReward)
+				GlobalVariables.player.money += moneyReward
+				adRewardLabel.text = "You Won:	" + reward
+				
+			else:
+				GlobalVariables.player.gems += gemReward
+				
+		elif adIndex == 2:
+			var reward = gemReward * 5
+			GlobalVariables.player.gems += reward
