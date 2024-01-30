@@ -157,13 +157,17 @@ func loadPanelData(index : int):
 	currentPanelTimer = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Timer")
 	
 	currentPanelSprite.texture = GlobalVariables.player.Fruits[index].skin
-	currentPanelButtonCost.text = str(GlobalVariables.player.Fruits[index].cost)
-	currentPanelButtonAbb.text = "NoAbb"
+	if GlobalVariables.player.Fruits[index].cost <= 999:
+		currentPanelButtonCost.text = str(GlobalVariables.player.Fruits[index].cost)
+	else:
+		currentPanelButtonCost.text = GlobalVariables.getMoneyString(GlobalVariables.player.Fruits[index].cost)
+	currentPanelButtonAbb.text = " "
 	currentPanelProgressBar = GlobalVariables.player.Fruits[index].currentProgress
 	if GlobalVariables.player.Fruits[index].speed == 0:
 		GlobalVariables.player.Fruits[index].speed = 10000
 	currentPanelTimer.wait_time = (GlobalVariables.player.Fruits[index].speed)/100
-	currentPanelTimer.start()
+	if GlobalVariables.player.Fruits[index].level > 0:
+		currentPanelTimer.start()
 	
 	var tierText = calculateTierLevel(index)
 	if tierText == 20:

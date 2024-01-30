@@ -16,10 +16,10 @@ script = ExtResource("1_3qdky")
 houseLvl = 0
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 49.0
-blueberryCount = 49
-cerezaCount = 0
-fresaCount = 0
+currentCapacity = 762972.0
+blueberryCount = 629993
+cerezaCount = 76964
+fresaCount = 55837
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -31,7 +31,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 3.60318e-12
+sandiaCount = 156.2
 
 [sub_resource type="Resource" id="Resource_ih36l"]
 script = ExtResource("1_3qdky")
@@ -102,36 +102,36 @@ sandiaCount = 0.0
 [sub_resource type="Resource" id="Resource_tjrh3"]
 script = ExtResource("1_hnv06")
 name = "Mango"
-level = 1
-tier = 0
-cost = 5.0
+level = 44
+tier = 7
+cost = 40.7484
 liters = 1.0
 multiplier = 1.05
-speed = 5.0
-currentProgress = 75.0
+speed = 0.0390625
+currentProgress = 10.0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_n854k"]
 script = ExtResource("1_hnv06")
 name = ""
-level = 0
-tier = 0
+level = 28
+tier = 2
 cost = 0.0
-liters = 0.0
+liters = 5e+11
 multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
+speed = 1.25
+currentProgress = 16.0
 
 [sub_resource type="Resource" id="Resource_fsb1x"]
 script = ExtResource("1_hnv06")
 name = ""
-level = 0
+level = 1
 tier = 0
-cost = 0.0
-liters = 0.0
-multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
+cost = 5.6
+liters = 5.0
+multiplier = 1.12
+speed = 120.0
+currentProgress = 7.0
 
 [sub_resource type="Resource" id="Resource_o2fer"]
 script = ExtResource("1_hnv06")
@@ -257,13 +257,13 @@ currentProgress = 0.0
 [sub_resource type="Resource" id="Resource_welvk"]
 script = ExtResource("1_hnv06")
 name = ""
-level = 0
+level = 1
 tier = 0
 cost = 0.0
 liters = 5.04722e+15
 multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
+speed = 20.0
+currentProgress = 36.0
 
 [sub_resource type="Resource" id="Resource_yabiq"]
 script = ExtResource("1_4wlhr")
@@ -527,7 +527,7 @@ value = 2e+08
 script = ExtResource("2_webxm")
 name = "bike"
 level = 0
-capacity = 10000.0
+capacity = 1e+16
 cost = 0.0
 skin = ExtResource("3_edhc7")
 
@@ -620,12 +620,12 @@ count = 12
 [resource]
 script = ExtResource("1_fhr83")
 liters = 0.0
-money = 3.40314e+06
+money = 1.19953e+20
 gems = 6
-litersPerSecond = 1823.5
-fruitsPerSecond = 0.0
-farmValue = nan
-time = "2024-01-29T15:59:11"
+litersPerSecond = 8.26858e+16
+sandiasPerSecond = 0.052219
+farmValue = 5.5795e+25
+time = "2024-01-30T11:43:25"
 multGananciasActive = false
 gemYdineroActive = true
 gemasActive = false

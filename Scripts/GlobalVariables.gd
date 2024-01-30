@@ -9,7 +9,7 @@ var maxTransportCapacity = false
 
 var litersAbbreviation
 var moneyAbbreviation
-var abbFactor
+var abbFactor : float
 
 var totalBlueberryCount = 0
 var totalCerezaCount = 0
@@ -52,100 +52,100 @@ func loadResource():
 #and gets the abbFactor to
 func getAbb(money : float):
 	var abb : String
-	abbFactor = 1
+	abbFactor = 1.0
 	
-	if (money / (10**3)) < 999.99:
-		abbFactor = (10**3)
+	if (money / (10.0**3.0)) < 999.99:
+		abbFactor = (10.0**3.0)
 		abb = "K"
-	elif (money / (10**6)) < 999.99:
-		abbFactor = (10**6)
+	elif (money / (10.0**6.0)) < 999.99:
+		abbFactor = (10.0**6.0)
 		abb = "M"
-	elif (money / (10**9)) < 999.99:
-		abbFactor = (10**9)
+	elif (money / (10.0**9.0)) < 999.99:
+		abbFactor = (10.0**9.0)
 		abb = "B"
-	elif (money / (10**12)) < 999.99:
-		abbFactor = (10**12)
+	elif (money / (10.0**12.0)) < 999.99:
+		abbFactor = (10.0**12.0)
 		abb = "T"
-	elif (money / (10**15)) < 999.99:
-		abbFactor = (10**15)
+	elif (money / (10.0**15.0)) < 999.99:
+		abbFactor = (10.0**15.0)
 		abb = "q"
-	elif (money / (10**18)) < 999.99:
-		abbFactor = (10**18)
+	elif (money / (10.0**18.0)) < 999.99:
+		abbFactor = (10.0**18.0)
 		abb = "Q"
-	elif (money / (10**21)) < 999.99:
-		abbFactor = (10**21)
+	elif (money / (10.0**21.0)) < 999.99:
+		abbFactor = (10.0**21)
 		abb = "s"
-	elif (money / (10**24)) < 999.99:
-		abbFactor = (10**24)
+	elif (money / (10.0**24.0)) < 999.99:
+		abbFactor = (10.0**24.0)
 		abb = "S"
-	elif (money / (10**27)) < 999.99:
-		abbFactor = (10**27)
+	elif (money / (10.0**27.0)) < 999.99:
+		abbFactor = (10.0**27.0)
 		abb = "o"
-	elif (money / (10**30)) < 999.99:
-		abbFactor = (10**30)
+	elif (money / (10.0**30.0)) < 999.99:
+		abbFactor = (10.0**30.0)
 		abb = "N"
-	elif (money / (10**33)) < 999.99:
-		abbFactor = (10**33)
+	elif (money / (10.0**33.0)) < 999.99:
+		abbFactor = (10.0**33.0)
 		abb = "d"
-	elif (money / (10**36)) < 999.99:
-		abbFactor = (10**36)
+	elif (money / (10.0**36.0)) < 999.99:
+		abbFactor = (10.0**36.0)
 		abb = "U"
-	elif (money / (10**39)) < 999.99:
-		abbFactor = (10**39)
+	elif (money / (10.0**39.0)) < 999.99:
+		abbFactor = (10.0**39.0)
 		abb = "D"
-	elif (money / (10**42)) < 999.99:
-		abbFactor = (10**42)
+	elif (money / (10.0**42.0)) < 999.99:
+		abbFactor = (10.0**42.0)
 		abb = "Td"
-	elif (money / (10**45)) < 999.99:
-		abbFactor = (10**45)
+	elif (money / (10.0**45.0)) < 999.99:
+		abbFactor = (10.0**45.0)
 		abb = "qd"
-	elif (money / (10**48)) < 999.99:
-		abbFactor = (10**48)
+	elif (money / (10.0**48.0)) < 999.99:
+		abbFactor = (10.0**48.0)
 		abb = "Qd"
-	elif (money / (10**51)) < 999.99:
-		abbFactor = (10**51)
+	elif (money / (10.0**51.0)) < 999.99:
+		abbFactor = (10.0**51.0)
 		abb = "sd"
-	elif (money / (10**54)) < 999.99:
-		abbFactor = (10**54)
+	elif (money / (10.0**54.0)) < 999.99:
+		abbFactor = (10.0**54.0)
 		abb = "Sd"
-	elif (money / (10**57)) < 999.99:
-		abbFactor = (10**57)
+	elif (money / (10.0**57.0)) < 999.99:
+		abbFactor = (10.0**57.0)
 		abb = "Od"
-	elif (money / (10**60)) < 999.99:
-		abbFactor = (10**60)
+	elif (money / (10.0**60.0)) < 999.99:
+		abbFactor = (10.0**60.0)
 		abb = "Nd"
-	elif (money / (10**63)) < 999.99:
-		abbFactor = (10**63)
+	elif (money / (10.0**63.0)) < 999.99:
+		abbFactor = (10.0**63.0)
 		abb = "V"
-	elif (money / (10**66)) < 999.99:
-		abbFactor = (10**66)
+	elif (money / (10.0**66.0)) < 999.99:
+		abbFactor = (10.0**66.0)
 		abb = "uV"
-	elif (money / (10**69)) < 999.99:
-		abbFactor = (10**69)
+	elif (money / (10.0**69.0)) < 999.99:
+		abbFactor = (10.0**69.0)
 		abb = "dV"
-	elif (money / (10**72)) < 999.99:
-		abbFactor = (10**72)
+	elif (money / (10.0**72.0)) < 999.99:
+		abbFactor = (10.0**72.0)
 		abb = "tV"
-	elif (money / (10**75)) < 999.99:
-		abbFactor = (10**75)
+	elif (money / (10.0**75.0)) < 999.99:
+		abbFactor = (10.0**75.0)
 		abb = "qV"
-	elif (money / (10**78)) < 999.99:
-		abbFactor = (10**78)
+	elif (money / (10.0**78.0)) < 999.99:
+		abbFactor = (10.0**78.0)
 		abb = "QV"
-	elif (money / (10**81)) < 999.99:
-		abbFactor = (10**81)
+	elif (money / (10.0**81.0)) < 999.99:
+		abbFactor = (10.0**81.0)
 		abb = "sV"
-	elif (money / (10**84)) < 999.99:
-		abbFactor = (10**84)
+	elif (money / (10.0**84.0)) < 999.99:
+		abbFactor = (10.0**84.0)
 		abb = "SV"
-	elif (money / (10**87)) < 999.99:
-		abbFactor = (10**87)
+	elif (money / (10.0**87.0)) < 999.99:
+		abbFactor = (10.0**87.0)
 		abb = "OV"
-	elif (money / (10**90)) < 999.99:
-		abbFactor = (10**90)
+	elif (money / (10.0**90.0)) < 999.99:
+		abbFactor = (10.0**90.0)
 		abb = "NV"
-	elif (money / (10**93)) < 999.99:
-		abbFactor = (10**93)
+	elif (money / (10.0**93.0)) < 999.99:
+		abbFactor = (10.0**93.0)
 		abb = "TG"
 		
 	return abb
