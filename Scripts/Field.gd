@@ -18,39 +18,6 @@ var panelNode12Button
 var panelNode13Button
 var panelNode14Button
 
-var panelNode0ProgressBar
-var panelNode1ProgressBar
-var panelNode2ProgressBar
-var panelNode3ProgressBar
-var panelNode4ProgressBar
-var panelNode5ProgressBar
-var panelNode6ProgressBar
-var panelNode7ProgressBar
-var panelNode8ProgressBar
-var panelNode9ProgressBar
-var panelNode10ProgressBar
-var panelNode11ProgressBar
-var panelNode12ProgressBar
-var panelNode13ProgressBar
-var panelNode14ProgressBar
-
-var panelNode0Timer
-var panelNode1Timer
-var panelNode2Timer
-var panelNode3Timer
-var panelNode4Timer
-var panelNode5Timer
-var panelNode6Timer
-var panelNode7Timer
-var panelNode8Timer
-var panelNode9Timer
-var panelNode10Timer
-var panelNode11Timer
-var panelNode12Timer
-var panelNode13Timer
-var panelNode14Timer
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -70,39 +37,6 @@ func _ready():
 	panelNode13Button = $ScrollContainer/Control/VBoxContainer/Panel13/Button
 	panelNode14Button = $ScrollContainer/Control/VBoxContainer/Panel14/Button
 	
-	panelNode0ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel0/ProgressBar
-	panelNode1ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel1/ProgressBar
-	panelNode2ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel2/ProgressBar
-	panelNode3ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel3/ProgressBar
-	panelNode4ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel4/ProgressBar
-	panelNode5ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel5/ProgressBar
-	panelNode6ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel6/ProgressBar
-	panelNode7ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel7/ProgressBar
-	panelNode8ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel8/ProgressBar
-	panelNode9ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel9/ProgressBar
-	panelNode10ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel10/ProgressBar
-	panelNode11ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel11/ProgressBar
-	panelNode12ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel12/ProgressBar
-	panelNode13ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel13/ProgressBar
-	panelNode14ProgressBar = $ScrollContainer/Control/VBoxContainer/Panel14/ProgressBar
-
-	panelNode0Timer = $ScrollContainer/Control/VBoxContainer/Panel0/Timer
-	panelNode1Timer = $ScrollContainer/Control/VBoxContainer/Panel1/Timer
-	panelNode2Timer = $ScrollContainer/Control/VBoxContainer/Panel2/Timer
-	panelNode3Timer = $ScrollContainer/Control/VBoxContainer/Panel3/Timer
-	panelNode4Timer = $ScrollContainer/Control/VBoxContainer/Panel4/Timer
-	panelNode5Timer = $ScrollContainer/Control/VBoxContainer/Panel5/Timer
-	panelNode6Timer = $ScrollContainer/Control/VBoxContainer/Panel6/Timer
-	panelNode7Timer = $ScrollContainer/Control/VBoxContainer/Panel7/Timer
-	panelNode8Timer = $ScrollContainer/Control/VBoxContainer/Panel8/Timer
-	panelNode9Timer = $ScrollContainer/Control/VBoxContainer/Panel9/Timer
-	panelNode10Timer = $ScrollContainer/Control/VBoxContainer/Panel10/Timer
-	panelNode11Timer = $ScrollContainer/Control/VBoxContainer/Panel11/Timer
-	panelNode12Timer = $ScrollContainer/Control/VBoxContainer/Panel12/Timer
-	panelNode13Timer = $ScrollContainer/Control/VBoxContainer/Panel13/Timer
-	panelNode14Timer = $ScrollContainer/Control/VBoxContainer/Panel14/Timer
-	
-	
 	panelNode0Button.pressed.connect(Callable(buyFruit).bind(0))
 	panelNode1Button.pressed.connect(Callable(buyFruit).bind(1))
 	panelNode2Button.pressed.connect(Callable(buyFruit).bind(2))
@@ -119,22 +53,6 @@ func _ready():
 	panelNode13Button.pressed.connect(Callable(buyFruit).bind(13))
 	panelNode14Button.pressed.connect(Callable(buyFruit).bind(14))
 	
-	panelNode0Timer.timeout.connect(Callable(timerTimeout).bind(0))
-	panelNode1Timer.timeout.connect(Callable(timerTimeout).bind(1))
-	panelNode2Timer.timeout.connect(Callable(timerTimeout).bind(2))
-	panelNode3Timer.timeout.connect(Callable(timerTimeout).bind(3))
-	panelNode4Timer.timeout.connect(Callable(timerTimeout).bind(4))
-	panelNode5Timer.timeout.connect(Callable(timerTimeout).bind(5))
-	panelNode6Timer.timeout.connect(Callable(timerTimeout).bind(6))
-	panelNode7Timer.timeout.connect(Callable(timerTimeout).bind(7))
-	panelNode8Timer.timeout.connect(Callable(timerTimeout).bind(8))
-	panelNode9Timer.timeout.connect(Callable(timerTimeout).bind(9))
-	panelNode10Timer.timeout.connect(Callable(timerTimeout).bind(10))
-	panelNode11Timer.timeout.connect(Callable(timerTimeout).bind(11))
-	panelNode12Timer.timeout.connect(Callable(timerTimeout).bind(12))
-	panelNode13Timer.timeout.connect(Callable(timerTimeout).bind(13))
-	panelNode14Timer.timeout.connect(Callable(timerTimeout).bind(14))
-	
 	loadAllPanelData()
 	
 func loadAllPanelData():
@@ -142,33 +60,22 @@ func loadAllPanelData():
 		loadPanelData(i)
 		
 func loadPanelData(index : int):
-	var currentPanelProgressBar
 	var currentPanelSprite
 	var currentPanelButtonCost
-	var currentPanelButtonAbb
 	var currentPanelLvlLabel
-	var currentPanelTimer
 	
-	currentPanelProgressBar = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/ProgressBar")
 	currentPanelSprite = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/A")
 	currentPanelButtonCost = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Button/CostNumber")
-	currentPanelButtonAbb = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Button/CostAbb")
 	currentPanelLvlLabel = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Lvl")
-	currentPanelTimer = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Timer")
 	
 	currentPanelSprite.texture = GlobalVariables.player.Fruits[index].skin
 	if GlobalVariables.player.Fruits[index].cost <= 999:
 		currentPanelButtonCost.text = str(GlobalVariables.player.Fruits[index].cost)
 	else:
 		currentPanelButtonCost.text = GlobalVariables.getMoneyString(GlobalVariables.player.Fruits[index].cost)
-	currentPanelButtonAbb.text = " "
-	currentPanelProgressBar = GlobalVariables.player.Fruits[index].currentProgress
 	if GlobalVariables.player.Fruits[index].speed == 0:
 		GlobalVariables.player.Fruits[index].speed = 10000
-	currentPanelTimer.wait_time = (GlobalVariables.player.Fruits[index].speed)/100
-	if GlobalVariables.player.Fruits[index].level > 0:
-		currentPanelTimer.start()
-	
+		
 	var tierText = calculateTierLevel(index)
 	if tierText == 20:
 		currentPanelLvlLabel.text = str(GlobalVariables.player.Fruits[index].level) + "/20"
@@ -209,15 +116,6 @@ func buyFruit(index : int):
 	
 	loadPanelData(index)
 	
-func timerTimeout(index : int):
-	var currentProgressBar = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/ProgressBar")
-	GlobalVariables.player.Fruits[index].currentProgress += 1
-	currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
-	if currentProgressBar.value >= 100:
-		cashOut(index)
-		GlobalVariables.player.Fruits[index].currentProgress = 0
-		currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
-
 func saveCurrentProgress(index : int):
 	var currentProgressBar = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/ProgressBar")
 	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
