@@ -24,11 +24,21 @@ var multiplierLabel
 
 var farmValue : float = 0.0
 
+var flyRewardPath = preload("res://Scenes/FlyingReward.tscn")
+var flyRewardTimer
+var minFlyRewardTime = 1#60
+var maxFlyRewardTime = 5#60 * 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	runTimerNode = $CanvasLayer/runButton/RunTimer
 	multiplierLabel = $CanvasLayer/Multiplier
+	flyRewardTimer = $FlyReward
+	
+	flyRewardTimer.one_shot = true
+	flyRewardTimer.wait_time = rng.randi_range(minFlyRewardTime, maxFlyRewardTime)
+	flyRewardTimer.start()
 	
 	GlobalVariables.loadResource()
 	SignalManager.loadData.connect(loadData)
@@ -48,7 +58,7 @@ func _process(_delta):
 	else:
 		multiplierLabelUpdate(0)
 	
-	multiplierLabel.text = "x " + str(GlobalVariables.multiplier)
+	multiplierLabel.text = "x" + str(GlobalVariables.multiplier)
 
 
 func multiplierLabelUpdate(control : int):
@@ -192,6 +202,7 @@ func _notification(what):
 	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_READY:
 		get_tree().paused = false
 		calculateTime()
+		calculateAdTime()
 		
 		
 func calculateTime():
@@ -209,7 +220,45 @@ func calculateTime():
 	timeProgressBarNode.value = (maxTime - elapsedTime)
 	
 	calculateMoneyFromTime(elapsedTime)
+
+func calculateAdTime():
+	var maxMultGananciasTime = GlobalVariables.maxMultGananciasTime
+	var maxGemYdineroTime = GlobalVariables.maxGemYdineroTime
+	var maxGemasTime = GlobalVariables.maxGemasTime
 	
+	var prevMultGananciasTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.multGananciasAdTimer)
+	var prevGemYdinreoTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.gemYdineroAdTimer)
+	var prevGemTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.gemasAdTimer)
+	
+	var currentTime = Time.get_unix_time_from_datetime_string(Time.get_datetime_string_from_system())
+	
+	var elapsedTime
+	
+	GlobalVariables.multGananciasAdRemainingTime = maxMultGananciasTime
+	GlobalVariables.gemYdineroAdRemainingTime = maxGemYdineroTime
+	GlobalVariables.gemasAdRemainingTime = maxGemasTime
+	
+	if GlobalVariables.player.multGananciasActive == true: 
+		elapsedTime = currentTime - prevMultGananciasTime
+		if maxMultGananciasTime <= elapsedTime:
+			GlobalVariables.player.multGananciasActive = false
+		else:
+			GlobalVariables.multGananciasAdRemainingTime = maxMultGananciasTime - elapsedTime
+			
+	if GlobalVariables.player.gemYdineroActive == true: 
+		elapsedTime = currentTime - prevGemYdinreoTime
+		if maxGemYdineroTime <= elapsedTime:
+			GlobalVariables.player.gemYdineroActive = false
+		else:
+			GlobalVariables.gemYdineroAdRemainingTime = maxGemYdineroTime - elapsedTime
+			
+	if GlobalVariables.player.gemasActive == true: 
+		elapsedTime = currentTime - prevGemTime	
+		if maxGemasTime <= elapsedTime:
+			GlobalVariables.player.gemasActive = false
+		else:
+			GlobalVariables.gemasAdRemainingTime = maxGemasTime - elapsedTime
+
 
 func calculateMoneyFromTime(elapsedTime):
 	var moneyEarned = GlobalVariables.player.litersPerSecond * elapsedTime
@@ -219,7 +268,8 @@ func calculateMoneyFromTime(elapsedTime):
 	
 	moneyEarnedString = GlobalVariables.getMoneyString(moneyEarned)
 	moneyEarnedLabel.text = "Money Earned While Away: \n" + moneyEarnedString
-	$CanvasLayer/WaterTank.show()
+	if elapsedTime > 30:
+		$CanvasLayer/WaterTank.show()
 	GlobalVariables.player.money += moneyEarned * earningBonus
 	calculateFruitsFromTime(elapsedTime)
 	save()
@@ -494,3 +544,21 @@ func _on_timer_timeout():
 
 func _on_juice_lvl_pressed():
 	controlEscenasModalJuiceLvl = showScene($CanvasLayer/ModalJuiceLvl, controlEscenasModalJuiceLvl)
+
+
+func _on_fly_reward_timeout():
+	print("add fly reward to scene")
+	var prob = rng.randi_range(0, 100)
+	var flyReward = flyRewardPath.instantiate()
+	
+	add_child(flyReward)
+	
+	if prob > 90:
+		flyReward.add_to_group("flyRewardGems")
+	elif prob > 60:
+		flyReward.add_to_group("flyRewardRich")
+	else:
+		flyReward.add_to_group("flyRewardPoor")
+		
+	flyRewardTimer.wait_time = rng.randi_range(minFlyRewardTime, maxFlyRewardTime)
+	flyRewardTimer.start()

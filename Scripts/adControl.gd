@@ -2,6 +2,8 @@ extends Control
 
 var rand = RandomNumberGenerator.new()
 
+var mainNode
+
 var multGananciasBtn
 var gemYdineroBtn
 var gemasBtn
@@ -9,6 +11,11 @@ var gemasBtn
 var multGananciasTimer
 var gemYdineroTimer
 var gemasTimer
+var waitTimeControl = false
+
+var timercontrol1 = false
+var timercontrol2 = false
+var timercontrol3 = false
 
 var adModalNode
 var adRewardNode
@@ -22,6 +29,8 @@ var adIndex = -1
 
 func _ready():	
 	randomize()
+	
+	mainNode = get_parent().get_parent()
 	
 	multGananciasBtn = $VBoxContainer/multGanancias
 	gemYdineroBtn = $VBoxContainer/gemYdinero
@@ -40,9 +49,7 @@ func _ready():
 	gemYdineroTimer.one_shot = true
 	gemasTimer.one_shot = true
 	
-	multGananciasTimer.wait_time = 5#60 * 60 * 4
-	gemYdineroTimer.wait_time = 5#60 * 30
-	gemasTimer.wait_time = 5#60 * 5
+	mainNode.calculateAdTime()
 	
 	multGananciasBtn.pressed.connect(adMultGanancias)
 	gemYdineroBtn.pressed.connect(adGemYdinero)
@@ -56,7 +63,47 @@ func _ready():
 	$adModal.get_node("VBoxContainer/cancel").pressed.connect(cancel)
 	$adRewardModal.get_node("VBoxContainer/close").pressed.connect(cancel)
 	
+func _process(_delta):
+	if waitTimeControl == false:
+		multGananciasTimer.wait_time = GlobalVariables.multGananciasAdRemainingTime
+		gemYdineroTimer.wait_time = GlobalVariables.gemYdineroAdRemainingTime
+		gemasTimer.wait_time = GlobalVariables.gemasAdRemainingTime
+		waitTimeControl = true
+		
+		
+	#multGanancias timer
+	if GlobalVariables.player.multGananciasActive == true:
+		multGananciasBtn.hide()
+		if timercontrol1 == false:
+			timercontrol1 = true
+			multGananciasTimer.start()
+	else:
+		multGananciasBtn.show()
+		
+	#gem y dinero timer
+	if GlobalVariables.player.gemYdineroActive == true:
+		gemYdineroBtn.hide()
+		if timercontrol2 == false:
+			timercontrol2 = true
+			gemYdineroTimer.start()
+	else:
+		gemYdineroBtn.show()
+		
+	#gemas timer
+	if GlobalVariables.player.gemasActive == true:
+		gemasBtn.hide()
+		if timercontrol3 == false:
+			timercontrol3 = true
+			gemasTimer.start()
+	else:
+		gemasBtn.show()
+		
+	if adModalNode.visible == true:
+		multGananciasBtn.hide()
+		gemYdineroBtn.hide()
+		gemasBtn.hide()
 
+		
 func adMultGanancias():
 	adIndex = 0
 	adModalNode.show()
@@ -70,31 +117,37 @@ func adGemas():
 func powerUpEnd(powerUpIndex : int):
 	if powerUpIndex == 0:
 		GlobalVariables.player.multGananciasActive = false
-		multGananciasBtn.show()
+		multGananciasTimer.wait_time = GlobalVariables.maxMultGananciasTime
 	elif powerUpIndex == 1:
 		GlobalVariables.player.gemYdineroActive = false
-		gemYdineroBtn.show()
+		gemYdineroTimer.wait_time = GlobalVariables.maxGemYdineroTime
 	elif powerUpIndex == 2:
 		GlobalVariables.player.gemasActive = false
-		gemasBtn.show()
+		gemasTimer.wait_time = GlobalVariables.maxGemasTime
+		
+		
 		
 func accept():
 	if adIndex == 0:
 		multGananciasTimer.start()
+		GlobalVariables.player.multGananciasAdTimer = Time.get_datetime_string_from_system()
 		GlobalVariables.player.multGananciasActive = true
 		multGananciasBtn.hide()
 	elif adIndex == 1:
 		gemYdineroTimer.start()
+		GlobalVariables.player.gemYdineroAdTimer = Time.get_datetime_string_from_system()
 		GlobalVariables.player.gemYdineroActive = true
 		gemYdineroBtn.hide()
 		adRewardNode.show()
 	elif adIndex == 2:
 		gemasTimer.start()
+		GlobalVariables.player.gemasAdTimer = Time.get_datetime_string_from_system()
 		GlobalVariables.player.gemasActive = true
 		gemasBtn.hide()
 		adRewardNode.show()
 		
 	adModalNode.hide()
+	
 func cancel():
 	print("cancel")
 	adModalNode.hide()
@@ -118,7 +171,9 @@ func _on_ad_reward_modal_visibility_changed():
 				
 			else:
 				GlobalVariables.player.gems += gemReward
-				
+				adRewardLabel.text = "You Won:	" + gemReward + "Gems"
 		elif adIndex == 2:
 			var reward = gemReward * 5
 			GlobalVariables.player.gems += reward
+			adRewardLabel.text = "You Won:	" + str(reward) + "Gems"
+			

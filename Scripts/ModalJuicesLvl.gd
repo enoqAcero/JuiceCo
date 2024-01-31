@@ -5,7 +5,7 @@ var currentJuiceIndex = 0
 var base_value : float = .05
 
 func _ready():
-	editorValorJuegos(base_value)
+	editorValorJuegos()
 	updateJuiceInfo()
 
 func updateJuiceInfo():
@@ -32,7 +32,7 @@ func _on_back_pressed():
 	currentJuiceIndex = max(currentJuiceIndex - 1, 0)
 	updateJuiceInfo()
 
-func editorValorJuegos (base_value: float):
+func editorValorJuegos():
 	JuiceLevel[0].value = base_value  # Asegúrate de que este es el índice del jugo normal
 	var percentages : Array[float] = [500.0, 500.0, 480.0, 500.0, 466.6666667, 428.5714286, 416.6666667, 400.0, 350.0, 300.0, 285.7142857, 666.6666667, 10000.0]
 	for i in range(1, JuiceLevel.size()):  # Comienza desde 1 para saltarte el jugo normal

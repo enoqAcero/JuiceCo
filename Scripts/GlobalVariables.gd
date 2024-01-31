@@ -32,6 +32,14 @@ var totalFruits = 0
 var multiplier : float = 0
 var multiplierSteps = 0.1
 
+var maxMultGananciasTime : int = 60 * 60 * 4
+var maxGemYdineroTime : int = 60 * 30
+var maxGemasTime : int = 60 * 5
+
+var multGananciasAdRemainingTime : int
+var gemYdineroAdRemainingTime : int
+var gemasAdRemainingTime : int
+
 func _ready():
 	loadResource()
 	

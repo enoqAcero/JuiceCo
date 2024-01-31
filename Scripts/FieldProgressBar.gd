@@ -14,7 +14,7 @@ func _ready():
 	self.value = GlobalVariables.player.Fruits[index].currentProgress
 	addTween()
 
-func _process(delta):
+func _process(_delta):
 	if self.value >= self.max_value:
 		self.value = 0
 		fieldNode.cashOut(index)
@@ -34,12 +34,12 @@ func calcRemainingTime():
 	
 	
 	
-func getNumberFromString(name : String):
+func getNumberFromString(nodeName : String):
 	var result = ""
 	var resultInt
-	for char in name:
-		if char.is_valid_int():
-			result = char
+	for c in nodeName:
+		if c.is_valid_int():
+			result = c
 	
 	resultInt = int(result)
 	return resultInt

@@ -16,10 +16,10 @@ script = ExtResource("1_3qdky")
 houseLvl = 0
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 1.61731e+06
-blueberryCount = 1386380
-cerezaCount = 174647
-fresaCount = 55871
+currentCapacity = 3.16726e+06
+blueberryCount = 1452452
+cerezaCount = 1654607
+fresaCount = 56395
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -31,7 +31,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 374.25
+sandiaCount = 3677.85
 
 [sub_resource type="Resource" id="Resource_ih36l"]
 script = ExtResource("1_3qdky")
@@ -108,7 +108,7 @@ cost = 5.0
 liters = 1.0
 multiplier = 1.05
 speed = 10.0
-currentProgress = 55.2
+currentProgress = 0.0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_n854k"]
@@ -120,7 +120,7 @@ cost = 0.0
 liters = 5e+11
 multiplier = 0.0
 speed = 1.25
-currentProgress = 93.0
+currentProgress = 0.0
 
 [sub_resource type="Resource" id="Resource_fsb1x"]
 script = ExtResource("1_hnv06")
@@ -131,7 +131,7 @@ cost = 5.6
 liters = 5.0
 multiplier = 1.12
 speed = 120.0
-currentProgress = 36.4
+currentProgress = 0.0
 
 [sub_resource type="Resource" id="Resource_o2fer"]
 script = ExtResource("1_hnv06")
@@ -620,16 +620,19 @@ count = 12
 [resource]
 script = ExtResource("1_fhr83")
 liters = 0.0
-money = 5.81694e+20
-gems = 6
-litersPerSecond = 1.10465e+17
+money = 2.78103e+29
+gems = 471
+litersPerSecond = 1.93902e+18
 sandiasPerSecond = 0.052219
-farmValue = 9.96889e+25
-time = "2024-01-30T13:00:48"
+farmValue = 3.08078e+28
+time = "2024-01-31T16:02:35"
 multGananciasActive = false
-gemYdineroActive = true
+gemYdineroActive = false
 gemasActive = false
-seeds = 0
+multGananciasAdTimer = "2024-01-31T11:50:08"
+gemYdineroAdTimer = "2024-01-31T11:50:14"
+gemasAdTimer = "2024-01-31T11:50:23"
+seeds = 0.0
 resets = 0
 sesionEarnings = 0.0
 lifetimeEarnings = 0.0

@@ -122,16 +122,9 @@ func upgradeHouse(index : int):
 	GlobalVariables.player.house0Id += 1
 	loadHouses()
 	
-	
-
-
-
 func _on_close_pressed():
 	hide()
 	
 func save():
 	ResourceSaver.save(GlobalVariables.player, "res://Save/PlayerSave.tres")
-
-
-		
 

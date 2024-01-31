@@ -48,16 +48,16 @@ texture_disabled = ExtResource("2_g800o")
 
 [node name="adModal" parent="." instance=ExtResource("3_71qne")]
 visible = false
-offset_left = -385.0
-offset_top = 324.0
-offset_right = -345.0
-offset_bottom = 364.0
+offset_left = -175.0
+offset_top = 307.0
+offset_right = -135.0
+offset_bottom = 347.0
 
 [node name="adRewardModal" parent="." instance=ExtResource("5_va782")]
 visible = false
-offset_left = -384.0
-offset_top = 340.0
-offset_right = -344.0
-offset_bottom = 380.0
+offset_left = -175.0
+offset_top = 325.0
+offset_right = -135.0
+offset_bottom = 365.0
 
 [connection signal="visibility_changed" from="adRewardModal" to="." method="_on_ad_reward_modal_visibility_changed"]

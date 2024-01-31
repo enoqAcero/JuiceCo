@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxnrtil31ck8u"]
+
+[ext_resource type="Script" path="res://Scripts/FlyingReward.gd" id="1_clnab"]
+[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="1_qpuow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5xkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjy70"]
+size = Vector2(36, 34.5)
+
+[node name="FlyingReward" type="RigidBody2D"]
+z_index = 1
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_clnab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.8, 0, 1, 1)
+scale = Vector2(0.119608, 0.116034)
+texture = ExtResource("1_qpuow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l5xkn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_fjy70")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

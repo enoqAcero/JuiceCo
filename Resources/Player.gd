@@ -15,9 +15,12 @@ class_name Player
 @export var multGananciasActive : bool
 @export var gemYdineroActive : bool
 @export var gemasActive : bool
+@export var multGananciasAdTimer : String
+@export var gemYdineroAdTimer : String
+@export var gemasAdTimer : String
 
 #stats variables
-@export var seeds : int
+@export var seeds : float
 @export var resets : int
 @export var sesionEarnings : float
 @export var lifetimeEarnings : float

@@ -19,7 +19,7 @@ vertices = PackedVector2Array(-85, -110, -376, -119, -378, -311, 376, -306, 281,
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-85, -110, 281, -107, 302, 491, 388, 491, 376, -306, -378, -311, -376, -119)])
 
-[node name="Main" type="Node2D" groups=["fruit", "mango"]]
+[node name="Main" type="Node2D" groups=["flyRewardGems", "flyRewardPoor", "flyRewardRich", "fruit", "mango"]]
 script = ExtResource("1_dpbrn")
 metadata/_edit_horizontal_guides_ = [668.0]
 
@@ -173,10 +173,6 @@ offset_right = 158.0
 offset_bottom = 355.0
 text = "Garage"
 
-[node name="ProduceJuiceTimer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [node name="FruitSpawn" type="Label" parent="."]
 offset_left = -163.0
 offset_top = -205.0
@@ -186,8 +182,14 @@ text = "Spawn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ProduceJuiceTimer" type="Timer" parent="FruitSpawn"]
+wait_time = 0.1
+autostart = true
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_2x17k")
+
+[node name="FlyReward" type="Timer" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
@@ -200,4 +202,5 @@ navigation_polygon = SubResource("NavigationPolygon_2x17k")
 [connection signal="pressed" from="CanvasLayer/JuiceLvl" to="." method="_on_juice_lvl_pressed"]
 [connection signal="pressed" from="house/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="timeout" from="ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]
+[connection signal="timeout" from="FruitSpawn/ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]
+[connection signal="timeout" from="FlyReward" to="." method="_on_fly_reward_timeout"]
