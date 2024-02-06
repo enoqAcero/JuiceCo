@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Player" load_steps=76 format=3 uid="uid://byibldo43pujg"]
+[gd_resource type="Resource" script_class="Player" load_steps=92 format=3 uid="uid://byibldo43pujg"]
 
 [ext_resource type="Script" path="res://Resources/CurrentHouseData.gd" id="1_3qdky"]
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
 [ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_hnv06"]
+[ext_resource type="Script" path="res://Resources/FarmerData.gd" id="2_gh0gd"]
 [ext_resource type="Texture2D" uid="uid://ddpm084j3857i" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
 [ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="2_vc0li"]
 [ext_resource type="Script" path="res://Resources/TransportData.gd" id="2_webxm"]
@@ -16,9 +17,9 @@ script = ExtResource("1_3qdky")
 houseLvl = 0
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 3.16726e+06
-blueberryCount = 1452452
-cerezaCount = 1654607
+currentCapacity = 3.1697e+06
+blueberryCount = 1452545
+cerezaCount = 1654653
 fresaCount = 56395
 limonCount = 0
 duraznoCount = 0
@@ -31,7 +32,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 3677.85
+sandiaCount = 5978.05
 
 [sub_resource type="Resource" id="Resource_ih36l"]
 script = ExtResource("1_3qdky")
@@ -99,33 +100,138 @@ papayaCount = 0
 melonCount = 0
 sandiaCount = 0.0
 
+[sub_resource type="Resource" id="Resource_y7uxb"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = true
+
+[sub_resource type="Resource" id="Resource_yjend"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_tp1y2"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_0oekq"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_ppaoe"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_ce1oh"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_p8y2c"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_qymql"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_vpcdp"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_x0ydc"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_hqo4x"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_jjoau"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_xnn7i"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_j5il3"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
+[sub_resource type="Resource" id="Resource_u7vlm"]
+script = ExtResource("2_gh0gd")
+name = ""
+description = ""
+cost = 0.0
+active = false
+
 [sub_resource type="Resource" id="Resource_tjrh3"]
 script = ExtResource("1_hnv06")
 name = "Mango"
-level = 10
+level = 1
 tier = 0
-cost = 5.0
+cost = 5.25
 liters = 1.0
 multiplier = 1.05
-speed = 10.0
+speed = 30.0
 currentProgress = 0.0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="Resource" id="Resource_n854k"]
 script = ExtResource("1_hnv06")
 name = ""
-level = 28
-tier = 2
+level = 1
+tier = 0
 cost = 0.0
 liters = 5e+11
 multiplier = 0.0
-speed = 1.25
+speed = 60.0
 currentProgress = 0.0
 
 [sub_resource type="Resource" id="Resource_fsb1x"]
 script = ExtResource("1_hnv06")
 name = ""
-level = 1
+level = 0
 tier = 0
 cost = 5.6
 liters = 5.0
@@ -141,7 +247,7 @@ tier = 0
 cost = 0.0
 liters = 0.0
 multiplier = 0.0
-speed = 1e+06
+speed = 200.0
 currentProgress = 0.0
 
 [sub_resource type="Resource" id="Resource_uhsuw"]
@@ -620,12 +726,12 @@ count = 12
 [resource]
 script = ExtResource("1_fhr83")
 liters = 0.0
-money = 2.78103e+29
-gems = 471
-litersPerSecond = 1.93902e+18
-sandiasPerSecond = 0.052219
-farmValue = 3.08078e+28
-time = "2024-01-31T16:02:35"
+money = 2.83707e+29
+gems = 476
+litersPerSecond = 3.09999e+18
+sandiasPerSecond = 0.0500016
+farmValue = 8.00577e+28
+time = "2024-02-06T13:35:44"
 multGananciasActive = false
 gemYdineroActive = false
 gemasActive = false
@@ -665,4 +771,4 @@ JuiceLevel = Array[ExtResource("5_my2gi")]([SubResource("Resource_rcw28"), SubRe
 juiceLevel = 0
 Update = Array[Resource("res://Resources/UpdateData.gd")]([])
 updateCount = 0
-Farmer = Array[Resource("res://Resources/FarmerData.gd")]([])
+Farmer = Array[ExtResource("2_gh0gd")]([SubResource("Resource_y7uxb"), SubResource("Resource_yjend"), SubResource("Resource_tp1y2"), SubResource("Resource_0oekq"), SubResource("Resource_ppaoe"), SubResource("Resource_ce1oh"), SubResource("Resource_p8y2c"), SubResource("Resource_qymql"), SubResource("Resource_vpcdp"), SubResource("Resource_x0ydc"), SubResource("Resource_hqo4x"), SubResource("Resource_jjoau"), SubResource("Resource_xnn7i"), SubResource("Resource_j5il3"), SubResource("Resource_u7vlm")])

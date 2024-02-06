@@ -2,6 +2,7 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 
+#Varibles de los botones dentro de cada panel dentro del primer scroll container
 var panelNode0Button
 var panelNode1Button
 var panelNode2Button
@@ -17,10 +18,36 @@ var panelNode11Button
 var panelNode12Button
 var panelNode13Button
 var panelNode14Button
+var farmersButton
 
+
+var fruitsScrollContainer
+var farmersScrollContainer
+
+#Varibles de los botones dentro de cada panel dentro del segundo scroll container
+var farmerPanel0Button
+var farmerPanel1Button
+var farmerPanel2Button
+var farmerPanel3Button
+var farmerPanel4Button
+var farmerPanel5Button
+var farmerPanel6Button
+var farmerPanel7Button
+var farmerPanel8Button
+var farmerPanel9Button
+var farmerPanel10Button
+var farmerPanel11Button
+var farmerPanel12Button
+var farmerPanel13Button
+var farmerPanel14Button
+
+var mainNode
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#asignar todas las variables con sus respectivos nodos
+	mainNode = get_parent().get_parent()
+	
 	panelNode0Button = $ScrollContainer/Control/VBoxContainer/Panel0/Button
 	panelNode1Button = $ScrollContainer/Control/VBoxContainer/Panel1/Button
 	panelNode2Button = $ScrollContainer/Control/VBoxContainer/Panel2/Button
@@ -37,6 +64,27 @@ func _ready():
 	panelNode13Button = $ScrollContainer/Control/VBoxContainer/Panel13/Button
 	panelNode14Button = $ScrollContainer/Control/VBoxContainer/Panel14/Button
 	
+	farmersButton = $Button2
+	fruitsScrollContainer = $ScrollContainer
+	farmersScrollContainer = $ScrollContainer2
+	
+	farmerPanel0Button = $ScrollContainer2/Control/VBoxContainer/Panel0/Button
+	farmerPanel1Button = $ScrollContainer2/Control/VBoxContainer/Panel1/Button
+	farmerPanel2Button = $ScrollContainer2/Control/VBoxContainer/Panel2/Button
+	farmerPanel3Button = $ScrollContainer2/Control/VBoxContainer/Panel3/Button
+	farmerPanel4Button = $ScrollContainer2/Control/VBoxContainer/Panel4/Button
+	farmerPanel5Button = $ScrollContainer2/Control/VBoxContainer/Panel5/Button
+	farmerPanel6Button = $ScrollContainer2/Control/VBoxContainer/Panel6/Button
+	farmerPanel7Button = $ScrollContainer2/Control/VBoxContainer/Panel7/Button
+	farmerPanel8Button = $ScrollContainer2/Control/VBoxContainer/Panel8/Button
+	farmerPanel9Button = $ScrollContainer2/Control/VBoxContainer/Panel9/Button
+	farmerPanel10Button = $ScrollContainer2/Control/VBoxContainer/Panel10/Button
+	farmerPanel11Button = $ScrollContainer2/Control/VBoxContainer/Panel11/Button
+	farmerPanel12Button = $ScrollContainer2/Control/VBoxContainer/Panel12/Button
+	farmerPanel13Button = $ScrollContainer2/Control/VBoxContainer/Panel13/Button
+	farmerPanel14Button = $ScrollContainer2/Control/VBoxContainer/Panel14/Button
+
+	#conectar todas las seniales de los botones y mandar un index a la funcion llamada denpendiendo del boton
 	panelNode0Button.pressed.connect(Callable(buyFruit).bind(0))
 	panelNode1Button.pressed.connect(Callable(buyFruit).bind(1))
 	panelNode2Button.pressed.connect(Callable(buyFruit).bind(2))
@@ -53,20 +101,50 @@ func _ready():
 	panelNode13Button.pressed.connect(Callable(buyFruit).bind(13))
 	panelNode14Button.pressed.connect(Callable(buyFruit).bind(14))
 	
+	farmersButton.pressed.connect(showHideFarmers)
+	
+	farmerPanel0Button.pressed.connect(Callable(buyFarmer).bind(0))
+	farmerPanel1Button.pressed.connect(Callable(buyFarmer).bind(1))
+	farmerPanel2Button.pressed.connect(Callable(buyFarmer).bind(2))
+	farmerPanel3Button.pressed.connect(Callable(buyFarmer).bind(3))
+	farmerPanel4Button.pressed.connect(Callable(buyFarmer).bind(4))
+	farmerPanel5Button.pressed.connect(Callable(buyFarmer).bind(5))
+	farmerPanel6Button.pressed.connect(Callable(buyFarmer).bind(6))
+	farmerPanel7Button.pressed.connect(Callable(buyFarmer).bind(7))
+	farmerPanel8Button.pressed.connect(Callable(buyFarmer).bind(8))
+	farmerPanel9Button.pressed.connect(Callable(buyFarmer).bind(9))
+	farmerPanel10Button.pressed.connect(Callable(buyFarmer).bind(10))
+	farmerPanel11Button.pressed.connect(Callable(buyFarmer).bind(11))
+	farmerPanel12Button.pressed.connect(Callable(buyFarmer).bind(12))
+	farmerPanel13Button.pressed.connect(Callable(buyFarmer).bind(13))
+	farmerPanel14Button.pressed.connect(Callable(buyFarmer).bind(14))
+	
+	
 	loadAllPanelData()
 	
+#carga todos los datos en los paneles
 func loadAllPanelData():
 	for i in range (0, GlobalVariables.player.Fruits.size()):
 		loadPanelData(i)
 		
+#carga los datos de un solo panel	
 func loadPanelData(index : int):
 	var currentPanelSprite
 	var currentPanelButtonCost
 	var currentPanelLvlLabel
+	var currentFarmerPanelButton
+	var currentFarmerSprite
+	var currentFarmerLabel
 	
+	#obtener los nodos del sprite, costo y nivel en cada panel de frutas dependiendo del index
 	currentPanelSprite = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/A")
 	currentPanelButtonCost = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Button/CostNumber")
 	currentPanelLvlLabel = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Lvl")
+	
+	#obtener los nodos del sprite, costo y descripcion de los farmers
+	currentFarmerPanelButton = get_node("ScrollContainer2/Control/VBoxContainer/Panel" + str(index) + "/Button")
+	currentFarmerSprite = get_node("ScrollContainer2/Control/VBoxContainer/Panel" + str(index) + "/Sprite2D")
+	currentFarmerLabel = get_node("ScrollContainer2/Control/VBoxContainer/Panel" + str(index) + "/Label")
 	
 	currentPanelSprite.texture = GlobalVariables.player.Fruits[index].skin
 	if GlobalVariables.player.Fruits[index].cost <= 999:
@@ -82,8 +160,12 @@ func loadPanelData(index : int):
 	else:
 		currentPanelLvlLabel.text = str(GlobalVariables.player.Fruits[index].level) + "/" + str(tierText)
 			
-			
-			
+	if GlobalVariables.player.Farmer[index].active == true: currentFarmerPanelButton.disabled = true
+	else: currentFarmerPanelButton.disabled = false
+	
+	#falta poner el sprite correcto del farmer almacenado en player save y la descripcion
+	
+#calcula el el siguiente numero que se pondra en el label de niveles para desbloquear el siguiente tier
 func calculateTierLevel(index : int):
 	var tierText = 20
 	if GlobalVariables.player.Fruits[index].level < 20:
@@ -99,6 +181,7 @@ func calculateTierLevel(index : int):
 	
 	return tierText
 
+#compra la fruta y la sube de nivel. si se alcanza un nuevo tier se manda actualizar para tener un nuevo tier
 func buyFruit(index : int):
 	var cost = GlobalVariables.player.Fruits[index].cost
 	var mult = GlobalVariables.player.Fruits[index].multiplier
@@ -116,6 +199,7 @@ func buyFruit(index : int):
 	
 	loadPanelData(index)
 	
+#salva el progreso de cada barra de fruta para que cuando se cierre y abra el juego, no se pierda el progreso
 func saveCurrentProgress(index : int):
 	var currentProgressBar = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/ProgressBar")
 	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
@@ -135,6 +219,7 @@ func saveCurrentProgress(index : int):
 	GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
 	currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
 
+#se manda a ejecutar cada vez que la barra de progreso de cada fruta llega al 100% dentro de esta funcion se manda a llamar el sandiaExchange
 func cashOut(index : int):
 
 	var houseId = rng.randi_range(0, GlobalVariables.houseCount)
@@ -142,6 +227,7 @@ func cashOut(index : int):
 	var frutasObtenidas = GlobalVariables.player.Fruits[index].level
 	
 	
+	#asegurarse que la casa escogida al asar si este vacia, si no lo esta, asignar una nueva
 	if GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == true:
 		for i in range (0, GlobalVariables.houseCount):
 			if GlobalVariables.player.CurrentJuiceHouse[i].fullSandiaHouse == false:
@@ -164,7 +250,8 @@ func cashOut(index : int):
 	
 		if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
 			SandiaExchange(houseId)
-
+	
+		#sumar las frutas correspondientes. esto depende del index recibido. index 0 = blueberry, index 1 = cereza,....
 		if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == false and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:			
 			if index == 0:
 				GlobalVariables.player.CurrentJuiceHouse[houseId].blueberryCount += frutasObtenidas
@@ -220,11 +307,12 @@ func cashOut(index : int):
 		if GlobalVariables.player.CurrentJuiceHouse[houseId].fullHouse == true and GlobalVariables.player.CurrentJuiceHouse[houseId].fullSandiaHouse == false:
 			SandiaExchange(houseId)
 		
+#convertir todas las frutas que estan almacenadas en una casa de jugo a sandia y poner las frutas en 0 menos la sandia
 func SandiaExchange(houseId : int):
 	
 	var litros : float = 0
 	var sandiaCount : float = 0
-	var divisor = (126180517478400*40)
+	var divisor : float = (126180517478400*40)
 	
 	var houseLvl = GlobalVariables.player.CurrentJuiceHouse[houseId].houseLvl
 	
@@ -269,3 +357,20 @@ func SandiaExchange(houseId : int):
 	
 func _on_button_pressed():
 	hide()
+
+
+func showHideFarmers():
+	if fruitsScrollContainer.visible == true:
+		fruitsScrollContainer.hide()
+		farmersScrollContainer.show()
+	else:
+		fruitsScrollContainer.show()
+		farmersScrollContainer.hide()
+		
+#activar al granjero al momento de comprarlo
+func buyFarmer(index : int):
+	var currentFarmerPanelButton
+	currentFarmerPanelButton = get_node("ScrollContainer2/Control/VBoxContainer/Panel" + str(index) + "/Button")
+	currentFarmerPanelButton.disabled = true
+	GlobalVariables.player.Farmer[index].active = true
+	mainNode.save()

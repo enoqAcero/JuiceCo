@@ -50,6 +50,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 		
+	#asegurarse que el multiplier de las frutas sea 0 si es menor a los steps / 10 ya que en float, puede que el numero no sea un 0 total
 	if GlobalVariables.multiplier <= GlobalVariables.multiplierSteps/10:
 		GlobalVariables.multiplier = 0
 
@@ -60,7 +61,7 @@ func _process(_delta):
 	
 	multiplierLabel.text = "x" + str(GlobalVariables.multiplier)
 
-
+#si hay frutas corriendo el multiplier label se hace mas grande
 func multiplierLabelUpdate(control : int):
 	if control == 0:
 		multiplierLabel.scale = Vector2(1.2, 1.2)
@@ -92,7 +93,8 @@ func getJuiceHouseCapacity():
 			totalJuiceHouseCapacity += GlobalVariables.player.JuiceHouse[id - 1].capacity
 	if GlobalVariables.houseCount >= 3:
 		GlobalVariables.houseCount = 3	
-				
+		
+#cuenta cunatas frutas hay en total en las casas de jugo, al final del dia esto ya solo cuenta las sandias totales, ya que con el sandia exchange ya no tuvo mucha utilidad esta funcion	
 func countFruits():
 	GlobalVariables.totalFruits = 0
 	GlobalVariables.totalBlueberryCount = 0
@@ -158,6 +160,7 @@ func countFruits():
 			GlobalVariables.totalSandiaCount += GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount
 			GlobalVariables.totalFruits += GlobalVariables.totalSandiaCount
 			
+#calcula el dinero basado en los litros que se producen por segundo de todas las frutas almacenadas en la casa de jugo
 func calculateMoneyFromLiters(litrosPorSegundo : float):
 	#print("litrosPor segundo: ", litrosPorSegundo)
 
@@ -183,28 +186,31 @@ func calculateMoneyFromLiters(litrosPorSegundo : float):
 
 
 #esta  funcion se manda a ejecturar despues de cargar el recurso en la variabale player
-#se usa para evitar utilizar una variable antes de cargar los datos de player
+#se usa para evitar utilizar una variable de player antes de cargar los datos del player
 func loadData():
 	getTotalTransportCapacity()
 	getJuiceHouseCapacity()
 	countFruits()
 	
-	
+#salva el recurso player, el cual contiene todos los datos relevantes del juego
 func save():
 	ResourceSaver.save(GlobalVariables.player, savePath)
 	
 	
+#se ejecuta cuando se abre o cierra el juego, para otorgar dinero y cantidad de frutas obteneidas cuando se estuvo fuera del juego
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		GlobalVariables.player.time = Time.get_datetime_string_from_system()
 		save()
 		get_tree().paused = true
+		
 	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_READY:
 		get_tree().paused = false
 		calculateTime()
 		calculateAdTime()
 		
-		
+	
+#calcula el tiempo transcurrido desde el ultimo save hasta el tiempo actual	
 func calculateTime():
 	var maxTime = GlobalVariables.player.WaterTank.time * GlobalVariables.player.WaterTank.count
 	var prevTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.time)
@@ -221,6 +227,7 @@ func calculateTime():
 	
 	calculateMoneyFromTime(elapsedTime)
 
+#calcula el tiempo restante de cada poder que otorgan los ads
 func calculateAdTime():
 	var maxMultGananciasTime = GlobalVariables.maxMultGananciasTime
 	var maxGemYdineroTime = GlobalVariables.maxGemYdineroTime
@@ -260,6 +267,7 @@ func calculateAdTime():
 			GlobalVariables.gemasAdRemainingTime = maxGemasTime - elapsedTime
 
 
+#calcula el dinero que se le debe otorgar al player denpendiendo del tiempo que ha transcurrido fuera del juego. el limite es el tiempo de los waterTanks
 func calculateMoneyFromTime(elapsedTime):
 	var moneyEarned = GlobalVariables.player.litersPerSecond * elapsedTime
 	var earningBonus = 1 + (GlobalVariables.player.seeds/100)
@@ -274,6 +282,8 @@ func calculateMoneyFromTime(elapsedTime):
 	calculateFruitsFromTime(elapsedTime)
 	save()
 	
+#calcula las frutas ganadas en base al nivel y tiempo de cada fruta, con respecto al tiempo transcurrido fuera del juego
+#tambien se utiliza cada segundo para calcular las sandias por segundo y poder calcular el farm value
 func calculateFruitsFromTime(elapsedTime):
 	var frutasTotal : float = 0
 	var litrosTotal : float = 0
@@ -388,6 +398,7 @@ func calculateFruitsFromTime(elapsedTime):
 
 	countFruits()
 	
+#convierte litros por segundo a sandias por segundo
 func SandiasPorSeg(litros : float):
 	var sandias : float
 	sandias = litros/5047220699136000.00
@@ -437,13 +448,15 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	$CanvasLayer/Garage.show()
 
-
+#manda a instanciar una fruta e inicia un timer para que no se puedan poner muchas frutas en pantalla. algunos upgrades hacen que ese timer sea mas rapido para 
+#poder tener mas frutas corriendo
 func _on_run_button_pressed():
 	if runButtonControl == false:
 		instanceFruit()
 		runTimerNode.start()
 		runButtonControl = true
 	
+#agrega las frutas corriendo en pantalla
 func instanceFruit():
 	var randFruit = randi() % (fruits.size() - 1)
 	var fruitType = fruits[randFruit]
@@ -454,6 +467,8 @@ func instanceFruit():
 	
 	fruitI.add_to_group("fruit")
 
+	#index de todas las frutas y sus grupos correspondientes
+	#falta agregas las frutas con su index y su grupo
 	if randFruit == 0:
 		fruitI.add_to_group("mango")
 		
@@ -474,6 +489,7 @@ func _on_run_timer_timeout():
 	runButtonControl = false
 
 
+#se manda a ejecutar constantemente para darle dinero al player
 func _on_produce_juice_timer_timeout():
 	var litros : float = 0.0
 	var litrosPorSegundo : float = 0.0
@@ -499,8 +515,8 @@ func _on_produce_juice_timer_timeout():
 		
 	GlobalVariables.player.litersPerSecond = litrosPorSegundo
 	calculateMoneyFromLiters(litrosPorSegundo)
-	#print("litrosPor segundo: ", litrosPorSegundo)
 
+#calcula el farm value utilizando multiples variables
 func calculateFarmValue():
 	getJuiceHouseCapacity()
 	calculateFruitsFromTime(1)
@@ -519,15 +535,6 @@ func calculateFarmValue():
 	var maxRunningFruitBonus = 5
 	var maxRunningFruitBonusEq = ((maxRunningFruitBonus - 4)**0.25)
 
-	#print("P: ",P)
-	#print("Pc: ",Pc)
-	#print("Pu: ",Pu)
-	#print("Pv: ",Pv)
-	#print("Pp: ",Pp)
-	#print("L: ",L)
-	#print("JuiceV: ",juiceValue)
-	#print("SadiasPerMin: ",sandiasPerMin)
-	#print("maxReq: ", maxRunningFruitBonusEq)
 	farmValue = 30000 * juiceValue * sandiasPerMin * earningBonus * maxRunningFruitBonusEq * L * (Pc + (0.2 * Pu) + (-1 * (abs(Pv)**0.6)) + (0.25 * Pp))
 	
 	GlobalVariables.player.farmValue = farmValue
@@ -538,6 +545,7 @@ func calculateFarmValue():
 	$CanvasLayer/FarmValue.text = "FarmValue: " + farmValueString
 	
 
+
 func _on_timer_timeout():
 	calculateFarmValue()
 
@@ -546,6 +554,7 @@ func _on_juice_lvl_pressed():
 	controlEscenasModalJuiceLvl = showScene($CanvasLayer/ModalJuiceLvl, controlEscenasModalJuiceLvl)
 
 
+#agrega a pantalla un fly reward dependiendo de un timer de tiempo variable
 func _on_fly_reward_timeout():
 	print("add fly reward to scene")
 	var prob = rng.randi_range(0, 100)

@@ -5,6 +5,7 @@ var fieldNode
 var parentName
 var index
 var remainingTime
+var firstTweenFlag = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +13,15 @@ func _ready():
 	parentName = get_parent().name
 	index = getNumberFromString(parentName)
 	self.value = GlobalVariables.player.Fruits[index].currentProgress
-	addTween()
+	if GlobalVariables.player.Fruits[index].level >= 1 and GlobalVariables.player.Farmer[index].active == true:
+		firstTweenFlag = true
+		addTween()
 
 func _process(_delta):
+	if GlobalVariables.player.Fruits[index].level >= 1 and firstTweenFlag == false and GlobalVariables.player.Farmer[index].active == true:
+		addTween()
+		firstTweenFlag = true
+		
 	if self.value >= self.max_value:
 		self.value = 0
 		fieldNode.cashOut(index)
