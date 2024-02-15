@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb3uos35dnurr"]
+
+[ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="1_ob5to"]
+[ext_resource type="Texture2D" uid="uid://btorl2i4nm8j0" path="res://Assets/Buttons/BotonBuy_1.png" id="2_wurjw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 316.0
+offset_bottom = 169.0
+color = Color(0.239216, 0.478431, 0.6, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="accept" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_ob5to")
+texture_pressed = ExtResource("2_wurjw")
+texture_disabled = ExtResource("1_ob5to")
+
+[node name="Label" type="Label" parent="VBoxContainer/accept"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 275.0
+offset_bottom = 59.0
+text = "Acept"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cancel" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_wurjw")
+texture_pressed = ExtResource("1_ob5to")
+texture_disabled = ExtResource("1_ob5to")
+
+[node name="Label" type="Label" parent="VBoxContainer/cancel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 282.0
+offset_bottom = 71.0
+text = "Cancel"
+horizontal_alignment = 1
+vertical_alignment = 1

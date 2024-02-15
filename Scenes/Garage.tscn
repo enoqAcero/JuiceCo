@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3gg2wrxhabaq"]
+
+[ext_resource type="Script" path="res://Scripts/Garage.gd" id="1_bjwhx"]
+[ext_resource type="Script" path="res://Scripts/vehicles.gd" id="1_urs3p"]
+[ext_resource type="PackedScene" uid="uid://d0mo52tb4wy5y" path="res://Scenes/VehiclesShop.tscn" id="3_o8k1m"]
+
+[sub_resource type="Theme" id="Theme_chiew"]
+
+[sub_resource type="Animation" id="Animation_ju665"]
+resource_name = "ven2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 1),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 0), Vector2(20, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0, 1),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 0), Vector2(-500, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vjxfa"]
+resource_name = "venclose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 1),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 0), Vector2(500, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0, 1),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(-500, 0), Vector2(20, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ylpp"]
+_data = {
+"ven2": SubResource("Animation_ju665"),
+"venclose": SubResource("Animation_vjxfa")
+}
+
+[node name="Garage" type="Node2D"]
+script = ExtResource("1_bjwhx")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 20.0
+offset_right = 520.0
+offset_bottom = 1000.0
+theme = SubResource("Theme_chiew")
+script = ExtResource("1_urs3p")
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+offset_left = 348.0
+offset_top = 19.0
+offset_right = 460.0
+offset_bottom = 63.0
+
+[node name="Node2D" parent="." instance=ExtResource("3_o8k1m")]
+position = Vector2(500, 0)
+
+[node name="close" type="Button" parent="Node2D"]
+offset_left = 305.0
+offset_top = 235.0
+offset_right = 339.0
+offset_bottom = 266.0
+text = "X
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ylpp")
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D/close" to="." method="_on_close_pressed"]

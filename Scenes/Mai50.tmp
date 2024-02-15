@@ -1,0 +1,176 @@
+[gd_scene load_steps=13 format=3 uid="uid://yqpe165f0q3"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
+[ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
+[ext_resource type="PackedScene" uid="uid://c33e12csse0rd" path="res://Scenes/Upgrades.tscn" id="3_uhmey"]
+[ext_resource type="PackedScene" uid="uid://c07rm36i3qevf" path="res://Scenes/Boost.tscn" id="4_n2rnl"]
+[ext_resource type="PackedScene" uid="uid://dces421mjwxim" path="res://Scenes/Menu.tscn" id="5_muedq"]
+[ext_resource type="PackedScene" uid="uid://ckrss1aux8vav" path="res://Scenes/Shop.tscn" id="6_feofs"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="7_4o3gd"]
+[ext_resource type="PackedScene" uid="uid://pyylsjt5onnc" path="res://Scenes/JuiceHouse.tscn" id="8_kddff"]
+[ext_resource type="PackedScene" uid="uid://b3gg2wrxhabaq" path="res://Scenes/Garage.tscn" id="9_b4178"]
+[ext_resource type="PackedScene" uid="uid://dh2j4eukundbg" path="res://Scenes/WaterTank.tscn" id="10_lanya"]
+[ext_resource type="PackedScene" uid="uid://bpo2g24224cbx" path="res://Scenes/PhysicalJuiceHouse.tscn" id="10_wudyb"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2x17k"]
+vertices = PackedVector2Array(-85, -110, -376, -119, -378, -311, 376, -306, 281, -107, 388, 491, 302, 491)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-85, -110, 281, -107, 302, 491, 388, 491, 376, -306, -378, -311, -376, -119)])
+
+[node name="Main" type="Node2D" groups=["fruit", "mango"]]
+script = ExtResource("1_dpbrn")
+metadata/_edit_horizontal_guides_ = [668.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(240, 427)
+script = ExtResource("7_4o3gd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="runButton" type="Button" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 725.0
+offset_right = 454.0
+offset_bottom = 814.0
+text = "RUN!"
+
+[node name="RunTimer" type="Timer" parent="CanvasLayer/runButton"]
+wait_time = 0.05
+one_shot = true
+
+[node name="fieldButton" type="Button" parent="CanvasLayer"]
+offset_left = 198.0
+offset_top = 668.0
+offset_right = 280.0
+offset_bottom = 719.0
+text = "Field"
+
+[node name="Field" parent="CanvasLayer" instance=ExtResource("2_cgc2k")]
+visible = false
+
+[node name="upgradeButton" type="Button" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 668.0
+offset_right = 194.0
+offset_bottom = 719.0
+text = "Upgrades
+"
+
+[node name="Upgrades" parent="CanvasLayer" instance=ExtResource("3_uhmey")]
+visible = false
+
+[node name="boostButton" type="Button" parent="CanvasLayer"]
+offset_left = 283.0
+offset_top = 668.0
+offset_right = 365.0
+offset_bottom = 719.0
+text = "Boost"
+
+[node name="Boost" parent="CanvasLayer" instance=ExtResource("4_n2rnl")]
+visible = false
+
+[node name="menuButton" type="Button" parent="CanvasLayer"]
+offset_left = 368.0
+offset_top = 668.0
+offset_right = 450.0
+offset_bottom = 719.0
+text = "Menu"
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_muedq")]
+visible = false
+
+[node name="shopButton" type="Button" parent="CanvasLayer"]
+offset_left = 26.0
+offset_top = 668.0
+offset_right = 108.0
+offset_bottom = 719.0
+text = "Shop"
+
+[node name="Shop" parent="CanvasLayer" instance=ExtResource("6_feofs")]
+visible = false
+
+[node name="JuiceHouse" parent="CanvasLayer" instance=ExtResource("8_kddff")]
+visible = false
+z_index = 1
+position = Vector2(-1, 42)
+
+[node name="Garage" parent="CanvasLayer" instance=ExtResource("9_b4178")]
+visible = false
+position = Vector2(13, 12)
+
+[node name="Money" type="Label" parent="CanvasLayer"]
+offset_right = 478.0
+offset_bottom = 109.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Multiplier" type="Label" parent="CanvasLayer"]
+offset_left = -60.0
+offset_top = -38.0
+offset_right = 157.0
+offset_bottom = 76.0
+text = "x0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaterTank" parent="CanvasLayer" instance=ExtResource("10_lanya")]
+visible = false
+
+[node name="FarmValue" type="Label" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 597.0
+offset_right = 293.0
+offset_bottom = 644.0
+text = "FarmValue :"
+
+[node name="Timer" type="Timer" parent="CanvasLayer/FarmValue"]
+wait_time = 0.5
+autostart = true
+
+[node name="house" parent="." instance=ExtResource("10_wudyb")]
+position = Vector2(344, 532)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="house"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -17.0
+offset_top = -19.0
+offset_right = 12.0
+offset_bottom = 22.0
+text = "
+"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 267.0
+offset_right = 158.0
+offset_bottom = 355.0
+text = "Garage"
+
+[node name="ProduceJuiceTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="FruitSpawn" type="Label" parent="."]
+offset_left = -163.0
+offset_top = -205.0
+offset_right = -111.0
+offset_bottom = -179.0
+text = "Spawn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_2x17k")
+
+[connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
+[connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/fieldButton" to="." method="_on_field_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/upgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/boostButton" to="." method="_on_boost_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="timeout" from="CanvasLayer/FarmValue/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="house/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]

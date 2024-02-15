@@ -1,0 +1,258 @@
+[gd_scene load_steps=2 format=3 uid="uid://c33e12csse0rd"]
+
+[ext_resource type="Texture2D" uid="uid://ddpm084j3857i" path="res://Assets/JuiceHouse/juice.png" id="1_s4q6i"]
+
+[node name="Upgrades" type="Node2D"]
+
+[node name="TabContainer" type="TabContainer" parent="."]
+offset_left = 133.0
+offset_top = 93.0
+offset_right = 361.0
+offset_bottom = 447.0
+tab_alignment = 1
+
+[node name="Common" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+tab_alignment = 1
+tab_close_display_policy = 1
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/Common"]
+modulate = Color(1, 0.431373, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 219.0
+offset_bottom = 71.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Common"]
+position = Vector2(46, 38)
+texture = ExtResource("1_s4q6i")
+
+[node name="Button" type="Button" parent="TabContainer/Common"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = 17.0
+offset_right = -13.0
+offset_bottom = -258.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Common"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 28.0
+offset_right = -57.0
+offset_bottom = -270.0
+text = "Comun 1"
+fit_content = true
+scroll_active = false
+tab_size = 2
+
+[node name="ColorRect2" type="ColorRect" parent="TabContainer/Common"]
+modulate = Color(1, 0.431373, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 77.0
+offset_right = 219.0
+offset_bottom = 143.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="TabContainer/Common"]
+position = Vector2(46, 110)
+texture = ExtResource("1_s4q6i")
+
+[node name="Button2" type="Button" parent="TabContainer/Common"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = 89.0
+offset_right = -13.0
+offset_bottom = -186.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="TabContainer/Common"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 100.0
+offset_right = -57.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Comun 2
+"
+fit_content = true
+scroll_active = false
+tab_size = 2
+
+[node name="ColorRect3" type="ColorRect" parent="TabContainer/Common"]
+modulate = Color(1, 0.431373, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 149.0
+offset_right = 219.0
+offset_bottom = 215.0
+
+[node name="Sprite2D3" type="Sprite2D" parent="TabContainer/Common"]
+position = Vector2(46, 182)
+texture = ExtResource("1_s4q6i")
+
+[node name="Button3" type="Button" parent="TabContainer/Common"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = 161.0
+offset_right = -13.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="TabContainer/Common"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 168.5
+offset_right = -59.0
+offset_bottom = -108.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Comun 3
+
+"
+fit_content = true
+scroll_active = false
+tab_size = 2
+
+[node name="ColorRect4" type="ColorRect" parent="TabContainer/Common"]
+modulate = Color(1, 0.431373, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 221.0
+offset_right = 219.0
+offset_bottom = 287.0
+
+[node name="Sprite2D4" type="Sprite2D" parent="TabContainer/Common"]
+position = Vector2(46, 254)
+texture = ExtResource("1_s4q6i")
+
+[node name="Button4" type="Button" parent="TabContainer/Common"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = 233.0
+offset_right = -13.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="TabContainer/Common"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 244.0
+offset_right = -57.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Comun 4
+"
+fit_content = true
+scroll_active = false
+tab_size = 2
+
+[node name="Epic" type="TabBar" parent="TabContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+tab_alignment = 1
+tab_close_display_policy = 1
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/Epic"]
+modulate = Color(1, 0.431373, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 219.0
+offset_bottom = 71.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Epic"]
+position = Vector2(46, 38)
+texture = ExtResource("1_s4q6i")
+
+[node name="Button" type="Button" parent="TabContainer/Epic"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = 17.0
+offset_right = -13.0
+offset_bottom = -258.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Epic"]
+self_modulate = Color(0.0431373, 0.0431373, 0.0431373, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = 28.0
+offset_right = 86.0
+offset_bottom = -9.0
+text = "Epico 1
+"
+fit_content = true
+scroll_active = false
+tab_size = 2
+
+[node name="ColorRect2" type="ColorRect" parent="TabContainer/Epic"]
+modulate = Color(1, 0.431373, 1, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 77.0
+offset_right = 219.0
+offset_bottom = 143.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="TabContainer/Epic"]
+position = Vector2(46, 110)
+texture = ExtResource("1_s4q6i")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="TabContainer/Epic"]
+self_modulate = Color(0.0431373, 0.0431373, 0.0431373, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 95.0
+offset_right = 97.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Epico 2
+"
+fit_content = true
+scroll_active = false
+tab_size = 2

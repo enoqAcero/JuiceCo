@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://cha4x6813k41p"]
+
+[ext_resource type="Script" path="res://Scripts/dailyRewards.gd" id="1_n4tjw"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_n4tjw")
+metadata/_edit_horizontal_guides_ = [352.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 10.0
+offset_top = 275.0
+offset_right = 461.0
+offset_bottom = 482.0
+color = Color(0, 0.388235, 0.454902, 1)
+
+[node name="dia1" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 85.0
+offset_right = 63.0
+offset_bottom = 116.0
+text = "Day  1"
+
+[node name="dia2" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 85.0
+offset_right = 126.0
+offset_bottom = 116.0
+text = "Day 2"
+
+[node name="dia3" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 85.0
+offset_right = 190.0
+offset_bottom = 116.0
+text = "Day 3"
+
+[node name="dia4" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 85.0
+offset_right = 254.0
+offset_bottom = 116.0
+text = "Day 4"
+
+[node name="dia5" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 85.0
+offset_right = 318.0
+offset_bottom = 116.0
+text = "Day 5"
+
+[node name="dia6" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 85.0
+offset_right = 380.0
+offset_bottom = 116.0
+text = "Day 6"
+
+[node name="dia7" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 85.0
+offset_right = 444.0
+offset_bottom = 116.0
+text = "Day 7"
+
+[connection signal="pressed" from="ColorRect/dia1" to="." method="_on_dia_1_pressed"]
+[connection signal="pressed" from="ColorRect/dia2" to="." method="_on_dia_2_pressed"]
+[connection signal="pressed" from="ColorRect/dia3" to="." method="_on_dia_3_pressed"]
+[connection signal="pressed" from="ColorRect/dia4" to="." method="_on_dia_4_pressed"]
+[connection signal="pressed" from="ColorRect/dia5" to="." method="_on_dia_5_pressed"]
+[connection signal="pressed" from="ColorRect/dia6" to="." method="_on_dia_6_pressed"]
+[connection signal="pressed" from="ColorRect/dia7" to="." method="_on_dia_7_pressed"]

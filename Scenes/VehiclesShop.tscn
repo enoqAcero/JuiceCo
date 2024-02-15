@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0mo52tb4wy5y"]
+
+[ext_resource type="Script" path="res://Scripts/VehiclesStoreScript.gd" id="1_leatl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 77.0
+offset_top = 232.0
+offset_right = 560.0
+offset_bottom = 533.0
+horizontal_scroll_mode = 0
+script = ExtResource("1_leatl")
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(350, 6000)
+layout_mode = 2
+size_flags_horizontal = 4
+auto_translate = false
+localize_numeral_system = false
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_right = 263.0
+offset_bottom = 3902.0
+color = Color(0.196078, 0.411765, 0.317647, 1)
+
+[node name="VboxPrincipalVShop" type="VBoxContainer" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_right = 260.0
+theme_override_constants/separation = 50

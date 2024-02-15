@@ -1,0 +1,136 @@
+[gd_scene load_steps=18 format=3 uid="uid://b35oolfdh7p4u"]
+
+[ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_ykmew"]
+[ext_resource type="Texture2D" uid="uid://b42nb3eheq4gq" path="res://Assets/Fruits/aguacate jump.png" id="2_qod1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1apo4"]
+size = Vector2(19.5307, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pdmy"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(0, 0, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwvm8"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(658, 0, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4elv"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(1316, 0, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q54dg"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(1974, 0, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_letc4"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(2632, 0, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk74e"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(3290, 0, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p7vb"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(0, 712, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8jqq"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(658, 712, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnqe3"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(1316, 712, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygpnh"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(1974, 712, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyixo"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(2632, 712, 658, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo3y6"]
+atlas = ExtResource("2_qod1p")
+region = Rect2(3290, 712, 658, 712)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ccj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pdmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwvm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4elv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q54dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_letc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk74e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p7vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8jqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnqe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygpnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyixo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo3y6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ykmew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.234638, 0)
+shape = SubResource("RectangleShape2D_1apo4")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_2ccj1")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_30c4l")
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+debug_enabled = true
+
+[node name="posTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="randPosTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="posTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="randPosTimer" to="." method="_on_rand_pos_timer_timeout"]

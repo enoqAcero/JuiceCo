@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpo2g24224cbx"]
+
+[ext_resource type="Script" path="res://Scripts/PhysicalJuiceHouse.gd" id="1_qxtah"]
+[ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="2_rcfv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivvtg"]
+size = Vector2(27, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0t1"]
+size = Vector2(40, 56)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_qxtah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_rcfv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_ivvtg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_pn0t1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
