@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://wfrd3rbfbvsd"]
+
+[ext_resource type="Script" path="res://Scripts/GarageItem.gd" id="1_0475r"]
+[ext_resource type="Texture2D" uid="uid://bcbrwrda8hlsi" path="res://Assets/Vehicles/Van.png" id="1_knvv4"]
+
+[sub_resource type="Theme" id="Theme_65j0c"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xaiqa"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf6ah"]
+bg_color = Color(0.980392, 0.588235, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_562bt"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it0l0"]
+bg_color = Color(0.678431, 0.678431, 0.678431, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw1tv"]
+bg_color = Color(0.929412, 0.439216, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="GarageItem" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(359, 60)
+layout_mode = 3
+anchors_preset = 0
+theme = SubResource("Theme_65j0c")
+script = ExtResource("1_0475r")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 359.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xaiqa")
+
+[node name="VehicleImage" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0167131
+anchor_bottom = 0.0666667
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 50.0
+offset_bottom = 52.0
+texture = ExtResource("1_knvv4")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="UpgradeButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 8.0
+offset_right = 348.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_rf6ah")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf6ah")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_562bt")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf6ah")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rf6ah")
+text = "Upgrade"
+clip_text = true
+
+[node name="VehicleName" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038
+anchor_top = 0.192
+anchor_right = 0.038
+anchor_bottom = 0.192
+offset_left = 48.358
+offset_top = -7.52
+offset_right = 250.358
+offset_bottom = 15.48
+theme_override_font_sizes/font_size = 14
+text = "Van"
+vertical_alignment = 1
+clip_text = true
+
+[node name="VehicleCapacity" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038
+anchor_top = 0.192
+anchor_right = 0.038
+anchor_bottom = 0.192
+offset_left = 48.358
+offset_top = 11.48
+offset_right = 250.358
+offset_bottom = 28.48
+theme_override_font_sizes/font_size = 9
+text = "Capacity: 000.00"
+vertical_alignment = 1
+clip_text = true
+
+[node name="VehicleCost" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038
+anchor_top = 0.192
+anchor_right = 0.038
+anchor_bottom = 0.192
+offset_left = 48.358
+offset_top = 24.48
+offset_right = 250.358
+offset_bottom = 41.48
+theme_override_font_sizes/font_size = 9
+text = "Cost: 000.00"
+vertical_alignment = 1
+clip_text = true
+
+[node name="PanelBuyVehicle" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 359.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_it0l0")
+
+[node name="Button" type="Button" parent="PanelBuyVehicle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = -79.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_iw1tv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iw1tv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iw1tv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_iw1tv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iw1tv")
+text = "Buy new vehicle"
+
+[node name="PanelEmpty" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 359.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_it0l0")
+
+[node name="Label" type="Label" parent="PanelEmpty"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.247059, 0.247059, 0.247059, 1)
+text = "Available slot"
+horizontal_alignment = 1
+vertical_alignment = 1
