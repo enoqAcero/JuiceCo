@@ -1,58 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3gg2wrxhabaq"]
+[gd_scene load_steps=10 format=3 uid="uid://b3gg2wrxhabaq"]
 
 [ext_resource type="Script" path="res://Scripts/Garage.gd" id="1_bjwhx"]
 [ext_resource type="Script" path="res://Scripts/vehicles.gd" id="1_urs3p"]
+[ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="2_rcs0u"]
 [ext_resource type="Script" path="res://Scripts/VehiclesStoreScript.gd" id="3_8njxs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdsb7"]
-bg_color = Color(0.980392, 0.588235, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-
-[sub_resource type="Theme" id="Theme_cjb5n"]
-Panel/styles/panel = SubResource("StyleBoxFlat_tdsb7")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5np1"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="Theme" id="Theme_0pyhx"]
-Panel/styles/panel = SubResource("StyleBoxFlat_d5np1")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aq5y"]
-bg_color = Color(0.74902, 0.74902, 0.74902, 1)
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="Theme" id="Theme_jaiut"]
-Panel/styles/panel = SubResource("StyleBoxFlat_6aq5y")
-
-[sub_resource type="Theme" id="Theme_chiew"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5eqe"]
-bg_color = Color(0.878431, 0.513726, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffyn1"]
-bg_color = Color(0, 0.54902, 0.470588, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8aek"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f72c0"]
-bg_color = Color(0, 0.337255, 0.286275, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+[ext_resource type="PackedScene" uid="uid://bkqy3jn8w0t35" path="res://Scenes/PanelSecondary.tscn" id="4_44wng"]
 
 [sub_resource type="Animation" id="Animation_me302"]
 length = 0.001
@@ -159,155 +111,18 @@ _data = {
 [node name="Garage" type="Node2D"]
 script = ExtResource("1_bjwhx")
 
-[node name="VehicleList" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VehicleList" parent="." instance=ExtResource("2_rcs0u")]
 
-[node name="Panel" type="Panel" parent="VehicleList"]
-clip_contents = true
-layout_mode = 0
-offset_left = 32.0
-offset_top = 64.0
-offset_right = 408.0
-offset_bottom = 109.0
-theme = SubResource("Theme_cjb5n")
-
-[node name="Label" type="Label" parent="VehicleList/Panel"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -13.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" parent="VehicleList/Panel" index="0"]
 text = "Garage"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="VehicleList"]
-clip_contents = true
-layout_mode = 0
-offset_left = 32.0
-offset_top = 109.0
-offset_right = 408.0
-offset_bottom = 640.0
-theme = SubResource("Theme_0pyhx")
-
-[node name="Panel3" type="Panel" parent="VehicleList"]
-clip_contents = true
-layout_mode = 0
-offset_left = 32.0
-offset_top = 192.0
-offset_right = 408.0
-offset_bottom = 640.0
-theme = SubResource("Theme_jaiut")
-
-[node name="Label" type="Label" parent="VehicleList"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 127.0
-offset_right = 384.0
-offset_bottom = 178.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = "Garage info
-Information 
-Information"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VehicleList"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 200.0
-offset_right = 400.0
-offset_bottom = 624.0
-theme = SubResource("Theme_chiew")
+[node name="ScrollContainer" parent="VehicleList" index="4"]
 script = ExtResource("1_urs3p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VehicleList/ScrollContainer"]
-layout_mode = 2
+[node name="VehicleCatalog" parent="." instance=ExtResource("4_44wng")]
 
-[node name="Button" type="Button" parent="VehicleList"]
-layout_mode = 0
-offset_left = 366.0
-offset_top = 72.0
-offset_right = 397.0
-offset_bottom = 102.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_l5eqe")
-theme_override_styles/hover = SubResource("StyleBoxFlat_l5eqe")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_l5eqe")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_l5eqe")
-theme_override_styles/focus = SubResource("StyleBoxFlat_l5eqe")
-text = "X"
-
-[node name="VehicleCatalog" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 500.0
-offset_top = 75.0
-offset_right = 500.0
-offset_bottom = 75.0
-
-[node name="Panel" type="Panel" parent="VehicleCatalog"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 64.0
-offset_right = 408.0
-offset_bottom = 109.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ffyn1")
-
-[node name="Label" type="Label" parent="VehicleCatalog/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Vehicles"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel2" type="Panel" parent="VehicleCatalog"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 109.0
-offset_right = 408.0
-offset_bottom = 509.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_e8aek")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VehicleCatalog"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 117.0
-offset_right = 400.0
-offset_bottom = 501.0
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
+[node name="ScrollContainer" parent="VehicleCatalog" index="2"]
 script = ExtResource("3_8njxs")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VehicleCatalog/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-auto_translate = false
-localize_numeral_system = false
-
-[node name="close" type="Button" parent="VehicleCatalog"]
-layout_mode = 0
-offset_left = 366.0
-offset_top = 74.0
-offset_right = 400.0
-offset_bottom = 105.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_f72c0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_f72c0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_f72c0")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_f72c0")
-theme_override_styles/focus = SubResource("StyleBoxFlat_f72c0")
-text = "X
-"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 2.0
@@ -317,3 +132,6 @@ libraries = {
 
 [connection signal="pressed" from="VehicleList/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VehicleCatalog/close" to="." method="_on_close_pressed"]
+
+[editable path="VehicleList"]
+[editable path="VehicleCatalog"]

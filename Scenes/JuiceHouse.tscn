@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://pyylsjt5onnc"]
+[gd_scene load_steps=14 format=3 uid="uid://pyylsjt5onnc"]
 
 [ext_resource type="Script" path="res://Scripts/JuiceHouse.gd" id="1_eijnn"]
 [ext_resource type="PackedScene" uid="uid://csa81m87x06kh" path="res://Scenes/JuiceHouseBox2.tscn" id="2_o7sdm"]
 [ext_resource type="PackedScene" uid="uid://cnjd2fjj2c4d8" path="res://Scenes/JuiceHouseBox1.tscn" id="3_pb1vb"]
+[ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="4_y2w3t"]
+[ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="5_konw6"]
+[ext_resource type="PackedScene" uid="uid://bkqy3jn8w0t35" path="res://Scenes/PanelSecondary.tscn" id="6_tvylr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r8hlm"]
 font_color = Color(0, 0, 0, 1)
@@ -13,24 +16,53 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ss8xi"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hg7g"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx2oy"]
+bg_color = Color(0.105882, 0.72549, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whfrd"]
+bg_color = Color(0.858824, 0.858824, 0.858824, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6iyy"]
+bg_color = Color(0, 0.721569, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="JuiceHouse" type="Node2D"]
 script = ExtResource("1_eijnn")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel3" type="Panel" parent="."]
+visible = false
 offset_right = 479.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel3"]
 layout_mode = 0
 offset_right = 479.0
 offset_bottom = 771.0
 theme_override_constants/separation = 0
 
-[node name="Color" type="ColorRect" parent="Panel/VBoxContainer"]
+[node name="Color" type="ColorRect" parent="Panel3/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 color = Color(0.403922, 0.403922, 0.403922, 1)
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Color"]
+[node name="Label" type="Label" parent="Panel3/VBoxContainer/Color"]
 layout_mode = 2
 offset_top = 4.0
 offset_right = 479.0
@@ -38,73 +70,73 @@ offset_bottom = 30.0
 text = "Juice House"
 horizontal_alignment = 1
 
-[node name="Close" type="Button" parent="Panel/VBoxContainer/Color"]
+[node name="Close" type="Button" parent="Panel3/VBoxContainer/Color"]
 layout_mode = 2
 offset_left = 425.0
 offset_top = 6.0
 offset_right = 463.0
 offset_bottom = 28.0
 
-[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="Panel3/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel3/VBoxContainer/ColorRect"]
 layout_mode = 0
 offset_right = 479.0
 offset_bottom = 57.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel3/VBoxContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 300
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel3/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Max Capacity"
 label_settings = SubResource("LabelSettings_r8hlm")
 
-[node name="CapacityLabel" type="Label" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="CapacityLabel" type="Label" parent="Panel3/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "00"
 label_settings = SubResource("LabelSettings_fqmnr")
 horizontal_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel3/VBoxContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Panel3/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Utilization
 "
 label_settings = SubResource("LabelSettings_ss8xi")
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="ProgressBar" type="ProgressBar" parent="Panel3/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+[node name="Panel" type="Panel" parent="Panel3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ColorRect2" type="ColorRect" parent="Panel/VBoxContainer/Panel"]
+[node name="ColorRect2" type="ColorRect" parent="Panel3/VBoxContainer/Panel"]
 layout_mode = 2
 offset_right = 479.0
 offset_bottom = 651.0
 size_flags_vertical = 3
 color = Color(0.619608, 0.619608, 0.619608, 1)
 
-[node name="Panel" type="Panel" parent="Panel/VBoxContainer/Panel"]
+[node name="Panel" type="Panel" parent="Panel3/VBoxContainer/Panel"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 470.0
 offset_bottom = 643.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/Panel/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel3/VBoxContainer/Panel/Panel"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 10.0
@@ -112,15 +144,19 @@ offset_right = 463.0
 offset_bottom = 630.0
 
 [node name="Empty1" parent="." instance=ExtResource("2_o7sdm")]
+visible = false
 position = Vector2(35, 136)
 
 [node name="Empty2" parent="." instance=ExtResource("2_o7sdm")]
+visible = false
 position = Vector2(246, 136)
 
 [node name="Empty3" parent="." instance=ExtResource("2_o7sdm")]
+visible = false
 position = Vector2(34, 445)
 
 [node name="Empty4" parent="." instance=ExtResource("2_o7sdm")]
+visible = false
 position = Vector2(245, 446)
 
 [node name="House1" parent="." instance=ExtResource("3_pb1vb")]
@@ -139,4 +175,176 @@ position = Vector2(34, 444)
 visible = false
 position = Vector2(245, 446)
 
-[connection signal="pressed" from="Panel/VBoxContainer/Color/Close" to="." method="_on_close_pressed"]
+[node name="HouseList" parent="." instance=ExtResource("4_y2w3t")]
+offset_left = 16.0
+offset_right = 16.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" parent="HouseList/Panel" index="0"]
+text = "Juice House"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HouseList/ScrollContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="ColorRect" type="Panel" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(175, 250)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2hg7g")
+
+[node name="Label" type="Label" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 98.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "House Type"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 26.0
+offset_right = -7.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_konw6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 208.0
+offset_right = 144.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_sx2oy")
+text = "UPGRADE"
+
+[node name="ProgressBar" type="ProgressBar" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 43.0
+offset_right = -7.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+
+[node name="Label2" type="Label" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 144.0
+offset_right = 168.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Utilization"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="Panel" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(175, 250)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_whfrd")
+
+[node name="Button" type="Button" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 120.0
+offset_right = 159.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_sx2oy")
+text = "UPGRADE"
+
+[node name="HouseCatalog" parent="." instance=ExtResource("6_tvylr")]
+
+[node name="Label" parent="HouseCatalog/Panel" index="0"]
+text = "Buy Juice House"
+
+[node name="Control2" type="Control" parent="HouseCatalog/ScrollContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(360, 100)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("5_konw6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "House Type"
+
+[node name="Label2" type="Label" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 39.0
+offset_right = 260.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Capacity: "
+
+[node name="Label4" type="Label" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 56.0
+offset_right = 260.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Cost: "
+
+[node name="Button" type="Button" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
+custom_minimum_size = Vector2(90, 40)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -25.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_g6iyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g6iyy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g6iyy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g6iyy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g6iyy")
+text = "BUY"
+
+[connection signal="pressed" from="Panel3/VBoxContainer/Color/Close" to="." method="_on_close_pressed"]
+
+[editable path="HouseList"]
+[editable path="HouseCatalog"]

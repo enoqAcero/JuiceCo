@@ -101,7 +101,7 @@ func loadHouses():
 		$House4.show()
 		house3Name.text =  GlobalVariables.player.JuiceHouse[houseID3].name
 	save()
-	
+
 #funcion cuando se compra una casa cuando antes no se tenia nada
 func buyHouse(index : int):
 	print("BUYHOUSE",index)
@@ -115,23 +115,15 @@ func buyHouse(index : int):
 	elif index == 3:
 		GlobalVariables.player.house3Id += 1
 	loadHouses()
-		
-	
+
+
 #funcion cuando se quiere mejorar una casa que ya existe
 func upgradeHouse(index : int):
 	GlobalVariables.player.house0Id += 1
 	loadHouses()
-	
-	
-
-
 
 func _on_close_pressed():
 	hide()
-	
+
 func save():
 	ResourceSaver.save(GlobalVariables.player, "res://Save/PlayerSave.tres")
-
-
-		
-

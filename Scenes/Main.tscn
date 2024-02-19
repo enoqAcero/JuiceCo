@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=28 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
@@ -20,11 +20,22 @@
 [ext_resource type="PackedScene" uid="uid://3j4nys6t5v5t" path="res://Scenes/ModalJuicesLvl.tscn" id="12_gl3jr"]
 [ext_resource type="Texture2D" uid="uid://dwegg5qd4cgt0" path="res://Assets/Buttons/BotonShop (1).png" id="12_h6o2h"]
 [ext_resource type="Texture2D" uid="uid://cvw4mvhlj2u0m" path="res://Assets/Bg/Background.png" id="14_y3oqk"]
+[ext_resource type="Texture2D" uid="uid://d1oytfb3513v6" path="res://Assets/Garages/SmallGarage.png" id="21_hjrht"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2x17k"]
 vertices = PackedVector2Array(472, -27, -182, 389, 335, -59, 66, -304, -182, -335, -186, -516, -450, -370)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 3, 4, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-182, -335, 335, -59, -182, 389, 472, -27, 66, -304, -186, -516, -450, -370)])
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_noesd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yh6u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2rdir"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo1bv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jt8w"]
 
 [node name="Main" type="Node2D" groups=["fruit", "mango"]]
 script = ExtResource("1_dpbrn")
@@ -184,13 +195,6 @@ offset_bottom = 22.0
 text = "
 "
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 296.0
-offset_top = 447.0
-offset_right = 430.0
-offset_bottom = 535.0
-text = "Garage"
-
 [node name="ProduceJuiceTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
@@ -214,6 +218,22 @@ position = Vector2(309, 273)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_y3oqk")
 
+[node name="Garage" type="Sprite2D" parent="."]
+position = Vector2(348, 447)
+scale = Vector2(0.272, 0.272)
+texture = ExtResource("21_hjrht")
+
+[node name="Button2" type="Button" parent="Garage"]
+offset_left = -397.059
+offset_top = -290.441
+offset_right = 426.941
+offset_bottom = 342.559
+theme_override_styles/normal = SubResource("StyleBoxEmpty_noesd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3yh6u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2rdir")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yo1bv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8jt8w")
+
 [connection signal="pressed" from="CanvasLayer/fieldButton" to="." method="_on_field_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/upgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/boostButton" to="." method="_on_boost_button_pressed"]
@@ -224,5 +244,5 @@ texture = ExtResource("14_y3oqk")
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
 [connection signal="pressed" from="house/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="timeout" from="ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]
+[connection signal="pressed" from="Garage/Button2" to="." method="_on_button_2_pressed"]

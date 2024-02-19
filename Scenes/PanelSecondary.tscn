@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkqy3jn8w0t35"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffyn1"]
+bg_color = Color(0, 0.54902, 0.470588, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8aek"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f72c0"]
+bg_color = Color(0, 0.337255, 0.286275, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="PanelSecondary" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 75.0
+offset_right = 500.0
+offset_bottom = 75.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 408.0
+offset_bottom = 109.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ffyn1")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Panel Secondary"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 109.0
+offset_right = 408.0
+offset_bottom = 509.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e8aek")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 117.0
+offset_right = 400.0
+offset_bottom = 501.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+auto_translate = false
+localize_numeral_system = false
+
+[node name="close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 74.0
+offset_right = 400.0
+offset_bottom = 105.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_f72c0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f72c0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f72c0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f72c0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f72c0")
+text = "X
+"
