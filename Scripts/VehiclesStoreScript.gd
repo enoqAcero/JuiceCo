@@ -1,45 +1,64 @@
 extends ScrollContainer
 
-var item = preload("res://Scenes/GarageItem.tscn")
+# Preload garage item template
+@onready var item_scene = preload("res://Scenes/GarageItem.tscn")
+@onready var main_container = get_node("VBoxContainer")
 
-func _ready():
+func fill_vehicle_catalog(transaction:String, slot:int, base_item = null):
 	
-	var main_container = get_node("VBoxContainer")
+	var upgrade_found := false
 	
-
+	for son in main_container.get_children():
+		son.queue_free()
+	
 	for i in range(len(GlobalVariables.player.Transport)):
-		
 		var vehicle = GlobalVariables.player.Transport[i]
-		var slot = item.instantiate()
-#		var vehicle_container = VBoxContainer.new()
-		main_container.add_child(slot)
-		slot.get_node("Panel").visible = true
-		slot.cost.visible = true
-#		var vehicle_image = TextureRect.new()
-		slot.image.texture = vehicle.skin
-#		vehicle_container.add_child(vehicle_image)
-#		vehicle_image.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
+		if transaction == "Upgrade":
+			
+			if vehicle == base_item.data:
+				upgrade_found = true
+				continue
+			
+			elif not upgrade_found:
+				continue
 		
-#		var info_container = HBoxContainer.new()
-#		vehicle_container.add_child(info_container)
+		var item = item_scene.instantiate()
+		
+		main_container.add_child(item)
+		
+		item.data = vehicle
+		item.get_node("Panel").visible = true
+		item.cost.visible = true
+		item.image.texture = vehicle.skin
+		item.vehicle.text = vehicle.name
+		item.cost.text = "Cost: " + GlobalVariables.getMoneyString(vehicle.cost)
+		item.capacity.text = "Capacity" + str(vehicle.capacity)
+		item.upgrade_button.text = transaction
+		item.id = i
+		match transaction:
+			'Buy':
+				item.upgrade_button.pressed.connect(Callable(purchase_vehicle).bind(slot, item))
+			'Upgrade':
+				item.upgrade_button.pressed.connect(Callable(upgrade_vehicle).bind(slot, item))
+	
+	scroll_vertical = 0.0
 
-#		var vehicle_name = Label.new()
-#		vehicle_name.text = vehicle.name
-#		info_container.add_child(vehicle_name)
-		slot.vehicle.text = vehicle.name
-
-#		var vehicle_cost = Label.new()
-#		vehicle_cost.text = str(vehicle.cost).substr(0, 4)
-#		info_container.add_child(vehicle_cost)
-		slot.cost.text = "Cost: " + str(vehicle.cost)
-
-#		var vehicle_capacity = Label.new()
-#		vehicle_capacity.text = str(vehicle.capacity)
-#		info_container.add_child(vehicle_capacity)
-		slot.capacity.text = "Capacity" + str(vehicle.capacity)
-
-#		var button = Button.new()
-#		button.text = "Buy"
-#		vehicle_container.add_child(button)
-		slot.upgrade_button.text = "Buy"
-
+func purchase_vehicle(slot:int, item):
+	if GlobalVariables.player.money >= item.data.cost:
+		var vehicle_id = "transport" + str(slot) + "Id"
+		GlobalVariables.player.set(vehicle_id, item.id + 1)
+		var remaining_mobey = float(GlobalVariables.player.money) - item.data.cost
+		GlobalVariables.player.set('money', remaining_mobey)
+		$"../../AnimationPlayer".play("venclose")
+	else:
+		item.upgrade_button.disabled = true
+	
+func upgrade_vehicle(slot:int, item):
+	if GlobalVariables.player.money >= item.data.cost:
+		var vehicle_id = "transport" + str(slot) + "Id"
+		GlobalVariables.player.set(vehicle_id, item.id + 1)
+		var remaining_mobey = float(GlobalVariables.player.money) - item.data.cost
+		GlobalVariables.player.set('money', remaining_mobey)
+		$"../../AnimationPlayer".play("venclose")
+	else:
+		item.upgrade_button.disabled = true

@@ -386,6 +386,7 @@ func _on_button_pressed():
 
 func _on_button_2_pressed():
 	$CanvasLayer/Garage.show()
+	$CanvasLayer/Garage/VehicleList/ScrollContainer.fill_vehicle_list()
 
 
 func _on_run_button_pressed():

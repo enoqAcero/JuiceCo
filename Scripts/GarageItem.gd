@@ -5,3 +5,7 @@ extends Control
 @onready var cost = $Panel/VehicleCost
 @onready var capacity = $Panel/VehicleCapacity
 @onready var upgrade_button = $Panel/UpgradeButton 
+
+var data : TransportData
+var slot : int
+var id : int

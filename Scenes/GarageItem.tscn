@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wfrd3rbfbvsd"]
+[gd_scene load_steps=10 format=3 uid="uid://wfrd3rbfbvsd"]
 
 [ext_resource type="Script" path="res://Scripts/GarageItem.gd" id="1_0475r"]
 [ext_resource type="Texture2D" uid="uid://bcbrwrda8hlsi" path="res://Assets/Vehicles/Van.png" id="1_knvv4"]
@@ -27,6 +27,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mncq"]
+bg_color = Color(0.254902, 0.25098, 0.243137, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it0l0"]
 bg_color = Color(0.678431, 0.678431, 0.678431, 1)
 corner_radius_top_left = 10
@@ -35,7 +42,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw1tv"]
-bg_color = Color(0.929412, 0.439216, 0, 1)
+bg_color = Color(0.894118, 0.470588, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -81,7 +88,7 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_rf6ah")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rf6ah")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_562bt")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_rf6ah")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2mncq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rf6ah")
 text = "Upgrade"
 clip_text = true
@@ -156,7 +163,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_iw1tv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_iw1tv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_iw1tv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_iw1tv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2mncq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_iw1tv")
 text = "Buy new vehicle"
 
