@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl108owjecijr"]
+
+[ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="1_0yhqd"]
+[ext_resource type="PackedScene" uid="uid://cqbm3y3nw60ls" path="res://Scenes/universe_animated_texture.tscn" id="2_70qn3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6iyy"]
+bg_color = Color(0, 0.721569, 0.329412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_os3y3"]
+bg_color = Color(0.332881, 0.332881, 0.332881, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(360, 100)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("1_0yhqd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UniverseAnimatedTexture" parent="." instance=ExtResource("2_70qn3")]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+offset_left = -65.8285
+offset_top = -0.4
+offset_right = -222.114
+offset_bottom = 25.6
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Control" parent="UniverseAnimatedTexture" index="0"]
+offset_left = -3.67532
+offset_top = -9.55959
+offset_right = 36.3246
+offset_bottom = 30.4404
+scale = Vector2(0.6, 0.6)
+
+[node name="Type" type="Label" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "House Type"
+
+[node name="Capacity" type="Label" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 39.0
+offset_right = 260.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Capacity: "
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 56.0
+offset_right = 260.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Cost: "
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 40)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -25.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_g6iyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g6iyy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g6iyy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_os3y3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g6iyy")
+text = "BUY"
+
+[editable path="UniverseAnimatedTexture"]

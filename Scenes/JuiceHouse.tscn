@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://csa81m87x06kh" path="res://Scenes/JuiceHouseBox2.tscn" id="2_o7sdm"]
 [ext_resource type="PackedScene" uid="uid://cnjd2fjj2c4d8" path="res://Scenes/JuiceHouseBox1.tscn" id="3_pb1vb"]
 [ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="4_y2w3t"]
-[ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="5_konw6"]
 [ext_resource type="PackedScene" uid="uid://bkqy3jn8w0t35" path="res://Scenes/PanelSecondary.tscn" id="6_tvylr"]
+[ext_resource type="PackedScene" uid="uid://bl108owjecijr" path="res://Scenes/JuiceHouseCatalogItem.tscn" id="7_x7mws"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r8hlm"]
 font_color = Color(0, 0, 0, 1)
@@ -16,33 +16,73 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ss8xi"]
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hg7g"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+[sub_resource type="Animation" id="Animation_dx6w6"]
+resource_name = "HideCatalog"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 0.3),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(-485, 0), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0.3),
+"transitions": PackedFloat64Array(1),
+"values": [{
+"args": [],
+"method": &"loadHouses"
+}]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx2oy"]
-bg_color = Color(0.105882, 0.72549, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="Animation" id="Animation_p1vfg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whfrd"]
-bg_color = Color(0.858824, 0.858824, 0.858824, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+[sub_resource type="Animation" id="Animation_2b6vy"]
+resource_name = "ShowCatalog"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menus:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 0.3),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-485, 0)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6iyy"]
-bg_color = Color(0, 0.721569, 0.329412, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6s2pw"]
+_data = {
+"HideCatalog": SubResource("Animation_dx6w6"),
+"RESET": SubResource("Animation_p1vfg"),
+"ShowCatalog": SubResource("Animation_2b6vy")
+}
 
 [node name="JuiceHouse" type="Node2D"]
 script = ExtResource("1_eijnn")
@@ -175,176 +215,39 @@ position = Vector2(34, 444)
 visible = false
 position = Vector2(245, 446)
 
-[node name="HouseList" parent="." instance=ExtResource("4_y2w3t")]
-offset_left = 16.0
-offset_right = 16.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6s2pw")
+}
+
+[node name="Menus" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HouseList" parent="Menus" instance=ExtResource("4_y2w3t")]
+offset_left = 21.0
+offset_top = -24.0
+offset_right = 21.0
+offset_bottom = -24.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Label" parent="HouseList/Panel" index="0"]
-text = "Juice House"
+[node name="Label" parent="Menus/HouseList/Panel" index="0"]
+text = "My Juice Houses"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HouseList/ScrollContainer/VBoxContainer" index="0"]
+[node name="HouseCatalog" parent="Menus" instance=ExtResource("6_tvylr")]
+
+[node name="Label" parent="Menus/HouseCatalog/Panel" index="0"]
+text = "Juice Houses"
+
+[node name="Control2" parent="Menus/HouseCatalog/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("7_x7mws")]
 layout_mode = 2
-theme_override_constants/separation = 5
-alignment = 1
-
-[node name="ColorRect" type="Panel" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2hg7g")
-
-[node name="Label" type="Label" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
-layout_mode = 0
-offset_left = 8.0
-offset_right = 98.0
-offset_bottom = 26.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 11
-text = "House Type"
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 26.0
-offset_right = -7.0
-offset_bottom = -114.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_konw6")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 208.0
-offset_right = 144.0
-offset_bottom = 240.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_sx2oy")
-text = "UPGRADE"
-
-[node name="ProgressBar" type="ProgressBar" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = 43.0
-offset_right = -7.0
-offset_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
-value = 50.0
-
-[node name="Label2" type="Label" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 144.0
-offset_right = 168.0
-offset_bottom = 167.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "Utilization"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect2" type="Panel" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(175, 250)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_whfrd")
-
-[node name="Button" type="Button" parent="HouseList/ScrollContainer/VBoxContainer/HBoxContainer/ColorRect2"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 120.0
-offset_right = 159.0
-offset_bottom = 152.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_sx2oy")
-text = "UPGRADE"
-
-[node name="HouseCatalog" parent="." instance=ExtResource("6_tvylr")]
-
-[node name="Label" parent="HouseCatalog/Panel" index="0"]
-text = "Buy Juice House"
-
-[node name="Control2" type="Control" parent="HouseCatalog/ScrollContainer/VBoxContainer" index="0"]
-custom_minimum_size = Vector2(360, 100)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -40.0
-offset_right = 80.0
-offset_bottom = 40.0
-grow_vertical = 2
-texture = ExtResource("5_konw6")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 16.0
-offset_right = 260.0
-offset_bottom = 42.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "House Type"
-
-[node name="Label2" type="Label" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 39.0
-offset_right = 260.0
-offset_bottom = 62.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
-text = "Capacity: "
-
-[node name="Label4" type="Label" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 56.0
-offset_right = 260.0
-offset_bottom = 79.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
-text = "Cost: "
-
-[node name="Button" type="Button" parent="HouseCatalog/ScrollContainer/VBoxContainer/Control2"]
-custom_minimum_size = Vector2(90, 40)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -25.0
-offset_bottom = 15.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_g6iyy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_g6iyy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_g6iyy")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_g6iyy")
-theme_override_styles/focus = SubResource("StyleBoxFlat_g6iyy")
-text = "BUY"
 
 [connection signal="pressed" from="Panel3/VBoxContainer/Color/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Menus/HouseList/Button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Menus/HouseCatalog/close" to="." method="_on_close_pressed"]
 
-[editable path="HouseList"]
-[editable path="HouseCatalog"]
+[editable path="Menus/HouseList"]
+[editable path="Menus/HouseCatalog"]

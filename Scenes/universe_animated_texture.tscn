@@ -1,0 +1,375 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqbm3y3nw60ls"]
+
+[ext_resource type="Texture2D" uid="uid://cv4q5dp13nem8" path="res://Assets/JuiceHouse/Universe/Asset 9.png" id="1_5gvr5"]
+[ext_resource type="Texture2D" uid="uid://o2yyviyjrh3n" path="res://Assets/JuiceHouse/Universe/Asset 2.png" id="2_vofcg"]
+[ext_resource type="Texture2D" uid="uid://cvsqml88xub4h" path="res://Assets/JuiceHouse/Universe/Asset 3.png" id="3_00q8u"]
+[ext_resource type="Texture2D" uid="uid://conn43damcsh" path="res://Assets/JuiceHouse/Universe/Asset 5.png" id="4_vrm3p"]
+[ext_resource type="Texture2D" uid="uid://qia62eim4otj" path="res://Assets/JuiceHouse/Universe/Asset 6.png" id="5_1jhu1"]
+[ext_resource type="Texture2D" uid="uid://ckvulis1ve6rq" path="res://Assets/JuiceHouse/Universe/Asset 4.png" id="6_tyoic"]
+[ext_resource type="Texture2D" uid="uid://be7n3hgay3ak2" path="res://Assets/JuiceHouse/Universe/Asset 8.png" id="7_lewb8"]
+[ext_resource type="Texture2D" uid="uid://dayfdfxc1xhcb" path="res://Assets/JuiceHouse/Universe/Asset 7.png" id="8_miqwr"]
+
+[sub_resource type="Animation" id="Animation_qll88"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect7:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect6:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect5:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextureRect:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tbco7"]
+resource_name = "Rotation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect7:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect6:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect5:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextureRect:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat64Array(0, 4),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2pimp"]
+_data = {
+"RESET": SubResource("Animation_qll88"),
+"Rotation": SubResource("Animation_tbco7")
+}
+
+[node name="UniverseAnimatedTexture" type="TextureRect"]
+custom_minimum_size = Vector2(110, 110)
+anchors_preset = -1
+anchor_left = 0.182857
+anchor_top = 0.104
+anchor_right = 0.811429
+anchor_bottom = 0.544
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5gvr5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.281076
+anchor_top = 0.365137
+anchor_right = 0.281076
+anchor_bottom = 0.365137
+offset_left = 4.08164
+offset_top = -5.16508
+offset_right = 44.0816
+offset_bottom = 34.8349
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.837696
+anchor_top = 0.478961
+anchor_right = -0.837696
+anchor_bottom = 0.946039
+offset_left = 2.50784
+offset_top = -3.15844
+offset_right = 27.5078
+offset_bottom = 3.15844
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 12.5)
+texture = ExtResource("2_vofcg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.237696
+anchor_top = 1.12896
+anchor_right = -0.237696
+anchor_bottom = 1.59604
+offset_left = 2.50784
+offset_top = -3.15844
+offset_right = 27.5078
+offset_bottom = 3.15844
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 12.5)
+texture = ExtResource("3_00q8u")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.612304
+anchor_top = 1.07896
+anchor_right = 0.612304
+anchor_bottom = 1.54604
+offset_left = 2.50784
+offset_top = -3.15844
+offset_right = 27.5078
+offset_bottom = 3.15844
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 12.5)
+texture = ExtResource("4_vrm3p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1123
+anchor_top = 0.378961
+anchor_right = 1.1123
+anchor_bottom = 0.846039
+offset_left = 2.50784
+offset_top = -3.15844
+offset_right = 27.5078
+offset_bottom = 3.15844
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 12.5)
+texture = ExtResource("5_1jhu1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.812304
+anchor_top = -0.371039
+anchor_right = 0.812304
+anchor_bottom = 0.096039
+offset_left = 2.50784
+offset_top = -3.15844
+offset_right = 27.5078
+offset_bottom = 3.15844
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 12.5)
+texture = ExtResource("6_tyoic")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.587696
+anchor_top = -0.321039
+anchor_right = -0.587696
+anchor_bottom = 0.146039
+offset_left = 2.50784
+offset_top = -3.15844
+offset_right = 27.5078
+offset_bottom = 3.15844
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 12.5)
+texture = ExtResource("7_lewb8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.112304
+anchor_top = -0.746039
+anchor_right = 0.112304
+anchor_bottom = -0.278961
+offset_left = 2.50784
+offset_top = -3.15844
+offset_right = 27.5078
+offset_bottom = 3.15844
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 12.5)
+texture = ExtResource("8_miqwr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+autoplay = "Rotation"
+libraries = {
+"": SubResource("AnimationLibrary_2pimp")
+}

@@ -1,129 +1,171 @@
 extends Node2D
 
+var house_item_scene := preload("res://Scenes/JuiceHouseItem.tscn")
+var catalog_item_scene := preload("res://Scenes/JuiceHouseCatalogItem.tscn")
 
-var EmptyHouseButtonNodePath = "Panel/VBoxContainer/BuildHouse"
-var UpgradeHouseButtonNodePath = "Panel/Upgrade"
+@onready var house_list := $"Menus/HouseList/ScrollContainer/VBoxContainer"
+@onready var house_catalog := $"Menus/HouseCatalog/ScrollContainer/VBoxContainer"
 
-###house variables
-var houseNamePath = "Panel/VBoxContainer/Name"
-var houseProgressBarPath = "Panel/VBoxContainer/HBoxContainer/ProgressBar"
-var houseSpritePath = "Panel/Sprite2D"
-####house 0 variables
-var houseID0
-var house0Name
-var house0ProgressBar
-var house0Sprite
-####house 1 variables
-var houseID1
-var house1Name
-var house1ProgressBar
-var house1Sprite
-####house 2 variables
-var houseID2
-var house2Name
-var house2ProgressBar
-var house2Sprite
-####house 3 variables
-var houseID3
-var house3Name
-var house3ProgressBar
-var house3Sprite
+var player_houses : Array
 
 func _ready():
 	
-	
-	$Empty1.get_node(EmptyHouseButtonNodePath).pressed.connect(Callable(buyHouse).bind(0))
-	$Empty2.get_node(EmptyHouseButtonNodePath).pressed.connect(Callable(buyHouse).bind(1))
-	$Empty3.get_node(EmptyHouseButtonNodePath).pressed.connect(Callable(buyHouse).bind(2))
-	$Empty4.get_node(EmptyHouseButtonNodePath).pressed.connect(Callable(buyHouse).bind(3))
-	$House1.get_node(UpgradeHouseButtonNodePath).pressed.connect(Callable(upgradeHouse).bind(0))
-	$House2.get_node(UpgradeHouseButtonNodePath).pressed.connect(Callable(upgradeHouse).bind(1))
-	$House3.get_node(UpgradeHouseButtonNodePath).pressed.connect(Callable(upgradeHouse).bind(2))
-	$House4.get_node(UpgradeHouseButtonNodePath).pressed.connect(Callable(upgradeHouse).bind(3))
-	
-	####house 1 variables
-	house0Name = $House1.get_node(houseNamePath)
-	house0ProgressBar = $House1.get_node(houseProgressBarPath)
-	house0Sprite = $House1.get_node(houseSpritePath)
-	####house 2 variables
-	house1Name = $House2.get_node(houseNamePath)
-	house1ProgressBar = $House2.get_node(houseProgressBarPath)
-	house1Sprite = $House2.get_node(houseSpritePath)
-	####house 3 variables
-	house2Name = $House3.get_node(houseNamePath)
-	house2ProgressBar = $House3.get_node(houseProgressBarPath)
-	house2Sprite = $House3.get_node(houseSpritePath)
-	####house 4 variables
-	house3Name = $House4.get_node(houseNamePath)
-	house3ProgressBar = $House4.get_node(houseProgressBarPath)
-	house3Sprite = $House4.get_node(houseSpritePath)
+	loadHouses()
 	
 	GlobalVariables.loadResource()
 	SignalManager.loadHouses.connect(loadHouses)
 
-#Carga y actualiza la casa correspondiente actual
+
 func loadHouses():
 	
-	houseID0 = GlobalVariables.player.house0Id - 1
-	houseID1 = GlobalVariables.player.house1Id - 1
-	houseID2 = GlobalVariables.player.house2Id - 1
-	houseID3 = GlobalVariables.player.house3Id - 1
+	player_houses = []
 	
-	if houseID0 < 0:
-		$Empty1.show()
-		$House1.hide()
-	else:
-		$Empty1.hide()
-		$House1.show()
-		house0Name.text = GlobalVariables.player.JuiceHouse[houseID0].name
+	# Clean panel
+	for item in house_list.get_children():
+		house_list.remove_child(item)
+	
+	# Create slots
+	for i in range(4):
+		var house_item := house_item_scene.instantiate()
+		add_house(house_item)
+		player_houses.append(house_item)
+	
+	# Display slot info
+	for i in range(4):
+		var id = GlobalVariables.player.get("house"+str(i)+"Id")
+		player_houses[i].get_node("Empty").visible = not bool(id)
+		player_houses[i].get_node("Owned").visible = bool(id)
+		if player_houses[i].get_node("Owned").visible:
+			player_houses[i].get_node("Owned/Label").text = GlobalVariables.player.JuiceHouse[id-1].name
+			player_houses[i].get_node("Owned/Texture").texture = GlobalVariables.player.JuiceHouse[id-1].skin
+			player_houses[i].get_node("Owned/Button").pressed.connect(Callable(show_upgrades).bind(i))
+			player_houses[i].get_node("Owned/Label3").text = "Level " + str( GlobalVariables.player.CurrentJuiceHouse[i].upgradeLvl)
+		else:
+			player_houses[i].get_node("Empty/Button").pressed.connect(Callable(show_catalog).bind(i))
 		
-	if houseID1 < 0:
-		$Empty2.show()
-		$House2.hide()
-	else:
-		$Empty2.hide()
-		$House2.show()
-		house1Name.text =  GlobalVariables.player.JuiceHouse[houseID1].name
+		# Levle up or upgrade
+		var level = GlobalVariables.player.CurrentJuiceHouse[i].upgradeLvl
+		if level < 4:
+			player_houses[i].get_node("Owned/Button2").show()
+			player_houses[i].get_node("Owned/Button2").pressed.connect(Callable(level_up).bind(i))
+		else:
+			player_houses[i].get_node("Owned/Button").show()
 		
-	if houseID2 < 0:
-		$Empty3.show()
-		$House3.hide()
-	else:
-		$Empty3.hide()
-		$House3.show()
-		house2Name.text =  GlobalVariables.player.JuiceHouse[houseID2].name
+		# Special Juiceverse animation
+		if id == 19:
+			player_houses[i].get_node("Owned/Texture").visible = false
+			player_houses[i].get_node("Owned/UniverseAnimatedTexture").visible = true
+
+func show_catalog(id:int):
+	$AnimationPlayer.play("ShowCatalog")
+	
+	for item in house_catalog.get_children():
+		house_catalog.remove_child(item)
+	
+	var catalog_items = GlobalVariables.player.JuiceHouse
+	for i in catalog_items.size():
+		var item = catalog_items[i]
+		var catalog_item = catalog_item_scene.instantiate()
+		catalog_item.get_node("Texture").texture = item.skin
+		catalog_item.get_node("Type").text = item.name
+		catalog_item.get_node("Cost").text = GlobalVariables.getMoneyString(item.cost[0])
+		catalog_item.get_node("Capacity").text = str(item.capacity)
+		catalog_item.get_node("Button").text = 'Buy'
+		catalog_item.get_node("Button").pressed.connect(Callable(buyHouse).bind(id, i))
 		
-	if houseID3 < 0:
-		$Empty4.show()
-		$House4.hide()
-	else:
-		$Empty4.hide()
-		$House4.show()
-		house3Name.text =  GlobalVariables.player.JuiceHouse[houseID3].name
-	save()
+		if item.cost[0] > GlobalVariables.player.money:
+			catalog_item.get_node("Button").disabled = true
+		
+		if item.name == "Pocket Juiceverse":
+			catalog_item.get_node("Texture").visible = false
+			catalog_item.get_node("UniverseAnimatedTexture").visible = true
 
-#funcion cuando se compra una casa cuando antes no se tenia nada
-func buyHouse(index : int):
-	print("BUYHOUSE",index)
+		house_catalog.add_child(catalog_item)
+	
+	house_list.get_node("../").scroll_vertical = 0.0
 
-	if index == 0:
-		GlobalVariables.player.house0Id += 1
-	elif index == 1:
-		GlobalVariables.player.house1Id += 1
-	elif index == 2:
-		GlobalVariables.player.house2Id += 1
-	elif index == 3:
-		GlobalVariables.player.house3Id += 1
-	loadHouses()
+func show_upgrades(id:int):
+	$AnimationPlayer.play("ShowCatalog")
+	for item in house_catalog.get_children():
+		house_catalog.remove_child(item)
+	
+	var catalog_items = GlobalVariables.player.JuiceHouse
+	for i in catalog_items.size():
+		var item = catalog_items[i]
+		var catalog_item = catalog_item_scene.instantiate()
+		catalog_item.get_node("Texture").texture = item.skin
+		catalog_item.get_node("Type").text = item.name
+		catalog_item.get_node("Cost").text = GlobalVariables.getMoneyString(item.cost[0])
+		catalog_item.get_node("Capacity").text = str(item.capacity)
+		catalog_item.get_node("Button").text = 'Upgrade'
+		catalog_item.get_node("Button").pressed.connect(Callable(upgradeHouse).bind(id, i))
+		
+		if item.cost[0] > GlobalVariables.player.money:
+			catalog_item.get_node("Button").disabled = true
+		
+		if item.name == "Pocket Juiceverse":
+			catalog_item.get_node("Texture").visible = false
+			catalog_item.get_node("UniverseAnimatedTexture").visible = true
+		
+		if i > int( GlobalVariables.player.get("house"+str(id)+"Id") ):
+			house_catalog.add_child(catalog_item)
+	
+	house_catalog.get_node("../").scroll_vertical = 0.0
 
 
-#funcion cuando se quiere mejorar una casa que ya existe
-func upgradeHouse(index : int):
-	GlobalVariables.player.house0Id += 1
-	loadHouses()
+func buyHouse(slot:int, index : int):
+	var money = GlobalVariables.player.money
+	var cost = GlobalVariables.player.JuiceHouse[index].cost[0]
+	if money >= cost:
+		GlobalVariables.player.set("house"+str(slot)+"Id", index+1)
+		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", 1)
+		save()
+	$AnimationPlayer.play("HideCatalog")
+#	save()
 
-func _on_close_pressed():
-	hide()
+func upgradeHouse(slot:int, index : int):
+	var money = GlobalVariables.player.money
+	var cost = GlobalVariables.player.JuiceHouse[index].cost[0]
+	if money >= cost:
+		GlobalVariables.player.set("house"+str(slot)+"Id", index+1)
+		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", 1)
+		save()
+	$AnimationPlayer.play("HideCatalog")
+#	save()
+
 
 func save():
 	ResourceSaver.save(GlobalVariables.player, "res://Save/PlayerSave.tres")
+
+func _on_close_button_pressed():
+	hide()
+	
+func add_house(house):
+	var container
+	if house_list.get_child_count() > 0:
+		if house_list.get_child(house_list.get_child_count() - 1).get_child_count() == 2:
+			container = HBoxContainer.new()
+			house_list.add_child(container)
+		else:
+			container = house_list.get_child(house_list.get_child_count() - 1)
+	else:
+		container = HBoxContainer.new()
+		house_list.add_child(container)
+	
+	container.add_child(house)
+
+
+func _on_close_pressed():
+	loadHouses()
+	$AnimationPlayer.play("HideCatalog")
+	
+func level_up(slot:int):
+	var house_type = GlobalVariables.player.get("house"+str(slot)+"Id")
+	var current_level = GlobalVariables.player.CurrentJuiceHouse[slot].upgradeLvl
+	var cost : float = GlobalVariables.player.JuiceHouse[int(house_type)].cost[current_level]
+	if GlobalVariables.player.money > cost:
+		GlobalVariables.player.set("money", float(GlobalVariables.player.money) - cost)
+		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", current_level+1)
+		save()
+		print(GlobalVariables.player.money)
+	loadHouses()
