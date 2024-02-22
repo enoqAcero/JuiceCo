@@ -1,4 +1,4 @@
-extends ProgressBar
+extends TextureProgressBar
 
 var tween
 var fieldNode
@@ -17,6 +17,7 @@ func _ready():
 func _process(delta):
 	if self.value >= self.max_value:
 		self.value = 0
+		print(get_parent().name + " Bar value: " +str(value))
 		fieldNode.cashOut(index)
 		GlobalVariables.player.Fruits[index].currentProgress = 0
 		tween.kill()

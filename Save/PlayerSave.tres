@@ -1,44 +1,44 @@
-[gd_resource type="Resource" script_class="Player" load_steps=105 format=3]
+[gd_resource type="Resource" script_class="Player" load_steps=105 format=3 uid="uid://hflh1wqhu1b1"]
 
 [ext_resource type="Script" path="res://Resources/CurrentHouseData.gd" id="1_3qdky"]
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
 [ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_hnv06"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
-[ext_resource type="Texture2D" path="res://a.png" id="2_vc0li"]
+[ext_resource type="Texture2D" uid="uid://ddpm084j3857i" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
+[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="2_vc0li"]
 [ext_resource type="Script" path="res://Resources/TransportData.gd" id="2_webxm"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceStand.png" id="5_iuf66"]
+[ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="5_iuf66"]
 [ext_resource type="Script" path="res://Resources/JuiceLevelData.gd" id="5_my2gi"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceShack.png" id="6_56b1g"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceHouse.png" id="7_vr073"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/BigJuiceHouse.png" id="8_vqqll"]
+[ext_resource type="Texture2D" uid="uid://bnd43yxfo0f31" path="res://Assets/JuiceHouse/JuiceShack.png" id="6_56b1g"]
+[ext_resource type="Texture2D" uid="uid://ccch7dg82gg4" path="res://Assets/JuiceHouse/JuiceHouse.png" id="7_vr073"]
+[ext_resource type="Texture2D" uid="uid://po4unoiwkts8" path="res://Assets/JuiceHouse/BigJuiceHouse.png" id="8_vqqll"]
 [ext_resource type="Script" path="res://Resources/WaterTankData.gd" id="9_4vhif"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/Motorcycle.png" id="9_8emba"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/BiggerJuiceHouse.png" id="9_jhwmg"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/SmallCar.png" id="10_4yv12"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/Van.png" id="10_db7fb"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/BiggestJuiceHouse.png" id="10_m143g"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/Fruitplex.png" id="11_3sumg"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/PickupTruck.png" id="11_7yit6"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/Car.png" id="11_mymge"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/SuikaWarehouse.png" id="12_0p858"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/BoxTruck.png" id="12_y7llb"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/Bus.png" id="13_3yfb7"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/TheTank.png" id="13_4p75j"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/DobleBus.png" id="14_1py8v"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/Micro.png" id="14_l25ep"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceCo.png" id="14_wdlhq"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/Fruitscraper.png" id="15_4r28b"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/DeliveryVan.png" id="15_pudf3"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/Vesuvjuice.png" id="15_udehr"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/LightTrain.png" id="15_x74sn"]
-[ext_resource type="Texture2D" path="res://Assets/Vehicles/Train.png" id="16_b2c30"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/FruitsKhalifa.png" id="16_wh3wt"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/SixFruits.png" id="17_36i77"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/SeaOfJuice.png" id="18_10d2j"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/VitaminCty.png" id="19_3j3ri"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceWorld.png" id="20_fvpik"]
-[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/NFJA.png" id="21_twxmq"]
+[ext_resource type="Texture2D" uid="uid://cn3wfxb6q3lxo" path="res://Assets/Vehicles/Motorcycle.png" id="9_8emba"]
+[ext_resource type="Texture2D" uid="uid://b1wiqwuw5yg3c" path="res://Assets/JuiceHouse/BiggerJuiceHouse.png" id="9_jhwmg"]
+[ext_resource type="Texture2D" uid="uid://i3g1bmhan00h" path="res://Assets/Vehicles/SmallCar.png" id="10_4yv12"]
+[ext_resource type="Texture2D" uid="uid://bcbrwrda8hlsi" path="res://Assets/Vehicles/Van.png" id="10_db7fb"]
+[ext_resource type="Texture2D" uid="uid://ffhcc8j55841" path="res://Assets/JuiceHouse/BiggestJuiceHouse.png" id="10_m143g"]
+[ext_resource type="Texture2D" uid="uid://b4sn174iilebc" path="res://Assets/JuiceHouse/Fruitplex.png" id="11_3sumg"]
+[ext_resource type="Texture2D" uid="uid://uwvjhm44h5fp" path="res://Assets/Vehicles/PickupTruck.png" id="11_7yit6"]
+[ext_resource type="Texture2D" uid="uid://cvde4fb6cudi0" path="res://Assets/Vehicles/Car.png" id="11_mymge"]
+[ext_resource type="Texture2D" uid="uid://c5nq45hpfaons" path="res://Assets/JuiceHouse/SuikaWarehouse.png" id="12_0p858"]
+[ext_resource type="Texture2D" uid="uid://dkakeg02thu6h" path="res://Assets/Vehicles/BoxTruck.png" id="12_y7llb"]
+[ext_resource type="Texture2D" uid="uid://5dtohxb5ybko" path="res://Assets/Vehicles/Bus.png" id="13_3yfb7"]
+[ext_resource type="Texture2D" uid="uid://3uypniyw3mx7" path="res://Assets/JuiceHouse/TheTank.png" id="13_4p75j"]
+[ext_resource type="Texture2D" uid="uid://cc6jbdkx78cly" path="res://Assets/Vehicles/DobleBus.png" id="14_1py8v"]
+[ext_resource type="Texture2D" uid="uid://bp0lylr7kh4xv" path="res://Assets/Vehicles/Micro.png" id="14_l25ep"]
+[ext_resource type="Texture2D" uid="uid://dcy8fflsavkss" path="res://Assets/JuiceHouse/JuiceCo.png" id="14_wdlhq"]
+[ext_resource type="Texture2D" uid="uid://ctspr3c0bggx5" path="res://Assets/JuiceHouse/Fruitscraper.png" id="15_4r28b"]
+[ext_resource type="Texture2D" uid="uid://cjdyhpmaetge0" path="res://Assets/Vehicles/DeliveryVan.png" id="15_pudf3"]
+[ext_resource type="Texture2D" uid="uid://mslomx47fgpk" path="res://Assets/JuiceHouse/Vesuvjuice.png" id="15_udehr"]
+[ext_resource type="Texture2D" uid="uid://12qq86572wtm" path="res://Assets/Vehicles/LightTrain.png" id="15_x74sn"]
+[ext_resource type="Texture2D" uid="uid://hvtxj5dklair" path="res://Assets/Vehicles/Train.png" id="16_b2c30"]
+[ext_resource type="Texture2D" uid="uid://bwq5x7xnq46mt" path="res://Assets/JuiceHouse/FruitsKhalifa.png" id="16_wh3wt"]
+[ext_resource type="Texture2D" uid="uid://glki3ytrhjr0" path="res://Assets/JuiceHouse/SixFruits.png" id="17_36i77"]
+[ext_resource type="Texture2D" uid="uid://bad3jl5swkqa6" path="res://Assets/JuiceHouse/SeaOfJuice.png" id="18_10d2j"]
+[ext_resource type="Texture2D" uid="uid://dh1bp8avhuvgb" path="res://Assets/JuiceHouse/VitaminCty.png" id="19_3j3ri"]
+[ext_resource type="Texture2D" uid="uid://bccmptrdswiew" path="res://Assets/JuiceHouse/JuiceWorld.png" id="20_fvpik"]
+[ext_resource type="Texture2D" uid="uid://dbeqs30f02x5g" path="res://Assets/JuiceHouse/NFJA.png" id="21_twxmq"]
 
 [sub_resource type="Resource" id="Resource_8fao5"]
 script = ExtResource("1_3qdky")
@@ -46,10 +46,10 @@ houseLvl = 2
 upgradeLvl = 4
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 2.41568e+07
-blueberryCount = 3080131
-cerezaCount = 20997991
-fresaCount = 58854
+currentCapacity = 5.75809e+07
+blueberryCount = 5681932
+cerezaCount = 51818591
+fresaCount = 59023
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -61,7 +61,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 19067.0
+sandiaCount = 20257.2
 
 [sub_resource type="Resource" id="Resource_ih36l"]
 script = ExtResource("1_3qdky")
@@ -69,10 +69,10 @@ houseLvl = 7
 upgradeLvl = 4
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 3.50207e+06
-blueberryCount = 396768
-cerezaCount = 3102478
-fresaCount = 343
+currentCapacity = 3.6926e+07
+blueberryCount = 2998569
+cerezaCount = 33923078
+fresaCount = 512
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -84,7 +84,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 2254.8
+sandiaCount = 3445.64
 
 [sub_resource type="Resource" id="Resource_mnbsa"]
 script = ExtResource("1_3qdky")
@@ -92,10 +92,10 @@ houseLvl = 8
 upgradeLvl = 4
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 3.49519e+06
-blueberryCount = 395990
-cerezaCount = 3096390
-fresaCount = 343
+currentCapacity = 3.69191e+07
+blueberryCount = 2997791
+cerezaCount = 33916990
+fresaCount = 512
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -107,7 +107,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 2250.37
+sandiaCount = 3441.21
 
 [sub_resource type="Resource" id="Resource_rggul"]
 script = ExtResource("1_3qdky")
@@ -135,12 +135,12 @@ sandiaCount = 0.0
 [sub_resource type="Resource" id="Resource_tjrh3"]
 script = ExtResource("1_hnv06")
 name = "Mango"
-level = 22
-tier = 2
-cost = 8.97928
-liters = 1.0
-multiplier = 1.05
-speed = 2.5
+level = 3
+tier = 1
+cost = 3.43033e+09
+liters = 1.1496e+08
+multiplier = 1.11
+speed = 1.0
 currentProgress = 0.0
 skin = ExtResource("2_vc0li")
 initialCost = 0.0
@@ -149,12 +149,12 @@ initialSpeed = 0.0
 [sub_resource type="Resource" id="Resource_n854k"]
 script = ExtResource("1_hnv06")
 name = ""
-level = 43
-tier = 3
+level = 208
+tier = 7
 cost = 0.0
 liters = 5e+11
 multiplier = 0.0
-speed = 0.625
+speed = 0.0390625
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
@@ -683,12 +683,12 @@ count = 12
 [resource]
 script = ExtResource("1_fhr83")
 liters = 0.0
-money = 8.15512e+21
+money = 1.03636e+24
 gems = 171
-litersPerSecond = 1.32572e+19
-sandiasPerSecond = 0.0568156
-farmValue = 1.35001e+30
-time = "2024-02-21T13:24:02"
+litersPerSecond = 1.96833e+19
+sandiasPerSecond = 0.577498
+farmValue = 2.30811e+30
+time = "2024-02-22T15:23:17"
 multGananciasActive = false
 gemYdineroActive = false
 gemasActive = false

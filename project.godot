@@ -19,10 +19,15 @@ config/features=PackedStringArray("4.1", "Double Precision", "Mobile")
 GlobalVariables="*res://Scripts/GlobalVariables.gd"
 SignalManager="*res://Scripts/SignalManager.gd"
 
+[debug]
+
+shapes/navigation/enable_agent_paths=false
+
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=854
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1

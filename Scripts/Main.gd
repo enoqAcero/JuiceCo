@@ -14,7 +14,9 @@ var totalTransportCapacity = 0
 var totalJuiceHouseCapacity = 0
 
 var mango = preload("res://Scenes/Fruits/Mango.tscn")
-var fruits =[mango, mango]
+var aguacate = preload("res://Scenes/Fruits/Aguacate.tscn")
+var cereza = preload("res://Scenes/Fruits/Cereza.tscn")
+var fruits = [mango, aguacate]
 var fruitInstance = []
 var runTimerNode
 var runButtonControl = false
@@ -396,7 +398,7 @@ func _on_run_button_pressed():
 		runButtonControl = true
 	
 func instanceFruit():
-	var randFruit = randi() % (fruits.size() - 1)
+	var randFruit = randi_range(0, fruits.size()-1)
 	var fruitType = fruits[randFruit]
 	var fruit = fruitType.instantiate()
 	var fruitI = fruit

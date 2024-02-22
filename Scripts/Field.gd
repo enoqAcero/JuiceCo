@@ -2,61 +2,15 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 
-var panelNode0Button
-var panelNode1Button
-var panelNode2Button
-var panelNode3Button
-var panelNode4Button
-var panelNode5Button
-var panelNode6Button
-var panelNode7Button
-var panelNode8Button
-var panelNode9Button
-var panelNode10Button
-var panelNode11Button
-var panelNode12Button
-var panelNode13Button
-var panelNode14Button
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	panelNode0Button = $ScrollContainer/Control/VBoxContainer/Panel0/Button
-	panelNode1Button = $ScrollContainer/Control/VBoxContainer/Panel1/Button
-	panelNode2Button = $ScrollContainer/Control/VBoxContainer/Panel2/Button
-	panelNode3Button = $ScrollContainer/Control/VBoxContainer/Panel3/Button
-	panelNode4Button = $ScrollContainer/Control/VBoxContainer/Panel4/Button
-	panelNode5Button = $ScrollContainer/Control/VBoxContainer/Panel5/Button
-	panelNode6Button = $ScrollContainer/Control/VBoxContainer/Panel6/Button
-	panelNode7Button = $ScrollContainer/Control/VBoxContainer/Panel7/Button
-	panelNode8Button = $ScrollContainer/Control/VBoxContainer/Panel8/Button
-	panelNode9Button = $ScrollContainer/Control/VBoxContainer/Panel9/Button
-	panelNode10Button = $ScrollContainer/Control/VBoxContainer/Panel10/Button
-	panelNode11Button = $ScrollContainer/Control/VBoxContainer/Panel11/Button
-	panelNode12Button = $ScrollContainer/Control/VBoxContainer/Panel12/Button
-	panelNode13Button = $ScrollContainer/Control/VBoxContainer/Panel13/Button
-	panelNode14Button = $ScrollContainer/Control/VBoxContainer/Panel14/Button
-	
-	panelNode0Button.pressed.connect(Callable(buyFruit).bind(0))
-	panelNode1Button.pressed.connect(Callable(buyFruit).bind(1))
-	panelNode2Button.pressed.connect(Callable(buyFruit).bind(2))
-	panelNode3Button.pressed.connect(Callable(buyFruit).bind(3))
-	panelNode4Button.pressed.connect(Callable(buyFruit).bind(4))
-	panelNode5Button.pressed.connect(Callable(buyFruit).bind(5))
-	panelNode6Button.pressed.connect(Callable(buyFruit).bind(6))
-	panelNode7Button.pressed.connect(Callable(buyFruit).bind(7))
-	panelNode8Button.pressed.connect(Callable(buyFruit).bind(8))
-	panelNode9Button.pressed.connect(Callable(buyFruit).bind(9))
-	panelNode10Button.pressed.connect(Callable(buyFruit).bind(10))
-	panelNode11Button.pressed.connect(Callable(buyFruit).bind(11))
-	panelNode12Button.pressed.connect(Callable(buyFruit).bind(12))
-	panelNode13Button.pressed.connect(Callable(buyFruit).bind(13))
-	panelNode14Button.pressed.connect(Callable(buyFruit).bind(14))
-	
+	for i in range(get_node("Panel/ScrollContainer/VBoxContainer").get_child_count()):
+		var meter = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(i))
+		meter.get_node("BuyButton").pressed.connect(Callable(buyFruit).bind(i))
 	loadAllPanelData()
 	
 func loadAllPanelData():
-	for i in range (0, GlobalVariables.player.Fruits.size()):
+	for i in range (get_node("Panel/ScrollContainer/VBoxContainer").get_child_count()):
 		loadPanelData(i)
 		
 func loadPanelData(index : int):
@@ -64,13 +18,13 @@ func loadPanelData(index : int):
 	var currentPanelButtonCost
 	var currentPanelLvlLabel
 	
-	currentPanelSprite = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/A")
-	currentPanelButtonCost = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Button/CostNumber")
-	currentPanelLvlLabel = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/Lvl")
+#	currentPanelSprite = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/A")
+	currentPanelButtonCost = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
+	currentPanelLvlLabel = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/Level")
 	
-	currentPanelSprite.texture = GlobalVariables.player.Fruits[index].skin
+#	currentPanelSprite.texture = GlobalVariables.player.Fruits[index].skin
 	if GlobalVariables.player.Fruits[index].cost <= 999:
-		currentPanelButtonCost.text = str(GlobalVariables.player.Fruits[index].cost)
+		currentPanelButtonCost.text ="$ %.2f" % GlobalVariables.player.Fruits[index].cost
 	else:
 		currentPanelButtonCost.text = GlobalVariables.getMoneyString(GlobalVariables.player.Fruits[index].cost)
 	if GlobalVariables.player.Fruits[index].speed == 0:
@@ -115,9 +69,10 @@ func buyFruit(index : int):
 
 	
 	loadPanelData(index)
+	get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite").play("default")
 	
 func saveCurrentProgress(index : int):
-	var currentProgressBar = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(index) + "/ProgressBar")
+	var currentProgressBar = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/Bar")
 	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
 	var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
 	var nextProgressValueInPer
