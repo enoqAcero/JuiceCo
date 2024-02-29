@@ -1,530 +1,533 @@
-[gd_scene load_steps=69 format=3 uid="uid://bc8vtgcgh7vxg"]
+[gd_scene load_steps=72 format=3 uid="uid://bc8vtgcgh7vxg"]
 
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="1_dcyj0"]
-[ext_resource type="Texture2D" uid="uid://c3f67uwspwjok" path="res://Assets/Fruits/mango jump2.png" id="4_fe1yd"]
+[ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="2_8isdi"]
+[ext_resource type="Texture2D" uid="uid://cdbf55j5esw47" path="res://Assets/Temp/Sin nombre.png" id="3_6or35"]
 [ext_resource type="PackedScene" uid="uid://b6hb4noj7bjxw" path="res://Scenes/FullBarLimon.tscn" id="4_l1mrx"]
 [ext_resource type="PackedScene" uid="uid://bcceecf6p8c7x" path="res://Scenes/FullBarMango.tscn" id="4_wl7d8"]
-[ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="4_x8c2q"]
 [ext_resource type="PackedScene" uid="uid://clls5rpcn30h7" path="res://Scenes/FruitMeter.tscn" id="5_mmwbo"]
 [ext_resource type="Texture2D" uid="uid://d0wrbfw6tpyh3" path="res://Assets/ProgressBars/Avocado.png" id="5_q6cfh"]
-[ext_resource type="Texture2D" uid="uid://b42nb3eheq4gq" path="res://Assets/Fruits/aguacate jump.png" id="6_hj6xt"]
+[ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="5_uh3c6"]
 [ext_resource type="PackedScene" uid="uid://bhph5jtf4xw73" path="res://Scenes/FullBarAguacate.tscn" id="7_evkpv"]
+[ext_resource type="PackedScene" uid="uid://dkrqagwff34a0" path="res://Scenes/Fruits/AguacateSprite.tscn" id="8_qlm35"]
 [ext_resource type="Texture2D" uid="uid://bh4w6k1h3m4ik" path="res://Assets/ProgressBars/Blueberry.png" id="9_uedkc"]
 [ext_resource type="PackedScene" uid="uid://xpim3jhyynap" path="res://Scenes/FullBarBlueBerry.tscn" id="10_ucauq"]
+[ext_resource type="PackedScene" uid="uid://vwl3qxu1h1ik" path="res://Scenes/Fruits/BlueberrySprite.tscn" id="11_brfqu"]
 [ext_resource type="Texture2D" uid="uid://bptw4o1pxwuls" path="res://Assets/ProgressBars/Lemon.png" id="11_gngrc"]
 [ext_resource type="Texture2D" uid="uid://dsclgcjxohcn5" path="res://Assets/ProgressBars/Peach.png" id="13_2heix"]
 [ext_resource type="PackedScene" uid="uid://b6g171hjety2a" path="res://Scenes/FullBarDurazno.tscn" id="14_ki8k2"]
+[ext_resource type="PackedScene" uid="uid://801a8pd1o60l" path="res://Scenes/Fruits/LimonSprite.tscn" id="14_uijvm"]
 [ext_resource type="Texture2D" uid="uid://dqtmnvec04gjs" path="res://Assets/ProgressBars/Apple.png" id="15_m2wbn"]
 [ext_resource type="PackedScene" uid="uid://j4roaghrh416" path="res://Scenes/FullBarManzana.tscn" id="16_k07vl"]
+[ext_resource type="PackedScene" uid="uid://dygxujsc15txg" path="res://Scenes/Fruits/DuraznoSprite.tscn" id="17_dmc5w"]
 [ext_resource type="Texture2D" uid="uid://d4febjlo64jnd" path="res://Assets/ProgressBars/Orange.png" id="17_wlgxy"]
 [ext_resource type="PackedScene" uid="uid://dhuqry8sl58d8" path="res://Scenes/FullBarNaranja.tscn" id="18_76pd7"]
 [ext_resource type="Texture2D" uid="uid://dy6yyfgds65l" path="res://Assets/ProgressBars/Cherry.png" id="19_p5mcw"]
+[ext_resource type="PackedScene" uid="uid://coxtulpxek15" path="res://Scenes/Fruits/ManzanaSprite.tscn" id="20_1f1or"]
 [ext_resource type="PackedScene" uid="uid://bm2ttvbj2k0j6" path="res://Scenes/FullBarCereza.tscn" id="20_xvkgj"]
 [ext_resource type="Texture2D" uid="uid://b1a51aamgk3g5" path="res://Assets/ProgressBars/Strawberry.png" id="21_c4yln"]
 [ext_resource type="PackedScene" uid="uid://boktnul7xc67k" path="res://Scenes/FullBarFresa.tscn" id="22_4r8o6"]
+[ext_resource type="PackedScene" uid="uid://bk6uc1r817w42" path="res://Scenes/Fruits/NaranjaSprite.tscn" id="23_4wfxi"]
 [ext_resource type="Texture2D" uid="uid://b112anyt8k762" path="res://Assets/ProgressBars/Dragonfruit.png" id="23_sna4s"]
 [ext_resource type="PackedScene" uid="uid://c1wrd7d52pqs3" path="res://Scenes/FullBarDragonFruit.tscn" id="24_enk4a"]
 [ext_resource type="Texture2D" uid="uid://cr1wo5idhkvbs" path="res://Assets/ProgressBars/Coconut.png" id="25_gyx5c"]
 [ext_resource type="PackedScene" uid="uid://mi2d8xgpmbch" path="res://Scenes/FullBarCoco.tscn" id="26_7xwis"]
+[ext_resource type="PackedScene" uid="uid://bbpwqy6fyyp3b" path="res://Scenes/Fruits/CerezaSprite.tscn" id="26_ldwvx"]
 [ext_resource type="Texture2D" uid="uid://ck4td18scex41" path="res://Assets/ProgressBars/Pineapple.png" id="27_npicm"]
 [ext_resource type="PackedScene" uid="uid://bn1jsjdcyy6af" path="res://Scenes/FullBarPina.tscn" id="28_hfr82"]
 [ext_resource type="Texture2D" uid="uid://cu78sk6grl4q5" path="res://Assets/ProgressBars/Papaya.png" id="29_8hpwf"]
+[ext_resource type="PackedScene" uid="uid://bxp8iwrrsfhjb" path="res://Scenes/Fruits/FresaSprite.tscn" id="29_84gh7"]
 [ext_resource type="PackedScene" uid="uid://4chxtdfrlflj" path="res://Scenes/FullBarPapaya.tscn" id="30_j7weh"]
 [ext_resource type="Texture2D" uid="uid://dmenq3d567ovu" path="res://Assets/ProgressBars/Melon.png" id="31_eknp6"]
 [ext_resource type="PackedScene" uid="uid://ifnmsvipf0il" path="res://Scenes/FullBarMelon.tscn" id="32_607hl"]
+[ext_resource type="PackedScene" uid="uid://b0e5bpnmuddj4" path="res://Scenes/Fruits/DragonfruitSprite.tscn" id="32_fj6dl"]
 [ext_resource type="Texture2D" uid="uid://540l6x56v43" path="res://Assets/ProgressBars/Watermelon.png" id="33_32dmg"]
 [ext_resource type="PackedScene" uid="uid://dwckqff6jcmun" path="res://Scenes/FullBarSandia.tscn" id="34_1ic54"]
+[ext_resource type="PackedScene" uid="uid://0j3v1om18nkx" path="res://Scenes/Fruits/CocoSprite.tscn" id="35_bjmbx"]
+[ext_resource type="PackedScene" uid="uid://b2o7bxvxqlrw5" path="res://Scenes/Fruits/PineappleSprite.tscn" id="38_76sda"]
+[ext_resource type="PackedScene" uid="uid://ccpaqn4s1burc" path="res://Scenes/Fruits/PapayaSprite.tscn" id="41_qrs4k"]
+[ext_resource type="PackedScene" uid="uid://disw2llry4ctb" path="res://Scenes/Fruits/MelonSprite.tscn" id="44_7jjqh"]
+[ext_resource type="PackedScene" uid="uid://c4pvg5rhfv1es" path="res://Scenes/Fruits/SandiaSprite.tscn" id="47_yusij"]
+[ext_resource type="PackedScene" uid="uid://c4h1l38r5h3y4" path="res://Scenes/FarmerItem.tscn" id="49_5kjnm"]
+[ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="49_8giwr"]
+[ext_resource type="PackedScene" uid="uid://bg27rfktw40x" path="res://Scenes/FarmerGeneral.tscn" id="49_nabck"]
+[ext_resource type="Texture2D" uid="uid://dbicgk7bx30x1" path="res://Assets/Temp/wood arrow.png" id="50_ck85x"]
+[ext_resource type="Texture2D" uid="uid://babmmtw4k88i8" path="res://Assets/Temp/alert.png" id="51_b51gt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpx24"]
-bg_color = Color(0.584314, 0.352941, 0.192157, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
+[sub_resource type="FontVariation" id="FontVariation_dds5r"]
+base_font = ExtResource("2_8isdi")
+variation_embolden = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khlyh"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="Theme" id="Theme_8cke2"]
+default_font = SubResource("FontVariation_dds5r")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx5s8"]
-bg_color = Color(0.47451, 0.278431, 0.109804, 1)
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+[sub_resource type="Theme" id="Theme_chiew"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5tutt"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(0, 0, 565, 740)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cdgj"]
+bg_color = Color(0, 0, 0, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oprlq"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(565, 0, 565, 740)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf8un"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lw5de"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(1130, 0, 565, 740)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aq5y"]
+bg_color = Color(0.74902, 0.74902, 0.74902, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_as3ie"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(1695, 0, 565, 740)
+[sub_resource type="Theme" id="Theme_jaiut"]
+Panel/styles/panel = SubResource("StyleBoxFlat_6aq5y")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wi7b"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(2260, 0, 565, 740)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwni5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6ara"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(2825, 0, 565, 740)
+[sub_resource type="Animation" id="Animation_b2de6"]
+resource_name = "blip"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 1, 2),
+"transitions": PackedFloat64Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dwsg"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(3390, 0, 565, 740)
+[sub_resource type="Animation" id="Animation_qjast"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gjaqc"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(0, 740, 565, 740)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qk4ug"]
+_data = {
+"RESET": SubResource("Animation_qjast"),
+"blip": SubResource("Animation_b2de6")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2t00o"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(565, 740, 565, 740)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mkf6"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(1130, 740, 565, 740)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jo4yr"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(1695, 740, 565, 740)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nsccf"]
-atlas = ExtResource("4_fe1yd")
-region = Rect2(2260, 740, 565, 740)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2ccj1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5tutt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oprlq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lw5de")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_as3ie")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8wi7b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v6ara")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6dwsg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gjaqc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2t00o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3mkf6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jo4yr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nsccf")
-}],
-"loop": false,
-"name": &"default",
-"speed": 18.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pdmy"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(0, 0, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwvm8"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(658, 0, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4elv"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(1316, 0, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q54dg"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(1974, 0, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_letc4"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(2632, 0, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vk74e"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(3290, 0, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3p7vb"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(0, 712, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8jqq"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(658, 712, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vnqe3"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(1316, 712, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ygpnh"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(1974, 712, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vyixo"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(2632, 712, 658, 712)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uo3y6"]
-atlas = ExtResource("6_hj6xt")
-region = Rect2(3290, 712, 658, 712)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4ikxa"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4pdmy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwvm8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j4elv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q54dg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_letc4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vk74e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3p7vb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e8jqq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vnqe3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ygpnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vyixo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uo3y6")
-}],
-"loop": false,
-"name": &"default",
-"speed": 15.0
-}]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewl7v"]
-bg_color = Color(0.227451, 0.223529, 0.235294, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emc8l"]
+bg_color = Color(0.00784314, 0.00392157, 0, 0.909804)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_da7fi"]
-bg_color = Color(0.227451, 0.223529, 0.235294, 0)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="Animation" id="Animation_5nd88"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 0.2),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(70, 600), Vector2(70, 900)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgosv"]
-bg_color = Color(0.227451, 0.223529, 0.235294, 0)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="Animation" id="Animation_8k5sv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [Vector2(70, 900)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7fea"]
-bg_color = Color(0.227451, 0.223529, 0.235294, 0)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="Animation" id="Animation_6ut1e"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 0.2),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(70, 900), Vector2(70, 600)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m53pe"]
-bg_color = Color(0.227451, 0.223529, 0.235294, 0)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1m306"]
+_data = {
+"RESET": SubResource("Animation_8k5sv"),
+"hide": SubResource("Animation_5nd88"),
+"show": SubResource("Animation_6ut1e")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogvdg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wpgy"]
+bg_color = Color(0.133333, 0.294118, 0, 1)
 
 [node name="Field" type="Node2D"]
 script = ExtResource("1_dcyj0")
 metadata/_edit_vertical_guides_ = [300.0]
 
-[node name="Panel" parent="." instance=ExtResource("4_x8c2q")]
+[node name="Panel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 22.0
 offset_right = 22.0
-grow_horizontal = 1
-grow_vertical = 1
+theme = SubResource("Theme_8cke2")
 
-[node name="Panel" parent="Panel" index="1"]
+[node name="Wood Background" type="TextureRect" parent="Panel"]
+self_modulate = Color(0.968627, 0.952941, 0.933333, 1)
+layout_mode = 0
+offset_left = -54.0
+offset_top = -8.0
+offset_right = 490.0
+offset_bottom = 855.0
+texture = ExtResource("3_6or35")
+expand_mode = 1
+
+[node name="FruitsScroll" type="ScrollContainer" parent="Panel"]
 visible = false
-offset_bottom = 112.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vpx24")
+layout_mode = 0
+offset_left = -14.0
+offset_top = 112.0
+offset_right = 450.0
+offset_bottom = 773.0
+theme = SubResource("Theme_chiew")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5cdgj")
+vertical_scroll_mode = 3
 
-[node name="Label2" parent="Panel" index="2"]
-text = "Field panel"
-
-[node name="Panel2" parent="Panel" index="3"]
-visible = false
-offset_bottom = 191.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_khlyh")
-
-[node name="Panel3" parent="Panel" index="4"]
-visible = false
-theme_override_styles/panel = SubResource("StyleBoxFlat_kx5s8")
-
-[node name="Label" parent="Panel" index="5"]
-visible = false
-offset_top = 120.0
-
-[node name="FruitMeter0" parent="Panel/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("5_mmwbo")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/FruitsScroll"]
 layout_mode = 2
 
-[node name="FullBarMango" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter0/Bar" index="0" instance=ExtResource("4_wl7d8")]
-visible = false
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter0/Fruit" index="0"]
-position = Vector2(70, 63)
-scale = Vector2(0.135, 0.135)
-sprite_frames = SubResource("SpriteFrames_2ccj1")
-
-[node name="FruitMeter1" parent="Panel/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter0" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter1" index="0"]
+[node name="FullBarMango" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter0/Bar" index="0" instance=ExtResource("4_wl7d8")]
+
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter0/Fruit" index="0" instance=ExtResource("5_uh3c6")]
+position = Vector2(81, 46)
+scale = Vector2(0.4, 0.4)
+
+[node name="FruitMeter1" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
+layout_mode = 2
+
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter1" index="0"]
 texture_progress = ExtResource("5_q6cfh")
 
-[node name="FullBarAguacate" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter1/Bar" index="0" instance=ExtResource("7_evkpv")]
+[node name="FullBarAguacate" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter1/Bar" index="0" instance=ExtResource("7_evkpv")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter1/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter1/Fruit" index="0" instance=ExtResource("8_qlm35")]
+position = Vector2(59, 47)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter2" parent="Panel/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter2" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter2" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter2" index="0"]
 texture_progress = ExtResource("9_uedkc")
 
-[node name="FullBarBlueBerry" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter2/Bar" index="0" instance=ExtResource("10_ucauq")]
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter2/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
-
-[node name="FruitMeter3" parent="Panel/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("5_mmwbo")]
-layout_mode = 2
-
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter3" index="0"]
-texture_progress = ExtResource("11_gngrc")
-
-[node name="FullBarLimon" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter3/Bar" index="0" instance=ExtResource("4_l1mrx")]
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter3/Fruit" index="0"]
-position = Vector2(70, 63)
-scale = Vector2(0.135, 0.135)
-sprite_frames = SubResource("SpriteFrames_2ccj1")
-
-[node name="FruitMeter4" parent="Panel/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("5_mmwbo")]
-layout_mode = 2
-
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter4" index="0"]
-texture_progress = ExtResource("13_2heix")
-
-[node name="FullBarDurazno" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter4/Bar" index="0" instance=ExtResource("14_ki8k2")]
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter4/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
-
-[node name="FruitMeter5" parent="Panel/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("5_mmwbo")]
-layout_mode = 2
-
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter5" index="0"]
-texture_progress = ExtResource("15_m2wbn")
-
-[node name="FullBarManzana" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter5/Bar" index="0" instance=ExtResource("16_k07vl")]
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter5/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
-
-[node name="FruitMeter6" parent="Panel/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("5_mmwbo")]
-layout_mode = 2
-
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter6" index="0"]
-texture_progress = ExtResource("17_wlgxy")
-
-[node name="FullBarNaranja" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter6/Bar" index="0" instance=ExtResource("18_76pd7")]
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter6/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
-
-[node name="FruitMeter7" parent="Panel/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("5_mmwbo")]
-layout_mode = 2
-
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter7" index="0"]
-texture_progress = ExtResource("19_p5mcw")
-
-[node name="FullBarCereza" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter7/Bar" index="0" instance=ExtResource("20_xvkgj")]
+[node name="FullBarBlueBerry" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter2/Bar" index="0" instance=ExtResource("10_ucauq")]
 visible = false
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter7/Fruit" index="0"]
-position = Vector2(70, 63)
-scale = Vector2(0.135, 0.135)
-sprite_frames = SubResource("SpriteFrames_2ccj1")
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter2/Fruit" index="0" instance=ExtResource("11_brfqu")]
+position = Vector2(79, 31)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter8" parent="Panel/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter3" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter8" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter3" index="0"]
+texture_progress = ExtResource("11_gngrc")
+
+[node name="FullBarLimon" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter3/Bar" index="0" instance=ExtResource("4_l1mrx")]
+
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter3/Fruit" index="0" instance=ExtResource("14_uijvm")]
+position = Vector2(82, 45)
+scale = Vector2(0.4, 0.4)
+
+[node name="FruitMeter4" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
+layout_mode = 2
+
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter4" index="0"]
+texture_progress = ExtResource("13_2heix")
+
+[node name="FullBarDurazno" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter4/Bar" index="0" instance=ExtResource("14_ki8k2")]
+
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter4/Fruit" index="0" instance=ExtResource("17_dmc5w")]
+position = Vector2(63, 46)
+scale = Vector2(0.4, 0.4)
+
+[node name="FruitMeter5" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
+layout_mode = 2
+
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter5" index="0"]
+texture_progress = ExtResource("15_m2wbn")
+
+[node name="FullBarManzana" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter5/Bar" index="0" instance=ExtResource("16_k07vl")]
+
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter5/Fruit" index="0" instance=ExtResource("20_1f1or")]
+position = Vector2(73, 30)
+scale = Vector2(0.4, 0.4)
+
+[node name="FruitMeter6" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
+layout_mode = 2
+
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter6" index="0"]
+texture_progress = ExtResource("17_wlgxy")
+
+[node name="FullBarNaranja" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter6/Bar" index="0" instance=ExtResource("18_76pd7")]
+
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter6/Fruit" index="0" instance=ExtResource("23_4wfxi")]
+position = Vector2(67, 37)
+scale = Vector2(0.4, 0.4)
+
+[node name="FruitMeter7" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
+layout_mode = 2
+
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter7" index="0"]
+texture_progress = ExtResource("19_p5mcw")
+
+[node name="FullBarCereza" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter7/Bar" index="0" instance=ExtResource("20_xvkgj")]
+visible = false
+
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter7/Fruit" index="0" instance=ExtResource("26_ldwvx")]
+position = Vector2(97, 4)
+scale = Vector2(0.6, 0.6)
+
+[node name="FruitMeter8" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
+layout_mode = 2
+
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter8" index="0"]
 texture_progress = ExtResource("21_c4yln")
 
-[node name="FullBarFresa" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter8/Bar" index="0" instance=ExtResource("22_4r8o6")]
+[node name="FullBarFresa" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter8/Bar" index="0" instance=ExtResource("22_4r8o6")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter8/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter8/Fruit" index="0" instance=ExtResource("29_84gh7")]
+position = Vector2(62, 42)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter9" parent="Panel/ScrollContainer/VBoxContainer" index="9" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter9" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter9" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter9" index="0"]
 texture_progress = ExtResource("23_sna4s")
 
-[node name="FullBarDragonFruit" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter9/Bar" index="0" instance=ExtResource("24_enk4a")]
+[node name="FullBarDragonFruit" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter9/Bar" index="0" instance=ExtResource("24_enk4a")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter9/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter9/Fruit" index="0" instance=ExtResource("32_fj6dl")]
+position = Vector2(76, 48)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter10" parent="Panel/ScrollContainer/VBoxContainer" index="10" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter10" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter10" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter10" index="0"]
 texture_progress = ExtResource("25_gyx5c")
 
-[node name="FullBarCoco" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter10/Bar" index="0" instance=ExtResource("26_7xwis")]
+[node name="FullBarCoco" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter10/Bar" index="0" instance=ExtResource("26_7xwis")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter10/Fruit" index="0"]
-position = Vector2(70, 63)
-scale = Vector2(0.135, 0.135)
-sprite_frames = SubResource("SpriteFrames_2ccj1")
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter10/Fruit" index="0" instance=ExtResource("35_bjmbx")]
+position = Vector2(69, 47)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter11" parent="Panel/ScrollContainer/VBoxContainer" index="11" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter11" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter11" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter11" index="0"]
 texture_progress = ExtResource("27_npicm")
 
-[node name="FullBarPina" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter11/Bar" index="0" instance=ExtResource("28_hfr82")]
+[node name="FullBarPina" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter11/Bar" index="0" instance=ExtResource("28_hfr82")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter11/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter11/Fruit" index="0" instance=ExtResource("38_76sda")]
+position = Vector2(81, 53)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter12" parent="Panel/ScrollContainer/VBoxContainer" index="12" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter12" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter12" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter12" index="0"]
 texture_progress = ExtResource("29_8hpwf")
 
-[node name="FullBarPapaya" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter12/Bar" index="0" instance=ExtResource("30_j7weh")]
+[node name="FullBarPapaya" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter12/Bar" index="0" instance=ExtResource("30_j7weh")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter12/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter12/Fruit" index="0" instance=ExtResource("41_qrs4k")]
+position = Vector2(56, 51)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter13" parent="Panel/ScrollContainer/VBoxContainer" index="13" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter13" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter13" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter13" index="0"]
 texture_progress = ExtResource("31_eknp6")
 
-[node name="FullBarMelon" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter13/Bar" index="0" instance=ExtResource("32_607hl")]
+[node name="FullBarMelon" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter13/Bar" index="0" instance=ExtResource("32_607hl")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter13/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter13/Fruit" index="0" instance=ExtResource("44_7jjqh")]
+position = Vector2(73, 48)
+scale = Vector2(0.4, 0.4)
 
-[node name="FruitMeter14" parent="Panel/ScrollContainer/VBoxContainer" index="14" instance=ExtResource("5_mmwbo")]
+[node name="FruitMeter14" parent="Panel/FruitsScroll/VBoxContainer" instance=ExtResource("5_mmwbo")]
 layout_mode = 2
 
-[node name="Bar" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter14" index="0"]
+[node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter14" index="0"]
 texture_progress = ExtResource("33_32dmg")
 
-[node name="FullBarSandia" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter14/Bar" index="0" instance=ExtResource("34_1ic54")]
+[node name="FullBarSandia" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter14/Bar" index="0" instance=ExtResource("34_1ic54")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Panel/ScrollContainer/VBoxContainer/FruitMeter14/Fruit" index="0"]
-position = Vector2(57, 68)
-scale = Vector2(0.122508, 0.125056)
-sprite_frames = SubResource("SpriteFrames_4ikxa")
-frame_progress = 0.88603
+[node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter14/Fruit" index="0" instance=ExtResource("47_yusij")]
+position = Vector2(66, 37)
+scale = Vector2(0.4, 0.4)
 
-[node name="Button" parent="Panel" index="7"]
-theme_override_styles/normal = SubResource("StyleBoxFlat_ewl7v")
-theme_override_styles/hover = SubResource("StyleBoxFlat_da7fi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lgosv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_x7fea")
-theme_override_styles/focus = SubResource("StyleBoxFlat_m53pe")
+[node name="FarmerScroll" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 103.0
+offset_right = 454.0
+offset_bottom = 756.0
+theme = SubResource("Theme_chiew")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nf8un")
+vertical_scroll_mode = 3
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/FarmerScroll"]
+layout_mode = 2
+theme_override_constants/separation = 8
 
-[editable path="Panel"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter0"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter1"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter2"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter3"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter4"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter5"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter6"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter7"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter8"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter9"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter10"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter11"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter12"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter13"]
-[editable path="Panel/ScrollContainer/VBoxContainer/FruitMeter14"]
+[node name="General Info" parent="Panel/FarmerScroll/VBoxContainer" instance=ExtResource("49_nabck")]
+layout_mode = 2
+
+[node name="Farmer0" parent="Panel/FarmerScroll/VBoxContainer" instance=ExtResource("49_5kjnm")]
+layout_mode = 2
+
+[node name="Menu" type="Panel" parent="Panel"]
+clip_contents = true
+layout_mode = 0
+offset_left = -22.0
+offset_top = 776.0
+offset_right = 458.0
+offset_bottom = 855.0
+theme = SubResource("Theme_jaiut")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bwni5")
+
+[node name="Burguer" type="TextureButton" parent="Panel/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_normal = ExtResource("49_8giwr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Button" type="TextureButton" parent="Panel/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("50_ck85x")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Alert" type="TextureRect" parent="Panel/Menu"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 5.0
+offset_right = 284.0
+offset_bottom = 32.0
+texture = ExtResource("51_b51gt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Menu/Alert"]
+autoplay = "blip"
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_qk4ug")
+}
+
+[node name="Options" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = 900.0
+offset_right = 370.0
+offset_bottom = 1056.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_emc8l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Options"]
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_1m306")
+}
+
+[node name="Fruits" type="Button" parent="Panel/Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ogvdg")
+text = "Fruits"
+
+[node name="Farmers" type="Button" parent="Panel/Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 84.0
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wpgy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ogvdg")
+text = "Farmers"
+
+[connection signal="toggled" from="Panel/Menu/Burguer" to="." method="_on_burguer_toggled"]
+[connection signal="pressed" from="Panel/Menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Options/Fruits" to="." method="_on_fruits_pressed"]
+[connection signal="pressed" from="Panel/Options/Farmers" to="." method="_on_farmers_pressed"]
+
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter0"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter1"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter2"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter3"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter4"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter5"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter6"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter7"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter8"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter9"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter10"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter11"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter12"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter13"]
+[editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter14"]

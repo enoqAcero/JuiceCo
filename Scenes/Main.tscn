@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=46 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
@@ -20,12 +20,48 @@
 [ext_resource type="PackedScene" uid="uid://3j4nys6t5v5t" path="res://Scenes/ModalJuicesLvl.tscn" id="12_gl3jr"]
 [ext_resource type="Texture2D" uid="uid://dwegg5qd4cgt0" path="res://Assets/Buttons/BotonShop (1).png" id="12_h6o2h"]
 [ext_resource type="Texture2D" uid="uid://cvw4mvhlj2u0m" path="res://Assets/Bg/Background.png" id="14_y3oqk"]
+[ext_resource type="Texture2D" uid="uid://dyebxs2tvhe1x" path="res://Assets/ProgressBars/BackADVLong.png" id="17_odd6v"]
+[ext_resource type="Texture2D" uid="uid://dirvg562ql8p" path="res://Assets/Temp/JuiceGlass.png" id="19_3y31r"]
+[ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="19_cb5s8"]
+[ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="20_ccqtf"]
 [ext_resource type="Texture2D" uid="uid://d1oytfb3513v6" path="res://Assets/Garages/SmallGarage.png" id="21_hjrht"]
+[ext_resource type="Script" path="res://Scripts/Spawner.gd" id="24_4lbbh"]
+[ext_resource type="Texture2D" uid="uid://b2blafnym4ws" path="res://Assets/Temp/vegetable-garden-box-icon-isometric-style-vector.png" id="27_6kpcr"]
+[ext_resource type="Texture2D" uid="uid://cno1utyefp2wl" path="res://Assets/Temp/fence3.png" id="28_pym28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70q2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dh2l3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3dt1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp3a7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5623"]
+
+[sub_resource type="FontVariation" id="FontVariation_dds5r"]
+base_font = ExtResource("20_ccqtf")
+variation_embolden = 1.0
+
+[sub_resource type="Theme" id="Theme_7g805"]
+default_font = SubResource("FontVariation_dds5r")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2x17k"]
-vertices = PackedVector2Array(472, -27, -182, 389, 335, -59, 66, -304, -182, -335, -186, -516, -450, -370)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 3, 4, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-182, -335, 335, -59, -182, 389, 472, -27, 66, -304, -186, -516, -450, -370)])
+vertices = PackedVector2Array(-447.707, 467.461, -544.56, 479.353, -434.316, -404.044, -335.319, -433.298, -585.834, -582.067, -549.017, -653.555, -462.998, -684.065, -364.47, -699.724, -278.429, -660.42, -227.578, -611.807, -244.128, -543.521, -277.226, -488.163, -538.162, -443.3, -591.894, -497.971)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8, 9, 10, 11, 3, 2, 12, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-447.707, 467.461, -335.319, -433.298, -277.226, -488.163, -244.128, -543.521, -227.578, -611.807, -278.429, -660.42, -364.47, -699.724, -462.998, -684.065, -549.017, -653.555, -585.834, -582.067, -591.894, -497.971, -538.162, -443.3, -434.316, -404.044, -544.56, 479.353)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12ccj"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bja8e"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqjev"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kflc"]
+size = Vector2(40, 40)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_noesd"]
 
@@ -49,20 +85,17 @@ script = ExtResource("7_4o3gd")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="fieldButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 190.0
+offset_left = 197.0
 offset_top = 668.0
-offset_right = 415.0
+offset_right = 422.0
 offset_bottom = 859.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("4_xkr0f")
 
-[node name="Field" parent="CanvasLayer" instance=ExtResource("2_cgc2k")]
-visible = false
-
 [node name="upgradeButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 118.0
+offset_left = 125.0
 offset_top = 681.0
-offset_right = 249.0
+offset_right = 256.0
 offset_bottom = 822.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_oox0e")
@@ -71,9 +104,9 @@ texture_normal = ExtResource("6_oox0e")
 visible = false
 
 [node name="boostButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 287.0
+offset_left = 294.0
 offset_top = 681.0
-offset_right = 418.0
+offset_right = 425.0
 offset_bottom = 822.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_sex66")
@@ -82,9 +115,9 @@ texture_normal = ExtResource("8_sex66")
 visible = false
 
 [node name="menuButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 355.0
+offset_left = 362.0
 offset_top = 680.0
-offset_right = 486.0
+offset_right = 493.0
 offset_bottom = 821.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_rvhmu")
@@ -93,41 +126,15 @@ texture_normal = ExtResource("10_rvhmu")
 visible = false
 
 [node name="shopButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 47.0
+offset_left = 54.0
 offset_top = 681.0
-offset_right = 178.0
+offset_right = 185.0
 offset_bottom = 822.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("12_h6o2h")
 
 [node name="Shop" parent="CanvasLayer" instance=ExtResource("6_feofs")]
 visible = false
-
-[node name="JuiceHouse" parent="CanvasLayer" instance=ExtResource("8_kddff")]
-visible = false
-z_index = 1
-position = Vector2(-1, 42)
-
-[node name="Garage" parent="CanvasLayer" instance=ExtResource("9_b4178")]
-visible = false
-position = Vector2(13, 12)
-
-[node name="Money" type="Label" parent="CanvasLayer"]
-offset_left = 4.0
-offset_top = -25.0
-offset_right = 482.0
-offset_bottom = 84.0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Multiplier" type="Label" parent="CanvasLayer"]
-offset_left = 290.0
-offset_top = -30.0
-offset_right = 508.0
-offset_bottom = 83.0
-text = "x0.0"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="WaterTank" parent="CanvasLayer" instance=ExtResource("10_lanya")]
 visible = false
@@ -143,12 +150,6 @@ text = "FarmValue :"
 [node name="Timer" type="Timer" parent="CanvasLayer/FarmValue"]
 autostart = true
 
-[node name="adControl" parent="CanvasLayer" instance=ExtResource("12_3urwt")]
-offset_left = 286.0
-offset_top = 159.0
-offset_right = 326.0
-offset_bottom = 199.0
-
 [node name="moneyPerSec" type="Label" parent="CanvasLayer"]
 visible = false
 z_index = 2
@@ -161,30 +162,151 @@ offset_bottom = 60.0
 visible = false
 position = Vector2(-6, 56)
 
-[node name="JuiceLvl" type="Button" parent="CanvasLayer"]
-offset_left = 19.0
-offset_top = 7.0
-offset_right = 86.0
-offset_bottom = 56.0
-text = "JuiceLvl"
-
 [node name="runButton" type="TextureButton" parent="CanvasLayer"]
-z_index = 1
-offset_left = 42.0
-offset_top = 723.0
-offset_right = 1138.0
-offset_bottom = 1054.0
+offset_left = 20.0
+offset_top = 730.0
+offset_right = 1277.0
+offset_bottom = 1061.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("3_6g7tw")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="RunTimer" type="Timer" parent="CanvasLayer/runButton"]
 wait_time = 0.05
 one_shot = true
 
+[node name="adControl" parent="CanvasLayer" instance=ExtResource("12_3urwt")]
+visible = false
+offset_left = 286.0
+offset_top = 159.0
+offset_right = 326.0
+offset_bottom = 199.0
+
+[node name="Field" parent="CanvasLayer" instance=ExtResource("2_cgc2k")]
+visible = false
+
+[node name="JuiceLvl" type="Button" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 9.0
+offset_right = 96.0
+offset_bottom = 90.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_70q2k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dh2l3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n3dt1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vp3a7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h5623")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/JuiceLvl"]
+layout_mode = 0
+offset_top = -21.0
+offset_right = 441.0
+offset_bottom = 105.0
+texture = ExtResource("17_odd6v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/JuiceLvl"]
+visible = false
+layout_mode = 0
+offset_left = -13.0
+offset_top = 63.0
+offset_right = 132.0
+offset_bottom = 120.0
+texture = ExtResource("19_cb5s8")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/JuiceLvl"]
+texture_filter = 6
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 65.0
+offset_bottom = 64.0
+pivot_offset = Vector2(37, 49)
+texture = ExtResource("19_3y31r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/JuiceLvl"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = 94.0
+offset_right = 116.0
+offset_bottom = 123.0
+theme = SubResource("Theme_7g805")
+theme_override_colors/font_color = Color(1, 0.835294, 0.298039, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 14
+text = "Juice Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="CanvasLayer/JuiceLvl"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = 72.0
+offset_right = 116.0
+offset_bottom = 104.0
+theme = SubResource("Theme_7g805")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 18
+text = "Juice Level!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Label" parent="CanvasLayer/JuiceLvl"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 22.0
+offset_right = 369.0
+offset_bottom = 58.0
+theme = SubResource("Theme_7g805")
+theme_override_colors/font_color = Color(0.682353, 1, 0.572549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+text = "$ Money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Multiplier" type="Label" parent="CanvasLayer"]
+offset_left = 378.0
+offset_top = 29.0
+offset_right = 459.0
+offset_bottom = 69.0
+theme = SubResource("Theme_7g805")
+theme_override_colors/font_color = Color(0.952941, 0.764706, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 26
+text = "x0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Garage" parent="CanvasLayer" instance=ExtResource("9_b4178")]
+visible = false
+position = Vector2(13, 12)
+
+[node name="JuiceHouse" parent="CanvasLayer" instance=ExtResource("8_kddff")]
+visible = false
+z_index = 1
+position = Vector2(-1, 42)
+
 [node name="house" parent="." instance=ExtResource("10_wudyb")]
 z_index = 1
-position = Vector2(46, 223)
+position = Vector2(-413, 233)
 scale = Vector2(2, 2)
+
+[node name="Sprite2D" parent="house" index="0"]
+position = Vector2(22.5, 20)
+
+[node name="CollisionShape2D" parent="house" index="1"]
+position = Vector2(0, 0)
 
 [node name="Button" type="Button" parent="house"]
 self_modulate = Color(1, 1, 1, 0)
@@ -200,6 +322,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="FruitSpawn" type="Label" parent="."]
+visible = false
 offset_left = -331.0
 offset_top = -469.0
 offset_right = -279.0
@@ -210,7 +333,217 @@ vertical_alignment = 1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 z_index = 1
+position = Vector2(251, 347)
+rotation = 0.907571
 navigation_polygon = SubResource("NavigationPolygon_2x17k")
+
+[node name="SpawnTimer" type="Timer" parent="NavigationRegion2D"]
+wait_time = 0.25
+autostart = true
+
+[node name="Spawners" type="Node2D" parent="NavigationRegion2D"]
+
+[node name="Spawner1" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-560, -592)
+script = ExtResource("24_4lbbh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner1"]
+shape = SubResource("RectangleShape2D_12ccj")
+
+[node name="Spawner2" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-520, -634)
+script = ExtResource("24_4lbbh")
+id = 1
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner2"]
+shape = SubResource("RectangleShape2D_bja8e")
+
+[node name="Spawner3" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-553, -549)
+script = ExtResource("24_4lbbh")
+id = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner3"]
+shape = SubResource("RectangleShape2D_fqjev")
+
+[node name="Spawner4" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-518, -592)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner4"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner5" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-477, -643)
+script = ExtResource("24_4lbbh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner5"]
+shape = SubResource("RectangleShape2D_12ccj")
+
+[node name="Spawner6" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-476, -601)
+script = ExtResource("24_4lbbh")
+id = 1
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner6"]
+shape = SubResource("RectangleShape2D_bja8e")
+
+[node name="Spawner7" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-511, -549)
+script = ExtResource("24_4lbbh")
+id = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner7"]
+shape = SubResource("RectangleShape2D_fqjev")
+
+[node name="Spawner8" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-511, -507)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner8"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner9" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-435, -643)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner9"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner10" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-434, -600)
+script = ExtResource("24_4lbbh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner10"]
+shape = SubResource("RectangleShape2D_12ccj")
+
+[node name="Spawner11" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-468, -559)
+script = ExtResource("24_4lbbh")
+id = 1
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner11"]
+shape = SubResource("RectangleShape2D_bja8e")
+
+[node name="Spawner12" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-468, -517)
+script = ExtResource("24_4lbbh")
+id = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner12"]
+shape = SubResource("RectangleShape2D_fqjev")
+
+[node name="Spawner13" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-425, -557)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner13"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner14" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-392, -648)
+script = ExtResource("24_4lbbh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner14"]
+shape = SubResource("RectangleShape2D_12ccj")
+
+[node name="Spawner15" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-390, -604)
+script = ExtResource("24_4lbbh")
+id = 1
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner15"]
+shape = SubResource("RectangleShape2D_bja8e")
+
+[node name="Spawner16" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-381, -560)
+script = ExtResource("24_4lbbh")
+id = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner16"]
+shape = SubResource("RectangleShape2D_fqjev")
+
+[node name="Spawner17" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-424, -512)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner17"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner18" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-468, -474)
+script = ExtResource("24_4lbbh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner18"]
+shape = SubResource("RectangleShape2D_12ccj")
+
+[node name="Spawner19" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-345, -629)
+script = ExtResource("24_4lbbh")
+id = 1
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner19"]
+shape = SubResource("RectangleShape2D_bja8e")
+
+[node name="Spawner20" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-301, -599)
+script = ExtResource("24_4lbbh")
+id = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner20"]
+shape = SubResource("RectangleShape2D_fqjev")
+
+[node name="Spawner21" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-335, -557)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner21"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner22" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-379, -516)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner22"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner23" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-415, -467)
+script = ExtResource("24_4lbbh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner23"]
+shape = SubResource("RectangleShape2D_12ccj")
+
+[node name="Spawner24" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-291, -556)
+script = ExtResource("24_4lbbh")
+id = 1
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner24"]
+shape = SubResource("RectangleShape2D_bja8e")
+
+[node name="Spawner25" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-335, -514)
+script = ExtResource("24_4lbbh")
+id = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner25"]
+shape = SubResource("RectangleShape2D_fqjev")
+
+[node name="Spawner26" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-371, -469)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner26"]
+shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
@@ -218,8 +551,136 @@ position = Vector2(309, 273)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_y3oqk")
 
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(74, -840)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(-144, -708)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(-358, -576)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(-588, -438)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background"]
+position = Vector2(-186.36, -1010.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background"]
+position = Vector2(-404.36, -878.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background"]
+position = Vector2(-618.36, -746.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background"]
+position = Vector2(-848.36, -608.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background"]
+position = Vector2(-1098.36, -468.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background"]
+position = Vector2(-1316.36, -336.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background"]
+position = Vector2(-1530.36, -204.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(-880.36, -240.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(-1130.36, -100.21)
+rotation = 0.0349066
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(314, -868)
+rotation = 0.715585
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background"]
+z_index = 2
+position = Vector2(560, -866)
+rotation = 0.471239
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("28_pym28")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background"]
+position = Vector2(-72, -1268)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("27_6kpcr")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background"]
+position = Vector2(-98, -1162)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("27_6kpcr")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background"]
+position = Vector2(644, -954)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("27_6kpcr")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Background"]
+position = Vector2(508, -914)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("27_6kpcr")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background"]
+position = Vector2(540, -1158)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("27_6kpcr")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Background"]
+position = Vector2(534, -1002)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("27_6kpcr")
+
 [node name="Garage" type="Sprite2D" parent="."]
-position = Vector2(348, 447)
+position = Vector2(838, 701)
 scale = Vector2(0.272, 0.272)
 texture = ExtResource("21_hjrht")
 
@@ -240,9 +701,64 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8jt8w")
 [connection signal="pressed" from="CanvasLayer/menuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/FarmValue/Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/JuiceLvl" to="." method="_on_juice_lvl_pressed"]
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/JuiceLvl" to="." method="_on_juice_lvl_pressed"]
 [connection signal="pressed" from="house/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="ProduceJuiceTimer" to="." method="_on_produce_juice_timer_timeout"]
+[connection signal="timeout" from="NavigationRegion2D/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner1" to="NavigationRegion2D/Spawners/Spawner1" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner1" to="NavigationRegion2D/Spawners/Spawner1" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner2" to="NavigationRegion2D/Spawners/Spawner2" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner2" to="NavigationRegion2D/Spawners/Spawner2" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner3" to="NavigationRegion2D/Spawners/Spawner3" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner3" to="NavigationRegion2D/Spawners/Spawner3" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner4" to="NavigationRegion2D/Spawners/Spawner4" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner4" to="NavigationRegion2D/Spawners/Spawner4" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner5" to="NavigationRegion2D/Spawners/Spawner5" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner5" to="NavigationRegion2D/Spawners/Spawner5" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner6" to="NavigationRegion2D/Spawners/Spawner6" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner6" to="NavigationRegion2D/Spawners/Spawner6" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner7" to="NavigationRegion2D/Spawners/Spawner7" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner7" to="NavigationRegion2D/Spawners/Spawner7" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner8" to="NavigationRegion2D/Spawners/Spawner8" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner8" to="NavigationRegion2D/Spawners/Spawner8" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner9" to="NavigationRegion2D/Spawners/Spawner9" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner9" to="NavigationRegion2D/Spawners/Spawner9" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner10" to="NavigationRegion2D/Spawners/Spawner10" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner10" to="NavigationRegion2D/Spawners/Spawner10" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner11" to="NavigationRegion2D/Spawners/Spawner11" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner11" to="NavigationRegion2D/Spawners/Spawner11" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner12" to="NavigationRegion2D/Spawners/Spawner12" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner12" to="NavigationRegion2D/Spawners/Spawner12" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner13" to="NavigationRegion2D/Spawners/Spawner13" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner13" to="NavigationRegion2D/Spawners/Spawner13" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner14" to="NavigationRegion2D/Spawners/Spawner14" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner14" to="NavigationRegion2D/Spawners/Spawner14" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner15" to="NavigationRegion2D/Spawners/Spawner15" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner15" to="NavigationRegion2D/Spawners/Spawner15" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner16" to="NavigationRegion2D/Spawners/Spawner16" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner16" to="NavigationRegion2D/Spawners/Spawner16" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner17" to="NavigationRegion2D/Spawners/Spawner17" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner17" to="NavigationRegion2D/Spawners/Spawner17" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner18" to="NavigationRegion2D/Spawners/Spawner18" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner18" to="NavigationRegion2D/Spawners/Spawner18" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner19" to="NavigationRegion2D/Spawners/Spawner19" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner19" to="NavigationRegion2D/Spawners/Spawner19" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner20" to="NavigationRegion2D/Spawners/Spawner20" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner20" to="NavigationRegion2D/Spawners/Spawner20" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner21" to="NavigationRegion2D/Spawners/Spawner21" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner21" to="NavigationRegion2D/Spawners/Spawner21" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner22" to="NavigationRegion2D/Spawners/Spawner22" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner22" to="NavigationRegion2D/Spawners/Spawner22" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner23" to="NavigationRegion2D/Spawners/Spawner23" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner23" to="NavigationRegion2D/Spawners/Spawner23" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner24" to="NavigationRegion2D/Spawners/Spawner24" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner24" to="NavigationRegion2D/Spawners/Spawner24" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner25" to="NavigationRegion2D/Spawners/Spawner25" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner25" to="NavigationRegion2D/Spawners/Spawner25" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner26" to="NavigationRegion2D/Spawners/Spawner26" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner26" to="NavigationRegion2D/Spawners/Spawner26" method="_on_body_exited"]
 [connection signal="pressed" from="Garage/Button2" to="." method="_on_button_2_pressed"]
+
+[editable path="house"]

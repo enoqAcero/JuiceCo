@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg27rfktw40x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jcmd1"]
+
+[node name="General Info" type="Panel"]
+custom_minimum_size = Vector2(460, 100)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jcmd1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.780392, 1, 0.439216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 22
+text = "Farmer General Info!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 28.0
+offset_top = 34.0
+offset_right = -18.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 18
+text = "Farmer general information Farmer general information Farmer general information Farmer general information "
+autowrap_mode = 3

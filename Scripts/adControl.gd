@@ -96,7 +96,7 @@ func accept():
 		
 	adModalNode.hide()
 func cancel():
-	print("cancel")
+#	print("cancel")
 	adModalNode.hide()
 	adRewardNode.hide()
 
@@ -111,7 +111,7 @@ func _on_ad_reward_modal_visibility_changed():
 			
 			if prob < 80:
 				var reward : String
-				print(moneyReward)
+#				print(moneyReward)
 				reward = GlobalVariables.getMoneyString(moneyReward)
 				GlobalVariables.player.money += moneyReward
 				adRewardLabel.text = "You Won:	" + reward

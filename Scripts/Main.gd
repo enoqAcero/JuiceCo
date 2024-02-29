@@ -16,28 +16,50 @@ var totalJuiceHouseCapacity = 0
 var mango = preload("res://Scenes/Fruits/Mango.tscn")
 var aguacate = preload("res://Scenes/Fruits/Aguacate.tscn")
 var cereza = preload("res://Scenes/Fruits/Cereza.tscn")
-var fruits = [mango, aguacate]
+var blueberry = preload("res://Scenes/Fruits/Blueberry.tscn")
+var coco = preload("res://Scenes/Fruits/Coco.tscn")
+var dragonfruit = preload("res://Scenes/Fruits/Dragonfruit.tscn")
+var durazno = preload("res://Scenes/Fruits/Durazno.tscn")
+var fresa = preload("res://Scenes/Fruits/Fresa.tscn")
+var limon = preload("res://Scenes/Fruits/Limon.tscn")
+var manzana = preload("res://Scenes/Fruits/Manzana.tscn")
+var melon = preload("res://Scenes/Fruits/Melon.tscn")
+var naranja = preload("res://Scenes/Fruits/Naranja.tscn")
+var papaya = preload("res://Scenes/Fruits/Papaya.tscn")
+var pina = preload("res://Scenes/Fruits/Pina.tscn")
+var sandia = preload("res://Scenes/Fruits/Sandia.tscn")
+var fruits = [aguacate, blueberry, cereza, coco, dragonfruit, durazno, fresa, limon, manzana, melon, naranja, papaya, pina, sandia]
+#var fruits = [aguacate]
 var fruitInstance = []
 var runTimerNode
 var runButtonControl = false
 
 var multiplierOn = false
 var multiplierLabel
+var juiceLevelLabel
+var juiceLevelIcon
 
 var farmValue : float = 0.0
+
+@onready var spawn_spots := $NavigationRegion2D/Spawners.get_children()
+var spawn_list : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	runTimerNode = $CanvasLayer/runButton/RunTimer
 	multiplierLabel = $CanvasLayer/Multiplier
+	juiceLevelLabel = $CanvasLayer/JuiceLvl/Level
+	juiceLevelLabel.text = GlobalVariables.player.JuiceLevel[GlobalVariables.player.juiceLevel].name
+	juiceLevelIcon = $CanvasLayer/JuiceLvl/Icon
 	
 	GlobalVariables.loadResource()
 	SignalManager.loadData.connect(loadData)
 	
 	SignalManager.loadData.emit()
 	SignalManager.loadHouses.emit()
-
+	
+	spawn_spots.reverse()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -50,14 +72,16 @@ func _process(_delta):
 	else:
 		multiplierLabelUpdate(0)
 	
-	multiplierLabel.text = "x " + str(GlobalVariables.multiplier)
-
+	if GlobalVariables.multiplier > 0:
+		multiplierLabel.text = "x " + str("%.1f" % GlobalVariables.multiplier)
+	juiceLevelIcon.texture = GlobalVariables.player.JuiceLevel[GlobalVariables.player.juiceLevel].skin
 
 func multiplierLabelUpdate(control : int):
-	if control == 0:
-		multiplierLabel.scale = Vector2(1.2, 1.2)
-	else: 
-		multiplierLabel.scale = Vector2(1, 1)
+#	if control == 0:
+#		multiplierLabel.scale = Vector2(1.2, 1.2)
+#	else: 
+#		multiplierLabel.scale = Vector2(1, 1)
+	pass
 
 
 #obtener la capacidad total de los transportes
@@ -169,7 +193,7 @@ func calculateMoneyFromLiters(litrosPorSegundo : float):
 	
 	GlobalVariables.player.money += ((litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value * (GlobalVariables.multiplier + 1)) * multGananciasMultiplier) * earningBonus
 	moneyString = GlobalVariables.getMoneyString(GlobalVariables.player.money)
-	$CanvasLayer/Money.text = "Money: " + moneyString
+	$CanvasLayer/JuiceLvl/Money.text = "$ " + moneyString
 	moneyString = GlobalVariables.getMoneyString(litrosPorSegundo * multGananciasMultiplier * earningBonus)
 	$CanvasLayer/moneyPerSec.text = "MoneyPerSec: " + moneyString
 
@@ -202,7 +226,7 @@ func calculateTime():
 	var currentTime = Time.get_unix_time_from_datetime_string(Time.get_datetime_string_from_system())
 	var elapsedTime = currentTime - prevTime
 	
-	var timeProgressBarNode = $CanvasLayer/WaterTank.get_node("ProgressBar")
+	var timeProgressBarNode = $CanvasLayer/WaterTank.get_node("Panel/ProgressBar")
 	
 	if maxTime <= elapsedTime:
 		elapsedTime = maxTime
@@ -217,10 +241,10 @@ func calculateMoneyFromTime(elapsedTime):
 	var moneyEarned = GlobalVariables.player.litersPerSecond * elapsedTime
 	var earningBonus = 1 + (GlobalVariables.player.seeds/100)
 	var moneyEarnedString : String
-	var moneyEarnedLabel = $CanvasLayer/WaterTank.get_node("Money")
+	var moneyEarnedLabel = $CanvasLayer/WaterTank.get_node("Panel/Money")
 	
 	moneyEarnedString = GlobalVariables.getMoneyString(moneyEarned)
-	moneyEarnedLabel.text = "Money Earned While Away: \n" + moneyEarnedString
+	moneyEarnedLabel.text = "Money Earned: \n" + moneyEarnedString
 	$CanvasLayer/WaterTank.show()
 	GlobalVariables.player.money += moneyEarned * earningBonus
 	calculateFruitsFromTime(elapsedTime)
@@ -230,7 +254,7 @@ func calculateFruitsFromTime(elapsedTime):
 	var frutasTotal : float = 0
 	var litrosTotal : float = 0
 	var fruitsEarnedString : String
-	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Fruits")
+	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Panel/Fruits")
 	
 	var BlueberryCount : float = 0
 	var CerezaCount : float = 0
@@ -315,7 +339,7 @@ func calculateFruitsFromTime(elapsedTime):
 			fruitsEarnedString = str(frutasTotal)
 		else:
 			fruitsEarnedString = GlobalVariables.getMoneyString(frutasTotal)
-		fruitsEarnedLabel.text = "Fruits Earned While Away: \n" + fruitsEarnedString
+		fruitsEarnedLabel.text = "Fruits Earned: \n" + fruitsEarnedString
 
 	else: 
 		BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level * GlobalVariables.player.Fruits[0].liters
@@ -402,8 +426,6 @@ func instanceFruit():
 	var fruitType = fruits[randFruit]
 	var fruit = fruitType.instantiate()
 	var fruitI = fruit
-	var dirX
-	var dirY
 	
 	fruitI.add_to_group("fruit")
 
@@ -412,16 +434,32 @@ func instanceFruit():
 		
 	fruit.houseName = "house"
 
-	dirX = rng.randi_range(-20,20)
-	dirY = rng.randi_range(-20,20)
+#	var dirX = rng.randi_range(-10,10)
+#	var dirY = rng.randi_range(-10,10)
 
-	fruit.position.x = $FruitSpawn.position.x + dirX
-	fruit.position.y = $FruitSpawn.position.y + dirY
+#	fruit.position.x = $FruitSpawn.position.x + dirX
+#	fruit.position.y = $FruitSpawn.position.y + dirY
+
+#	add_child(fruit)
+#	fruit.get_node("Sprite2D").play("walk")
 
 	fruitInstance.append(fruitI)
-	add_child(fruit)
-	GlobalVariables.multiplier += GlobalVariables.multiplierSteps
+	GlobalVariables.multiplier += GlobalVariables.multiplierSteps#	
+	fruit.scale = Vector2(2.0, 2.0)
+	spawn_list.append(fruit)
+
+func fruit_spawner():
 	
+	if not spawn_list.is_empty():
+		for spawner in spawn_spots:
+			if not spawner.full:
+				add_child(spawn_list[0])
+				spawn_list[0].global_position = spawner.global_position
+				spawn_list.pop_at(0)
+				break
+			else:
+				continue
+
 
 func _on_run_timer_timeout():
 	runButtonControl = false
@@ -489,3 +527,7 @@ func _on_timer_timeout():
 
 func _on_juice_lvl_pressed():
 	controlEscenasModalJuiceLvl = showScene($CanvasLayer/ModalJuiceLvl, controlEscenasModalJuiceLvl)
+
+
+func _on_spawn_timer_timeout():
+	fruit_spawner()

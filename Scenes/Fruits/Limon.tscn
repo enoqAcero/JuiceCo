@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbtoareouw16p"]
+
+[ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_disky"]
+[ext_resource type="PackedScene" uid="uid://801a8pd1o60l" path="res://Scenes/Fruits/LimonSprite.tscn" id="2_fuduv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3a416"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_disky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6e-06, 0)
+shape = SubResource("CircleShape2D_3a416")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_30c4l")
+
+[node name="Navigation" type="Node2D" parent="."]
+visible = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+avoidance_enabled = true
+radius = 20.0
+debug_enabled = true
+
+[node name="posTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="randPosTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sprite2D" parent="." instance=ExtResource("2_fuduv")]
+position = Vector2(5, -2)
+scale = Vector2(0.09, 0.09)
+
+[connection signal="timeout" from="posTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="randPosTimer" to="." method="_on_rand_pos_timer_timeout"]

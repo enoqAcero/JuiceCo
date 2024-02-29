@@ -29,7 +29,7 @@ tracks/0/keys = {
 "times": PackedFloat64Array(0, 0.3),
 "transitions": PackedFloat64Array(1, 1),
 "update": 0,
-"values": [Vector2(-485, 0), Vector2(0, 0)]
+"values": [Vector2(-485, 30), Vector2(0, 30)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat64Array(0),
 "transitions": PackedFloat64Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 30)]
 }
 
 [sub_resource type="Animation" id="Animation_2b6vy"]
@@ -74,7 +74,7 @@ tracks/0/keys = {
 "times": PackedFloat64Array(0, 0.3),
 "transitions": PackedFloat64Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-485, 0)]
+"values": [Vector2(0, 30), Vector2(-485, 30)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6s2pw"]
@@ -223,21 +223,34 @@ libraries = {
 [node name="Menus" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 30.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 70.0
 
 [node name="HouseList" parent="Menus" instance=ExtResource("4_y2w3t")]
 offset_left = 21.0
-offset_top = -24.0
 offset_right = 21.0
-offset_bottom = -24.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Label" parent="Menus/HouseList/Panel" index="0"]
-text = "My Juice Houses"
+[node name="Wood Background" parent="Menus/HouseList" index="0"]
+offset_bottom = 586.0
+
+[node name="Panel" parent="Menus/HouseList" index="1"]
+visible = false
+
+[node name="Panel2" parent="Menus/HouseList" index="3"]
+offset_bottom = 586.0
+
+[node name="Panel3" parent="Menus/HouseList" index="4"]
+offset_bottom = 586.0
+
+[node name="ScrollContainer" parent="Menus/HouseList" index="6"]
+offset_bottom = 578.0
 
 [node name="HouseCatalog" parent="Menus" instance=ExtResource("6_tvylr")]
+offset_top = 0.0
+offset_bottom = 0.0
 
 [node name="Label" parent="Menus/HouseCatalog/Panel" index="0"]
 text = "Juice Houses"

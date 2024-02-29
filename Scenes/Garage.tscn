@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat64Array(0),
 "transitions": PackedFloat64Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 70)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -45,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat64Array(0, 1),
 "transitions": PackedFloat64Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-500, 0)]
+"values": [Vector2(0, 70), Vector2(-500, 70)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat64Array(0, 1),
 "transitions": PackedFloat64Array(1, 1),
 "update": 0,
-"values": [Vector2(-500, 0), Vector2(0, 0)]
+"values": [Vector2(-500, 70), Vector2(0, 70)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -112,11 +112,25 @@ _data = {
 script = ExtResource("1_bjwhx")
 
 [node name="VehicleList" parent="." instance=ExtResource("2_rcs0u")]
+offset_top = 70.0
+offset_bottom = 70.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="Label" parent="VehicleList/Panel" index="0"]
-text = "Garage"
+[node name="Wood Background" parent="VehicleList" index="0"]
+offset_bottom = 520.0
 
-[node name="ScrollContainer" parent="VehicleList" index="4"]
+[node name="Panel" parent="VehicleList" index="1"]
+visible = false
+
+[node name="Panel2" parent="VehicleList" index="3"]
+offset_bottom = 520.0
+
+[node name="Panel3" parent="VehicleList" index="4"]
+offset_bottom = 565.0
+
+[node name="ScrollContainer" parent="VehicleList" index="6"]
+offset_bottom = 557.0
 script = ExtResource("1_urs3p")
 
 [node name="VehicleCatalog" parent="." instance=ExtResource("4_44wng")]

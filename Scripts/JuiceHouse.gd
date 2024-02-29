@@ -167,5 +167,5 @@ func level_up(slot:int):
 		GlobalVariables.player.set("money", float(GlobalVariables.player.money) - cost)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", current_level+1)
 		save()
-		print(GlobalVariables.player.money)
+#		print(GlobalVariables.player.money)
 	loadHouses()

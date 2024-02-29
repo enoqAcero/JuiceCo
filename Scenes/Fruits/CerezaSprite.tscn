@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbpwqy6fyyp3b"]
+
+[ext_resource type="Texture2D" uid="uid://bclcnxpyp837s" path="res://Assets/Fruits/cereza jump.png" id="1_ompiy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m81tj"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(0, 0, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx6w4"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(250, 0, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d52f0"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(500, 0, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0p7v"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(750, 0, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqish"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(0, 0, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdcs6"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(250, 0, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_432kw"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(500, 0, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4csn"]
+atlas = ExtResource("1_ompiy")
+region = Rect2(750, 0, 250, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ccj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m81tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d52f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0p7v")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqish")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdcs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_432kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4csn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Sprite2D" type="AnimatedSprite2D"]
+position = Vector2(64, -152)
+sprite_frames = SubResource("SpriteFrames_2ccj1")
+animation = &"jump"
+autoplay = "jump"
+frame = 3
+frame_progress = 1.0

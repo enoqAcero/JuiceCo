@@ -1,16 +1,26 @@
 extends Node2D
 
+var farmer_item_scene = preload("res://Scenes/FarmerItem.tscn")
+var farmer_general_scene = preload("res://Scenes/FarmerGeneral.tscn")
+
+@onready var farmer_list := $Panel/FarmerScroll/VBoxContainer
+
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(get_node("Panel/ScrollContainer/VBoxContainer").get_child_count()):
-		var meter = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(i))
+	
+	load_farmer_list()
+	hide_scrolls()
+	for i in range(get_node("Panel/FruitsScroll/VBoxContainer").get_child_count()):
+		var meter = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i))
 		meter.get_node("BuyButton").pressed.connect(Callable(buyFruit).bind(i))
 	loadAllPanelData()
 	
+	$Panel/FruitsScroll.show()
+	
 func loadAllPanelData():
-	for i in range (get_node("Panel/ScrollContainer/VBoxContainer").get_child_count()):
+	for i in range (get_node("Panel/FruitsScroll/VBoxContainer").get_child_count()):
 		loadPanelData(i)
 		
 func loadPanelData(index : int):
@@ -18,9 +28,9 @@ func loadPanelData(index : int):
 	var currentPanelButtonCost
 	var currentPanelLvlLabel
 	
-#	currentPanelSprite = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/A")
-	currentPanelButtonCost = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
-	currentPanelLvlLabel = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/Level")
+#	currentPanelSprite = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/A")
+	currentPanelButtonCost = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
+	currentPanelLvlLabel = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Level")
 	
 #	currentPanelSprite.texture = GlobalVariables.player.Fruits[index].skin
 	if GlobalVariables.player.Fruits[index].cost <= 999:
@@ -69,10 +79,10 @@ func buyFruit(index : int):
 
 	
 	loadPanelData(index)
-	get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite").play("default")
+	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 	
 func saveCurrentProgress(index : int):
-	var currentProgressBar = get_node("Panel/ScrollContainer/VBoxContainer/FruitMeter" + str(index) + "/Bar")
+	var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
 	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
 	var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
 	var nextProgressValueInPer
@@ -224,3 +234,63 @@ func SandiaExchange(houseId : int):
 	
 func _on_button_pressed():
 	hide()
+
+
+
+func _on_burguer_toggled(button_pressed):
+	if button_pressed:
+		$Panel/Options/AnimationPlayer.play("show")
+	else:
+		$Panel/Options/AnimationPlayer.play("hide")
+		
+func hide_scrolls():
+	$Panel/FruitsScroll.hide()
+	$Panel/FarmerScroll.hide()
+	$Panel/Options/AnimationPlayer.play("hide")
+	$Panel/Menu/Burguer.button_pressed = false
+
+
+func _on_fruits_pressed():
+	hide_scrolls()
+	$Panel/FruitsScroll.show()
+	
+
+
+func _on_farmers_pressed():
+	hide_scrolls()
+	$Panel/FarmerScroll.show()
+	
+	
+func load_farmer_list():
+	
+	var general_info = farmer_general_scene.instantiate()
+	
+	for item in farmer_list.get_children():
+		item.queue_free()
+		
+	farmer_list.add_child(general_info)
+		
+	for i in range(GlobalVariables.player.Farmer.size()):
+		var farmer = GlobalVariables.player.Farmer[i]
+		var farmer_item = farmer_item_scene.instantiate()
+		
+		farmer_item.get_node("Name").text = farmer.name
+		farmer_item.get_node("Icon").texture = farmer.skin
+		farmer_item.get_node("Description").text = farmer.description
+		farmer_item.get_node("Cost").text = "$ " + GlobalVariables.getMoneyString(farmer.cost)
+		farmer_item.get_node("Button").pressed.connect(Callable(buy_farmer).bind(i))
+		
+		if farmer.active:
+			farmer_item.get_node("Aquired").show()
+			farmer_item.get_node("Button").hide()
+			
+		if farmer.cost >= GlobalVariables.player.money:
+			farmer_item.get_node("Button").disable - true
+		
+		farmer_list.add_child(farmer_item)
+
+func buy_farmer(i:int):
+	if GlobalVariables.player.money >= GlobalVariables.player.Farmer[i].cost:
+		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Farmer[i].cost
+		GlobalVariables.player.Farmer[i].active = true
+		load_farmer_list()
