@@ -1,70 +1,70 @@
-[gd_resource type="Resource" script_class="Player" load_steps=146 format=3 uid="uid://cxlrf1qm0moap"]
+[gd_resource type="Resource" script_class="Player" load_steps=146 format=3]
 
 [ext_resource type="Script" path="res://Resources/CurrentHouseData.gd" id="1_3qdky"]
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
 [ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_hnv06"]
-[ext_resource type="Texture2D" uid="uid://ddpm084j3857i" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/juice.png" id="2_qt1ax"]
 [ext_resource type="Script" path="res://Resources/FarmerData.gd" id="2_ubryv"]
-[ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="2_vc0li"]
+[ext_resource type="Texture2D" path="res://a.png" id="2_vc0li"]
 [ext_resource type="Script" path="res://Resources/TransportData.gd" id="2_webxm"]
-[ext_resource type="Texture2D" uid="uid://dwrudmkpwtgwg" path="res://Assets/Farmers/Blueberry.png" id="3_uwhet"]
-[ext_resource type="Texture2D" uid="uid://c5txf86inkwqs" path="res://Assets/Farmers/Cherry.png" id="4_0k1dd"]
-[ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="5_iuf66"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Blueberry.png" id="3_uwhet"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Cherry.png" id="4_0k1dd"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceStand.png" id="5_iuf66"]
 [ext_resource type="Script" path="res://Resources/JuiceLevelData.gd" id="5_my2gi"]
-[ext_resource type="Texture2D" uid="uid://b8bjaaopkbwyu" path="res://Assets/Farmers/Strawberry.png" id="5_wny7e"]
-[ext_resource type="Texture2D" uid="uid://bnd43yxfo0f31" path="res://Assets/JuiceHouse/JuiceShack.png" id="6_56b1g"]
-[ext_resource type="Texture2D" uid="uid://dlkngisc5looi" path="res://Assets/Farmers/Lemon.png" id="6_hmwih"]
-[ext_resource type="Texture2D" uid="uid://cnooirwuv5x7m" path="res://Assets/Farmers/Peach.png" id="7_hwrg0"]
-[ext_resource type="Texture2D" uid="uid://ccch7dg82gg4" path="res://Assets/JuiceHouse/JuiceHouse.png" id="7_vr073"]
-[ext_resource type="Texture2D" uid="uid://c4gi0abs3y0j3" path="res://Assets/Farmers/Apple.png" id="8_5bjn6"]
-[ext_resource type="Texture2D" uid="uid://po4unoiwkts8" path="res://Assets/JuiceHouse/BigJuiceHouse.png" id="8_vqqll"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Strawberry.png" id="5_wny7e"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceShack.png" id="6_56b1g"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Lemon.png" id="6_hmwih"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Peach.png" id="7_hwrg0"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceHouse.png" id="7_vr073"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Apple.png" id="8_5bjn6"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/BigJuiceHouse.png" id="8_vqqll"]
 [ext_resource type="Script" path="res://Resources/WaterTankData.gd" id="9_4vhif"]
-[ext_resource type="Texture2D" uid="uid://cn3wfxb6q3lxo" path="res://Assets/Vehicles/Motorcycle.png" id="9_8emba"]
-[ext_resource type="Texture2D" uid="uid://b1wiqwuw5yg3c" path="res://Assets/JuiceHouse/BiggerJuiceHouse.png" id="9_jhwmg"]
-[ext_resource type="Texture2D" uid="uid://blc0rmtq2qkqk" path="res://Assets/Farmers/Orange.png" id="9_uamts"]
-[ext_resource type="Texture2D" uid="uid://i3g1bmhan00h" path="res://Assets/Vehicles/SmallCar.png" id="10_4yv12"]
-[ext_resource type="Texture2D" uid="uid://bcbrwrda8hlsi" path="res://Assets/Vehicles/Van.png" id="10_db7fb"]
-[ext_resource type="Texture2D" uid="uid://ffhcc8j55841" path="res://Assets/JuiceHouse/BiggestJuiceHouse.png" id="10_m143g"]
-[ext_resource type="Texture2D" uid="uid://dbkftyy55heda" path="res://Assets/Farmers/Avocado.png" id="10_stlp5"]
-[ext_resource type="Texture2D" uid="uid://b4sn174iilebc" path="res://Assets/JuiceHouse/Fruitplex.png" id="11_3sumg"]
-[ext_resource type="Texture2D" uid="uid://uwvjhm44h5fp" path="res://Assets/Vehicles/PickupTruck.png" id="11_7yit6"]
-[ext_resource type="Texture2D" uid="uid://d0jxo4g3k76o4" path="res://Assets/Farmers/Mango.png" id="11_eacjt"]
-[ext_resource type="Texture2D" uid="uid://cvde4fb6cudi0" path="res://Assets/Vehicles/Car.png" id="11_mymge"]
-[ext_resource type="Texture2D" uid="uid://c5nq45hpfaons" path="res://Assets/JuiceHouse/SuikaWarehouse.png" id="12_0p858"]
-[ext_resource type="Texture2D" uid="uid://c036xi113gyqq" path="res://Assets/Farmers/Dragonfruit.png" id="12_sg82b"]
-[ext_resource type="Texture2D" uid="uid://dkakeg02thu6h" path="res://Assets/Vehicles/BoxTruck.png" id="12_y7llb"]
-[ext_resource type="Texture2D" uid="uid://5dtohxb5ybko" path="res://Assets/Vehicles/Bus.png" id="13_3yfb7"]
-[ext_resource type="Texture2D" uid="uid://b5irja7imivm6" path="res://Assets/Farmers/Coconut.png" id="13_4ks1m"]
-[ext_resource type="Texture2D" uid="uid://3uypniyw3mx7" path="res://Assets/JuiceHouse/TheTank.png" id="13_4p75j"]
-[ext_resource type="Texture2D" uid="uid://cc6jbdkx78cly" path="res://Assets/Vehicles/DobleBus.png" id="14_1py8v"]
-[ext_resource type="Texture2D" uid="uid://bp0lylr7kh4xv" path="res://Assets/Vehicles/Micro.png" id="14_l25ep"]
-[ext_resource type="Texture2D" uid="uid://capbu8cabewu7" path="res://Assets/Farmers/Pineapple.png" id="14_n1yr3"]
-[ext_resource type="Texture2D" uid="uid://dcy8fflsavkss" path="res://Assets/JuiceHouse/JuiceCo.png" id="14_wdlhq"]
-[ext_resource type="Texture2D" uid="uid://ctspr3c0bggx5" path="res://Assets/JuiceHouse/Fruitscraper.png" id="15_4r28b"]
-[ext_resource type="Texture2D" uid="uid://cjdyhpmaetge0" path="res://Assets/Vehicles/DeliveryVan.png" id="15_pudf3"]
-[ext_resource type="Texture2D" uid="uid://dlceqnjtq01q1" path="res://Assets/Farmers/Papaya.png" id="15_scc5e"]
-[ext_resource type="Texture2D" uid="uid://mslomx47fgpk" path="res://Assets/JuiceHouse/Vesuvjuice.png" id="15_udehr"]
-[ext_resource type="Texture2D" uid="uid://12qq86572wtm" path="res://Assets/Vehicles/LightTrain.png" id="15_x74sn"]
-[ext_resource type="Texture2D" uid="uid://hvtxj5dklair" path="res://Assets/Vehicles/Train.png" id="16_b2c30"]
-[ext_resource type="Texture2D" uid="uid://ld4l6c6ecx4f" path="res://Assets/Farmers/Watermelon.png" id="16_g03k1"]
-[ext_resource type="Texture2D" uid="uid://bwq5x7xnq46mt" path="res://Assets/JuiceHouse/FruitsKhalifa.png" id="16_wh3wt"]
-[ext_resource type="Texture2D" uid="uid://glki3ytrhjr0" path="res://Assets/JuiceHouse/SixFruits.png" id="17_36i77"]
-[ext_resource type="Texture2D" uid="uid://bad3jl5swkqa6" path="res://Assets/JuiceHouse/SeaOfJuice.png" id="18_10d2j"]
-[ext_resource type="Texture2D" uid="uid://dh1bp8avhuvgb" path="res://Assets/JuiceHouse/VitaminCty.png" id="19_3j3ri"]
-[ext_resource type="Texture2D" uid="uid://bccmptrdswiew" path="res://Assets/JuiceHouse/JuiceWorld.png" id="20_fvpik"]
-[ext_resource type="Texture2D" uid="uid://dbeqs30f02x5g" path="res://Assets/JuiceHouse/NFJA.png" id="21_twxmq"]
-[ext_resource type="Texture2D" uid="uid://groiodem74gk" path="res://Assets/Juicelevel/naranja.png" id="25_fsicg"]
-[ext_resource type="Texture2D" uid="uid://dr0exwxp5ydej" path="res://Assets/Juicelevel/organico.png" id="26_uodlu"]
-[ext_resource type="Texture2D" uid="uid://ysg6qshhu1wu" path="res://Assets/Juicelevel/prework.png" id="27_d8cy8"]
-[ext_resource type="Texture2D" uid="uid://b7a21ovibvxae" path="res://Assets/Juicelevel/antivejez.png" id="28_x5egd"]
-[ext_resource type="Texture2D" uid="uid://44egkcnbyoow" path="res://Assets/Juicelevel/bio fuel.png" id="29_b210s"]
-[ext_resource type="Texture2D" uid="uid://c4j6nbgt8c3jp" path="res://Assets/Juicelevel/terraform.png" id="30_ujp6h"]
-[ext_resource type="Texture2D" uid="uid://bfyuhlv41wehh" path="res://Assets/Juicelevel/fusion.png" id="31_xagl2"]
-[ext_resource type="Texture2D" uid="uid://csrmd1a3hyc51" path="res://Assets/Juicelevel/superpowers.png" id="32_2uye8"]
-[ext_resource type="Texture2D" uid="uid://boqbfrkdmp0qb" path="res://Assets/Juicelevel/antimateria.png" id="33_eymbs"]
-[ext_resource type="Texture2D" uid="uid://txbsn1xydmic" path="res://Assets/Juicelevel/inmortalidad.png" id="34_iad6i"]
-[ext_resource type="Texture2D" uid="uid://bp3uq4e7u75it" path="res://Assets/Juicelevel/ominjuice.png" id="35_00xnd"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/Motorcycle.png" id="9_8emba"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/BiggerJuiceHouse.png" id="9_jhwmg"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Orange.png" id="9_uamts"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/SmallCar.png" id="10_4yv12"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/Van.png" id="10_db7fb"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/BiggestJuiceHouse.png" id="10_m143g"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Avocado.png" id="10_stlp5"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/Fruitplex.png" id="11_3sumg"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/PickupTruck.png" id="11_7yit6"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Mango.png" id="11_eacjt"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/Car.png" id="11_mymge"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/SuikaWarehouse.png" id="12_0p858"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Dragonfruit.png" id="12_sg82b"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/BoxTruck.png" id="12_y7llb"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/Bus.png" id="13_3yfb7"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Coconut.png" id="13_4ks1m"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/TheTank.png" id="13_4p75j"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/DobleBus.png" id="14_1py8v"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/Micro.png" id="14_l25ep"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Pineapple.png" id="14_n1yr3"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceCo.png" id="14_wdlhq"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/Fruitscraper.png" id="15_4r28b"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/DeliveryVan.png" id="15_pudf3"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Papaya.png" id="15_scc5e"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/Vesuvjuice.png" id="15_udehr"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/LightTrain.png" id="15_x74sn"]
+[ext_resource type="Texture2D" path="res://Assets/Vehicles/Train.png" id="16_b2c30"]
+[ext_resource type="Texture2D" path="res://Assets/Farmers/Watermelon.png" id="16_g03k1"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/FruitsKhalifa.png" id="16_wh3wt"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/SixFruits.png" id="17_36i77"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/SeaOfJuice.png" id="18_10d2j"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/VitaminCty.png" id="19_3j3ri"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/JuiceWorld.png" id="20_fvpik"]
+[ext_resource type="Texture2D" path="res://Assets/JuiceHouse/NFJA.png" id="21_twxmq"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/naranja.png" id="25_fsicg"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/organico.png" id="26_uodlu"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/prework.png" id="27_d8cy8"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/antivejez.png" id="28_x5egd"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/bio fuel.png" id="29_b210s"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/terraform.png" id="30_ujp6h"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/fusion.png" id="31_xagl2"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/superpowers.png" id="32_2uye8"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/antimateria.png" id="33_eymbs"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/inmortalidad.png" id="34_iad6i"]
+[ext_resource type="Texture2D" path="res://Assets/Juicelevel/ominjuice.png" id="35_00xnd"]
 
 [sub_resource type="Resource" id="Resource_8fao5"]
 script = ExtResource("1_3qdky")
@@ -72,10 +72,10 @@ houseLvl = 2
 upgradeLvl = 4
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 5.05971e+08
-blueberryCount = 10396005
-cerezaCount = 494939993
-fresaCount = 603088
+currentCapacity = 6.12812e+08
+blueberryCount = 10396012
+cerezaCount = 601618846
+fresaCount = 762719
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -87,7 +87,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 26333.9
+sandiaCount = 28297.5
 
 [sub_resource type="Resource" id="Resource_ih36l"]
 script = ExtResource("1_3qdky")
@@ -95,10 +95,10 @@ houseLvl = 7
 upgradeLvl = 4
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 4.85316e+08
-blueberryCount = 7712642
-cerezaCount = 477044480
-fresaCount = 544576
+currentCapacity = 5.92157e+08
+blueberryCount = 7712649
+cerezaCount = 583723333
+fresaCount = 704207
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -110,7 +110,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 9522.49
+sandiaCount = 11486.1
 
 [sub_resource type="Resource" id="Resource_mnbsa"]
 script = ExtResource("1_3qdky")
@@ -118,10 +118,10 @@ houseLvl = 10
 upgradeLvl = 1
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 4.85309e+08
-blueberryCount = 7711864
-cerezaCount = 477038392
-fresaCount = 544576
+currentCapacity = 5.9215e+08
+blueberryCount = 7711871
+cerezaCount = 583717245
+fresaCount = 704207
 limonCount = 0
 duraznoCount = 0
 manzanaCount = 0
@@ -133,7 +133,7 @@ cocoCount = 0
 ananaCount = 0
 papayaCount = 0
 melonCount = 0
-sandiaCount = 9518.06
+sandiaCount = 11481.7
 
 [sub_resource type="Resource" id="Resource_rggul"]
 script = ExtResource("1_3qdky")
@@ -161,128 +161,158 @@ sandiaCount = 0.0
 [sub_resource type="Resource" id="Resource_e6fa8"]
 script = ExtResource("2_ubryv")
 name = "AnaBerry"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Meticulously overseeing the growth of each blueberry bush, AnaBerry ensures a harvest of top-notch berries."
 skin = ExtResource("3_uwhet")
-cost = 1.0
+cost = 1000.0
+epic_cost = 1e+10
 active = true
+epic = true
 
 [sub_resource type="Resource" id="Resource_e7y5q"]
 script = ExtResource("2_ubryv")
 name = "Cherry"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Passionately cultivating the sweetest and juiciest cherries, Cherry is the go-to expert in the orchard."
 skin = ExtResource("4_0k1dd")
-cost = 1.0
+cost = 15000.0
+epic_cost = 9.22e+11
 active = true
+epic = false
 
 [sub_resource type="Resource" id="Resource_n5wig"]
 script = ExtResource("2_ubryv")
 name = "Rosita"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "With tender care and a sprinkle of love, Rosita tends to each strawberry plant, yielding fresh and flavorful fruits."
 skin = ExtResource("5_wny7e")
-cost = 1.0
-active = false
+cost = 100000.0
+epic_cost = 4e+14
+active = true
+epic = false
 
 [sub_resource type="Resource" id="Resource_lxdlw"]
 script = ExtResource("2_ubryv")
 name = "Simon Agrio"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Sour yet steadfast, Simon Agrio is the mastermind behind the vibrant and tangy lemon crops."
 skin = ExtResource("6_hmwih")
-cost = 1.0
+cost = 500000.0
+epic_cost = 5e+17
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_evpcw"]
 script = ExtResource("2_ubryv")
 name = "Momo"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Quiet and patient, Momo nurtures succulent and aromatic peaches with unwavering dedication."
 skin = ExtResource("7_hwrg0")
-cost = 1.0
+cost = 1.2e+06
+epic_cost = 6.6e+20
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_4ie1y"]
 script = ExtResource("2_ubryv")
 name = "Estevan Trabajal"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Hardworking and determined, Estevan Trabajal employs meticulous techniques to produce the finest apples."
 skin = ExtResource("8_5bjn6")
-cost = 0.0
+cost = 1e+07
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_v3tqk"]
 script = ExtResource("2_ubryv")
 name = "Alex DeOrange"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Dynamic and energetic, Alex DeOrange leads the charge in cultivating vibrant and zesty oranges."
 skin = ExtResource("9_uamts")
-cost = 1.0
+cost = 1.11e+08
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_dgtvp"]
 script = ExtResource("2_ubryv")
 name = "Aguafredo"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = " Innovative and forward-thinking, Aguafredo pioneers avocado cultivation, always seeking new methods for improvement."
 skin = ExtResource("10_stlp5")
-cost = 1.0
+cost = 5.55e+08
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_32o6p"]
 script = ExtResource("2_ubryv")
 name = "Beelma"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Charismatic and experienced, Beelma specializes in cultivating juicy and flavorful mangoes."
 skin = ExtResource("11_eacjt")
-cost = 1.0
+cost = 1e+10
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_ddpq3"]
 script = ExtResource("2_ubryv")
 name = "Joel Josson"
-description = "Hypo Farmer description Farmer description Farmer description Farmer "
+description = "Visionary and creative, Joel Josson produces exotic and colorful dragon fruits using cutting-edge techniques."
 skin = ExtResource("12_sg82b")
-cost = 0.0
+cost = 1.22e+11
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_wrqut"]
 script = ExtResource("2_ubryv")
 name = "Gran Coquito"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Relaxed and laid-back, Gran Coquito tends to coconuts with a special touch, resulting in a premium harvest."
 skin = ExtResource("13_4ks1m")
-cost = 1.0
+cost = 4e+14
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_ol2n2"]
 script = ExtResource("2_ubryv")
 name = "Gerardo Rey"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Leading the pineapple cultivation with expertise and finesse, Gerardo Rey is renowned for his tropical fruit mastery."
 skin = ExtResource("14_n1yr3")
-cost = 1.0
+cost = 5e+17
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_su6nn"]
 script = ExtResource("2_ubryv")
 name = "Papa Yon"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Dedicated and committed, Papa Yon yields juicy and flavorful papayas using traditional yet efficient methods."
 skin = ExtResource("15_scc5e")
-cost = 1.0
+cost = 6.6e+20
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_kqfem"]
 script = ExtResource("2_ubryv")
 name = "Chopp Chopp"
-description = "Farmer description Farmer description Farmer description Farmer "
-cost = 1.0
+description = "Constantly on the move, Chopp Chopp cultivates sweet and refreshing melons with a focus on efficiency."
+cost = 7.77e+23
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_a10ef"]
 script = ExtResource("2_ubryv")
 name = "Sandrés The Boy"
-description = "Farmer description Farmer description Farmer description Farmer "
+description = "Young and promising, Sandrés The Boy excels in growing large and juicy watermelons, always aiming to surpass previous records."
 skin = ExtResource("16_g03k1")
-cost = 1.0
+cost = 8e+32
+epic_cost = 0.0
 active = false
+epic = false
 
 [sub_resource type="Resource" id="Resource_tjrh3"]
 script = ExtResource("1_hnv06")
 name = "Blueberry"
-level = 5
+level = 6
 tier = 1
-cost = 1.0
+cost = 45000.0
 liters = 1.0
 multiplier = 1.0
 speed = 10000.0
@@ -290,11 +320,12 @@ currentProgress = 0.0
 skin = ExtResource("2_vc0li")
 initialCost = 0.0
 initialSpeed = 1.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_n854k"]
 script = ExtResource("1_hnv06")
-name = ""
-level = 212
+name = "Cherry"
+level = 213
 tier = 7
 cost = 0.0
 liters = 5e+11
@@ -303,10 +334,11 @@ speed = 0.0390625
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_fsb1x"]
 script = ExtResource("1_hnv06")
-name = ""
+name = "Strawberry"
 level = 61
 tier = 4
 cost = 5026.54
@@ -316,10 +348,11 @@ speed = 7.5
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = true
 
 [sub_resource type="Resource" id="Resource_o2fer"]
 script = ExtResource("1_hnv06")
-name = ""
+name = "Lemon"
 level = 7
 tier = 0
 cost = 0.0
@@ -329,11 +362,12 @@ speed = 1e+06
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_uhsuw"]
 script = ExtResource("1_hnv06")
-name = ""
-level = 2
+name = "Peach"
+level = 3
 tier = 0
 cost = 0.0
 liters = 0.0
@@ -342,11 +376,12 @@ speed = 1e+06
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_dbe3j"]
 script = ExtResource("1_hnv06")
-name = ""
-level = 1
+name = "Apple"
+level = 3
 tier = 0
 cost = 0.0
 liters = 0.0
@@ -355,62 +390,11 @@ speed = 1e+06
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_12dog"]
 script = ExtResource("1_hnv06")
-name = ""
-level = 3
-tier = 0
-cost = 0.0
-liters = 0.0
-multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
-initialCost = 0.0
-initialSpeed = 0.0
-
-[sub_resource type="Resource" id="Resource_ofpig"]
-script = ExtResource("1_hnv06")
-name = ""
-level = 3
-tier = 0
-cost = 0.0
-liters = 0.0
-multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
-initialCost = 0.0
-initialSpeed = 0.0
-
-[sub_resource type="Resource" id="Resource_j6776"]
-script = ExtResource("1_hnv06")
-name = ""
-level = 3
-tier = 0
-cost = 0.0
-liters = 0.0
-multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
-initialCost = 0.0
-initialSpeed = 0.0
-
-[sub_resource type="Resource" id="Resource_0xsga"]
-script = ExtResource("1_hnv06")
-name = ""
-level = 3
-tier = 0
-cost = 0.0
-liters = 0.0
-multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
-initialCost = 0.0
-initialSpeed = 0.0
-
-[sub_resource type="Resource" id="Resource_bx84y"]
-script = ExtResource("1_hnv06")
-name = ""
+name = "Orange"
 level = 4
 tier = 0
 cost = 0.0
@@ -420,11 +404,12 @@ speed = 1e+06
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = false
 
-[sub_resource type="Resource" id="Resource_km0qy"]
+[sub_resource type="Resource" id="Resource_ofpig"]
 script = ExtResource("1_hnv06")
-name = ""
-level = 9
+name = "Aguacate"
+level = 4
 tier = 0
 cost = 0.0
 liters = 0.0
@@ -433,10 +418,81 @@ speed = 1e+06
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = false
+
+[sub_resource type="Resource" id="Resource_j6776"]
+script = ExtResource("1_hnv06")
+name = "Mango"
+level = 4
+tier = 0
+cost = 0.0
+liters = 0.0
+multiplier = 0.0
+speed = 1e+06
+currentProgress = 0.0
+initialCost = 0.0
+initialSpeed = 0.0
+acquired = false
+
+[sub_resource type="Resource" id="Resource_0xsga"]
+script = ExtResource("1_hnv06")
+name = "Dragonfruit"
+level = 4
+tier = 0
+cost = 0.0
+liters = 0.0
+multiplier = 0.0
+speed = 1e+06
+currentProgress = 0.0
+initialCost = 0.0
+initialSpeed = 0.0
+acquired = false
+
+[sub_resource type="Resource" id="Resource_bx84y"]
+script = ExtResource("1_hnv06")
+name = "Cocoonut"
+level = 4
+tier = 0
+cost = 0.0
+liters = 0.0
+multiplier = 0.0
+speed = 1e+06
+currentProgress = 0.0
+initialCost = 0.0
+initialSpeed = 0.0
+acquired = false
+
+[sub_resource type="Resource" id="Resource_km0qy"]
+script = ExtResource("1_hnv06")
+name = "Pineapple"
+level = 11
+tier = 0
+cost = 0.0
+liters = 0.0
+multiplier = 0.0
+speed = 1e+06
+currentProgress = 0.0
+initialCost = 0.0
+initialSpeed = 0.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_ubmm6"]
 script = ExtResource("1_hnv06")
-name = ""
+name = "Papaya"
+level = 2
+tier = 0
+cost = 0.0
+liters = 0.0
+multiplier = 0.0
+speed = 1e+06
+currentProgress = 0.0
+initialCost = 0.0
+initialSpeed = 0.0
+acquired = false
+
+[sub_resource type="Resource" id="Resource_norhs"]
+script = ExtResource("1_hnv06")
+name = "Melon"
 level = 1
 tier = 0
 cost = 0.0
@@ -446,23 +502,11 @@ speed = 1e+06
 currentProgress = 0.0
 initialCost = 0.0
 initialSpeed = 0.0
-
-[sub_resource type="Resource" id="Resource_norhs"]
-script = ExtResource("1_hnv06")
-name = ""
-level = 0
-tier = 0
-cost = 0.0
-liters = 0.0
-multiplier = 0.0
-speed = 1e+06
-currentProgress = 0.0
-initialCost = 0.0
-initialSpeed = 0.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_welvk"]
 script = ExtResource("1_hnv06")
-name = ""
+name = "Watermelon"
 level = 2
 tier = 0
 cost = 0.0
@@ -472,6 +516,7 @@ speed = 20.0
 currentProgress = 19.6
 initialCost = 0.0
 initialSpeed = 0.0
+acquired = false
 
 [sub_resource type="Resource" id="Resource_yabiq"]
 script = ExtResource("1_4wlhr")
@@ -839,12 +884,12 @@ count = 12
 [resource]
 script = ExtResource("1_fhr83")
 liters = 0.0
-money = 1.16553e+31
+money = 1.94349e+21
 gems = 171
-litersPerSecond = 9.53526e+19
-sandiasPerSecond = 0.637642
-farmValue = 1.86908e+31
-time = "2024-02-28T15:36:56"
+litersPerSecond = 1.14328e+20
+sandiasPerSecond = 0.640178
+farmValue = 2.53196e+31
+time = "2024-02-29T15:56:26"
 multGananciasActive = false
 gemYdineroActive = false
 gemasActive = false

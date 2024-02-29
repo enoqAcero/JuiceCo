@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bclcnxpyp837s"
-path="res://.godot/imported/Cereza jump.png-27a59fb1ab2ce8c9c853cc1900fcf548.ctex"
+uid="uid://bccm2miawh00b"
+path="res://.godot/imported/CircleFull.png-98dadcf315496cdb82f0cfa9f0c8a884.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Fruits/Cereza jump.png"
-dest_files=["res://.godot/imported/Cereza jump.png-27a59fb1ab2ce8c9c853cc1900fcf548.ctex"]
+source_file="res://Assets/ProgressBars/CircleFull.png"
+dest_files=["res://.godot/imported/CircleFull.png-98dadcf315496cdb82f0cfa9f0c8a884.ctex"]
 
 [params]
 

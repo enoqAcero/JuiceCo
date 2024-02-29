@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bclcnxpyp837s"
-path="res://.godot/imported/Cereza jump.png-27a59fb1ab2ce8c9c853cc1900fcf548.ctex"
+uid="uid://bfakg5pe8hkrh"
+path="res://.godot/imported/BackADV2.png-3426e62eaea68037b344b7ddc899e8c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Fruits/Cereza jump.png"
-dest_files=["res://.godot/imported/Cereza jump.png-27a59fb1ab2ce8c9c853cc1900fcf548.ctex"]
+source_file="res://Assets/ProgressBars/BackADV2.png"
+dest_files=["res://.godot/imported/BackADV2.png-3426e62eaea68037b344b7ddc899e8c6.ctex"]
 
 [params]
 

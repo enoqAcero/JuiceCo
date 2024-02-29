@@ -1,23 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4h1l38r5h3y4"]
+[gd_scene load_steps=9 format=3 uid="uid://ckghkl43cnvjf"]
 
-[ext_resource type="Texture2D" uid="uid://dwrudmkpwtgwg" path="res://Assets/Farmers/Blueberry.png" id="1_wwo5l"]
+[ext_resource type="Texture2D" uid="uid://dwrudmkpwtgwg" path="res://Assets/Farmers/Blueberry.png" id="1_102vv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v05rs"]
-bg_color = Color(0, 0, 0, 0.258824)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18io2"]
+bg_color = Color(0.372549, 0.286275, 0.603922, 0.258824)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dukbv"]
-bg_color = Color(0.235294, 0.419608, 0.211765, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctv3k"]
+bg_color = Color(0.317647, 0.0117647, 0.639216, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54u4d"]
-bg_color = Color(0.235294, 0.435294, 0.2, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymdkd"]
+bg_color = Color(0.168627, 0.294118, 0.862745, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j725v"]
+bg_color = Color(0.168627, 0.294118, 0.862745, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vbg"]
+bg_color = Color(0.168627, 0.294118, 0.862745, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -30,9 +44,16 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bl4v"]
+bg_color = Color(0.168627, 0.294118, 0.862745, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Farmer0" type="Panel"]
 custom_minimum_size = Vector2(450, 130)
-theme_override_styles/panel = SubResource("StyleBoxFlat_v05rs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_18io2")
 
 [node name="Aquired" type="Panel" parent="."]
 visible = false
@@ -42,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dukbv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctv3k")
 
 [node name="Icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
@@ -57,7 +78,7 @@ offset_top = -60.0
 offset_right = 129.0
 offset_bottom = 40.0
 grow_vertical = 2
-texture = ExtResource("1_wwo5l")
+texture = ExtResource("1_102vv")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -84,9 +105,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -89.0
-offset_top = 44.0
-offset_right = 217.0
+offset_left = -90.0
+offset_top = 38.0
+offset_right = 222.0
 offset_bottom = 122.0
 grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -130,10 +151,10 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_54u4d")
-theme_override_styles/hover = SubResource("StyleBoxFlat_54u4d")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_54u4d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymdkd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j725v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s2vbg")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_jopry")
-theme_override_styles/focus = SubResource("StyleBoxFlat_54u4d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0bl4v")
 text = "BUY"
 metadata/_edit_use_anchors_ = true

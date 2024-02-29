@@ -1,7 +1,10 @@
 extends Node2D
 
 var farmer_item_scene = preload("res://Scenes/FarmerItem.tscn")
+var epic_farmer_item_scene = preload("res://Scenes/EpicFarmerItem.tscn")
+
 var farmer_general_scene = preload("res://Scenes/FarmerGeneral.tscn")
+var farmer_selection_scene = preload("res://Scenes/FarmersSelection.tscn")
 
 @onready var farmer_list := $Panel/FarmerScroll/VBoxContainer
 
@@ -12,7 +15,7 @@ func _ready():
 	
 	load_farmer_list()
 	hide_scrolls()
-	for i in range(get_node("Panel/FruitsScroll/VBoxContainer").get_child_count()):
+	for i in range(15):
 		var meter = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i))
 		meter.get_node("BuyButton").pressed.connect(Callable(buyFruit).bind(i))
 	loadAllPanelData()
@@ -20,19 +23,35 @@ func _ready():
 	$Panel/FruitsScroll.show()
 	
 func loadAllPanelData():
-	for i in range (get_node("Panel/FruitsScroll/VBoxContainer").get_child_count()):
+	for i in range (15):
 		loadPanelData(i)
 		
 func loadPanelData(index : int):
-	var currentPanelSprite
-	var currentPanelButtonCost
-	var currentPanelLvlLabel
+
+	var fruit_data = GlobalVariables.player.Fruits[index]
+	var fruit_item = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index)) 
 	
-#	currentPanelSprite = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/A")
-	currentPanelButtonCost = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
-	currentPanelLvlLabel = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Level")
+	for element in fruit_item.get_children():
+		element.hide()
 	
-#	currentPanelSprite.texture = GlobalVariables.player.Fruits[index].skin
+	fruit_item.get_node("Fruit").show()
+	if fruit_data.acquired:
+		fruit_item.get_node("Bar").show()
+		fruit_item.get_node("Wood").show()
+		fruit_item.get_node("BuyButton").show()
+		fruit_item.get_node("Remaining").show()
+	else:
+		fruit_item.get_node("AcquireButton").show()
+		
+		var cost_text = "$ " + GlobalVariables.getMoneyString( GlobalVariables.player.Fruits[index].cost )
+		
+		fruit_item.get_node("AcquireButton/Wood/Cost").text = cost_text
+		fruit_item.get_node("AcquireButton/Button/Name").text = "Acquire " + GlobalVariables.player.Fruits[index].name + "!"
+		fruit_item.get_node("AcquireButton/Button").pressed.connect(Callable(acquire_fruit).bind(index))
+
+	var currentPanelButtonCost = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
+	var currentPanelLvlLabel = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Wood/Level")
+	
 	if GlobalVariables.player.Fruits[index].cost <= 999:
 		currentPanelButtonCost.text ="$ %.2f" % GlobalVariables.player.Fruits[index].cost
 	else:
@@ -80,7 +99,14 @@ func buyFruit(index : int):
 	
 	loadPanelData(index)
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
-	
+
+func acquire_fruit(index:int):
+	if GlobalVariables.player.money > GlobalVariables.player.Fruits[index].cost:
+		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Fruits[index].cost
+		GlobalVariables.player.Fruits[index].acquired = true
+	loadAllPanelData()
+
+
 func saveCurrentProgress(index : int):
 	var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
 	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
@@ -263,16 +289,29 @@ func _on_farmers_pressed():
 	
 func load_farmer_list():
 	
+	
+	
 	var general_info = farmer_general_scene.instantiate()
+	var farmer_selection = farmer_selection_scene.instantiate()
+	
+	farmer_selection.get_node("Farmers").pressed.connect(load_farmer_list)
+	farmer_selection.get_node("EpicFarmers").pressed.connect(load_epic_farmer_list)
+	
+	general_info.get_node("FarmerTitle").show()
+	general_info.get_node("FarmerDescription").show()
 	
 	for item in farmer_list.get_children():
 		item.queue_free()
 		
+	farmer_list.add_child(farmer_selection)
 	farmer_list.add_child(general_info)
 		
 	for i in range(GlobalVariables.player.Farmer.size()):
 		var farmer = GlobalVariables.player.Farmer[i]
 		var farmer_item = farmer_item_scene.instantiate()
+		
+		if farmer.epic:
+			continue
 		
 		farmer_item.get_node("Name").text = farmer.name
 		farmer_item.get_node("Icon").texture = farmer.skin
@@ -285,7 +324,48 @@ func load_farmer_list():
 			farmer_item.get_node("Button").hide()
 			
 		if farmer.cost >= GlobalVariables.player.money:
+			farmer_item.get_node("Button").disabled = true
+		
+		farmer_list.add_child(farmer_item)
+		
+func load_epic_farmer_list():
+	
+	var general_info = farmer_general_scene.instantiate()
+	var farmer_selection = farmer_selection_scene.instantiate()
+	
+	farmer_selection.get_node("Farmers").pressed.connect(load_farmer_list)
+	farmer_selection.get_node("EpicFarmers").pressed.connect(load_epic_farmer_list)
+	
+	general_info.get_node("EpicFarmerTitle").show()
+	general_info.get_node("EpicFarmerDescription").show()
+	
+	for item in farmer_list.get_children():
+		item.queue_free()
+		
+	farmer_list.add_child(farmer_selection)
+	farmer_list.add_child(general_info)
+		
+	for i in range(GlobalVariables.player.Farmer.size()):
+		var farmer = GlobalVariables.player.Farmer[i]
+		var farmer_item = epic_farmer_item_scene.instantiate()
+		
+		farmer_item.get_node("Name").text = farmer.name
+		farmer_item.get_node("Icon").texture = farmer.skin
+		farmer_item.get_node("Description").text = farmer.description
+		farmer_item.get_node("Cost").text = "$ " + GlobalVariables.getMoneyString(farmer.epic_cost)
+		farmer_item.get_node("Button").pressed.connect(Callable(buy_epic_farmer).bind(i))
+		
+		if farmer.epic_cost >= GlobalVariables.player.money:
 			farmer_item.get_node("Button").disable - true
+		
+		if not farmer.active:
+			continue
+		
+		if farmer.epic:
+			farmer_item.get_node("Aquired").show()
+			farmer_item.get_node("Button").hide()
+			
+		
 		
 		farmer_list.add_child(farmer_item)
 
@@ -294,3 +374,11 @@ func buy_farmer(i:int):
 		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Farmer[i].cost
 		GlobalVariables.player.Farmer[i].active = true
 		load_farmer_list()
+		
+func buy_epic_farmer(i:int):
+	if GlobalVariables.player.money >= GlobalVariables.player.Farmer[i].epic_cost:
+		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Farmer[i].epic_cost
+		GlobalVariables.player.Farmer[i].epic = true
+		load_farmer_list()
+		
+		

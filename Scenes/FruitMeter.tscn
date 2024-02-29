@@ -1,44 +1,77 @@
-[gd_scene load_steps=5 format=3 uid="uid://clls5rpcn30h7"]
+[gd_scene load_steps=8 format=3 uid="uid://clls5rpcn30h7"]
 
-[ext_resource type="Texture2D" uid="uid://dpkqyfc8swac7" path="res://Assets/ProgressBars/BackADV.png" id="1_0f0gk"]
+[ext_resource type="Texture2D" uid="uid://bfakg5pe8hkrh" path="res://Assets/ProgressBars/BackADV2.png" id="1_flktn"]
+[ext_resource type="Texture2D" uid="uid://bccm2miawh00b" path="res://Assets/ProgressBars/CircleFull.png" id="2_js3t0"]
 [ext_resource type="Texture2D" uid="uid://c7ii1dw8vyuvt" path="res://Assets/ProgressBars/Mango.png" id="2_ll7ck"]
 [ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="3_alb22"]
 [ext_resource type="Script" path="res://Scripts/FieldProgressBar.gd" id="3_fi17s"]
+[ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="4_ijesu"]
+[ext_resource type="Texture2D" uid="uid://btorl2i4nm8j0" path="res://Assets/Buttons/BotonBuy_1.png" id="7_jg21x"]
 
 [node name="FruitMeter" type="TextureRect"]
-custom_minimum_size = Vector2(360, 175)
-texture = ExtResource("1_0f0gk")
+custom_minimum_size = Vector2(460, 137)
+offset_right = 460.0
+offset_bottom = 137.0
+texture = ExtResource("1_flktn")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Bar" type="TextureProgressBar" parent="."]
+[node name="Fruit" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="FullCircle" type="TextureRect" parent="Fruit"]
+visible = false
 layout_mode = 0
-offset_left = 132.0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 123.0
+offset_bottom = 124.0
+texture = ExtResource("2_js3t0")
+expand_mode = 1
+
+[node name="Bar" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 117.0
 offset_top = 35.0
-offset_right = 335.0
-offset_bottom = 93.0
+offset_right = 456.0
+offset_bottom = 95.0
 value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("2_ll7ck")
 script = ExtResource("3_fi17s")
 
 [node name="Time" type="Label" parent="Bar"]
-layout_mode = 0
-offset_right = 203.0
-offset_bottom = 58.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
-text = "XX s"
+text = "XXXX QQ / S"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level" type="Label" parent="."]
+[node name="Wood" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 39.0
-offset_top = 135.0
-offset_right = 123.0
-offset_bottom = 166.0
+offset_left = 113.0
+offset_top = 88.0
+offset_right = 234.0
+offset_bottom = 169.0
+texture = ExtResource("4_ijesu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Level" type="Label" parent="Wood"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 100.0
+offset_bottom = 53.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 16
@@ -46,18 +79,12 @@ text = "75/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Fruit" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 22.0
-offset_top = 5.0
-offset_right = 22.0
-offset_bottom = 5.0
-
 [node name="BuyButton" type="TextureButton" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 128.0
-offset_top = 106.0
-offset_right = 299.0
+offset_left = 224.0
+offset_top = 104.0
+offset_right = 373.0
 offset_bottom = 150.0
 texture_normal = ExtResource("3_alb22")
 ignore_texture_size = true
@@ -90,5 +117,81 @@ grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 14
-text = "xxxxx millions"
+text = "xxx MM"
 horizontal_alignment = 2
+
+[node name="Remaining" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 372.0
+offset_top = 105.0
+offset_right = 458.0
+offset_bottom = 150.0
+texture = ExtResource("7_jg21x")
+expand_mode = 1
+
+[node name="Time" type="Label" parent="Remaining"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+text = "XX S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AcquireButton" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="TextureButton" parent="AcquireButton"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 36.0
+offset_right = 306.0
+offset_bottom = 95.0
+texture_normal = ExtResource("3_alb22")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Name" type="Label" parent="AcquireButton/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 19
+text = "Acquire watermelon!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wood" type="TextureRect" parent="AcquireButton"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 28.0
+offset_right = 467.0
+offset_bottom = 104.0
+texture = ExtResource("4_ijesu")
+expand_mode = 1
+
+[node name="Cost" type="Label" parent="AcquireButton/Wood"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Cost: $ XXXX"
+horizontal_alignment = 1
+vertical_alignment = 1

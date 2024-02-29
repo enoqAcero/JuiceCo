@@ -13,3 +13,4 @@ class_name FruitData
 @export var skin : Texture2D
 @export var initialCost : float #llenar con los correctos
 @export var initialSpeed : float #llenar con los correctos
+@export var acquired : bool
