@@ -186,5 +186,4 @@ animations = [{
 [node name="Sprite2D" type="AnimatedSprite2D"]
 position = Vector2(37, -152)
 sprite_frames = SubResource("SpriteFrames_2ccj1")
-animation = &"walk"
-frame_progress = 0.264885
+animation = &"jump"

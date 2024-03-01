@@ -14,4 +14,6 @@ func _unhandled_input(event: InputEvent):
 	elif event is InputEventMouseMotion && moveCamera:
 		get_viewport().set_input_as_handled()
 		position += (previousPosition - event.position)
+		position.x = clamp(position.x, -470, 600)
+		position.y = clamp(position.y, -300, -10)
 		previousPosition = event.position

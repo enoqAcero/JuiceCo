@@ -30,7 +30,6 @@ texture = ExtResource("2_js3t0")
 expand_mode = 1
 
 [node name="Bar" type="TextureProgressBar" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 117.0
 offset_top = 35.0
@@ -56,7 +55,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Wood" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 113.0
 offset_top = 88.0
@@ -80,7 +78,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BuyButton" type="TextureButton" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 224.0
 offset_top = 104.0
@@ -94,12 +91,12 @@ stretch_mode = 0
 layout_mode = 1
 offset_left = 11.0
 offset_top = 7.0
-offset_right = 128.0
-offset_bottom = 32.0
+offset_right = 140.0
+offset_bottom = 33.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 16
-text = "Buy"
+text = "Increase level"
 
 [node name="Amount" type="Label" parent="BuyButton"]
 layout_mode = 1
@@ -121,7 +118,6 @@ text = "xxx MM"
 horizontal_alignment = 2
 
 [node name="Remaining" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 372.0
 offset_top = 105.0
@@ -144,6 +140,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AcquireButton" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

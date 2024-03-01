@@ -38,6 +38,7 @@ one_shot = true
 [node name="Sprite2D" parent="." instance=ExtResource("2_xdlpo")]
 position = Vector2(5, -2)
 scale = Vector2(0.09, 0.09)
+autoplay = ""
 
 [connection signal="timeout" from="posTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="randPosTimer" to="." method="_on_rand_pos_timer_timeout"]

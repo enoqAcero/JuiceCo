@@ -54,7 +54,11 @@ func getAbb(money : float):
 	var abb : String
 	abbFactor = 1.0
 	
-	if (money / (10.0**3.0)) < 999.99:
+	if money < 999.99:
+#		abbFactor = (10.0**3.0)
+		abb = ""
+	
+	elif (money / (10.0**3.0)) < 999.99:
 		abbFactor = (10.0**3.0)
 		abb = "K"
 	elif (money / (10.0**6.0)) < 999.99:

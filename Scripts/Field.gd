@@ -1,10 +1,12 @@
 extends Node2D
 
-var farmer_item_scene = preload("res://Scenes/FarmerItem.tscn")
-var epic_farmer_item_scene = preload("res://Scenes/EpicFarmerItem.tscn")
+var error_message_scene := preload("res://Scenes/ErrorMessage.tscn")
 
-var farmer_general_scene = preload("res://Scenes/FarmerGeneral.tscn")
-var farmer_selection_scene = preload("res://Scenes/FarmersSelection.tscn")
+var farmer_item_scene := preload("res://Scenes/FarmerItem.tscn")
+var epic_farmer_item_scene := preload("res://Scenes/EpicFarmerItem.tscn")
+
+var farmer_general_scene := preload("res://Scenes/FarmerGeneral.tscn")
+var farmer_selection_scene := preload("res://Scenes/FarmersSelection.tscn")
 
 @onready var farmer_list := $Panel/FarmerScroll/VBoxContainer
 
@@ -22,6 +24,10 @@ func _ready():
 	
 	$Panel/FruitsScroll.show()
 	
+	reset_levels()
+	reset_farmers()
+	reset_speed()
+	
 func loadAllPanelData():
 	for i in range (15):
 		loadPanelData(i)
@@ -36,6 +42,9 @@ func loadPanelData(index : int):
 	
 	fruit_item.get_node("Fruit").show()
 	if fruit_data.acquired:
+		
+		fruit_item.get_node("BuyButton/Buy").text = "Increase level"
+		
 		fruit_item.get_node("Bar").show()
 		fruit_item.get_node("Wood").show()
 		fruit_item.get_node("BuyButton").show()
@@ -52,10 +61,7 @@ func loadPanelData(index : int):
 	var currentPanelButtonCost = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
 	var currentPanelLvlLabel = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Wood/Level")
 	
-	if GlobalVariables.player.Fruits[index].cost <= 999:
-		currentPanelButtonCost.text ="$ %.2f" % GlobalVariables.player.Fruits[index].cost
-	else:
-		currentPanelButtonCost.text = GlobalVariables.getMoneyString(GlobalVariables.player.Fruits[index].cost)
+	currentPanelButtonCost.text = "$ " + GlobalVariables.getMoneyString(GlobalVariables.player.Fruits[index].level_cost)
 	if GlobalVariables.player.Fruits[index].speed == 0:
 		GlobalVariables.player.Fruits[index].speed = 10000
 		
@@ -83,12 +89,16 @@ func calculateTierLevel(index : int):
 	return tierText
 
 func buyFruit(index : int):
-	var cost = GlobalVariables.player.Fruits[index].cost
+	var cost = GlobalVariables.player.Fruits[index].level_cost
 	var mult = GlobalVariables.player.Fruits[index].multiplier
 	var level = GlobalVariables.player.Fruits[index].level
 	var tierText = calculateTierLevel(index)
 	
-	GlobalVariables.player.Fruits[index].cost = cost * mult
+	if GlobalVariables.player.money < cost:
+		return
+	
+	GlobalVariables.player.money = GlobalVariables.player.money - cost
+	GlobalVariables.player.Fruits[index].level_cost = cost + cost *  mult /100
 	GlobalVariables.player.Fruits[index].level += 1
 	
 	if level >= tierText - 1:
@@ -105,26 +115,40 @@ func acquire_fruit(index:int):
 		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Fruits[index].cost
 		GlobalVariables.player.Fruits[index].acquired = true
 	loadAllPanelData()
-
+	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
+	
 
 func saveCurrentProgress(index : int):
-	var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
-	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
-	var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
-	var nextProgressValueInPer
 	
-	if currentProgressValueInMin >= GlobalVariables.player.Fruits[index].speed:
-		currentProgressValueInMin = 0
-	else:
-		nextProgressValueInPer = (currentProgressValueInMin * 100)/nextSpeed
+	
+	
+		var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
+		var fullProgressBar = currentProgressBar.get_node("FullBar")
+		var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
+		var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
+		var nextProgressValueInPer
 		
-	if currentProgressValueInMin == 0:
-		GlobalVariables.player.Fruits[index].currentProgress = 0
-	else:
-		GlobalVariables.player.Fruits[index].currentProgress = nextProgressValueInPer
-	
-	GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
-	currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
+		if currentProgressValueInMin >= GlobalVariables.player.Fruits[index].speed:
+			currentProgressValueInMin = 0
+		else:
+			nextProgressValueInPer = (currentProgressValueInMin * 100)/nextSpeed
+			
+		if currentProgressValueInMin == 0:
+			GlobalVariables.player.Fruits[index].currentProgress = 0
+		else:
+			GlobalVariables.player.Fruits[index].currentProgress = nextProgressValueInPer
+		
+		GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
+		
+		if GlobalVariables.player.Fruits[index].level < 100:
+			currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
+		else:
+			currentProgressBar.hide()
+			fullProgressBar.show()
+			
+		
+			
+			
 
 func cashOut(index : int):
 
@@ -278,21 +302,23 @@ func hide_scrolls():
 
 func _on_fruits_pressed():
 	hide_scrolls()
+	loadAllPanelData()
 	$Panel/FruitsScroll.show()
 	
 
 
 func _on_farmers_pressed():
 	hide_scrolls()
+	load_farmer_list()
 	$Panel/FarmerScroll.show()
 	
 	
 func load_farmer_list():
 	
-	
-	
 	var general_info = farmer_general_scene.instantiate()
 	var farmer_selection = farmer_selection_scene.instantiate()
+	
+
 	
 	farmer_selection.get_node("Farmers").pressed.connect(load_farmer_list)
 	farmer_selection.get_node("EpicFarmers").pressed.connect(load_epic_farmer_list)
@@ -303,12 +329,30 @@ func load_farmer_list():
 	for item in farmer_list.get_children():
 		item.queue_free()
 		
+	var acquired_fruits := 0
+	
+	for fruit in GlobalVariables.player.Fruits:
+		if fruit.acquired:
+			acquired_fruits += 1
+	
 	farmer_list.add_child(farmer_selection)
+	
+	if acquired_fruits == 0:
+		var error_message := error_message_scene.instantiate()
+		error_message.get_node("Message").text = "Oops! Looks like you haven't acquired any fruits yet..."
+		farmer_list.add_child(error_message)
+		return
+		
+	
 	farmer_list.add_child(general_info)
 		
 	for i in range(GlobalVariables.player.Farmer.size()):
 		var farmer = GlobalVariables.player.Farmer[i]
 		var farmer_item = farmer_item_scene.instantiate()
+		
+		
+		if not GlobalVariables.player.Fruits[i].acquired:
+			continue
 		
 		if farmer.epic:
 			continue
@@ -328,6 +372,8 @@ func load_farmer_list():
 		
 		farmer_list.add_child(farmer_item)
 		
+		
+		
 func load_epic_farmer_list():
 	
 	var general_info = farmer_general_scene.instantiate()
@@ -343,6 +389,20 @@ func load_epic_farmer_list():
 		item.queue_free()
 		
 	farmer_list.add_child(farmer_selection)
+		
+	var epic_farmers := 0
+	
+	for farmer in GlobalVariables.player.Farmer:
+		if farmer.epic:
+			epic_farmers += 1
+			
+	if epic_farmers == 0:
+		var error_message := error_message_scene.instantiate()
+		error_message.get_node("Message").text = "Oops! Looks like you haven't acquired any farmers yet..."
+		farmer_list.add_child(error_message)
+		return
+		
+	
 	farmer_list.add_child(general_info)
 		
 	for i in range(GlobalVariables.player.Farmer.size()):
@@ -381,4 +441,23 @@ func buy_epic_farmer(i:int):
 		GlobalVariables.player.Farmer[i].epic = true
 		load_farmer_list()
 		
+func reset_levels():
+	for i in range(15):
+		GlobalVariables.player.Fruits[i].acquired = false
+		GlobalVariables.player.Fruits[i].level_cost = GlobalVariables.player.Fruits[i].cost
+		GlobalVariables.player.Fruits[i].tier = 0
+		GlobalVariables.player.Fruits[i].level = 0
+	loadAllPanelData()
+	
+func reset_farmers():
+	for i in range(GlobalVariables.player.Farmer.size()):
+		GlobalVariables.player.Farmer[i].active = false
+		GlobalVariables.player.Farmer[i].epic = false
+	
+	load_epic_farmer_list()
+	load_farmer_list()
+
+func reset_speed():
+	for i in range(GlobalVariables.player.Fruits.size()):
+		GlobalVariables.player.Fruits[i].speed = GlobalVariables.player.Fruits[i].initial_speed
 		

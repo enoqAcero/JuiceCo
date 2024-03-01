@@ -205,6 +205,7 @@ texture = ExtResource("3_6or35")
 expand_mode = 1
 
 [node name="FruitsScroll" type="ScrollContainer" parent="Panel"]
+visible = false
 layout_mode = 0
 offset_left = -14.0
 offset_top = 112.0
@@ -229,12 +230,13 @@ layout_mode = 2
 [node name="Sprite2D" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter0/Fruit" index="1" instance=ExtResource("11_brfqu")]
 position = Vector2(87, 36)
 scale = Vector2(0.488, 0.476667)
-autoplay = "walk"
+animation = &"walk"
 
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter0" index="1"]
 texture_progress = ExtResource("9_uedkc")
 
-[node name="FullBarBlueBerry" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter0/Bar" index="0" instance=ExtResource("10_ucauq")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter0/Bar" index="0" instance=ExtResource("10_ucauq")]
+visible = false
 position = Vector2(168.5, 30)
 scale = Vector2(0.528571, 0.373333)
 
@@ -248,7 +250,8 @@ scale = Vector2(0.6, 0.6)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter1" index="1"]
 texture_progress = ExtResource("19_p5mcw")
 
-[node name="FullBarCereza" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter1/Bar" index="0" instance=ExtResource("20_xvkgj")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter1/Bar" index="0" instance=ExtResource("20_xvkgj")]
+visible = false
 position = Vector2(169, 29.5)
 scale = Vector2(0.530159, 0.366667)
 
@@ -262,7 +265,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter2" index="1"]
 texture_progress = ExtResource("21_c4yln")
 
-[node name="FullBarFresa" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter2/Bar" index="0" instance=ExtResource("22_4r8o6")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter2/Bar" index="0" instance=ExtResource("22_4r8o6")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -276,7 +280,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter3" index="1"]
 texture_progress = ExtResource("11_gngrc")
 
-[node name="FullBarLimon" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter3/Bar" index="0" instance=ExtResource("4_l1mrx")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter3/Bar" index="0" instance=ExtResource("4_l1mrx")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -290,7 +295,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter4" index="1"]
 texture_progress = ExtResource("13_2heix")
 
-[node name="FullBarDurazno" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter4/Bar" index="0" instance=ExtResource("14_ki8k2")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter4/Bar" index="0" instance=ExtResource("14_ki8k2")]
+visible = false
 position = Vector2(169.5, 30)
 scale = Vector2(0.528571, 0.373333)
 
@@ -304,7 +310,8 @@ scale = Vector2(0.468, 0.486667)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter5" index="1"]
 texture_progress = ExtResource("15_m2wbn")
 
-[node name="FullBarManzana" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter5/Bar" index="0" instance=ExtResource("16_k07vl")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter5/Bar" index="0" instance=ExtResource("16_k07vl")]
+visible = false
 position = Vector2(169.5, 30)
 scale = Vector2(0.528571, 0.373333)
 
@@ -318,7 +325,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter6" index="1"]
 texture_progress = ExtResource("17_wlgxy")
 
-[node name="FullBarNaranja" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter6/Bar" index="0" instance=ExtResource("18_76pd7")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter6/Bar" index="0" instance=ExtResource("18_76pd7")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -332,7 +340,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter7" index="1"]
 texture_progress = ExtResource("5_q6cfh")
 
-[node name="FullBarAguacate" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter7/Bar" index="0" instance=ExtResource("7_evkpv")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter7/Bar" index="0" instance=ExtResource("7_evkpv")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -343,11 +352,11 @@ layout_mode = 2
 position = Vector2(85, 54)
 scale = Vector2(0.4, 0.4)
 animation = &"walk"
-autoplay = "walk"
 frame = 0
 frame_progress = 0.0
 
-[node name="FullBarMango" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter8/Bar" index="0" instance=ExtResource("4_wl7d8")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter8/Bar" index="0" instance=ExtResource("4_wl7d8")]
+visible = false
 position = Vector2(168.5, 30)
 scale = Vector2(0.528571, 0.373333)
 
@@ -361,7 +370,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter9" index="1"]
 texture_progress = ExtResource("23_sna4s")
 
-[node name="FullBarDragonFruit" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter9/Bar" index="0" instance=ExtResource("24_enk4a")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter9/Bar" index="0" instance=ExtResource("24_enk4a")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -375,7 +385,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter10" index="1"]
 texture_progress = ExtResource("25_gyx5c")
 
-[node name="FullBarCoco" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter10/Bar" index="0" instance=ExtResource("26_7xwis")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter10/Bar" index="0" instance=ExtResource("26_7xwis")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -389,7 +400,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter11" index="1"]
 texture_progress = ExtResource("27_npicm")
 
-[node name="FullBarPina" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter11/Bar" index="0" instance=ExtResource("28_hfr82")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter11/Bar" index="0" instance=ExtResource("28_hfr82")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -403,7 +415,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter12" index="1"]
 texture_progress = ExtResource("29_8hpwf")
 
-[node name="FullBarPapaya" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter12/Bar" index="0" instance=ExtResource("30_j7weh")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter12/Bar" index="0" instance=ExtResource("30_j7weh")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -417,7 +430,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter13" index="1"]
 texture_progress = ExtResource("31_eknp6")
 
-[node name="FullBarMelon" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter13/Bar" index="0" instance=ExtResource("32_607hl")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter13/Bar" index="0" instance=ExtResource("32_607hl")]
+visible = false
 position = Vector2(169, 30)
 scale = Vector2(0.530159, 0.373333)
 
@@ -431,12 +445,12 @@ scale = Vector2(0.4, 0.4)
 [node name="Bar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter14" index="1"]
 texture_progress = ExtResource("33_32dmg")
 
-[node name="FullBarSandia" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter14/Bar" index="0" instance=ExtResource("34_1ic54")]
+[node name="FullBar" parent="Panel/FruitsScroll/VBoxContainer/FruitMeter14/Bar" index="0" instance=ExtResource("34_1ic54")]
+visible = false
 position = Vector2(169.5, 30)
 scale = Vector2(0.528571, 0.373333)
 
 [node name="FarmerScroll" type="ScrollContainer" parent="Panel"]
-visible = false
 layout_mode = 0
 offset_left = -10.0
 offset_top = 103.0

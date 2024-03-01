@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://6v3dd0l2kswi"]
+
+[ext_resource type="Texture2D" uid="uid://cict526pw2d2s" path="res://Assets/Fruits/CocoCrying.png" id="1_mkehd"]
+
+[node name="Error message" type="Control"]
+custom_minimum_size = Vector2(460, 460)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 460.0
+offset_bottom = 520.0
+
+[node name="coco" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mkehd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Message" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -150.0
+offset_right = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 26
+text = "Oops! Looks like..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
