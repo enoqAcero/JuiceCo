@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckrss1aux8vav"]
 
 [ext_resource type="Script" path="res://Scripts/Shop.gd" id="1_tri17"]
-[ext_resource type="PackedScene" uid="uid://baw4mptgmq1jt" path="res://Scenes/PurchasePanel.tscn" id="4_1rf2k"]
-[ext_resource type="PackedScene" uid="uid://cxvemdy1vl73n" path="res://Scenes/PurchaseItem.tscn" id="6_sn2iw"]
+[ext_resource type="PackedScene" uid="uid://mupvggqkndx7" path="res://Scenes/PurchasePanel.tscn" id="4_1rf2k"]
+[ext_resource type="PackedScene" uid="uid://cyjuxhkgdjydi" path="res://Scenes/PurchaseItem.tscn" id="6_sn2iw"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_tri17")

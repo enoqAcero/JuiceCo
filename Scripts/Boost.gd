@@ -4,6 +4,7 @@ extends Node2D
 @onready var boosts_list := $Panel/ScrollContainer/VBoxContainer
 
 func _ready():
+	reset_boosts()
 	fill_boosts_list()
 	
 func fill_boosts_list():
@@ -39,9 +40,14 @@ func clean_list():
 		item.queue_free()
 
 func buy_boost(index:int):
-	if GlobalVariables.player.money <= GlobalVariables.Boosts[index].cost:
-		GlobalVariables.player.money -= GlobalVariables.Boosts[index].cost
-		GlobalVariables.Boosts[index].active = true
+	if GlobalVariables.player.money >= GlobalVariables.player.Boosts[index].cost:
+		GlobalVariables.player.money -= GlobalVariables.player.Boosts[index].cost
+		GlobalVariables.player.Boosts[index].active = true
+	fill_boosts_list()
 
 func _on_close_button_pressed():
 	hide()
+	
+func reset_boosts():
+	for i in range(GlobalVariables.player.Boosts.size()):
+		GlobalVariables.player.Boosts[i].active = false

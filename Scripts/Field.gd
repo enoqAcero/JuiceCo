@@ -16,6 +16,9 @@ var progress_calculation := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset_levels()
+	reset_farmers()
+	reset_speed()
 	
 	load_farmer_list()
 	hide_scrolls()
@@ -26,9 +29,7 @@ func _ready():
 	
 	$Panel/FruitsScroll.show()
 	
-	reset_levels()
-	reset_farmers()
-	reset_speed()
+	
 
 func _process(delta):
 	if progress_calculation:
@@ -57,6 +58,11 @@ func loadPanelData(index : int):
 		fruit_item.get_node("Wood").show()
 		fruit_item.get_node("BuyButton").show()
 		fruit_item.get_node("Remaining").show()
+		
+		fruit_item.get_node("Fruit/FullCircle").hide()
+		if GlobalVariables.player.Farmer[index].active:
+			fruit_item.get_node("Fruit/FullCircle").show()
+		
 	else:
 		fruit_item.get_node("AcquireButton").show()
 		
@@ -116,7 +122,8 @@ func levelUpFruit(index : int):
 		cashOut(index)
 
 	loadPanelData(index)
-	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
+	if not GlobalVariables.player.Farmer[index].active:
+		get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 
 func acquire_fruit(index:int):
 	if GlobalVariables.player.money > GlobalVariables.player.Fruits[index].cost:
@@ -130,9 +137,11 @@ func saveCurrentProgress(index : int):
 		var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
 		var fullProgressBar = currentProgressBar.get_node("FullBar")
 		
+		calculate_progress(index)
 		
 		if GlobalVariables.player.Fruits[index].level < 80:
-			currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
+#			currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
+			pass
 		else:
 			currentProgressBar.hide()
 			fullProgressBar.show()
@@ -397,7 +406,7 @@ func load_epic_farmer_list():
 	var epic_farmers := 0
 	
 	for farmer in GlobalVariables.player.Farmer:
-		if farmer.epic:
+		if farmer.active:
 			epic_farmers += 1
 			
 	if epic_farmers == 0:
@@ -437,6 +446,7 @@ func buy_farmer(i:int):
 	if GlobalVariables.player.money >= GlobalVariables.player.Farmer[i].cost:
 		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Farmer[i].cost
 		GlobalVariables.player.Farmer[i].active = true
+		get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i) + "/Fruit/Sprite2D").play("walk")
 		load_farmer_list()
 		
 func buy_epic_farmer(i:int):

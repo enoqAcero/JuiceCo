@@ -59,6 +59,7 @@ func _ready():
 	SignalManager.loadHouses.emit()
 	
 	spawn_spots.reverse()
+	
 
 func _process(_delta):
 
@@ -99,69 +100,60 @@ func getJuiceHouseCapacity():
 		GlobalVariables.houseCount = 3	
 				
 func countFruits():
-	GlobalVariables.totalFruits = 0
-	GlobalVariables.totalBlueberryCount = 0
-	GlobalVariables.totalCerezaCount = 0
-	GlobalVariables.totalFresaCount = 0
-	GlobalVariables.totalLimonCount = 0
-	GlobalVariables.totalDuraznoCount = 0
-	GlobalVariables.totalManzanaCount = 0
-	GlobalVariables.totalNaranjaCount = 0
-	GlobalVariables.totalAguacateCount = 0
-	GlobalVariables.totalMangoCount = 0
-	GlobalVariables.totalDragonfruitCount = 0
-	GlobalVariables.totalCocoCount = 0
-	GlobalVariables.totalAnanaCount = 0
-	GlobalVariables.totalPapayaCount = 0
-	GlobalVariables.totalMelonCount = 0
-	GlobalVariables.totalSandiaCount = 0
+	for i in range(GlobalVariables.total_fruit_count.size()):
+		GlobalVariables.total_fruit_count[i] = 0
+		
 	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
 	for i in range (0, houseIdArray.size()):
 		if houseIdArray[i] >= 1:
-			GlobalVariables.totalBlueberryCount += GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount
-			GlobalVariables.totalFruits += GlobalVariables.totalBlueberryCount
+			for j in range(GlobalVariables.player.Fruits.size()):
+				GlobalVariables.total_fruit_count[j] += GlobalVariables.player.CurrentJuiceHouse[i].fruit_count[j]
+				GlobalVariables.totalFruits += GlobalVariables.total_fruit_count[j]
+#			GlobalVariables.totalBlueberryCount += GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalBlueberryCount
+#
+#			GlobalVariables.totalCerezaCount += GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalCerezaCount
+#
+#			GlobalVariables.totalFresaCount += GlobalVariables.player.CurrentJuiceHouse[i].fresaCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalFresaCount
+#
+#			GlobalVariables.totalLimonCount += GlobalVariables.player.CurrentJuiceHouse[i].limonCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalLimonCount
+#
+#			GlobalVariables.totalDuraznoCount += GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalDuraznoCount
+#
+#			GlobalVariables.totalManzanaCount += GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalManzanaCount
+#
+#			GlobalVariables.totalNaranjaCount += GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalNaranjaCount
+#
+#			GlobalVariables.totalAguacateCount += GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalAguacateCount
+#
+#			GlobalVariables.totalMangoCount += GlobalVariables.player.CurrentJuiceHouse[i].mangoCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalMangoCount
+#
+#			GlobalVariables.totalDragonfruitCount += GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalDragonfruitCount
+#
+#			GlobalVariables.totalCocoCount += GlobalVariables.player.CurrentJuiceHouse[i].cocoCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalCocoCount
+#
+#			GlobalVariables.totalAnanaCount += GlobalVariables.player.CurrentJuiceHouse[i].ananaCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalAnanaCount
+#
+#			GlobalVariables.totalPapayaCount += GlobalVariables.player.CurrentJuiceHouse[i].papayaCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalPapayaCount
+#
+#			GlobalVariables.totalMelonCount += GlobalVariables.player.CurrentJuiceHouse[i].melonCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalMelonCount
+#
+#			GlobalVariables.totalSandiaCount += GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount
+#			GlobalVariables.totalFruits += GlobalVariables.totalSandiaCount
 			
-			GlobalVariables.totalCerezaCount += GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount
-			GlobalVariables.totalFruits += GlobalVariables.totalCerezaCount
-			
-			GlobalVariables.totalFresaCount += GlobalVariables.player.CurrentJuiceHouse[i].fresaCount
-			GlobalVariables.totalFruits += GlobalVariables.totalFresaCount
-			
-			GlobalVariables.totalLimonCount += GlobalVariables.player.CurrentJuiceHouse[i].limonCount
-			GlobalVariables.totalFruits += GlobalVariables.totalLimonCount
-			
-			GlobalVariables.totalDuraznoCount += GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount
-			GlobalVariables.totalFruits += GlobalVariables.totalDuraznoCount
-			
-			GlobalVariables.totalManzanaCount += GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount
-			GlobalVariables.totalFruits += GlobalVariables.totalManzanaCount
-			
-			GlobalVariables.totalNaranjaCount += GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount
-			GlobalVariables.totalFruits += GlobalVariables.totalNaranjaCount
-			
-			GlobalVariables.totalAguacateCount += GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount
-			GlobalVariables.totalFruits += GlobalVariables.totalAguacateCount
-			
-			GlobalVariables.totalMangoCount += GlobalVariables.player.CurrentJuiceHouse[i].mangoCount
-			GlobalVariables.totalFruits += GlobalVariables.totalMangoCount
-			
-			GlobalVariables.totalDragonfruitCount += GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount
-			GlobalVariables.totalFruits += GlobalVariables.totalDragonfruitCount
-			
-			GlobalVariables.totalCocoCount += GlobalVariables.player.CurrentJuiceHouse[i].cocoCount
-			GlobalVariables.totalFruits += GlobalVariables.totalCocoCount
-			
-			GlobalVariables.totalAnanaCount += GlobalVariables.player.CurrentJuiceHouse[i].ananaCount
-			GlobalVariables.totalFruits += GlobalVariables.totalAnanaCount
-			
-			GlobalVariables.totalPapayaCount += GlobalVariables.player.CurrentJuiceHouse[i].papayaCount
-			GlobalVariables.totalFruits += GlobalVariables.totalPapayaCount
-			
-			GlobalVariables.totalMelonCount += GlobalVariables.player.CurrentJuiceHouse[i].melonCount
-			GlobalVariables.totalFruits += GlobalVariables.totalMelonCount
-			
-			GlobalVariables.totalSandiaCount += GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount
-			GlobalVariables.totalFruits += GlobalVariables.totalSandiaCount
 			
 func calculateMoneyFromLiters(litrosPorSegundo : float):
 	#print("litrosPor segundo: ", litrosPorSegundo)
@@ -245,113 +237,125 @@ func calculateFruitsFromTime(elapsedTime):
 	var fruitsEarnedString : String
 	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Panel/Fruits")
 	
-	var BlueberryCount : float = 0
-	var CerezaCount : float = 0
-	var FresaCount : float = 0
-	var LimonCount : float = 0
-	var DuraznoCount : float = 0
-	var ManzanaCount : float = 0
-	var NaranjaCount : float = 0
-	var AguacateCount : float = 0
-	var MangoCount : float = 0
-	var DragonfruitCount : float = 0
-	var CocoCount : float = 0
-	var AnanaCount : float = 0
-	var PapayaCount : float = 0
-	var MelonCount : float = 0
-	var SandiaCount : float = 0
-	var SandiasTotales : float = 0
+	var fruit_count : Array[int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 	
 	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
 
 	
-	#sucede cuando se calcula el farm value elapsed time = 1
 	if not elapsedTime == 1:
-		BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level
-		CerezaCount = (elapsedTime / GlobalVariables.player.Fruits[1].speed) * GlobalVariables.player.Fruits[1].level
-		FresaCount = (elapsedTime / GlobalVariables.player.Fruits[2].speed) * GlobalVariables.player.Fruits[2].level
-		LimonCount = (elapsedTime / GlobalVariables.player.Fruits[3].speed) * GlobalVariables.player.Fruits[3].level
-		DuraznoCount = (elapsedTime / GlobalVariables.player.Fruits[4].speed) * GlobalVariables.player.Fruits[4].level
-		ManzanaCount = (elapsedTime / GlobalVariables.player.Fruits[5].speed) * GlobalVariables.player.Fruits[5].level
-		NaranjaCount = (elapsedTime / GlobalVariables.player.Fruits[6].speed) * GlobalVariables.player.Fruits[6].level
-		AguacateCount = (elapsedTime / GlobalVariables.player.Fruits[7].speed) * GlobalVariables.player.Fruits[7].level
-		MangoCount = (elapsedTime / GlobalVariables.player.Fruits[8].speed) * GlobalVariables.player.Fruits[8].level
-		DragonfruitCount = (elapsedTime / GlobalVariables.player.Fruits[9].speed) * GlobalVariables.player.Fruits[9].level
-		CocoCount = (elapsedTime / GlobalVariables.player.Fruits[10].speed) * GlobalVariables.player.Fruits[10].level
-		AnanaCount = (elapsedTime / GlobalVariables.player.Fruits[11].speed) * GlobalVariables.player.Fruits[11].level
-		PapayaCount = (elapsedTime / GlobalVariables.player.Fruits[12].speed) * GlobalVariables.player.Fruits[12].level
-		MelonCount = (elapsedTime / GlobalVariables.player.Fruits[13].speed) * GlobalVariables.player.Fruits[13].level
-		SandiaCount = (elapsedTime / GlobalVariables.player.Fruits[14].speed) * GlobalVariables.player.Fruits[14].level
-		
-		frutasTotal = BlueberryCount+CerezaCount+FresaCount+LimonCount+DuraznoCount+ManzanaCount+NaranjaCount+AguacateCount+MangoCount+DragonfruitCount+CocoCount+AnanaCount+PapayaCount+MelonCount+SandiaCount
-		
-				
-				
-		for i in range (0, GlobalVariables.houseCount):
-			if houseIdArray[i] >= 1:
-				GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount += (BlueberryCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount += (CerezaCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].fresaCount += (FresaCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].limonCount += (LimonCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount += (DuraznoCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount += (ManzanaCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount += (NaranjaCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount += (AguacateCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].mangoCount += (MangoCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount += (DragonfruitCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].cocoCount += (CocoCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].ananaCount += (AnanaCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].papayaCount += (PapayaCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].melonCount += (MelonCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount += (SandiaCount ) / GlobalVariables.houseCount
-				GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity += frutasTotal  / GlobalVariables.houseCount
-			else:
-				GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].fresaCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].limonCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].mangoCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].cocoCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].ananaCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].papayaCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].melonCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount = 0
-				GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity = 0
-		
-		
+		for i in range(fruit_count.size()):
+			fruit_count[i] = ( elapsedTime / GlobalVariables.player.Fruits[i].speed ) * GlobalVariables.player.Fruits[i].level
+			
+			frutasTotal += fruit_count[i]
+			
+			for j in range( 0, GlobalVariables.houseCount ):
+				if houseIdArray[j] >= 1:
+					GlobalVariables.player.CurrentJuiceHouse[j].fruit_count[i] += (fruit_count[i] ) / GlobalVariables.houseCount
+				else:
+					GlobalVariables.player.CurrentJuiceHouse[i].fruit_count = 0
+					
 		if frutasTotal <= 999:
 			fruitsEarnedString = str(frutasTotal)
 		else:
 			fruitsEarnedString = GlobalVariables.getMoneyString(frutasTotal)
 		fruitsEarnedLabel.text = "Fruits Earned: \n" + fruitsEarnedString
-
-	else: 
-		BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level * GlobalVariables.player.Fruits[0].liters
-		CerezaCount = (elapsedTime / GlobalVariables.player.Fruits[1].speed) * GlobalVariables.player.Fruits[1].level * GlobalVariables.player.Fruits[1].liters
-		FresaCount = (elapsedTime / GlobalVariables.player.Fruits[2].speed) * GlobalVariables.player.Fruits[2].level * GlobalVariables.player.Fruits[2].liters
-		LimonCount = (elapsedTime / GlobalVariables.player.Fruits[3].speed) * GlobalVariables.player.Fruits[3].level * GlobalVariables.player.Fruits[3].liters
-		DuraznoCount = (elapsedTime / GlobalVariables.player.Fruits[4].speed) * GlobalVariables.player.Fruits[4].level * GlobalVariables.player.Fruits[4].liters
-		ManzanaCount = (elapsedTime / GlobalVariables.player.Fruits[5].speed) * GlobalVariables.player.Fruits[5].level * GlobalVariables.player.Fruits[5].liters
-		NaranjaCount = (elapsedTime / GlobalVariables.player.Fruits[6].speed) * GlobalVariables.player.Fruits[6].level * GlobalVariables.player.Fruits[6].liters
-		AguacateCount = (elapsedTime / GlobalVariables.player.Fruits[7].speed) * GlobalVariables.player.Fruits[7].level * GlobalVariables.player.Fruits[7].liters
-		MangoCount = (elapsedTime / GlobalVariables.player.Fruits[8].speed) * GlobalVariables.player.Fruits[8].level * GlobalVariables.player.Fruits[8].liters
-		DragonfruitCount = (elapsedTime / GlobalVariables.player.Fruits[9].speed) * GlobalVariables.player.Fruits[9].level * GlobalVariables.player.Fruits[9].liters
-		CocoCount = (elapsedTime / GlobalVariables.player.Fruits[10].speed) * GlobalVariables.player.Fruits[10].level * GlobalVariables.player.Fruits[10].liters
-		AnanaCount = (elapsedTime / GlobalVariables.player.Fruits[11].speed) * GlobalVariables.player.Fruits[11].level * GlobalVariables.player.Fruits[11].liters
-		PapayaCount = (elapsedTime / GlobalVariables.player.Fruits[12].speed) * GlobalVariables.player.Fruits[12].level * GlobalVariables.player.Fruits[12].liters
-		MelonCount = (elapsedTime / GlobalVariables.player.Fruits[13].speed) * GlobalVariables.player.Fruits[13].level * GlobalVariables.player.Fruits[13].liters
-		SandiaCount = (elapsedTime / GlobalVariables.player.Fruits[14].speed) * GlobalVariables.player.Fruits[14].level * GlobalVariables.player.Fruits[14].liters
-		litrosTotal = BlueberryCount+CerezaCount+FresaCount+LimonCount+DuraznoCount+ManzanaCount+NaranjaCount+AguacateCount+MangoCount+DragonfruitCount+CocoCount+AnanaCount+PapayaCount+MelonCount+SandiaCount
 		
-		SandiasTotales = SandiasPorSeg(litrosTotal)
-		GlobalVariables.player.sandiasPerSecond = SandiasTotales/elapsedTime
-
+			
+	else:
+		for i in range( GlobalVariables.player.Fruits.size() ):
+			var fruit = GlobalVariables.player.Fruits[i]
+			fruit_count[i] = (elapsedTime / fruit.speed) * fruit.level *fruit.liters
+		
+	
 	countFruits()
+	
+	#sucede cuando se calcula el farm value elapsed time = 1
+#	if not elapsedTime == 1:
+#		BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level
+#		CerezaCount = (elapsedTime / GlobalVariables.player.Fruits[1].speed) * GlobalVariables.player.Fruits[1].level
+#		FresaCount = (elapsedTime / GlobalVariables.player.Fruits[2].speed) * GlobalVariables.player.Fruits[2].level
+#		LimonCount = (elapsedTime / GlobalVariables.player.Fruits[3].speed) * GlobalVariables.player.Fruits[3].level
+#		DuraznoCount = (elapsedTime / GlobalVariables.player.Fruits[4].speed) * GlobalVariables.player.Fruits[4].level
+#		ManzanaCount = (elapsedTime / GlobalVariables.player.Fruits[5].speed) * GlobalVariables.player.Fruits[5].level
+#		NaranjaCount = (elapsedTime / GlobalVariables.player.Fruits[6].speed) * GlobalVariables.player.Fruits[6].level
+#		AguacateCount = (elapsedTime / GlobalVariables.player.Fruits[7].speed) * GlobalVariables.player.Fruits[7].level
+#		MangoCount = (elapsedTime / GlobalVariables.player.Fruits[8].speed) * GlobalVariables.player.Fruits[8].level
+#		DragonfruitCount = (elapsedTime / GlobalVariables.player.Fruits[9].speed) * GlobalVariables.player.Fruits[9].level
+#		CocoCount = (elapsedTime / GlobalVariables.player.Fruits[10].speed) * GlobalVariables.player.Fruits[10].level
+#		AnanaCount = (elapsedTime / GlobalVariables.player.Fruits[11].speed) * GlobalVariables.player.Fruits[11].level
+#		PapayaCount = (elapsedTime / GlobalVariables.player.Fruits[12].speed) * GlobalVariables.player.Fruits[12].level
+#		MelonCount = (elapsedTime / GlobalVariables.player.Fruits[13].speed) * GlobalVariables.player.Fruits[13].level
+#		SandiaCount = (elapsedTime / GlobalVariables.player.Fruits[14].speed) * GlobalVariables.player.Fruits[14].level
+#
+#		frutasTotal = BlueberryCount+CerezaCount+FresaCount+LimonCount+DuraznoCount+ManzanaCount+NaranjaCount+AguacateCount+MangoCount+DragonfruitCount+CocoCount+AnanaCount+PapayaCount+MelonCount+SandiaCount
+#
+#
+#
+#		for i in range (0, GlobalVariables.houseCount):
+#			if houseIdArray[i] >= 1:
+#				GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount += (BlueberryCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount += (CerezaCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].fresaCount += (FresaCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].limonCount += (LimonCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount += (DuraznoCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount += (ManzanaCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount += (NaranjaCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount += (AguacateCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].mangoCount += (MangoCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount += (DragonfruitCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].cocoCount += (CocoCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].ananaCount += (AnanaCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].papayaCount += (PapayaCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].melonCount += (MelonCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount += (SandiaCount ) / GlobalVariables.houseCount
+#				GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity += frutasTotal  / GlobalVariables.houseCount
+#			else:
+#				GlobalVariables.player.CurrentJuiceHouse[i].blueberryCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].cerezaCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].fresaCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].limonCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].duraznoCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].manzanaCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].naranjaCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].aguacateCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].mangoCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].dragonfruitCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].cocoCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].ananaCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].papayaCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].melonCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].sandiaCount = 0
+#				GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity = 0
+#
+#
+#		if frutasTotal <= 999:
+#			fruitsEarnedString = str(frutasTotal)
+#		else:
+#			fruitsEarnedString = GlobalVariables.getMoneyString(frutasTotal)
+#		fruitsEarnedLabel.text = "Fruits Earned: \n" + fruitsEarnedString
+#
+#	else: 
+#		BlueberryCount = (elapsedTime / GlobalVariables.player.Fruits[0].speed) * GlobalVariables.player.Fruits[0].level * GlobalVariables.player.Fruits[0].liters
+#		CerezaCount = (elapsedTime / GlobalVariables.player.Fruits[1].speed) * GlobalVariables.player.Fruits[1].level * GlobalVariables.player.Fruits[1].liters
+#		FresaCount = (elapsedTime / GlobalVariables.player.Fruits[2].speed) * GlobalVariables.player.Fruits[2].level * GlobalVariables.player.Fruits[2].liters
+#		LimonCount = (elapsedTime / GlobalVariables.player.Fruits[3].speed) * GlobalVariables.player.Fruits[3].level * GlobalVariables.player.Fruits[3].liters
+#		DuraznoCount = (elapsedTime / GlobalVariables.player.Fruits[4].speed) * GlobalVariables.player.Fruits[4].level * GlobalVariables.player.Fruits[4].liters
+#		ManzanaCount = (elapsedTime / GlobalVariables.player.Fruits[5].speed) * GlobalVariables.player.Fruits[5].level * GlobalVariables.player.Fruits[5].liters
+#		NaranjaCount = (elapsedTime / GlobalVariables.player.Fruits[6].speed) * GlobalVariables.player.Fruits[6].level * GlobalVariables.player.Fruits[6].liters
+#		AguacateCount = (elapsedTime / GlobalVariables.player.Fruits[7].speed) * GlobalVariables.player.Fruits[7].level * GlobalVariables.player.Fruits[7].liters
+#		MangoCount = (elapsedTime / GlobalVariables.player.Fruits[8].speed) * GlobalVariables.player.Fruits[8].level * GlobalVariables.player.Fruits[8].liters
+#		DragonfruitCount = (elapsedTime / GlobalVariables.player.Fruits[9].speed) * GlobalVariables.player.Fruits[9].level * GlobalVariables.player.Fruits[9].liters
+#		CocoCount = (elapsedTime / GlobalVariables.player.Fruits[10].speed) * GlobalVariables.player.Fruits[10].level * GlobalVariables.player.Fruits[10].liters
+#		AnanaCount = (elapsedTime / GlobalVariables.player.Fruits[11].speed) * GlobalVariables.player.Fruits[11].level * GlobalVariables.player.Fruits[11].liters
+#		PapayaCount = (elapsedTime / GlobalVariables.player.Fruits[12].speed) * GlobalVariables.player.Fruits[12].level * GlobalVariables.player.Fruits[12].liters
+#		MelonCount = (elapsedTime / GlobalVariables.player.Fruits[13].speed) * GlobalVariables.player.Fruits[13].level * GlobalVariables.player.Fruits[13].liters
+#		SandiaCount = (elapsedTime / GlobalVariables.player.Fruits[14].speed) * GlobalVariables.player.Fruits[14].level * GlobalVariables.player.Fruits[14].liters
+#		litrosTotal = BlueberryCount+CerezaCount+FresaCount+LimonCount+DuraznoCount+ManzanaCount+NaranjaCount+AguacateCount+MangoCount+DragonfruitCount+CocoCount+AnanaCount+PapayaCount+MelonCount+SandiaCount
+#
+#		SandiasTotales = SandiasPorSeg(litrosTotal)
+#		GlobalVariables.player.sandiasPerSecond = SandiasTotales/elapsedTime
+#
+#	countFruits()
 	
 func SandiasPorSeg(litros : float):
 	var sandias : float
@@ -458,22 +462,24 @@ func _on_produce_juice_timer_timeout():
 	var litros : float = 0.0
 	var litrosPorSegundo : float = 0.0
 	
+	for i in range( GlobalVariables.player.Fruits.size() ):
+		litros += GlobalVariables.total_fruit_count[i] * GlobalVariables.player.Fruits[i].liters
 	
-	litros += GlobalVariables.totalBlueberryCount * GlobalVariables.player.Fruits[0].liters
-	litros += GlobalVariables.totalCerezaCount * GlobalVariables.player.Fruits[1].liters
-	litros += GlobalVariables.totalFresaCount * GlobalVariables.player.Fruits[2].liters
-	litros += GlobalVariables.totalLimonCount * GlobalVariables.player.Fruits[3].liters
-	litros += GlobalVariables.totalDuraznoCount * GlobalVariables.player.Fruits[4].liters
-	litros += GlobalVariables.totalManzanaCount * GlobalVariables.player.Fruits[5].liters
-	litros += GlobalVariables.totalNaranjaCount * GlobalVariables.player.Fruits[6].liters
-	litros += GlobalVariables.totalAguacateCount * GlobalVariables.player.Fruits[7].liters
-	litros += GlobalVariables.totalMangoCount * GlobalVariables.player.Fruits[8].liters
-	litros += GlobalVariables.totalDragonfruitCount * GlobalVariables.player.Fruits[9].liters
-	litros += GlobalVariables.totalCocoCount * GlobalVariables.player.Fruits[10].liters
-	litros += GlobalVariables.totalAnanaCount * GlobalVariables.player.Fruits[11].liters
-	litros += GlobalVariables.totalPapayaCount * GlobalVariables.player.Fruits[12].liters
-	litros += GlobalVariables.totalMelonCount * GlobalVariables.player.Fruits[13].liters
-	litros += GlobalVariables.totalSandiaCount * GlobalVariables.player.Fruits[14].liters
+#	litros += GlobalVariables.totalBlueberryCount * GlobalVariables.player.Fruits[0].liters
+#	litros += GlobalVariables.totalCerezaCount * GlobalVariables.player.Fruits[1].liters
+#	litros += GlobalVariables.totalFresaCount * GlobalVariables.player.Fruits[2].liters
+#	litros += GlobalVariables.totalLimonCount * GlobalVariables.player.Fruits[3].liters
+#	litros += GlobalVariables.totalDuraznoCount * GlobalVariables.player.Fruits[4].liters
+#	litros += GlobalVariables.totalManzanaCount * GlobalVariables.player.Fruits[5].liters
+#	litros += GlobalVariables.totalNaranjaCount * GlobalVariables.player.Fruits[6].liters
+#	litros += GlobalVariables.totalAguacateCount * GlobalVariables.player.Fruits[7].liters
+#	litros += GlobalVariables.totalMangoCount * GlobalVariables.player.Fruits[8].liters
+#	litros += GlobalVariables.totalDragonfruitCount * GlobalVariables.player.Fruits[9].liters
+#	litros += GlobalVariables.totalCocoCount * GlobalVariables.player.Fruits[10].liters
+#	litros += GlobalVariables.totalAnanaCount * GlobalVariables.player.Fruits[11].liters
+#	litros += GlobalVariables.totalPapayaCount * GlobalVariables.player.Fruits[12].liters
+#	litros += GlobalVariables.totalMelonCount * GlobalVariables.player.Fruits[13].liters
+#	litros += GlobalVariables.totalSandiaCount * GlobalVariables.player.Fruits[14].liters
 	
 	litrosPorSegundo = litros * 0.1
 		
@@ -487,7 +493,7 @@ func calculateFarmValue():
 	
 	var farmValueString : String
 	var houseCapacity = totalJuiceHouseCapacity
-	var P = GlobalVariables.totalSandiaCount
+	var P = GlobalVariables.total_fruit_count[14]
 	var Pc = P * ((GlobalVariables.player.litersPerSecond/GlobalVariables.player.sandiasPerSecond) * 60)
 	var Pu = (P - Pc)
 	var Pv = (houseCapacity - P)
@@ -520,3 +526,5 @@ func _on_juice_lvl_pressed():
 
 func _on_spawn_timer_timeout():
 	fruit_spawner()
+	
+

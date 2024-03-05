@@ -5,9 +5,8 @@ var fieldNode
 var parentName
 var index
 var remainingTime
-var timerWait
-
 var timer := Timer.new()
+var timer_remaining
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,14 +14,15 @@ func _ready():
 	parentName = get_parent().name
 	index = getNumberFromString(parentName)
 	self.value = GlobalVariables.player.Fruits[index].currentProgress
-	addTween()
 	add_child(timer)
-	
+	timer.wait_time = 1.0
+	timer.timeout.connect(update_remaining_time)
+	addTween()
+
 
 func _process(delta):
 	if self.value >= self.max_value:
 		self.value = 0
-#		print(get_parent().name + " Bar value: " +str(value))
 		fieldNode.cashOut(index)
 		GlobalVariables.player.Fruits[index].currentProgress = 0
 		tween.kill()
@@ -32,17 +32,20 @@ func addTween():
 	calcRemainingTime()
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "value", 100, remainingTime).set_trans(Tween.TRANS_LINEAR)
-	timer.wait_time = 1.0
-	timer.connect("timeout", Callable(update_remaining_label))
+	if GlobalVariables.player.Fruits[index].level < 80:
+		get_parent().get_node("Remaining/Time").text = str(remainingTime).substr(0, 3) + "s"
+	else:
+		get_parent().get_node("Remaining/Time").text = "0s"
+	timer_remaining = remainingTime
 	timer.start()
-	timerWait = remainingTime
-	get_parent().get_node("Remaining/Time").text = str( remainingTime )
 	
 func calcRemainingTime():
 	var speed =  GlobalVariables.player.Fruits[index].speed
 	var currentProgress = GlobalVariables.player.Fruits[index].currentProgress
 	remainingTime = speed - (currentProgress/100) * speed
-
+	
+	
+	
 func getNumberFromString(name : String):
 	var result = ""
 	var resultInt
@@ -52,7 +55,11 @@ func getNumberFromString(name : String):
 	
 	resultInt = int(result)
 	return resultInt
-	
-func update_remaining_label():
-	timerWait -= 1.0
-	get_parent().get_node("Remaining/Time").text = str( timerWait )
+
+func update_remaining_time():
+	if GlobalVariables.player.Fruits[index].level < 80:
+		timer_remaining -= 1
+		get_parent().get_node("Remaining/Time").text =  str(timer_remaining).substr(0, 3) + "s"
+		
+	else:
+		get_parent().get_node("Remaining/Time").text =  "0s"

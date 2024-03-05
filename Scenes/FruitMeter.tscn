@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://clls5rpcn30h7"]
+[gd_scene load_steps=13 format=3 uid="uid://c3omn1e8ou8bn"]
 
 [ext_resource type="Texture2D" uid="uid://bfakg5pe8hkrh" path="res://Assets/ProgressBars/BackADV2.png" id="1_flktn"]
 [ext_resource type="Texture2D" uid="uid://bccm2miawh00b" path="res://Assets/ProgressBars/CircleFull.png" id="2_js3t0"]
 [ext_resource type="Texture2D" uid="uid://c7ii1dw8vyuvt" path="res://Assets/ProgressBars/Mango.png" id="2_ll7ck"]
 [ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="3_alb22"]
 [ext_resource type="Script" path="res://Scripts/FieldProgressBar.gd" id="3_fi17s"]
-[ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="4_ijesu"]
+[ext_resource type="Texture2D" path="res://Assets/Buttons/WoodSign.png" id="4_ijesu"]
 [ext_resource type="Texture2D" uid="uid://btorl2i4nm8j0" path="res://Assets/Buttons/BotonBuy_1.png" id="7_jg21x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vov0k"]
@@ -31,6 +31,7 @@ anchors_preset = 0
 
 [node name="FullCircle" type="TextureRect" parent="Fruit"]
 visible = false
+modulate = Color(0.741176, 0.768627, 0, 0.486275)
 layout_mode = 0
 offset_left = 7.0
 offset_top = 9.0

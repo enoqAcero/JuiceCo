@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c33e12csse0rd"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades.gd" id="1_m2rf7"]
-[ext_resource type="PackedScene" uid="uid://baw4mptgmq1jt" path="res://Scenes/PurchasePanel.tscn" id="1_smoud"]
-[ext_resource type="PackedScene" uid="uid://cxvemdy1vl73n" path="res://Scenes/PurchaseItem.tscn" id="3_1ryep"]
+[ext_resource type="PackedScene" uid="uid://mupvggqkndx7" path="res://Scenes/PurchasePanel.tscn" id="1_smoud"]
+[ext_resource type="PackedScene" uid="uid://cyjuxhkgdjydi" path="res://Scenes/PurchaseItem.tscn" id="3_1ryep"]
 
 [node name="Upgrades" type="Node2D"]
 script = ExtResource("1_m2rf7")
@@ -11,6 +11,12 @@ script = ExtResource("1_m2rf7")
 
 [node name="Window Title" parent="Panel" index="1"]
 text = "Upgrades"
+
+[node name="Label" parent="Panel/Options/Button" index="0"]
+text = "COMMON"
+
+[node name="Label" parent="Panel/Options/Button2" index="0"]
+text = "EPIC"
 
 [node name="Content Background" parent="Panel" index="4"]
 visible = false

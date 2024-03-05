@@ -8,4 +8,4 @@ class_name FarmerData
 @export var cost : float
 @export var epic_cost : float
 @export var active : bool
-@export var epic : bool = false
+@export var epic : bool

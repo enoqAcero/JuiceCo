@@ -1,9 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=48 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
 [ext_resource type="PackedScene" uid="uid://c33e12csse0rd" path="res://Scenes/Upgrades.tscn" id="3_uhmey"]
 [ext_resource type="PackedScene" uid="uid://c07rm36i3qevf" path="res://Scenes/Boost.tscn" id="4_n2rnl"]
+[ext_resource type="PackedScene" uid="uid://byddapaco8mng" path="res://Scenes/Alert.tscn" id="4_uput4"]
 [ext_resource type="Texture2D" uid="uid://bqftlll0d0p0l" path="res://Assets/Buttons/BotonField (1).png" id="4_xkr0f"]
 [ext_resource type="PackedScene" uid="uid://dces421mjwxim" path="res://Scenes/Menu.tscn" id="5_muedq"]
 [ext_resource type="PackedScene" uid="uid://ckrss1aux8vav" path="res://Scenes/Shop.tscn" id="6_feofs"]
@@ -18,11 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://dnlowaumxp2p" path="res://Scenes/adControl.tscn" id="12_3urwt"]
 [ext_resource type="PackedScene" uid="uid://3j4nys6t5v5t" path="res://Scenes/ModalJuicesLvl.tscn" id="12_gl3jr"]
 [ext_resource type="Texture2D" uid="uid://dwegg5qd4cgt0" path="res://Assets/Buttons/BotonShop (1).png" id="12_h6o2h"]
-[ext_resource type="Texture2D" uid="uid://h2hfnmndsh2c" path="res://Assets/Fruits/FruitParty.png" id="14_s53be"]
+[ext_resource type="Texture2D" path="res://Assets/Fruits/FruitParty.png" id="14_s53be"]
 [ext_resource type="Texture2D" uid="uid://cvw4mvhlj2u0m" path="res://Assets/Bg/Background.png" id="14_y3oqk"]
 [ext_resource type="Texture2D" uid="uid://dyebxs2tvhe1x" path="res://Assets/ProgressBars/BackADVLong.png" id="17_odd6v"]
 [ext_resource type="Texture2D" uid="uid://dirvg562ql8p" path="res://Assets/Temp/JuiceGlass.png" id="19_3y31r"]
-[ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="19_cb5s8"]
+[ext_resource type="Texture2D" path="res://Assets/Buttons/WoodSign.png" id="19_cb5s8"]
 [ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="20_ccqtf"]
 [ext_resource type="Texture2D" uid="uid://d1oytfb3513v6" path="res://Assets/Garages/SmallGarage.png" id="21_hjrht"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="24_4lbbh"]
@@ -96,39 +97,77 @@ script = ExtResource("7_4o3gd")
 
 [node name="fieldButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 197.0
-offset_top = 657.0
+offset_top = 672.0
 offset_right = 422.0
-offset_bottom = 848.0
+offset_bottom = 863.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("4_xkr0f")
 
+[node name="Alert" parent="CanvasLayer/fieldButton" instance=ExtResource("4_uput4")]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 50.0
+grow_horizontal = 0
+scale = Vector2(1.4, 1.4)
+
 [node name="upgradeButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 125.0
-offset_top = 676.0
+offset_top = 681.0
 offset_right = 256.0
-offset_bottom = 817.0
+offset_bottom = 822.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_oox0e")
+
+[node name="Alert" parent="CanvasLayer/upgradeButton" instance=ExtResource("4_uput4")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 50.0
+grow_horizontal = 0
 
 [node name="Upgrades" parent="CanvasLayer" instance=ExtResource("3_uhmey")]
 visible = false
 
 [node name="boostButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 294.0
-offset_top = 676.0
+offset_top = 681.0
 offset_right = 425.0
-offset_bottom = 817.0
+offset_bottom = 822.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_sex66")
+
+[node name="Alert" parent="CanvasLayer/boostButton" instance=ExtResource("4_uput4")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
 
 [node name="Boost" parent="CanvasLayer" instance=ExtResource("4_n2rnl")]
 visible = false
 
 [node name="menuButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 362.0
-offset_top = 675.0
+offset_top = 680.0
 offset_right = 493.0
-offset_bottom = 816.0
+offset_bottom = 821.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_rvhmu")
 
@@ -137,11 +176,24 @@ visible = false
 
 [node name="shopButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 54.0
-offset_top = 676.0
+offset_top = 681.0
 offset_right = 185.0
-offset_bottom = 817.0
+offset_bottom = 822.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("12_h6o2h")
+
+[node name="Alert" parent="CanvasLayer/shopButton" instance=ExtResource("4_uput4")]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 50.0
+grow_horizontal = 0
 
 [node name="Shop" parent="CanvasLayer" instance=ExtResource("6_feofs")]
 visible = false

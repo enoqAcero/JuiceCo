@@ -10,3 +10,4 @@ class_name UpdateData
 @export var maxLevel : int
 @export var skin : Texture2D = load("res://Assets/Temp/JuiceGlassGlow.png")
 @export var active : bool = false
+@export var epic_active : bool = false

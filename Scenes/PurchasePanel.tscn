@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://baw4mptgmq1jt"]
+[gd_scene load_steps=16 format=3 uid="uid://mupvggqkndx7"]
 
 [ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="1_mrg87"]
 [ext_resource type="Texture2D" uid="uid://cdbf55j5esw47" path="res://Assets/Temp/Sin nombre.png" id="2_iv8u3"]
 [ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="3_og3db"]
-[ext_resource type="Texture2D" uid="uid://chuwk8fofd7e7" path="res://Assets/Buttons/BotonBuyViolet.png" id="4_17x50"]
+[ext_resource type="Texture2D" path="res://Assets/Buttons/BotonBuyViolet.png" id="4_17x50"]
 
 [sub_resource type="FontVariation" id="FontVariation_dds5r"]
 base_font = ExtResource("1_mrg87")
