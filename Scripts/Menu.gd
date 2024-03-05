@@ -41,3 +41,7 @@ func _on_bankbutton_pressed():
 func _on_bankclose_pressed():
 	$bankmodal.hide()
 	$GridContainer.show()
+
+
+func _on_close_button_pressed():
+	hide()

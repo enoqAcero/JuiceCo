@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxvemdy1vl73n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru4su"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lofjp"]
+bg_color = Color(0.364706, 0.596078, 0.227451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aj7xv"]
+bg_color = Color(0.529412, 0.521569, 0.513726, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xthe3"]
+bg_color = Color(0.584314, 0.352941, 0.992157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea333"]
+bg_color = Color(0.584314, 0.352941, 0.992157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05gb6"]
+bg_color = Color(0.584314, 0.352941, 0.992157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo36b"]
+bg_color = Color(0.529412, 0.521569, 0.513726, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohu7o"]
+bg_color = Color(0.584314, 0.352941, 0.992157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Item" type="Panel"]
+custom_minimum_size = Vector2(400, 100)
+offset_right = 400.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ru4su")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -30.0
+offset_right = 68.0
+offset_bottom = 30.0
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.195
+anchor_right = 0.6975
+anchor_bottom = 0.347458
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.74902, 0.278431, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Purchase name"
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.195
+anchor_top = 0.355932
+anchor_right = 0.74
+anchor_bottom = 0.940678
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Purchase benefits description Purchase benefits description Purchase benefits Purchase benefits "
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -19.0
+offset_right = -8.0
+offset_bottom = 23.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_lofjp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lofjp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lofjp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aj7xv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lofjp")
+text = "$XX.XX"
+
+[node name="ButtonEpic" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -19.0
+offset_right = -8.0
+offset_bottom = 23.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xthe3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ea333")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05gb6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yo36b")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ohu7o")
+text = "$XX.XX"

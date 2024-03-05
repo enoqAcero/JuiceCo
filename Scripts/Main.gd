@@ -29,7 +29,6 @@ var papaya = preload("res://Scenes/Fruits/Papaya.tscn")
 var pina = preload("res://Scenes/Fruits/Pina.tscn")
 var sandia = preload("res://Scenes/Fruits/Sandia.tscn")
 var fruits = [aguacate, blueberry, cereza, coco, dragonfruit, durazno, fresa, limon, manzana, melon, naranja, papaya, pina, sandia]
-#var fruits = [aguacate]
 var fruitInstance = []
 var runTimerNode
 var runButtonControl = false
@@ -61,28 +60,18 @@ func _ready():
 	
 	spawn_spots.reverse()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-		
+
+	# Control del marcador del multiplicador		
 	if GlobalVariables.multiplier <= GlobalVariables.multiplierSteps/10:
 		GlobalVariables.multiplier = 0
 
-	if GlobalVariables.multiplier == 0:
-		multiplierLabelUpdate(1)
-	else:
-		multiplierLabelUpdate(0)
-	
+	# Actualizacion del marcador del multiplicador
 	if GlobalVariables.multiplier > 0:
 		multiplierLabel.text = "x " + str("%.1f" % GlobalVariables.multiplier)
+	
+	# Actualizacion del icono de jugo
 	juiceLevelIcon.texture = GlobalVariables.player.JuiceLevel[GlobalVariables.player.juiceLevel].skin
-
-func multiplierLabelUpdate(control : int):
-#	if control == 0:
-#		multiplierLabel.scale = Vector2(1.2, 1.2)
-#	else: 
-#		multiplierLabel.scale = Vector2(1, 1)
-	pass
-
 
 #obtener la capacidad total de los transportes
 func getTotalTransportCapacity():

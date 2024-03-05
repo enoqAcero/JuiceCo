@@ -1,17 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://dces421mjwxim"]
+[gd_scene load_steps=13 format=3 uid="uid://dces421mjwxim"]
 
 [ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="1_6svht"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ymngt"]
 [ext_resource type="PackedScene" uid="uid://br5y6mgxlhsg7" path="res://Scenes/bank.tscn" id="2_ly6p1"]
+[ext_resource type="PackedScene" uid="uid://baw4mptgmq1jt" path="res://Scenes/PurchasePanel.tscn" id="4_x2vir"]
+[ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="5_ajdgk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8c4h0"]
 font_size = 26
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmrux"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5l7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5210e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqpcv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlgat"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3imi"]
+
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_ymngt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = 31.0
 offset_top = 102.0
 offset_right = 458.0
@@ -29,6 +49,7 @@ offset_right = 425.0
 offset_bottom = 101.824
 
 [node name="GridContainer" type="GridContainer" parent="."]
+visible = false
 offset_left = 21.0
 offset_top = 117.0
 offset_right = 462.0
@@ -157,5 +178,222 @@ offset_top = -102.0
 offset_right = 98.0
 offset_bottom = 102.0
 
+[node name="Panel" parent="." instance=ExtResource("4_x2vir")]
+offset_top = 86.0
+offset_bottom = 86.0
+
+[node name="Wood Background" parent="Panel" index="0"]
+offset_left = 24.0
+offset_top = 54.0
+offset_right = 415.0
+offset_bottom = 531.0
+
+[node name="Window Title" parent="Panel" index="1"]
+text = "MAIN MENU"
+
+[node name="Window descritpion" parent="Panel" index="2"]
+visible = false
+
+[node name="Options" parent="Panel" index="3"]
+visible = false
+
+[node name="Content Background" parent="Panel" index="4"]
+visible = false
+offset_top = 123.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cmrux")
+
+[node name="ScrollContainer" parent="Panel" index="5"]
+visible = false
+
+[node name="CloseButton" parent="Panel" index="6"]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5l7x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5210e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xqpcv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qlgat")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3imi")
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 58.0
+offset_top = 158.0
+offset_right = 158.0
+offset_bottom = 258.0
+texture_normal = ExtResource("5_ajdgk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/TextureButton"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 23
+text = "HELP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 170.0
+offset_top = 158.0
+offset_right = 270.0
+offset_bottom = 258.0
+texture_normal = ExtResource("5_ajdgk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/TextureButton2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 23
+text = "RESET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 282.0
+offset_top = 156.0
+offset_right = 382.0
+offset_bottom = 256.0
+texture_normal = ExtResource("5_ajdgk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/TextureButton3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 23
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton4" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 58.0
+offset_top = 324.0
+offset_right = 158.0
+offset_bottom = 424.0
+texture_normal = ExtResource("5_ajdgk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/TextureButton4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 23
+text = "ABOUT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton5" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 170.0
+offset_top = 324.0
+offset_right = 270.0
+offset_bottom = 424.0
+texture_normal = ExtResource("5_ajdgk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/TextureButton5"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 23
+text = "STATS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton6" type="TextureButton" parent="Panel"]
+self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 282.0
+offset_top = 322.0
+offset_right = 382.0
+offset_bottom = 422.0
+texture_normal = ExtResource("5_ajdgk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel/TextureButton6"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 23
+text = "BANK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="bankmodal/bankclose" to="." method="_on_bankclose_pressed"]
 [connection signal="pressed" from="GridContainer/Label6/Sprite2D/bankbutton" to="." method="_on_bankbutton_pressed"]
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+
+[editable path="Panel"]

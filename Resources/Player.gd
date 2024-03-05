@@ -62,10 +62,12 @@ class_name Player
 
 #Updates variabls
 @export var Upgrades : Array[UpdateData]
-@export var upgradesCount : int
 
 #Farmer variables
 @export var Farmer : Array[FarmerData]
 
 #Cochinito
 @export var bankgems = 0
+
+#Boosts
+@export var Boosts : Array[BoostData]

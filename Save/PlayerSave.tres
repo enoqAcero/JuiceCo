@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Player" load_steps=146 format=3]
+[gd_resource type="Resource" script_class="Player" load_steps=213 format=3]
 
 [ext_resource type="Script" path="res://Resources/CurrentHouseData.gd" id="1_3qdky"]
+[ext_resource type="Script" path="res://Resources/BoostData.gd" id="1_4oj5t"]
 [ext_resource type="Script" path="res://Resources/JuiceHouseData.gd" id="1_4wlhr"]
 [ext_resource type="Script" path="res://Resources/Player.gd" id="1_fhr83"]
 [ext_resource type="Script" path="res://Resources/FruitData.gd" id="1_hnv06"]
@@ -65,6 +66,56 @@
 [ext_resource type="Texture2D" path="res://Assets/Juicelevel/antimateria.png" id="33_eymbs"]
 [ext_resource type="Texture2D" path="res://Assets/Juicelevel/inmortalidad.png" id="34_iad6i"]
 [ext_resource type="Texture2D" path="res://Assets/Juicelevel/ominjuice.png" id="35_00xnd"]
+[ext_resource type="Script" path="res://Resources/UpdateData.gd" id="64_j80cl"]
+[ext_resource type="Texture2D" path="res://Assets/Temp/JuiceGlassGlow.png" id="65_0hty7"]
+
+[sub_resource type="Resource" id="Resource_b15ox"]
+script = ExtResource("1_4oj5t")
+name = "Boost name"
+description = "Boost description"
+cost = 10000.0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_fpotl"]
+script = ExtResource("1_4oj5t")
+name = "Boost name"
+description = "Boost description"
+cost = 10000.0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_u72vr"]
+script = ExtResource("1_4oj5t")
+name = "Boost name"
+description = "Boost description"
+cost = 10000.0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_0ytmo"]
+script = ExtResource("1_4oj5t")
+name = "Boost name"
+description = "Boost description"
+cost = 10000.0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_mol6i"]
+script = ExtResource("1_4oj5t")
+name = "Boost name"
+description = "Boost description"
+cost = 10000.0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_xt7el"]
+script = ExtResource("1_4oj5t")
+name = "Boost name"
+description = "Boost description"
+cost = 10000.0
+skin = ExtResource("65_0hty7")
+active = false
 
 [sub_resource type="Resource" id="Resource_8fao5"]
 script = ExtResource("1_3qdky")
@@ -72,9 +123,9 @@ houseLvl = 2
 upgradeLvl = 4
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 6.95426e+08
-blueberryCount = 10402484
-cerezaCount = 684102248
+currentCapacity = 6.9585e+08
+blueberryCount = 10402487
+cerezaCount = 684525776
 fresaCount = 885876
 limonCount = 0
 duraznoCount = 0
@@ -95,9 +146,9 @@ houseLvl = 7
 upgradeLvl = 4
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 6.74771e+08
-blueberryCount = 7719121
-cerezaCount = 666206735
+currentCapacity = 6.75195e+08
+blueberryCount = 7719124
+cerezaCount = 666630263
 fresaCount = 827364
 limonCount = 0
 duraznoCount = 0
@@ -118,9 +169,9 @@ houseLvl = 10
 upgradeLvl = 1
 fullHouse = true
 fullSandiaHouse = true
-currentCapacity = 6.74764e+08
-blueberryCount = 7718343
-cerezaCount = 666200647
+currentCapacity = 6.75188e+08
+blueberryCount = 7718346
+cerezaCount = 666624175
 fresaCount = 827364
 limonCount = 0
 duraznoCount = 0
@@ -310,17 +361,17 @@ epic = false
 [sub_resource type="Resource" id="Resource_tjrh3"]
 script = ExtResource("1_hnv06")
 name = "Blueberry"
-level = 0
-tier = 0
+level = 80
+tier = 5
 cost = 5.0
-level_cost = 5.0
+level_cost = 247.807
 liters = 5.0
 multiplier = 5.0
 initial_speed = 7.5
 speed = 7.5
 currentProgress = 0.0
 skin = ExtResource("2_vc0li")
-acquired = false
+acquired = true
 
 [sub_resource type="Resource" id="Resource_n854k"]
 script = ExtResource("1_hnv06")
@@ -875,6 +926,644 @@ capacity = 5e+07
 cost = 2.1124e+37
 skin = ExtResource("15_x74sn")
 
+[sub_resource type="Resource" id="Resource_30n0v"]
+script = ExtResource("64_j80cl")
+name = "Upgrade name"
+description = "Upgrade description"
+epic = false
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_fradd"]
+script = ExtResource("64_j80cl")
+name = "Upgrade A EPIC"
+description = "Upgrade description"
+epic = true
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_2kkgd"]
+script = ExtResource("64_j80cl")
+name = "Upgrade 0"
+description = "Upgrade description"
+epic = false
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_px554"]
+script = ExtResource("64_j80cl")
+name = "Upgrade B "
+description = "Upgrade description"
+epic = true
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_yeap5"]
+script = ExtResource("64_j80cl")
+name = "Upgrade 1 EPIC"
+description = "Upgrade description"
+epic = true
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_a51f6"]
+script = ExtResource("64_j80cl")
+name = "Upgrade B EPIC"
+description = "Upgrade description"
+epic = true
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_hc1d0"]
+script = ExtResource("64_j80cl")
+name = "Upgrade name"
+description = "Upgrade description"
+epic = false
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_trbfa"]
+script = ExtResource("64_j80cl")
+name = "Upgrade name"
+description = "Upgrade description"
+epic = false
+cost = 10000.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_ymtar"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_r1p0n"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_wuhtv"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_cnojc"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_6fxh7"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_wpeq2"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_5hf5s"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_o8j07"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_eg87x"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_6cwll"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_ochky"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_4vj5m"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_8xvqv"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_w7l57"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_jvuuv"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_j85fq"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_dj5md"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_3q4pt"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_g8c7w"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_28abw"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_sd7b5"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_xmuqc"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_4kytd"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_wignh"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_oe4mc"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_7cc7t"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_nteiu"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_mcxvl"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_amb1c"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_ygyxu"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_mgh2o"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_3rvlv"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_jrpkt"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_lq4y8"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_cw7b1"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_3657f"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_4vthk"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_m5ilf"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_lvlmp"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_3lvo0"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_b1als"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_5h5q0"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_v1qq3"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_se2sj"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_f8y81"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_67hvc"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_al2og"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_kcrb7"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_khkub"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
+[sub_resource type="Resource" id="Resource_2x0a6"]
+script = ExtResource("64_j80cl")
+name = ""
+description = ""
+epic = false
+cost = 0.0
+level = 0
+maxLevel = 0
+skin = ExtResource("65_0hty7")
+active = false
+
 [sub_resource type="Resource" id="Resource_kcdxj"]
 script = ExtResource("9_4vhif")
 time = 3600
@@ -886,10 +1575,10 @@ script = ExtResource("1_fhr83")
 liters = 0.0
 money = 5.95997e+24
 gems = 171
-litersPerSecond = 1.02247e+09
-sandiasPerSecond = 0.0
-farmValue = nan
-time = "2024-03-01T14:52:48"
+litersPerSecond = 1.02311e+09
+sandiasPerSecond = 1.05669e-14
+farmValue = 2.46641e+20
+time = "2024-03-05T11:30:12"
 multGananciasActive = false
 gemYdineroActive = false
 gemasActive = false
@@ -924,7 +1613,7 @@ transport14Id = 0
 WaterTank = SubResource("Resource_kcdxj")
 JuiceLevel = Array[ExtResource("5_my2gi")]([SubResource("Resource_rcw28"), SubResource("Resource_mfqg6"), SubResource("Resource_r7u2g"), SubResource("Resource_il2wi"), SubResource("Resource_5lsx7"), SubResource("Resource_nykl3"), SubResource("Resource_yon72"), SubResource("Resource_5xnkg"), SubResource("Resource_sck10"), SubResource("Resource_t5w7e"), SubResource("Resource_jki7l"), SubResource("Resource_5eqn8"), SubResource("Resource_d1wvq"), SubResource("Resource_h1b82")])
 juiceLevel = 0
-Upgrades = Array[Resource("res://Resources/UpdateData.gd")]([])
-upgradesCount = 0
+Upgrades = Array[ExtResource("64_j80cl")]([SubResource("Resource_30n0v"), SubResource("Resource_fradd"), SubResource("Resource_2kkgd"), SubResource("Resource_px554"), SubResource("Resource_yeap5"), SubResource("Resource_a51f6"), SubResource("Resource_hc1d0"), SubResource("Resource_trbfa"), SubResource("Resource_ymtar"), SubResource("Resource_r1p0n"), SubResource("Resource_wuhtv"), SubResource("Resource_cnojc"), SubResource("Resource_6fxh7"), SubResource("Resource_wpeq2"), SubResource("Resource_5hf5s"), SubResource("Resource_o8j07"), SubResource("Resource_eg87x"), SubResource("Resource_6cwll"), SubResource("Resource_ochky"), SubResource("Resource_4vj5m"), SubResource("Resource_8xvqv"), SubResource("Resource_w7l57"), SubResource("Resource_jvuuv"), SubResource("Resource_j85fq"), SubResource("Resource_dj5md"), SubResource("Resource_3q4pt"), SubResource("Resource_g8c7w"), SubResource("Resource_28abw"), SubResource("Resource_sd7b5"), SubResource("Resource_xmuqc"), SubResource("Resource_4kytd"), SubResource("Resource_wignh"), SubResource("Resource_oe4mc"), SubResource("Resource_7cc7t"), SubResource("Resource_nteiu"), SubResource("Resource_mcxvl"), SubResource("Resource_amb1c"), SubResource("Resource_ygyxu"), SubResource("Resource_mgh2o"), SubResource("Resource_3rvlv"), SubResource("Resource_jrpkt"), SubResource("Resource_lq4y8"), SubResource("Resource_cw7b1"), SubResource("Resource_3657f"), SubResource("Resource_4vthk"), SubResource("Resource_m5ilf"), SubResource("Resource_lvlmp"), SubResource("Resource_3lvo0"), SubResource("Resource_b1als"), SubResource("Resource_5h5q0"), SubResource("Resource_v1qq3"), SubResource("Resource_se2sj"), SubResource("Resource_f8y81"), SubResource("Resource_67hvc"), SubResource("Resource_al2og"), SubResource("Resource_kcrb7"), SubResource("Resource_khkub"), SubResource("Resource_2x0a6")])
 Farmer = Array[ExtResource("2_ubryv")]([SubResource("Resource_e6fa8"), SubResource("Resource_e7y5q"), SubResource("Resource_n5wig"), SubResource("Resource_lxdlw"), SubResource("Resource_evpcw"), SubResource("Resource_4ie1y"), SubResource("Resource_v3tqk"), SubResource("Resource_dgtvp"), SubResource("Resource_32o6p"), SubResource("Resource_ddpq3"), SubResource("Resource_wrqut"), SubResource("Resource_ol2n2"), SubResource("Resource_su6nn"), SubResource("Resource_kqfem"), SubResource("Resource_a10ef")])
 bankgems = 0
+Boosts = Array[ExtResource("1_4oj5t")]([SubResource("Resource_b15ox"), SubResource("Resource_fpotl"), SubResource("Resource_u72vr"), SubResource("Resource_0ytmo"), SubResource("Resource_mol6i"), SubResource("Resource_xt7el")])

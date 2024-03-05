@@ -12,6 +12,8 @@ var farmer_selection_scene := preload("res://Scenes/FarmersSelection.tscn")
 
 var rng = RandomNumberGenerator.new()
 
+var progress_calculation := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -19,7 +21,7 @@ func _ready():
 	hide_scrolls()
 	for i in range(15):
 		var meter = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i))
-		meter.get_node("BuyButton").pressed.connect(Callable(buyFruit).bind(i))
+		meter.get_node("BuyButton").pressed.connect(Callable(levelUpFruit).bind(i))
 	loadAllPanelData()
 	
 	$Panel/FruitsScroll.show()
@@ -27,7 +29,13 @@ func _ready():
 	reset_levels()
 	reset_farmers()
 	reset_speed()
-	
+
+func _process(delta):
+	if progress_calculation:
+		for i in range(15):
+			calculate_progress(i)
+			print("Sipi calculation")
+
 func loadAllPanelData():
 	for i in range (15):
 		loadPanelData(i)
@@ -57,6 +65,7 @@ func loadPanelData(index : int):
 		fruit_item.get_node("AcquireButton/Wood/Cost").text = cost_text
 		fruit_item.get_node("AcquireButton/Button/Name").text = "Acquire " + GlobalVariables.player.Fruits[index].name + "!"
 		fruit_item.get_node("AcquireButton/Button").pressed.connect(Callable(acquire_fruit).bind(index))
+		fruit_item.get_node("ProduceButton").pressed.connect(Callable(calculate_progress).bind(index))
 
 	var currentPanelButtonCost = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
 	var currentPanelLvlLabel = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Wood/Level")
@@ -88,7 +97,7 @@ func calculateTierLevel(index : int):
 	
 	return tierText
 
-func buyFruit(index : int):
+func levelUpFruit(index : int):
 	var cost = GlobalVariables.player.Fruits[index].level_cost
 	var mult = GlobalVariables.player.Fruits[index].multiplier
 	var level = GlobalVariables.player.Fruits[index].level
@@ -106,7 +115,6 @@ func buyFruit(index : int):
 		saveCurrentProgress(index)
 		cashOut(index)
 
-	
 	loadPanelData(index)
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 
@@ -119,36 +127,32 @@ func acquire_fruit(index:int):
 	
 
 func saveCurrentProgress(index : int):
-	
-	
-	
 		var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
 		var fullProgressBar = currentProgressBar.get_node("FullBar")
-		var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
-		var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
-		var nextProgressValueInPer
 		
-		if currentProgressValueInMin >= GlobalVariables.player.Fruits[index].speed:
-			currentProgressValueInMin = 0
-		else:
-			nextProgressValueInPer = (currentProgressValueInMin * 100)/nextSpeed
-			
-		if currentProgressValueInMin == 0:
-			GlobalVariables.player.Fruits[index].currentProgress = 0
-		else:
-			GlobalVariables.player.Fruits[index].currentProgress = nextProgressValueInPer
 		
-		GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
-		
-		if GlobalVariables.player.Fruits[index].level < 100:
+		if GlobalVariables.player.Fruits[index].level < 80:
 			currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
 		else:
 			currentProgressBar.hide()
 			fullProgressBar.show()
-			
+
+func calculate_progress(index : int):
+	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
+	var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
+	var nextProgressValueInPer
+	
+	if currentProgressValueInMin >= GlobalVariables.player.Fruits[index].speed:
+		currentProgressValueInMin = 0
+	else:
+		nextProgressValueInPer = (currentProgressValueInMin * 100)/nextSpeed
 		
-			
-			
+	if currentProgressValueInMin == 0:
+		GlobalVariables.player.Fruits[index].currentProgress = 0
+	else:
+		GlobalVariables.player.Fruits[index].currentProgress = nextProgressValueInPer
+	
+	GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
 
 func cashOut(index : int):
 

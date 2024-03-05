@@ -1,8 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=47 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
-[ext_resource type="Texture2D" uid="uid://7ty5xhepnx6i" path="res://Assets/Buttons/BotonClicker (1).png" id="3_6g7tw"]
 [ext_resource type="PackedScene" uid="uid://c33e12csse0rd" path="res://Scenes/Upgrades.tscn" id="3_uhmey"]
 [ext_resource type="PackedScene" uid="uid://c07rm36i3qevf" path="res://Scenes/Boost.tscn" id="4_n2rnl"]
 [ext_resource type="Texture2D" uid="uid://bqftlll0d0p0l" path="res://Assets/Buttons/BotonField (1).png" id="4_xkr0f"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dnlowaumxp2p" path="res://Scenes/adControl.tscn" id="12_3urwt"]
 [ext_resource type="PackedScene" uid="uid://3j4nys6t5v5t" path="res://Scenes/ModalJuicesLvl.tscn" id="12_gl3jr"]
 [ext_resource type="Texture2D" uid="uid://dwegg5qd4cgt0" path="res://Assets/Buttons/BotonShop (1).png" id="12_h6o2h"]
+[ext_resource type="Texture2D" uid="uid://h2hfnmndsh2c" path="res://Assets/Fruits/FruitParty.png" id="14_s53be"]
 [ext_resource type="Texture2D" uid="uid://cvw4mvhlj2u0m" path="res://Assets/Bg/Background.png" id="14_y3oqk"]
 [ext_resource type="Texture2D" uid="uid://dyebxs2tvhe1x" path="res://Assets/ProgressBars/BackADVLong.png" id="17_odd6v"]
 [ext_resource type="Texture2D" uid="uid://dirvg562ql8p" path="res://Assets/Temp/JuiceGlass.png" id="19_3y31r"]
@@ -28,6 +28,15 @@
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="24_4lbbh"]
 [ext_resource type="Texture2D" uid="uid://b2blafnym4ws" path="res://Assets/Temp/vegetable-garden-box-icon-isometric-style-vector.png" id="27_6kpcr"]
 [ext_resource type="Texture2D" uid="uid://cno1utyefp2wl" path="res://Assets/Temp/fence3.png" id="28_pym28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3ye8"]
+bg_color = Color(0.886275, 0.729412, 0.192157, 1)
+corner_radius_top_left = 125
+corner_radius_top_right = 125
+corner_radius_bottom_right = 125
+corner_radius_bottom_left = 125
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70q2k"]
 
@@ -76,6 +85,7 @@ size = Vector2(40, 40)
 [node name="Main" type="Node2D" groups=["fruit", "mango"]]
 script = ExtResource("1_dpbrn")
 metadata/_edit_horizontal_guides_ = [668.0, 683.0, 746.0]
+metadata/_edit_vertical_guides_ = [-1180.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(240, 427)
@@ -86,17 +96,17 @@ script = ExtResource("7_4o3gd")
 
 [node name="fieldButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 197.0
-offset_top = 668.0
+offset_top = 657.0
 offset_right = 422.0
-offset_bottom = 859.0
+offset_bottom = 848.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("4_xkr0f")
 
 [node name="upgradeButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 125.0
-offset_top = 681.0
+offset_top = 676.0
 offset_right = 256.0
-offset_bottom = 822.0
+offset_bottom = 817.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_oox0e")
 
@@ -105,9 +115,9 @@ visible = false
 
 [node name="boostButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 294.0
-offset_top = 681.0
+offset_top = 676.0
 offset_right = 425.0
-offset_bottom = 822.0
+offset_bottom = 817.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_sex66")
 
@@ -116,9 +126,9 @@ visible = false
 
 [node name="menuButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 362.0
-offset_top = 680.0
+offset_top = 675.0
 offset_right = 493.0
-offset_bottom = 821.0
+offset_bottom = 816.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_rvhmu")
 
@@ -127,9 +137,9 @@ visible = false
 
 [node name="shopButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 54.0
-offset_top = 681.0
+offset_top = 676.0
 offset_right = 185.0
-offset_bottom = 822.0
+offset_bottom = 817.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("12_h6o2h")
 
@@ -162,19 +172,34 @@ offset_bottom = 60.0
 visible = false
 position = Vector2(-6, 56)
 
-[node name="runButton" type="TextureButton" parent="CanvasLayer"]
+[node name="runButton" type="Button" parent="CanvasLayer"]
 offset_left = 20.0
-offset_top = 730.0
+offset_top = 731.0
 offset_right = 1277.0
-offset_bottom = 1061.0
+offset_bottom = 1062.0
 scale = Vector2(0.35, 0.35)
-texture_normal = ExtResource("3_6g7tw")
-ignore_texture_size = true
-stretch_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_i3ye8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i3ye8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i3ye8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i3ye8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_i3ye8")
 
 [node name="RunTimer" type="Timer" parent="CanvasLayer/runButton"]
 wait_time = 0.05
 one_shot = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/runButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_s53be")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="adControl" parent="CanvasLayer" instance=ExtResource("12_3urwt")]
 visible = false
@@ -547,7 +572,7 @@ shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(309, 273)
+position = Vector2(310, 268)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_y3oqk")
 
