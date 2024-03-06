@@ -1,57 +1,57 @@
-[gd_scene load_steps=70 format=3 uid="uid://bc8vtgcgh7vxg"]
+[gd_scene load_steps=75 format=3 uid="uid://bc8vtgcgh7vxg"]
 
 [ext_resource type="Script" path="res://Scripts/Field.gd" id="1_dcyj0"]
 [ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="2_8isdi"]
 [ext_resource type="Texture2D" uid="uid://cdbf55j5esw47" path="res://Assets/Temp/Sin nombre.png" id="3_6or35"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarLimon.tscn" id="4_l1mrx"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarMango.tscn" id="4_wl7d8"]
+[ext_resource type="PackedScene" uid="uid://b6hb4noj7bjxw" path="res://Scenes/FullBarLimon.tscn" id="4_l1mrx"]
+[ext_resource type="PackedScene" uid="uid://bcceecf6p8c7x" path="res://Scenes/FullBarMango.tscn" id="4_wl7d8"]
 [ext_resource type="PackedScene" uid="uid://c3omn1e8ou8bn" path="res://Scenes/FruitMeter.tscn" id="5_mmwbo"]
 [ext_resource type="Texture2D" uid="uid://d0wrbfw6tpyh3" path="res://Assets/ProgressBars/Avocado.png" id="5_q6cfh"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/MangoSprite.tscn" id="5_uh3c6"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarAguacate.tscn" id="7_evkpv"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/AguacateSprite.tscn" id="8_qlm35"]
+[ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="5_uh3c6"]
+[ext_resource type="PackedScene" uid="uid://bhph5jtf4xw73" path="res://Scenes/FullBarAguacate.tscn" id="7_evkpv"]
+[ext_resource type="PackedScene" uid="uid://dkrqagwff34a0" path="res://Scenes/Fruits/AguacateSprite.tscn" id="8_qlm35"]
 [ext_resource type="Texture2D" uid="uid://bh4w6k1h3m4ik" path="res://Assets/ProgressBars/Blueberry.png" id="9_uedkc"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarBlueBerry.tscn" id="10_ucauq"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/BlueberrySprite.tscn" id="11_brfqu"]
+[ext_resource type="PackedScene" uid="uid://xpim3jhyynap" path="res://Scenes/FullBarBlueBerry.tscn" id="10_ucauq"]
+[ext_resource type="PackedScene" uid="uid://vwl3qxu1h1ik" path="res://Scenes/Fruits/BlueberrySprite.tscn" id="11_brfqu"]
 [ext_resource type="Texture2D" uid="uid://bptw4o1pxwuls" path="res://Assets/ProgressBars/Lemon.png" id="11_gngrc"]
 [ext_resource type="Texture2D" uid="uid://dsclgcjxohcn5" path="res://Assets/ProgressBars/Peach.png" id="13_2heix"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarDurazno.tscn" id="14_ki8k2"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/LimonSprite.tscn" id="14_uijvm"]
+[ext_resource type="PackedScene" uid="uid://b6g171hjety2a" path="res://Scenes/FullBarDurazno.tscn" id="14_ki8k2"]
+[ext_resource type="PackedScene" uid="uid://801a8pd1o60l" path="res://Scenes/Fruits/LimonSprite.tscn" id="14_uijvm"]
 [ext_resource type="Texture2D" uid="uid://dqtmnvec04gjs" path="res://Assets/ProgressBars/Apple.png" id="15_m2wbn"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarManzana.tscn" id="16_k07vl"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/DuraznoSprite.tscn" id="17_dmc5w"]
+[ext_resource type="PackedScene" uid="uid://j4roaghrh416" path="res://Scenes/FullBarManzana.tscn" id="16_k07vl"]
+[ext_resource type="PackedScene" uid="uid://dygxujsc15txg" path="res://Scenes/Fruits/DuraznoSprite.tscn" id="17_dmc5w"]
 [ext_resource type="Texture2D" uid="uid://d4febjlo64jnd" path="res://Assets/ProgressBars/Orange.png" id="17_wlgxy"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarNaranja.tscn" id="18_76pd7"]
+[ext_resource type="PackedScene" uid="uid://dhuqry8sl58d8" path="res://Scenes/FullBarNaranja.tscn" id="18_76pd7"]
 [ext_resource type="Texture2D" uid="uid://dy6yyfgds65l" path="res://Assets/ProgressBars/Cherry.png" id="19_p5mcw"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/ManzanaSprite.tscn" id="20_1f1or"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarCereza.tscn" id="20_xvkgj"]
+[ext_resource type="PackedScene" uid="uid://coxtulpxek15" path="res://Scenes/Fruits/ManzanaSprite.tscn" id="20_1f1or"]
+[ext_resource type="PackedScene" uid="uid://bm2ttvbj2k0j6" path="res://Scenes/FullBarCereza.tscn" id="20_xvkgj"]
 [ext_resource type="Texture2D" uid="uid://b1a51aamgk3g5" path="res://Assets/ProgressBars/Strawberry.png" id="21_c4yln"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarFresa.tscn" id="22_4r8o6"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/NaranjaSprite.tscn" id="23_4wfxi"]
+[ext_resource type="PackedScene" uid="uid://boktnul7xc67k" path="res://Scenes/FullBarFresa.tscn" id="22_4r8o6"]
+[ext_resource type="PackedScene" uid="uid://bk6uc1r817w42" path="res://Scenes/Fruits/NaranjaSprite.tscn" id="23_4wfxi"]
 [ext_resource type="Texture2D" uid="uid://b112anyt8k762" path="res://Assets/ProgressBars/Dragonfruit.png" id="23_sna4s"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarDragonFruit.tscn" id="24_enk4a"]
+[ext_resource type="PackedScene" uid="uid://c1wrd7d52pqs3" path="res://Scenes/FullBarDragonFruit.tscn" id="24_enk4a"]
 [ext_resource type="Texture2D" uid="uid://cr1wo5idhkvbs" path="res://Assets/ProgressBars/Coconut.png" id="25_gyx5c"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarCoco.tscn" id="26_7xwis"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/CerezaSprite.tscn" id="26_ldwvx"]
+[ext_resource type="PackedScene" uid="uid://mi2d8xgpmbch" path="res://Scenes/FullBarCoco.tscn" id="26_7xwis"]
+[ext_resource type="PackedScene" uid="uid://bbpwqy6fyyp3b" path="res://Scenes/Fruits/CerezaSprite.tscn" id="26_ldwvx"]
 [ext_resource type="Texture2D" uid="uid://ck4td18scex41" path="res://Assets/ProgressBars/Pineapple.png" id="27_npicm"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarPina.tscn" id="28_hfr82"]
+[ext_resource type="PackedScene" uid="uid://bn1jsjdcyy6af" path="res://Scenes/FullBarPina.tscn" id="28_hfr82"]
 [ext_resource type="Texture2D" uid="uid://cu78sk6grl4q5" path="res://Assets/ProgressBars/Papaya.png" id="29_8hpwf"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/FresaSprite.tscn" id="29_84gh7"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarPapaya.tscn" id="30_j7weh"]
+[ext_resource type="PackedScene" uid="uid://bxp8iwrrsfhjb" path="res://Scenes/Fruits/FresaSprite.tscn" id="29_84gh7"]
+[ext_resource type="PackedScene" uid="uid://4chxtdfrlflj" path="res://Scenes/FullBarPapaya.tscn" id="30_j7weh"]
 [ext_resource type="Texture2D" uid="uid://dmenq3d567ovu" path="res://Assets/ProgressBars/Melon.png" id="31_eknp6"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarMelon.tscn" id="32_607hl"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/DragonfruitSprite.tscn" id="32_fj6dl"]
+[ext_resource type="PackedScene" uid="uid://ifnmsvipf0il" path="res://Scenes/FullBarMelon.tscn" id="32_607hl"]
+[ext_resource type="PackedScene" uid="uid://b0e5bpnmuddj4" path="res://Scenes/Fruits/DragonfruitSprite.tscn" id="32_fj6dl"]
 [ext_resource type="Texture2D" uid="uid://540l6x56v43" path="res://Assets/ProgressBars/Watermelon.png" id="33_32dmg"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarSandia.tscn" id="34_1ic54"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/CocoSprite.tscn" id="35_bjmbx"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/PineappleSprite.tscn" id="38_76sda"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/PapayaSprite.tscn" id="41_qrs4k"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/MelonSprite.tscn" id="44_7jjqh"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/SandiaSprite.tscn" id="47_yusij"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmerItem.tscn" id="49_5kjnm"]
+[ext_resource type="PackedScene" uid="uid://dwckqff6jcmun" path="res://Scenes/FullBarSandia.tscn" id="34_1ic54"]
+[ext_resource type="PackedScene" uid="uid://0j3v1om18nkx" path="res://Scenes/Fruits/CocoSprite.tscn" id="35_bjmbx"]
+[ext_resource type="PackedScene" uid="uid://b2o7bxvxqlrw5" path="res://Scenes/Fruits/PineappleSprite.tscn" id="38_76sda"]
+[ext_resource type="PackedScene" uid="uid://ccpaqn4s1burc" path="res://Scenes/Fruits/PapayaSprite.tscn" id="41_qrs4k"]
+[ext_resource type="PackedScene" uid="uid://disw2llry4ctb" path="res://Scenes/Fruits/MelonSprite.tscn" id="44_7jjqh"]
+[ext_resource type="PackedScene" uid="uid://c4pvg5rhfv1es" path="res://Scenes/Fruits/SandiaSprite.tscn" id="47_yusij"]
+[ext_resource type="PackedScene" uid="uid://c4h1l38r5h3y4" path="res://Scenes/FarmerItem.tscn" id="49_5kjnm"]
 [ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="49_8giwr"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmerGeneral.tscn" id="49_nabck"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmersSelection.tscn" id="49_yby10"]
+[ext_resource type="PackedScene" uid="uid://bg27rfktw40x" path="res://Scenes/FarmerGeneral.tscn" id="49_nabck"]
+[ext_resource type="PackedScene" uid="uid://y3xe2sk4d6uq" path="res://Scenes/FarmersSelection.tscn" id="49_yby10"]
 [ext_resource type="Texture2D" uid="uid://dbicgk7bx30x1" path="res://Assets/Temp/wood arrow.png" id="50_ck85x"]
 [ext_resource type="PackedScene" uid="uid://byddapaco8mng" path="res://Scenes/Alert.tscn" id="54_yb6dy"]
 
@@ -86,6 +86,16 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iixvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_biiaf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2c5ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0r778"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fymfo"]
+
 [sub_resource type="Animation" id="Animation_8k5sv"]
 length = 0.001
 tracks/0/type = "value"
@@ -99,6 +109,30 @@ tracks/0/keys = {
 "transitions": PackedFloat64Array(1),
 "update": 0,
 "values": [Vector2(70, 900)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_5nd88"]
@@ -116,6 +150,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(70, 600), Vector2(70, 900)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Menu/Burguer:button_pressed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_6ut1e"]
 resource_name = "show"
@@ -131,6 +201,44 @@ tracks/0/keys = {
 "transitions": PackedFloat64Array(1, 1),
 "update": 0,
 "values": [Vector2(70, 900), Vector2(70, 600)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OptionsTimer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0.2),
+"transitions": PackedFloat64Array(1),
+"values": [{
+"args": [-1],
+"method": &"start"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0.2),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat64Array(0.2),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1m306"]
@@ -446,7 +554,7 @@ theme = SubResource("Theme_jaiut")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bwni5")
 
 [node name="Burguer" type="TextureButton" parent="Panel/Menu"]
-modulate = Color(0.388235, 0.627451, 1, 1)
+self_modulate = Color(0.388235, 0.627451, 1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -457,6 +565,13 @@ toggle_mode = true
 texture_normal = ExtResource("49_8giwr")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Alert" parent="Panel/Menu/Burguer" instance=ExtResource("54_yb6dy")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 286.0
+offset_bottom = 35.0
 
 [node name="Button" type="TextureButton" parent="Panel/Menu"]
 self_modulate = Color(1, 0.356863, 0.294118, 1)
@@ -470,9 +585,6 @@ grow_vertical = 2
 texture_normal = ExtResource("50_ck85x")
 ignore_texture_size = true
 stretch_mode = 5
-
-[node name="Alert" parent="Panel/Menu" instance=ExtResource("54_yb6dy")]
-layout_mode = 0
 
 [node name="Options" type="Panel" parent="Panel"]
 layout_mode = 1
@@ -489,7 +601,28 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_emc8l")
 
+[node name="Background" type="Button" parent="Panel/Options"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.413
+anchor_top = -3.897
+anchor_right = 1.4
+anchor_bottom = 1.641
+offset_left = -0.1
+offset_top = -0.068
+offset_bottom = -0.996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iixvf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_biiaf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2c5ty")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0r778")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fymfo")
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Options"]
+autoplay = "RESET"
 speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_1m306")
@@ -518,10 +651,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0wpgy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ogvdg")
 text = "Farmers"
 
+[node name="OptionsTimer" type="Timer" parent="Panel/Options"]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="toggled" from="Panel/Menu/Burguer" to="." method="_on_burguer_toggled"]
 [connection signal="pressed" from="Panel/Menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Options/Background" to="." method="_on_options_timer_timeout"]
 [connection signal="pressed" from="Panel/Options/Fruits" to="." method="_on_fruits_pressed"]
 [connection signal="pressed" from="Panel/Options/Farmers" to="." method="_on_farmers_pressed"]
+[connection signal="timeout" from="Panel/Options/OptionsTimer" to="." method="_on_options_timer_timeout"]
 
 [editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter0"]
 [editable path="Panel/FruitsScroll/VBoxContainer/FruitMeter1"]

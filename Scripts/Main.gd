@@ -28,9 +28,10 @@ var naranja = preload("res://Scenes/Fruits/Naranja.tscn")
 var papaya = preload("res://Scenes/Fruits/Papaya.tscn")
 var pina = preload("res://Scenes/Fruits/Pina.tscn")
 var sandia = preload("res://Scenes/Fruits/Sandia.tscn")
-var fruits = [aguacate, blueberry, cereza, coco, dragonfruit, durazno, fresa, limon, manzana, melon, naranja, papaya, pina, sandia]
+var fruits = [ blueberry, cereza, fresa, limon, durazno, manzana, naranja, aguacate, mango, dragonfruit, coco, pina, papaya, melon, sandia ]
 var fruitInstance = []
 var runTimerNode
+var runButton
 var runButtonControl = false
 
 var multiplierOn = false
@@ -43,10 +44,11 @@ var farmValue : float = 0.0
 @onready var spawn_spots := $NavigationRegion2D/Spawners.get_children()
 var spawn_list : Array
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	
 	runTimerNode = $CanvasLayer/runButton/RunTimer
+	runButton = $CanvasLayer/runButton
 	multiplierLabel = $CanvasLayer/Multiplier
 	juiceLevelLabel = $CanvasLayer/JuiceLvl/Level
 	juiceLevelLabel.text = GlobalVariables.player.JuiceLevel[GlobalVariables.player.juiceLevel].name
@@ -59,6 +61,9 @@ func _ready():
 	SignalManager.loadHouses.emit()
 	
 	spawn_spots.reverse()
+	
+	# Reset money
+	GlobalVariables.player.money = 5.0
 	
 
 func _process(_delta):
@@ -100,12 +105,13 @@ func getJuiceHouseCapacity():
 		GlobalVariables.houseCount = 3	
 				
 func countFruits():
-	for i in range(GlobalVariables.total_fruit_count.size()):
+	for i in range(GlobalVariables.player.Fruits.size()):
 		GlobalVariables.total_fruit_count[i] = 0
 		
-	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
-	for i in range (0, houseIdArray.size()):
-		if houseIdArray[i] >= 1:
+#	var houseIdArray = [GlobalVariables.player.house0Id, GlobalVariables.player.house1Id,GlobalVariables.player.house2Id,GlobalVariables.player.house3Id]
+	var house_array = range(4)
+	for i in house_array:
+		if house_array[i] >= 1:
 			for j in range(GlobalVariables.player.Fruits.size()):
 				GlobalVariables.total_fruit_count[j] += GlobalVariables.player.CurrentJuiceHouse[i].fruit_count[j]
 				GlobalVariables.totalFruits += GlobalVariables.total_fruit_count[j]
@@ -185,12 +191,10 @@ func loadData():
 	getTotalTransportCapacity()
 	getJuiceHouseCapacity()
 	countFruits()
-	
-	
+
 func save():
 	ResourceSaver.save(GlobalVariables.player, savePath)
-	
-	
+
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		GlobalVariables.player.time = Time.get_datetime_string_from_system()
@@ -199,8 +203,7 @@ func _notification(what):
 	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_READY:
 		get_tree().paused = false
 		calculateTime()
-		
-		
+
 func calculateTime():
 	var maxTime = GlobalVariables.player.WaterTank.time * GlobalVariables.player.WaterTank.count
 	var prevTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.time)
@@ -216,7 +219,6 @@ func calculateTime():
 	timeProgressBarNode.value = (maxTime - elapsedTime)
 	
 	calculateMoneyFromTime(elapsedTime)
-	
 
 func calculateMoneyFromTime(elapsedTime):
 	var moneyEarned = GlobalVariables.player.litersPerSecond * elapsedTime
@@ -381,6 +383,8 @@ func showScene(scene, controlEscenas):
 #Abir Field
 func _on_field_button_pressed():
 	controlEscenasField = showScene($CanvasLayer/Field, controlEscenasField)
+	$CanvasLayer/Field.loadAllPanelData()
+	print("sipi")
 
 #Abir Upgrades
 func _on_upgrade_button_pressed():
@@ -413,19 +417,31 @@ func _on_run_button_pressed():
 		instanceFruit()
 		runTimerNode.start()
 		runButtonControl = true
+		runButton.get_node("Sprite2D").play("jump")
 	
 func instanceFruit():
-	var randFruit = randi_range(0, fruits.size()-1)
-	var fruitType = fruits[randFruit]
-	var fruit = fruitType.instantiate()
-	var fruitI = fruit
-	
-	fruitI.add_to_group("fruit")
 
-	if randFruit == 0:
-		fruitI.add_to_group("mango")
+	var rand_i
+	var available_fruits := false
+	var fruit_picked := false
+	
+	for fruit in GlobalVariables.player.Fruits:
+		if fruit.acquired:
+			available_fruits = true
+			
+	if not available_fruits: return
+	
+	while not fruit_picked:
 		
-	fruit.houseName = "house"
+		rand_i = randi_range(0, fruits.size()-1)
+		if GlobalVariables.player.Fruits[rand_i].acquired:
+			fruit_picked = true
+		
+	var fruitType = fruits[rand_i]
+	var fruit_run = fruitType.instantiate()
+
+		
+	fruit_run.houseName = "house"
 
 #	var dirX = rng.randi_range(-10,10)
 #	var dirY = rng.randi_range(-10,10)
@@ -436,10 +452,10 @@ func instanceFruit():
 #	add_child(fruit)
 #	fruit.get_node("Sprite2D").play("walk")
 
-	fruitInstance.append(fruitI)
+	fruitInstance.append(fruit_run)
 	GlobalVariables.multiplier += GlobalVariables.multiplierSteps#	
-	fruit.scale = Vector2(2.0, 2.0)
-	spawn_list.append(fruit)
+	fruit_run.scale = Vector2(2.0, 2.0)
+	spawn_list.append(fruit_run)
 
 func fruit_spawner():
 	
@@ -526,5 +542,6 @@ func _on_juice_lvl_pressed():
 
 func _on_spawn_timer_timeout():
 	fruit_spawner()
-	
 
+func _on_check_money_timer_timeout():
+	$CanvasLayer/Field.loadAllPanelData()

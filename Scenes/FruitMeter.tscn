@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ii1dw8vyuvt" path="res://Assets/ProgressBars/Mango.png" id="2_ll7ck"]
 [ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="3_alb22"]
 [ext_resource type="Script" path="res://Scripts/FieldProgressBar.gd" id="3_fi17s"]
-[ext_resource type="Texture2D" path="res://Assets/Buttons/WoodSign.png" id="4_ijesu"]
+[ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="4_ijesu"]
 [ext_resource type="Texture2D" uid="uid://btorl2i4nm8j0" path="res://Assets/Buttons/BotonBuy_1.png" id="7_jg21x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vov0k"]
@@ -95,6 +95,7 @@ offset_top = 104.0
 offset_right = 373.0
 offset_bottom = 150.0
 texture_normal = ExtResource("3_alb22")
+texture_disabled = ExtResource("7_jg21x")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -163,6 +164,7 @@ offset_top = 36.0
 offset_right = 306.0
 offset_bottom = 95.0
 texture_normal = ExtResource("3_alb22")
+texture_disabled = ExtResource("7_jg21x")
 ignore_texture_size = true
 stretch_mode = 0
 

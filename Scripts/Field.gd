@@ -35,7 +35,7 @@ func _process(delta):
 	if progress_calculation:
 		for i in range(15):
 			calculate_progress(i)
-			print("Sipi calculation")
+			
 
 func loadAllPanelData():
 	for i in range (15):
@@ -53,7 +53,8 @@ func loadPanelData(index : int):
 	if fruit_data.acquired:
 		
 		fruit_item.get_node("BuyButton/Buy").text = "Increase level"
-		
+		fruit_item.get_node("BuyButton").disabled = GlobalVariables.player.money < fruit_data.level_cost
+			
 		fruit_item.get_node("Bar").show()
 		fruit_item.get_node("Wood").show()
 		fruit_item.get_node("BuyButton").show()
@@ -65,6 +66,7 @@ func loadPanelData(index : int):
 		
 	else:
 		fruit_item.get_node("AcquireButton").show()
+		fruit_item.get_node("AcquireButton/Button").disabled = GlobalVariables.player.money < fruit_data.cost
 		
 		var cost_text = "$ " + GlobalVariables.getMoneyString( GlobalVariables.player.Fruits[index].cost )
 		
@@ -108,14 +110,14 @@ func levelUpFruit(index : int):
 	var mult = GlobalVariables.player.Fruits[index].multiplier
 	var level = GlobalVariables.player.Fruits[index].level
 	var tierText = calculateTierLevel(index)
-	
+
 	if GlobalVariables.player.money < cost:
 		return
-	
+
 	GlobalVariables.player.money = GlobalVariables.player.money - cost
 	GlobalVariables.player.Fruits[index].level_cost = cost + cost *  mult /100
 	GlobalVariables.player.Fruits[index].level += 1
-	
+
 	if level >= tierText - 1:
 		GlobalVariables.player.Fruits[index].tier += 1
 		saveCurrentProgress(index)
@@ -126,7 +128,7 @@ func levelUpFruit(index : int):
 		get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 
 func acquire_fruit(index:int):
-	if GlobalVariables.player.money > GlobalVariables.player.Fruits[index].cost:
+	if GlobalVariables.player.money >= GlobalVariables.player.Fruits[index].cost:
 		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Fruits[index].cost
 		GlobalVariables.player.Fruits[index].acquired = true
 	loadAllPanelData()
@@ -139,11 +141,7 @@ func saveCurrentProgress(index : int):
 		
 		calculate_progress(index)
 		
-		if GlobalVariables.player.Fruits[index].level < 80:
-#			currentProgressBar.value = GlobalVariables.player.Fruits[index].currentProgress
-			pass
-		else:
-			currentProgressBar.hide()
+		if GlobalVariables.player.Fruits[index].level >= 80:
 			fullProgressBar.show()
 
 func calculate_progress(index : int):
@@ -317,14 +315,16 @@ func _on_fruits_pressed():
 	hide_scrolls()
 	loadAllPanelData()
 	$Panel/FruitsScroll.show()
-	
+	$Panel/Options/AnimationPlayer.play("hide")
+	$Panel/Options/OptionsTimer.stop()
 
 
 func _on_farmers_pressed():
 	hide_scrolls()
 	load_farmer_list()
 	$Panel/FarmerScroll.show()
-	
+	$Panel/Options/AnimationPlayer.play("hide")
+	$Panel/Options/OptionsTimer.stop()
 	
 func load_farmer_list():
 	
@@ -475,3 +475,8 @@ func reset_speed():
 	for i in range(GlobalVariables.player.Fruits.size()):
 		GlobalVariables.player.Fruits[i].speed = GlobalVariables.player.Fruits[i].initial_speed
 		
+
+
+func _on_options_timer_timeout():
+	$Panel/Options/AnimationPlayer.play("hide")
+	$Panel/Options/OptionsTimer.stop()

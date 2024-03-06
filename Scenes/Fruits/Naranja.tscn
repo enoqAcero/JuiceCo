@@ -11,6 +11,7 @@
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_7slni")
+fruit_number = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.234638, 0)

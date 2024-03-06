@@ -75,7 +75,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_jh3su"]
 script = ExtResource("1_4oj5t")
@@ -83,7 +83,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_5q77g"]
 script = ExtResource("1_4oj5t")
@@ -91,7 +91,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_ghq0d"]
 script = ExtResource("1_4oj5t")
@@ -99,7 +99,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_laly7"]
 script = ExtResource("1_4oj5t")
@@ -107,7 +107,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_6puyd"]
 script = ExtResource("1_4oj5t")
@@ -115,7 +115,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_btkiy"]
 script = ExtResource("1_4oj5t")
@@ -123,7 +123,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_wowxl"]
 script = ExtResource("1_4oj5t")
@@ -131,7 +131,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_km4qm"]
 script = ExtResource("1_4oj5t")
@@ -139,7 +139,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_oa8ww"]
 script = ExtResource("1_4oj5t")
@@ -147,7 +147,7 @@ name = "Boost name"
 description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 
 [sub_resource type="Resource" id="Resource_8fao5"]
 script = ExtResource("1_3qdky")
@@ -912,7 +912,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_fradd"]
 script = ExtResource("64_j80cl")
@@ -924,7 +924,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_2kkgd"]
 script = ExtResource("64_j80cl")
@@ -935,7 +935,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_px554"]
@@ -948,7 +948,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_yeap5"]
 script = ExtResource("64_j80cl")
@@ -960,7 +960,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_a51f6"]
 script = ExtResource("64_j80cl")
@@ -971,7 +971,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_hc1d0"]
@@ -983,7 +983,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_trbfa"]
@@ -995,7 +995,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_ymtar"]
@@ -1007,7 +1007,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_r1p0n"]
@@ -1020,7 +1020,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_wuhtv"]
 script = ExtResource("64_j80cl")
@@ -1032,7 +1032,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_cnojc"]
 script = ExtResource("64_j80cl")
@@ -1044,7 +1044,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_6fxh7"]
 script = ExtResource("64_j80cl")
@@ -1055,7 +1055,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_wpeq2"]
@@ -1068,7 +1068,7 @@ level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
 active = false
-epic_active = true
+epic_active = false
 
 [sub_resource type="Resource" id="Resource_5hf5s"]
 script = ExtResource("64_j80cl")
@@ -1079,7 +1079,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_o8j07"]
@@ -1091,7 +1091,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_eg87x"]
@@ -1103,7 +1103,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_6cwll"]
@@ -1115,7 +1115,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_ochky"]
@@ -1127,7 +1127,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_4vj5m"]
@@ -1139,7 +1139,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_8xvqv"]
@@ -1151,7 +1151,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_w7l57"]
@@ -1163,7 +1163,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_jvuuv"]
@@ -1175,7 +1175,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_j85fq"]
@@ -1187,7 +1187,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_dj5md"]
@@ -1199,7 +1199,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_3q4pt"]
@@ -1211,7 +1211,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_g8c7w"]
@@ -1223,7 +1223,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_28abw"]
@@ -1235,7 +1235,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_sd7b5"]
@@ -1247,7 +1247,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_xmuqc"]
@@ -1259,7 +1259,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_4kytd"]
@@ -1271,7 +1271,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_wignh"]
@@ -1283,7 +1283,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_oe4mc"]
@@ -1295,7 +1295,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_7cc7t"]
@@ -1307,7 +1307,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_nteiu"]
@@ -1319,7 +1319,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_mcxvl"]
@@ -1331,7 +1331,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_amb1c"]
@@ -1343,7 +1343,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_ygyxu"]
@@ -1355,7 +1355,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_mgh2o"]
@@ -1367,7 +1367,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_3rvlv"]
@@ -1379,7 +1379,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_jrpkt"]
@@ -1391,7 +1391,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_lq4y8"]
@@ -1403,7 +1403,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_cw7b1"]
@@ -1415,7 +1415,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_3657f"]
@@ -1427,7 +1427,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_4vthk"]
@@ -1439,7 +1439,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_m5ilf"]
@@ -1451,7 +1451,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_lvlmp"]
@@ -1463,7 +1463,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_3lvo0"]
@@ -1475,7 +1475,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_b1als"]
@@ -1487,7 +1487,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_5h5q0"]
@@ -1499,7 +1499,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_v1qq3"]
@@ -1511,7 +1511,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_se2sj"]
@@ -1523,7 +1523,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_f8y81"]
@@ -1535,7 +1535,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_67hvc"]
@@ -1547,7 +1547,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_al2og"]
@@ -1559,7 +1559,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_kcrb7"]
@@ -1571,7 +1571,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_khkub"]
@@ -1583,7 +1583,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_2x0a6"]
@@ -1595,7 +1595,7 @@ cost = 10000.0
 level = 0
 maxLevel = 0
 skin = ExtResource("65_0hty7")
-active = true
+active = false
 epic_active = false
 
 [sub_resource type="Resource" id="Resource_kcdxj"]
@@ -1607,12 +1607,12 @@ count = 12
 [resource]
 script = ExtResource("1_fhr83")
 liters = 0.0
-money = 5.95997e+24
+money = 317.0
 gems = 171
 litersPerSecond = 0.0
 sandiasPerSecond = 0.0
 farmValue = nan
-time = "2024-03-05T15:37:26"
+time = "2024-03-06T16:47:00"
 multGananciasActive = false
 gemYdineroActive = false
 gemasActive = false

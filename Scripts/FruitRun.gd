@@ -14,6 +14,7 @@ var dirX
 var dirY
 var initialTarget = 200
 
+@export var fruit_number : int
 
 func _ready():
 	navAgent = $Navigation/NavigationAgent2D
@@ -29,6 +30,7 @@ func _ready():
 #	navAgent.target_position = Vector2(dirX,dirY)
 #	navAgent.target_position = Vector2()
 	$Sprite2D.play("jump")
+	self.add_to_group("Fruit")
 	
 	
 func _physics_process(delta):
