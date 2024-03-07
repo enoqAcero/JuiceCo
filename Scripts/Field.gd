@@ -32,10 +32,10 @@ func _ready():
 	
 
 func _process(delta):
-	if progress_calculation:
-		for i in range(15):
-			calculate_progress(i)
-			
+#	if progress_calculation:
+#		for i in range(15):
+#			calculate_progress(i)
+	pass
 
 func loadAllPanelData():
 	for i in range (15):
@@ -73,7 +73,7 @@ func loadPanelData(index : int):
 		fruit_item.get_node("AcquireButton/Wood/Cost").text = cost_text
 		fruit_item.get_node("AcquireButton/Button/Name").text = "Acquire " + GlobalVariables.player.Fruits[index].name + "!"
 		fruit_item.get_node("AcquireButton/Button").pressed.connect(Callable(acquire_fruit).bind(index))
-		fruit_item.get_node("ProduceButton").pressed.connect(Callable(calculate_progress).bind(index))
+		fruit_item.get_node("ProduceButton").pressed.connect(Callable(calculate_production).bind(index))
 
 	var currentPanelButtonCost = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
 	var currentPanelLvlLabel = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Wood/Level")
@@ -480,3 +480,8 @@ func reset_speed():
 func _on_options_timer_timeout():
 	$Panel/Options/AnimationPlayer.play("hide")
 	$Panel/Options/OptionsTimer.stop()
+
+func calculate_production(index:int):
+	var production_timer = Timer.new()
+	var fruit = GlobalVariables.player.Fruits[index]
+	

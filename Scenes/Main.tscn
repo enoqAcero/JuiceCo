@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dwegg5qd4cgt0" path="res://Assets/Buttons/BotonShop (1).png" id="12_h6o2h"]
 [ext_resource type="Texture2D" uid="uid://cvw4mvhlj2u0m" path="res://Assets/Bg/Background.png" id="14_y3oqk"]
 [ext_resource type="Texture2D" uid="uid://b8oivrr5a2xfv" path="res://Assets/Fruits/fruitframes/mango/mango jump1.png" id="15_07gw1"]
-[ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="16_8wktm"]
+[ext_resource type="PackedScene" path="res://Scenes/Fruits/MangoSprite.tscn" id="16_8wktm"]
 [ext_resource type="Texture2D" uid="uid://dyebxs2tvhe1x" path="res://Assets/ProgressBars/BackADVLong.png" id="17_odd6v"]
 [ext_resource type="Texture2D" uid="uid://dirvg562ql8p" path="res://Assets/Temp/JuiceGlass.png" id="19_3y31r"]
 [ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="19_cb5s8"]
