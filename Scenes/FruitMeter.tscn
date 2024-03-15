@@ -12,6 +12,7 @@
 bg_color = Color(1, 0.345098, 0.270588, 0)
 
 [node name="FruitMeter" type="TextureRect"]
+texture_filter = 6
 custom_minimum_size = Vector2(460, 137)
 offset_right = 460.0
 offset_bottom = 137.0
@@ -25,6 +26,7 @@ anchors_preset = 0
 [node name="FullCircle" type="TextureRect" parent="Fruit"]
 visible = false
 self_modulate = Color(0.670588, 0.741176, 0.529412, 1)
+texture_filter = 6
 layout_mode = 0
 offset_left = 7.0
 offset_top = 9.0
@@ -58,6 +60,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Wood" type="TextureRect" parent="."]
+texture_filter = 6
 layout_mode = 0
 offset_left = 113.0
 offset_top = 88.0

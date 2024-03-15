@@ -184,6 +184,7 @@ animations = [{
 }]
 
 [node name="Sprite2D" type="AnimatedSprite2D"]
+texture_filter = 6
 position = Vector2(40, -152)
 sprite_frames = SubResource("SpriteFrames_2ccj1")
 animation = &"jump"

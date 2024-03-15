@@ -224,3 +224,4 @@ animations = [{
 position = Vector2(101.5, 29)
 scale = Vector2(0.315873, 0.36)
 sprite_frames = SubResource("SpriteFrames_xivhs")
+autoplay = "default"

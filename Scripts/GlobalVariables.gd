@@ -11,28 +11,7 @@ var litersAbbreviation
 var moneyAbbreviation
 var abbFactor : float
 
-#var totalBlueberryCount = 0
-#var totalCerezaCount = 0
-#var totalFresaCount = 0
-#var totalLimonCount = 0
-#var totalDuraznoCount = 0
-#var totalManzanaCount = 0
-#var totalNaranjaCount = 0
-#var totalAguacateCount = 0
-#var totalMangoCount = 0
-#var totalDragonfruitCount = 0
-#var totalCocoCount = 0
-#var totalAnanaCount = 0
-#var totalPapayaCount = 0
-#var totalMelonCount = 0
-#var totalSandiaCount : float = 0
-#var totalFruits = 0
-#var total_fruit_count : Array[int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-#var totalFruits : int = 0 
-#
-#var multiplier : float = 0
-#var multiplierSteps = 0.1
-
+enum UpgradeType { FEATURE, FARMER, FRUIT, TRANSPORT, JUICE }
 
 var save_path = "res://Save/PlayerSave.tres"
 

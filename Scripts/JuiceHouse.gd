@@ -27,6 +27,14 @@ func _ready():
 	GlobalVariables.loadResource()
 	SignalManager.loadHouses.connect(loadHouses)
 
+	connect_house_buttons()
+	
+func connect_house_buttons():
+	for i in range(4):
+		var id : int = GlobalVariables.player.CurrentJuiceHouse[i].type
+		player_houses[i].get_node("Owned/Button").pressed.connect(Callable(show_upgrades).bind(i))
+		player_houses[i].get_node("Empty/Button").pressed.connect(Callable(show_catalog).bind(i))
+		player_houses[i].get_node("Owned/Button2").pressed.connect(Callable(level_up).bind(i))
 
 func loadHouses():
 	
@@ -35,20 +43,16 @@ func loadHouses():
 		var id : int = GlobalVariables.player.CurrentJuiceHouse[i].type
 		player_houses[i].get_node("Empty").visible = not bool(id)
 		player_houses[i].get_node("Owned").visible = bool(id)
-		if player_houses[i].get_node("Owned").visible:
-			player_houses[i].get_node("Owned/Label").text = GlobalVariables.player.JuiceHouse[id-1].name
-			player_houses[i].get_node("Owned/Texture").texture = GlobalVariables.player.JuiceHouse[id-1].skin
-			player_houses[i].get_node("Owned/Button").pressed.connect(Callable(show_upgrades).bind(i))
-			player_houses[i].get_node("Owned/Label3").text = "Level " + str( GlobalVariables.player.CurrentJuiceHouse[i].upgradeLvl)
-		else:
-			player_houses[i].get_node("Empty/Button").pressed.connect(Callable(show_catalog).bind(i))
+		player_houses[i].get_node("Owned/Label").text = GlobalVariables.player.JuiceHouse[id-1].name
+		player_houses[i].get_node("Owned/Texture").texture = GlobalVariables.player.JuiceHouse[id-1].skin
+		player_houses[i].get_node("Owned/Label3").text = "Level " + str( GlobalVariables.player.CurrentJuiceHouse[i].upgradeLvl)
 		
 		# Level up or upgrade
 		var level = GlobalVariables.player.CurrentJuiceHouse[i].upgradeLvl
 		if level < 4:
 			player_houses[i].get_node("Owned/Button").hide()
 			player_houses[i].get_node("Owned/Button2").show()
-			player_houses[i].get_node("Owned/Button2").pressed.connect(Callable(level_up).bind(i))
+			
 		else:
 			player_houses[i].get_node("Owned/Button2").hide()
 			player_houses[i].get_node("Owned/Button").show()

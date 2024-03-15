@@ -12,12 +12,12 @@ func _ready():
 	timer.wait_time = 1.0
 	timer.timeout.connect(update_remaining_time)
 	
-	get_parent().get_node("Remaining/Time").text = "0s"
+	get_parent().get_node("Remaining/Time").text = "0.0 s"
 	
 
 func start_progress( index:int ):
 	tween = get_tree().create_tween()
-	print( "Producing " )
+#	print( "Producing " )
 	var fruit = GlobalVariables.player.Fruits[index]
 	var time = GlobalVariables.player.Fruits[index].production_timer.time_left
 	show()
@@ -27,11 +27,11 @@ func start_progress( index:int ):
 	timer.start()
 	timer_remaining = time
 #	var production_time = fruit.production_time / ( ( fruit.level + 1 ) * 2 )
-	if time < 1.0:
+	if time < 1.0 and GlobalVariables.player.Farmer[index].active:
 		get_node("FullBar").show()
 	else:
 		get_node("FullBar").hide()
-	
+		get_node("FullBar").play("default")
 	
 func get_number():
 	var result = ""
@@ -51,4 +51,4 @@ func update_remaining_time():
 		get_parent().get_node("Remaining/Time").text =  str(timer_remaining).substr(0, 3) + "s"
 		
 	else:
-		get_parent().get_node("Remaining/Time").text =  "0s"
+		get_parent().get_node("Remaining/Time").text =  "0.0 s"

@@ -70,7 +70,10 @@ func _ready():
 	
 	load_houses()
 	
-
+	reset_game()
+	reset_juice_level()
+	
+	print( Magnitudes.TRESVIGINTILLION.value )
 
 func _process(_delta):
 
@@ -427,9 +430,6 @@ func calculateFarmValue():
 	var maxRunningFruitBonus = 5
 	var maxRunningFruitBonusEq = ((maxRunningFruitBonus - 4)**0.25)
 
-
-#	farmValue = 30000 * juiceValue * sandiasPerMin * earningBonus * maxRunningFruitBonusEq * L * (Pc + (0.2 * Pu) + (-1 * (abs(Pv)**0.6)) + (0.25 * Pp))
-	
 	GlobalVariables.player.farmValue = farmValue
 	if farmValue <= 999:
 		farmValueString = str(farmValue)
@@ -452,15 +452,16 @@ func _on_spawn_timer_timeout():
 func _on_check_money_timer_timeout():
 	$CanvasLayer/JuiceLvl/Money.text = "$ " + GlobalVariables.getMoneyString( GlobalVariables.player.money )
 	$CanvasLayer/Field.loadAllPanelData()
-#	$CanvasLayer/JuiceHouse.loadHouses()
-#	GlobalVariables.save()
-#	print("Saving changes")
+
 
 
 func _on_fruit_label_mult_timer_timeout():
 	$CanvasLayer/JuiceLvl/FruitMultiplier.text = ""
 	$CanvasLayer/JuiceLvl/FruitMultiplier.hide()
-	
+
+func reset_juice_level():
+	GlobalVariables.player.juiceLevel = 0
+
 func reset_game():
 	field.reset()
 	upgrades.reset()
@@ -468,3 +469,15 @@ func reset_game():
 	shop.reset()
 	garage.reset()
 	houses.reset()
+
+
+func _on_run_button_toggled(button_pressed):
+	print("Enabling switch")
+	if button_pressed:
+		$CanvasLayer/runButton/SwitchTimer.start()
+	else:
+		$CanvasLayer/runButton/SwitchTimer.stop()
+
+
+func _on_switch_timer_timeout():
+	_on_run_button_pressed()

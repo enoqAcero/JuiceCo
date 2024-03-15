@@ -28,6 +28,7 @@ size = Vector2(4, 56)
 
 [node name="house0" type="StaticBody2D"]
 z_index = 1
+texture_filter = 6
 position = Vector2(-504, 292)
 scale = Vector2(2, 2)
 script = ExtResource("1_qxtah")

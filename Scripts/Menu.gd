@@ -13,7 +13,6 @@ func _ready():
 	button3 = $GridContainer/Label3/Sprite2D/Button
 	button4 = $GridContainer/Label4/Sprite2D/Button
 	button5 = $GridContainer/Label5/Sprite2D/Button
-	button6 = $GridContainer/Label6/Sprite2D/Button
 	
 	button1.pressed.connect(help)
 	button2.pressed.connect(reset)

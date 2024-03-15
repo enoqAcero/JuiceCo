@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=50 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://3j4nys6t5v5t" path="res://Scenes/ModalJuicesLvl.tscn" id="12_gl3jr"]
 [ext_resource type="Texture2D" uid="uid://dwegg5qd4cgt0" path="res://Assets/Buttons/BotonShop (1).png" id="12_h6o2h"]
 [ext_resource type="Texture2D" uid="uid://b8oivrr5a2xfv" path="res://Assets/Fruits/fruitframes/mango/mango jump1.png" id="15_07gw1"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/MangoSprite.tscn" id="16_8wktm"]
+[ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="16_8wktm"]
 [ext_resource type="Texture2D" uid="uid://dyebxs2tvhe1x" path="res://Assets/ProgressBars/BackADVLong.png" id="17_odd6v"]
 [ext_resource type="Texture2D" uid="uid://dirvg562ql8p" path="res://Assets/Temp/JuiceGlass.png" id="19_3y31r"]
 [ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="19_cb5s8"]
@@ -37,7 +37,16 @@ corner_radius_top_left = 125
 corner_radius_top_right = 125
 corner_radius_bottom_right = 125
 corner_radius_bottom_left = 125
-shadow_size = 5
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tvvs"]
+bg_color = Color(0.101961, 0.490196, 0.913725, 1)
+corner_radius_top_left = 125
+corner_radius_top_right = 125
+corner_radius_bottom_right = 125
+corner_radius_bottom_left = 125
+shadow_size = 10
 shadow_offset = Vector2(5, 5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70q2k"]
@@ -58,9 +67,9 @@ variation_embolden = 1.0
 default_font = SubResource("FontVariation_dds5r")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2x17k"]
-vertices = PackedVector2Array(-439.406, 401.612, -479.996, 674.464, -568.253, 605.51, -434.316, -404.044, -335.319, -433.298, -585.834, -582.067, -549.017, -653.555, -462.998, -684.065, -364.47, -699.724, -278.429, -660.42, -227.578, -611.807, -244.128, -543.521, -277.226, -488.163, -538.162, -443.3, -591.894, -497.971, -371.625, -113.952, -262.089, -150.198, -259.53, -36.5258, -391.525, 2.47846)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11, 12, 4, 3, 13, 14), PackedInt32Array(15, 16, 17, 18)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-479.996, 674.464, -439.406, 401.612, -335.319, -433.298, -277.226, -488.163, -244.128, -543.521, -227.578, -611.807, -278.429, -660.42, -364.47, -699.724, -462.998, -684.065, -549.017, -653.555, -585.834, -582.067, -591.894, -497.971, -538.162, -443.3, -434.316, -404.044, -568.253, 605.51), PackedVector2Array(-382.854, -112.573, -262.089, -150.198, -259.53, -36.5258, -391.525, 2.47846)])
+vertices = PackedVector2Array(-458.319, 386.836, -486.3, 669.539, -561.949, 610.435, -434.316, -404.044, -342.855, -436.647, -585.834, -582.067, -549.017, -653.555, -462.998, -684.065, -364.47, -699.724, -278.429, -660.42, -227.578, -611.807, -244.128, -543.521, -277.226, -488.163, -538.162, -443.3, -591.894, -497.971)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(5, 6, 7, 8, 9, 10, 11, 12, 4, 3, 13, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-486.3, 669.539, -458.319, 386.836, -342.855, -436.647, -277.226, -488.163, -244.128, -543.521, -227.578, -611.807, -278.429, -660.42, -364.47, -699.724, -462.998, -684.065, -549.017, -653.555, -585.834, -582.067, -591.894, -497.971, -538.162, -443.3, -434.316, -404.044, -561.949, 610.435)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12ccj"]
 size = Vector2(40, 40)
@@ -97,6 +106,7 @@ script = ExtResource("7_4o3gd")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="fieldButton" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 6
 offset_left = 197.0
 offset_top = 672.0
 offset_right = 422.0
@@ -119,6 +129,7 @@ grow_horizontal = 0
 scale = Vector2(1.4, 1.4)
 
 [node name="upgradeButton" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 6
 offset_left = 125.0
 offset_top = 681.0
 offset_right = 256.0
@@ -142,6 +153,7 @@ grow_horizontal = 0
 visible = false
 
 [node name="boostButton" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 6
 offset_left = 294.0
 offset_top = 681.0
 offset_right = 425.0
@@ -165,6 +177,7 @@ grow_horizontal = 0
 visible = false
 
 [node name="menuButton" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 6
 offset_left = 362.0
 offset_top = 680.0
 offset_right = 493.0
@@ -176,6 +189,7 @@ texture_normal = ExtResource("10_rvhmu")
 visible = false
 
 [node name="shopButton" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 6
 offset_left = 54.0
 offset_top = 681.0
 offset_right = 185.0
@@ -211,7 +225,6 @@ offset_bottom = 57.0
 text = "FarmValue :"
 
 [node name="Timer" type="Timer" parent="CanvasLayer/FarmValue"]
-autostart = true
 
 [node name="moneyPerSec" type="Label" parent="CanvasLayer"]
 visible = false
@@ -240,7 +253,7 @@ offset_bottom = 1062.0
 scale = Vector2(0.35, 0.35)
 theme_override_styles/normal = SubResource("StyleBoxFlat_i3ye8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i3ye8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i3ye8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8tvvs")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_i3ye8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_i3ye8")
 
@@ -265,10 +278,14 @@ stretch_mode = 5
 [node name="Sprite2D" parent="CanvasLayer/runButton" instance=ExtResource("16_8wktm")]
 position = Vector2(674.286, 128.571)
 
+[node name="SwitchTimer" type="Timer" parent="CanvasLayer/runButton"]
+wait_time = 0.5
+
 [node name="Field" parent="CanvasLayer" instance=ExtResource("2_cgc2k")]
 visible = false
 
 [node name="JuiceLvl" type="Button" parent="CanvasLayer"]
+texture_filter = 6
 offset_left = 21.0
 offset_top = 9.0
 offset_right = 96.0
@@ -280,6 +297,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_vp3a7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h5623")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/JuiceLvl"]
+texture_filter = 6
 layout_mode = 0
 offset_top = -21.0
 offset_right = 441.0
@@ -290,6 +308,7 @@ stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/JuiceLvl"]
 visible = false
+texture_filter = 6
 layout_mode = 0
 offset_left = -13.0
 offset_top = 63.0
@@ -1066,7 +1085,9 @@ autostart = true
 [connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/FarmValue/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/runButton" to="." method="_on_run_button_toggled"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/runButton/SwitchTimer" to="." method="_on_switch_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/JuiceLvl" to="." method="_on_juice_lvl_pressed"]
 [connection signal="timeout" from="CanvasLayer/JuiceLvl/FruitMultiplier/FruitLabelMultTimer" to="." method="_on_fruit_label_mult_timer_timeout"]
 [connection signal="timeout" from="NavigationRegion2D/SpawnTimer" to="." method="_on_spawn_timer_timeout"]

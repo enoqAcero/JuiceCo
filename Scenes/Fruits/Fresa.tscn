@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bt6wri77mv4n1"]
 
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_qah86"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/FresaSprite.tscn" id="2_xqcsg"]
+[ext_resource type="PackedScene" uid="uid://bxp8iwrrsfhjb" path="res://Scenes/Fruits/FresaSprite.tscn" id="2_xqcsg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2kpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+modulate = Color(0.988235, 0.988235, 0.988235, 1)
 collision_layer = 0
 collision_mask = 0
 motion_mode = 1
