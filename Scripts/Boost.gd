@@ -4,7 +4,7 @@ extends Node2D
 @onready var boosts_list := $Panel/ScrollContainer/VBoxContainer
 
 func _ready():
-	reset_boosts()
+	reset()
 	fill_boosts_list()
 	
 func fill_boosts_list():
@@ -48,6 +48,6 @@ func buy_boost(index:int):
 func _on_close_button_pressed():
 	hide()
 	
-func reset_boosts():
+func reset():
 	for i in range(GlobalVariables.player.Boosts.size()):
 		GlobalVariables.player.Boosts[i].active = false

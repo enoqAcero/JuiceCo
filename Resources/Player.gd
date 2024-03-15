@@ -24,10 +24,7 @@ class_name Player
 
 #JuiceHouse Variables
 @export var JuiceHouse : Array[JuiceHouseData]
-@export var house0Id = 1
-@export var house1Id : int
-@export var house2Id : int
-@export var house3Id : int
+
 #Current JuiceHouse Data
 @export var CurrentJuiceHouse : Array[CurrentHouseData]
 
@@ -71,3 +68,4 @@ class_name Player
 
 #Boosts
 @export var Boosts : Array[BoostData]
+

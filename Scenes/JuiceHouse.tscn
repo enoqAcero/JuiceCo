@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/JuiceHouse.gd" id="1_eijnn"]
 [ext_resource type="PackedScene" uid="uid://csa81m87x06kh" path="res://Scenes/JuiceHouseBox2.tscn" id="2_o7sdm"]
 [ext_resource type="PackedScene" uid="uid://cnjd2fjj2c4d8" path="res://Scenes/JuiceHouseBox1.tscn" id="3_pb1vb"]
-[ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="4_y2w3t"]
-[ext_resource type="PackedScene" uid="uid://bkqy3jn8w0t35" path="res://Scenes/PanelSecondary.tscn" id="6_tvylr"]
-[ext_resource type="PackedScene" uid="uid://bl108owjecijr" path="res://Scenes/JuiceHouseCatalogItem.tscn" id="7_x7mws"]
+[ext_resource type="PackedScene" path="res://Scenes/Panel.tscn" id="4_y2w3t"]
+[ext_resource type="PackedScene" path="res://Scenes/PanelSecondary.tscn" id="6_tvylr"]
+[ext_resource type="PackedScene" uid="uid://btcar6krop71o" path="res://Scenes/JuiceHouseCatalogItem.tscn" id="7_x7mws"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r8hlm"]
 font_color = Color(0, 0, 0, 1)
@@ -239,6 +239,9 @@ offset_bottom = 586.0
 [node name="Panel" parent="Menus/HouseList" index="1"]
 visible = false
 
+[node name="Label2" parent="Menus/HouseList" index="2"]
+text = "Owned houses"
+
 [node name="Panel2" parent="Menus/HouseList" index="3"]
 visible = false
 offset_bottom = 586.0
@@ -248,12 +251,14 @@ visible = false
 offset_bottom = 586.0
 
 [node name="Label" parent="Menus/HouseList" index="5"]
+visible = false
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 13
 
 [node name="ScrollContainer" parent="Menus/HouseList" index="6"]
+offset_top = 116.0
 offset_bottom = 578.0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
@@ -261,12 +266,15 @@ vertical_scroll_mode = 3
 [node name="VBoxContainer" parent="Menus/HouseList/ScrollContainer" index="0"]
 alignment = 1
 
+[node name="Button" parent="Menus/HouseList" index="7"]
+flat = true
+
 [node name="HouseCatalog" parent="Menus" instance=ExtResource("6_tvylr")]
 offset_top = 0.0
 offset_bottom = 0.0
 
 [node name="Label" parent="Menus/HouseCatalog/Panel" index="0"]
-text = "Juice Houses"
+text = "Available houses"
 
 [node name="Control2" parent="Menus/HouseCatalog/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("7_x7mws")]
 layout_mode = 2

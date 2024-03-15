@@ -1,13 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0l18sejopv0v"]
 
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_1dwym"]
-[ext_resource type="PackedScene" uid="uid://dkrqagwff34a0" path="res://Scenes/Fruits/AguacateSprite.tscn" id="2_awamr"]
+[ext_resource type="PackedScene" path="res://Scenes/Fruits/AguacateSprite.tscn" id="2_awamr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aalux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_1dwym")
@@ -22,6 +24,8 @@ position = Vector2(0, -3)
 scale = Vector2(0.09, 0.09)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_30c4l")

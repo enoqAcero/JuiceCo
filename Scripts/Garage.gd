@@ -8,3 +8,6 @@ func _on_button_pressed():
 
 func _on_close_pressed():
 	$AnimationPlayer.play("venclose")
+	
+func reset():
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3omn1e8ou8bn"]
+[gd_scene load_steps=9 format=3 uid="uid://c3omn1e8ou8bn"]
 
 [ext_resource type="Texture2D" uid="uid://bfakg5pe8hkrh" path="res://Assets/ProgressBars/BackADV2.png" id="1_flktn"]
 [ext_resource type="Texture2D" uid="uid://bccm2miawh00b" path="res://Assets/ProgressBars/CircleFull.png" id="2_js3t0"]
@@ -8,15 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="4_ijesu"]
 [ext_resource type="Texture2D" uid="uid://btorl2i4nm8j0" path="res://Assets/Buttons/BotonBuy_1.png" id="7_jg21x"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vov0k"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1g2i6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_63eue"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15eut"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iosob"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1w6g"]
+bg_color = Color(1, 0.345098, 0.270588, 0)
 
 [node name="FruitMeter" type="TextureRect"]
 custom_minimum_size = Vector2(460, 137)
@@ -31,7 +24,7 @@ anchors_preset = 0
 
 [node name="FullCircle" type="TextureRect" parent="Fruit"]
 visible = false
-modulate = Color(0.741176, 0.768627, 0, 0.486275)
+self_modulate = Color(0.670588, 0.741176, 0.529412, 1)
 layout_mode = 0
 offset_left = 7.0
 offset_top = 9.0
@@ -46,7 +39,6 @@ offset_left = 117.0
 offset_top = 35.0
 offset_right = 456.0
 offset_bottom = 95.0
-value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("2_ll7ck")
 script = ExtResource("3_fi17s")
@@ -207,12 +199,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ProduceButton" type="Button" parent="."]
-layout_mode = 0
+custom_minimum_size = Vector2(126, 129)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.274
+anchor_bottom = 0.964
 offset_top = 3.0
-offset_right = 126.0
-offset_bottom = 132.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vov0k")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1g2i6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_63eue")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_15eut")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_iosob")
+offset_right = -0.04
+offset_bottom = -0.068
+theme_override_styles/normal = SubResource("StyleBoxFlat_h1w6g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h1w6g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1w6g")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h1w6g")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h1w6g")
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_top = 9.0
+offset_right = -20.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+text = "Amount produced"
+horizontal_alignment = 2

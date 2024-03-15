@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Garage.gd" id="1_bjwhx"]
 [ext_resource type="Script" path="res://Scripts/vehicles.gd" id="1_urs3p"]
-[ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="2_rcs0u"]
+[ext_resource type="PackedScene" path="res://Scenes/Panel.tscn" id="2_rcs0u"]
 [ext_resource type="Script" path="res://Scripts/VehiclesStoreScript.gd" id="3_8njxs"]
-[ext_resource type="PackedScene" uid="uid://bkqy3jn8w0t35" path="res://Scenes/PanelSecondary.tscn" id="4_44wng"]
+[ext_resource type="PackedScene" path="res://Scenes/PanelSecondary.tscn" id="4_44wng"]
 
 [sub_resource type="Animation" id="Animation_me302"]
 length = 0.001
@@ -123,15 +123,31 @@ offset_bottom = 520.0
 [node name="Panel" parent="VehicleList" index="1"]
 visible = false
 
+[node name="Label2" parent="VehicleList" index="2"]
+text = "Owned vehicles"
+
 [node name="Panel2" parent="VehicleList" index="3"]
+visible = false
 offset_bottom = 520.0
 
 [node name="Panel3" parent="VehicleList" index="4"]
+visible = false
 offset_bottom = 565.0
 
+[node name="Label" parent="VehicleList" index="5"]
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+
 [node name="ScrollContainer" parent="VehicleList" index="6"]
-offset_bottom = 557.0
+offset_top = 234.0
+offset_bottom = 498.0
 script = ExtResource("1_urs3p")
+
+[node name="Button" parent="VehicleList" index="7"]
+flat = true
 
 [node name="VehicleCatalog" parent="." instance=ExtResource("4_44wng")]
 

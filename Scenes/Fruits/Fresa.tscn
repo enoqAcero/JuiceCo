@@ -1,13 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bt6wri77mv4n1"]
 
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_qah86"]
-[ext_resource type="PackedScene" uid="uid://bxp8iwrrsfhjb" path="res://Scenes/Fruits/FresaSprite.tscn" id="2_xqcsg"]
+[ext_resource type="PackedScene" path="res://Scenes/Fruits/FresaSprite.tscn" id="2_xqcsg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2kpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_qah86")
@@ -18,6 +20,10 @@ position = Vector2(-6e-06, 0)
 shape = SubResource("CircleShape2D_t2kpa")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_30c4l")
@@ -38,9 +44,10 @@ autostart = true
 one_shot = true
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_xqcsg")]
-position = Vector2(0, -3)
+position = Vector2(0, 10)
 scale = Vector2(0.09, 0.09)
 autoplay = ""
+offset = Vector2(0, -144.444)
 
 [connection signal="timeout" from="posTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="randPosTimer" to="." method="_on_rand_pos_timer_timeout"]

@@ -395,5 +395,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="bankmodal/bankclose" to="." method="_on_bankclose_pressed"]
 [connection signal="pressed" from="GridContainer/Label6/Sprite2D/bankbutton" to="." method="_on_bankbutton_pressed"]
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/TextureButton2" to="." method="reset"]
 
 [editable path="Panel"]

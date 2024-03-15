@@ -27,12 +27,19 @@ var abbFactor : float
 #var totalMelonCount = 0
 #var totalSandiaCount : float = 0
 #var totalFruits = 0
-var total_fruit_count : Array[int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-var totalFruits : int = 0 
+#var total_fruit_count : Array[int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+#var totalFruits : int = 0 
+#
+#var multiplier : float = 0
+#var multiplierSteps = 0.1
 
-var multiplier : float = 0
-var multiplierSteps = 0.1
 
+var save_path = "res://Save/PlayerSave.tres"
+
+func save():
+	player.time = Time.get_datetime_string_from_system()
+	ResourceSaver.save(GlobalVariables.player, save_path)
+	
 func _ready():
 	loadResource()
 	
@@ -47,7 +54,7 @@ func loadResource():
 	
 	SignalManager.loadData.emit()
 	SignalManager.loadHouses.emit()
-	getHouseLvl()
+#	getHouseLvl()
 		
 #gets the abbreviation needed for the amount of money sent to the function
 #and gets the abbFactor to
@@ -182,14 +189,14 @@ func getMoneyString(money : float):
 	
 	return result
 	
-	
-func getHouseLvl():
-	for i in range (0, 3):
-		if i == 0:
-			player.CurrentJuiceHouse[i].houseLvl = player.house0Id - 1
-		elif i == 1:
-			player.CurrentJuiceHouse[i].houseLvl = player.house1Id - 1
-		elif i == 2:
-			player.CurrentJuiceHouse[i].houseLvl = player.house2Id - 1
-		elif i == 3:
-			player.CurrentJuiceHouse[i].houseLvl = player.house3Id - 1
+#
+#func getHouseLvl():
+#	for i in range (0, 3):
+#		if i == 0:
+#			player.CurrentJuiceHouse[i].houseLvl = player.house0Id - 1
+#		elif i == 1:
+#			player.CurrentJuiceHouse[i].houseLvl = player.house1Id - 1
+#		elif i == 2:
+#			player.CurrentJuiceHouse[i].houseLvl = player.house2Id - 1
+#		elif i == 3:
+#			player.CurrentJuiceHouse[i].houseLvl = player.house3Id - 1

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl108owjecijr"]
+[gd_scene load_steps=5 format=3 uid="uid://btcar6krop71o"]
 
 [ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="1_0yhqd"]
-[ext_resource type="PackedScene" uid="uid://cqbm3y3nw60ls" path="res://Scenes/universe_animated_texture.tscn" id="2_70qn3"]
+[ext_resource type="PackedScene" path="res://Scenes/universe_animated_texture.tscn" id="2_70qn3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6iyy"]
 bg_color = Color(0, 0.721569, 0.329412, 1)

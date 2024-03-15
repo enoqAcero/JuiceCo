@@ -16,15 +16,14 @@ var progress_calculation := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	load_fruit_production_timers()
 	reset_levels()
 	reset_farmers()
-	reset_speed()
-	
 	load_farmer_list()
 	hide_scrolls()
-	for i in range(15):
-		var meter = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i))
-		meter.get_node("BuyButton").pressed.connect(Callable(levelUpFruit).bind(i))
+#	for i in range(15):
+#		var meter = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i))
+#		
 	loadAllPanelData()
 	
 	$Panel/FruitsScroll.show()
@@ -53,16 +52,28 @@ func loadPanelData(index : int):
 	if fruit_data.acquired:
 		
 		fruit_item.get_node("BuyButton/Buy").text = "Increase level"
+		fruit_item.get_node("BuyButton").pressed.connect(Callable(levelUpFruit).bind(index))
 		fruit_item.get_node("BuyButton").disabled = GlobalVariables.player.money < fruit_data.level_cost
 			
 		fruit_item.get_node("Bar").show()
 		fruit_item.get_node("Wood").show()
 		fruit_item.get_node("BuyButton").show()
 		fruit_item.get_node("Remaining").show()
+		fruit_item.get_node("Amount").show()
+		fruit_item.get_node("ProduceButton").show()
 		
 		fruit_item.get_node("Fruit/FullCircle").hide()
 		if GlobalVariables.player.Farmer[index].active:
 			fruit_item.get_node("Fruit/FullCircle").show()
+			fruit_item.get_node("ProduceButton").disabled = true
+			if GlobalVariables.player.Fruits[index].production_timer.is_stopped():
+				produce_fruit(index)
+				fruit_item.get_node("Bar").start_progress(index)
+		else:
+			fruit_item.get_node("ProduceButton").disabled = false
+			fruit_item.get_node("ProduceButton").pressed.connect( Callable(produce_fruit).bind(index) )
+		fruit_item.get_node("Amount").text = GlobalVariables.getMoneyString(fruit_data.produced_fruits) + " fruits"
+		fruit_item.get_node("Wood/Level").text = str( fruit_data.level + 1 ) + "/" + str( calculateTierLevel(index) )
 		
 	else:
 		fruit_item.get_node("AcquireButton").show()
@@ -73,57 +84,47 @@ func loadPanelData(index : int):
 		fruit_item.get_node("AcquireButton/Wood/Cost").text = cost_text
 		fruit_item.get_node("AcquireButton/Button/Name").text = "Acquire " + GlobalVariables.player.Fruits[index].name + "!"
 		fruit_item.get_node("AcquireButton/Button").pressed.connect(Callable(acquire_fruit).bind(index))
-		fruit_item.get_node("ProduceButton").pressed.connect(Callable(calculate_production).bind(index))
+#		fruit_item.get_node("ProduceButton").pressed.connect(Callable(produce_fruit).bind(index))
 
 	var currentPanelButtonCost = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/BuyButton/Amount")
 	var currentPanelLvlLabel = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Wood/Level")
 	
 	currentPanelButtonCost.text = "$ " + GlobalVariables.getMoneyString(GlobalVariables.player.Fruits[index].level_cost)
-	if GlobalVariables.player.Fruits[index].speed == 0:
-		GlobalVariables.player.Fruits[index].speed = 10000
+#	if GlobalVariables.player.Fruits[index].speed == 0:
+#		GlobalVariables.player.Fruits[index].speed = 10000
 		
-	var tierText = calculateTierLevel(index)
-	if tierText == 20:
-		currentPanelLvlLabel.text = str(GlobalVariables.player.Fruits[index].level) + "/20"
-	else:
-		currentPanelLvlLabel.text = str(GlobalVariables.player.Fruits[index].level) + "/" + str(tierText)
+#	var tierText = calculateTierLevel(index)
+#	currentPanelLvlLabel.text = str(GlobalVariables.player.Fruits[index].level + 1) + "/" + str(tierText)
 			
 			
 			
 func calculateTierLevel(index : int):
 	var tierText = 20
-	if GlobalVariables.player.Fruits[index].level < 20:
-		tierText = 20
-	elif GlobalVariables.player.Fruits[index].level < 100:
-		tierText = ((GlobalVariables.player.Fruits[index].tier) * 20)
-	elif GlobalVariables.player.Fruits[index].level < 1000:
-		tierText = ((GlobalVariables.player.Fruits[index].tier - 4) * 100)
-	elif GlobalVariables.player.Fruits[index].level < 2000:
-		tierText = ((GlobalVariables.player.Fruits[index].tier - 9) * 200)
-	elif GlobalVariables.player.Fruits[index].level >= 2000:
-		tierText = ((GlobalVariables.player.Fruits[index].tier - 15) * 500)
+	var tier = GlobalVariables.player.Fruits[index].tier
+	
+	tierText = (tier + 1) * 20
 	
 	return tierText
 
 func levelUpFruit(index : int):
 	var cost = GlobalVariables.player.Fruits[index].level_cost
-	var mult = GlobalVariables.player.Fruits[index].multiplier
-	var level = GlobalVariables.player.Fruits[index].level
-	var tierText = calculateTierLevel(index)
-
 	if GlobalVariables.player.money < cost:
 		return
+	
+	GlobalVariables.player.Fruits[index].level += 1
+	var mult = GlobalVariables.player.Fruits[index].level_cost_multiplier
+	var level = GlobalVariables.player.Fruits[index].level
+	var tier =  GlobalVariables.player.Fruits[index].tier
 
 	GlobalVariables.player.money = GlobalVariables.player.money - cost
 	GlobalVariables.player.Fruits[index].level_cost = cost + cost *  mult /100
-	GlobalVariables.player.Fruits[index].level += 1
-
-	if level >= tierText - 1:
+	
+	if  level >= calculateTierLevel(index) - 1:
 		GlobalVariables.player.Fruits[index].tier += 1
-		saveCurrentProgress(index)
-		cashOut(index)
+#		saveCurrentProgress(index)
+#		cash_out(index)
 
-	loadPanelData(index)
+	loadAllPanelData()
 	if not GlobalVariables.player.Farmer[index].active:
 		get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 
@@ -135,33 +136,33 @@ func acquire_fruit(index:int):
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 	
 
-func saveCurrentProgress(index : int):
-		var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
-		var fullProgressBar = currentProgressBar.get_node("FullBar")
-		
-		calculate_progress(index)
-		
-		if GlobalVariables.player.Fruits[index].level >= 80:
-			fullProgressBar.show()
+#func saveCurrentProgress(index : int):
+#		var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
+#		var fullProgressBar = currentProgressBar.get_node("FullBar")
+#
+#		calculate_progress(index)
+#
+#		if GlobalVariables.player.Fruits[index].level >= 80:
+#			fullProgressBar.show()
 
-func calculate_progress(index : int):
-	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
-	var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
-	var nextProgressValueInPer
-	
-	if currentProgressValueInMin >= GlobalVariables.player.Fruits[index].speed:
-		currentProgressValueInMin = 0
-	else:
-		nextProgressValueInPer = (currentProgressValueInMin * 100)/nextSpeed
-		
-	if currentProgressValueInMin == 0:
-		GlobalVariables.player.Fruits[index].currentProgress = 0
-	else:
-		GlobalVariables.player.Fruits[index].currentProgress = nextProgressValueInPer
-	
-	GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
+#func calculate_progress(index : int):
+#	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
+#	var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
+#	var nextProgressValueInPer
+#
+#	if currentProgressValueInMin >= GlobalVariables.player.Fruits[index].speed:
+#		currentProgressValueInMin = 0
+#	else:
+#		nextProgressValueInPer = (currentProgressValueInMin * 100)/nextSpeed
+#
+#	if currentProgressValueInMin == 0:
+#		GlobalVariables.player.Fruits[index].currentProgress = 0
+#	else:
+#		GlobalVariables.player.Fruits[index].currentProgress = nextProgressValueInPer
+#
+#	GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
 
-func cashOut(index : int):
+func cash_out(index : int):
 
 	var houseId = rng.randi_range(0, GlobalVariables.houseCount)
 	var houseLvl
@@ -384,9 +385,7 @@ func load_farmer_list():
 			farmer_item.get_node("Button").disabled = true
 		
 		farmer_list.add_child(farmer_item)
-		
-		
-		
+
 func load_epic_farmer_list():
 	
 	var general_info = farmer_general_scene.instantiate()
@@ -429,7 +428,7 @@ func load_epic_farmer_list():
 		farmer_item.get_node("Button").pressed.connect(Callable(buy_epic_farmer).bind(i))
 		
 		if farmer.epic_cost >= GlobalVariables.player.money:
-			farmer_item.get_node("Button").disable - true
+			farmer_item.get_node("Button").disabled = true
 		
 		if not farmer.active:
 			continue
@@ -447,6 +446,7 @@ func buy_farmer(i:int):
 		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Farmer[i].cost
 		GlobalVariables.player.Farmer[i].active = true
 		get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i) + "/Fruit/Sprite2D").play("walk")
+		loadAllPanelData()
 		load_farmer_list()
 		
 func buy_epic_farmer(i:int):
@@ -461,6 +461,7 @@ func reset_levels():
 		GlobalVariables.player.Fruits[i].level_cost = GlobalVariables.player.Fruits[i].cost
 		GlobalVariables.player.Fruits[i].tier = 0
 		GlobalVariables.player.Fruits[i].level = 0
+		GlobalVariables.player.Fruits[i].produced_fruits = 0
 	loadAllPanelData()
 	
 func reset_farmers():
@@ -471,17 +472,49 @@ func reset_farmers():
 	load_epic_farmer_list()
 	load_farmer_list()
 
-func reset_speed():
-	for i in range(GlobalVariables.player.Fruits.size()):
-		GlobalVariables.player.Fruits[i].speed = GlobalVariables.player.Fruits[i].initial_speed
-		
-
-
 func _on_options_timer_timeout():
 	$Panel/Options/AnimationPlayer.play("hide")
 	$Panel/Options/OptionsTimer.stop()
 
-func calculate_production(index:int):
-	var production_timer = Timer.new()
+func produce_fruit(index:int):
+	
+	if not GlobalVariables.player.Fruits[index].production_timer.is_stopped():
+		return
+
 	var fruit = GlobalVariables.player.Fruits[index]
 	
+	var time
+	if fruit.tier > 0:
+		time = fruit.production_time / ( (fruit.tier ) * 2 )
+	else:
+		time = fruit.production_time
+	GlobalVariables.player.Fruits[index].production_timer.wait_time = time
+	
+	GlobalVariables.player.Fruits[index].production_timer.timeout.connect( Callable(save_production).bind(index) )
+	GlobalVariables.player.Fruits[index].production_timer.start()
+	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar").start_progress( index )
+	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
+
+func save_production( index: int ):
+	
+	var fruit = GlobalVariables.player.Fruits[index]
+	
+	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar").tween.kill()
+	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar").value = 0
+	print(" Producing : " + str(fruit.level + 1) + " fruits")
+	GlobalVariables.player.Fruits[index].produced_fruits += fruit.level +1
+	
+	GlobalVariables.save()
+	loadAllPanelData()
+	
+	if GlobalVariables.player.Farmer[index].active:
+		produce_fruit( index )
+
+func load_fruit_production_timers():
+	for i in range(15):
+		add_child(GlobalVariables.player.Fruits[i].production_timer)
+		GlobalVariables.player.Fruits[i].production_timer.one_shot = true
+
+func reset():
+	reset_farmers()
+	reset_levels()

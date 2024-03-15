@@ -1,13 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkn711l1w8we6"]
 
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_kk1yv"]
-[ext_resource type="PackedScene" uid="uid://dygxujsc15txg" path="res://Scenes/Fruits/DuraznoSprite.tscn" id="2_ci4rs"]
+[ext_resource type="PackedScene" uid="uid://dtl6roi7cruco" path="res://Scenes/Fruits/DuraznoSprite.tscn" id="2_ci4rs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5i7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_kk1yv")

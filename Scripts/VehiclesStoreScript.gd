@@ -40,6 +40,9 @@ func fill_vehicle_catalog(transaction:String, slot:int, base_item = null):
 				item.upgrade_button.pressed.connect(Callable(purchase_vehicle).bind(slot, item))
 			'Upgrade':
 				item.upgrade_button.pressed.connect(Callable(upgrade_vehicle).bind(slot, item))
+				
+		if i > ( GlobalVariables.player.get("transport"+str(slot)+"Id") ):
+			item.upgrade_button.disabled = true
 	
 	scroll_vertical = 0.0
 

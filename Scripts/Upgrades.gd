@@ -4,7 +4,7 @@ extends Node2D
 @onready var upgrades_list := $Panel/ScrollContainer/VBoxContainer
 
 func _ready():
-	reset_upgrades()
+	reset()
 	fill_upgrades_list()
 	
 func fill_upgrades_list():
@@ -93,7 +93,7 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	fill_epic_upgrades_list()
 
-func reset_upgrades():
+func reset():
 	for upgrade in GlobalVariables.player.Upgrades:
 		upgrade.active = false
 		upgrade.epic_active = false

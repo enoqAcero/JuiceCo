@@ -24,8 +24,23 @@ func _ready():
 	
 func help():
 	pass
+
+
 func reset():
-	pass
+	var current_juice = GlobalVariables.player.juiceLevel
+	if current_juice < ( GlobalVariables.player.JuiceLevel.size() - 1 ):
+		var cost = GlobalVariables.player.JuiceLevel[ current_juice + 1].cost
+		var magnitude = Magnitudes.list[ GlobalVariables.player.JuiceLevel[ current_juice + 1].cost_magnitude ].value
+		cost *= magnitude
+		if cost <= GlobalVariables.player.money:
+			print( "Next juice level!" )
+			GlobalVariables.player.juiceLevel = current_juice + 1
+			GlobalVariables.player.money -= cost
+			get_parent().get_parent().reset_game()
+			GlobalVariables.save()
+		else:
+			print( "Can't upgrade, insufficient funds" )
+	
 func settings():
 	pass
 func about():

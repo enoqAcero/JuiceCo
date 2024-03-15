@@ -1,13 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bavgnyiutduu7"]
 
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_rv1wo"]
-[ext_resource type="PackedScene" uid="uid://b2o7bxvxqlrw5" path="res://Scenes/Fruits/PineappleSprite.tscn" id="2_xdlpo"]
+[ext_resource type="PackedScene" path="res://Scenes/Fruits/PineappleSprite.tscn" id="2_xdlpo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u4bt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_rv1wo")

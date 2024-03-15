@@ -7,7 +7,7 @@ var accel = 20
 var navAgent : NavigationAgent2D
 var TargetZone = null
 var follow = false
-var houseName : String
+var house : int
 
 var targetControl = false
 var dirX
@@ -15,12 +15,13 @@ var dirY
 var initialTarget = 200
 
 @export var fruit_number : int
+var liters : float
 
 func _ready():
 	navAgent = $Navigation/NavigationAgent2D
 	$posTimer.wait_time = 0.2
 	
-	TargetZone = get_parent().get_node(houseName)
+#	TargetZone = get_parent().get_node(houseName)
 	
 	navAgent.path_desired_distance = 1
 	navAgent.target_desired_distance = 1
@@ -50,6 +51,7 @@ func _physics_process(delta):
 
 
 func _on_timer_timeout():
+	TargetZone = get_parent().get_node("house" + str(house))
 	$Sprite2D.play("walk")
 	if follow == false:
 		follow = true

@@ -1,28 +1,406 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpo2g24224cbx"]
+[gd_scene load_steps=22 format=3 uid="uid://bpo2g24224cbx"]
 
 [ext_resource type="Script" path="res://Scripts/PhysicalJuiceHouse.gd" id="1_qxtah"]
 [ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="2_rcfv2"]
+[ext_resource type="Texture2D" uid="uid://bnd43yxfo0f31" path="res://Assets/JuiceHouse/JuiceShack.png" id="3_kln3u"]
+[ext_resource type="Texture2D" uid="uid://ccch7dg82gg4" path="res://Assets/JuiceHouse/JuiceHouse.png" id="4_aegsa"]
+[ext_resource type="Texture2D" uid="uid://po4unoiwkts8" path="res://Assets/JuiceHouse/BigJuiceHouse.png" id="5_ujbet"]
+[ext_resource type="Texture2D" uid="uid://b1wiqwuw5yg3c" path="res://Assets/JuiceHouse/BiggerJuiceHouse.png" id="6_scc20"]
+[ext_resource type="Texture2D" uid="uid://ffhcc8j55841" path="res://Assets/JuiceHouse/BiggestJuiceHouse.png" id="7_nuut8"]
+[ext_resource type="Texture2D" uid="uid://b4sn174iilebc" path="res://Assets/JuiceHouse/Fruitplex.png" id="8_xomwp"]
+[ext_resource type="Texture2D" uid="uid://c5nq45hpfaons" path="res://Assets/JuiceHouse/SuikaWarehouse.png" id="9_mdeut"]
+[ext_resource type="Texture2D" uid="uid://3uypniyw3mx7" path="res://Assets/JuiceHouse/TheTank.png" id="10_hlg7u"]
+[ext_resource type="Texture2D" uid="uid://dcy8fflsavkss" path="res://Assets/JuiceHouse/JuiceCo.png" id="11_6jdx1"]
+[ext_resource type="Texture2D" uid="uid://mslomx47fgpk" path="res://Assets/JuiceHouse/Vesuvjuice.png" id="12_m0lno"]
+[ext_resource type="Texture2D" uid="uid://ctspr3c0bggx5" path="res://Assets/JuiceHouse/Fruitscraper.png" id="13_ovnei"]
+[ext_resource type="Texture2D" uid="uid://bwq5x7xnq46mt" path="res://Assets/JuiceHouse/FruitsKhalifa.png" id="14_xjwjv"]
+[ext_resource type="Texture2D" uid="uid://glki3ytrhjr0" path="res://Assets/JuiceHouse/SixFruits.png" id="15_v3tpr"]
+[ext_resource type="Texture2D" uid="uid://bad3jl5swkqa6" path="res://Assets/JuiceHouse/SeaOfJuice.png" id="16_mraus"]
+[ext_resource type="Texture2D" uid="uid://dh1bp8avhuvgb" path="res://Assets/JuiceHouse/VitaminCty.png" id="17_n5f6v"]
+[ext_resource type="Texture2D" uid="uid://dbeqs30f02x5g" path="res://Assets/JuiceHouse/NFJA.png" id="18_cw86b"]
+[ext_resource type="Texture2D" uid="uid://bccmptrdswiew" path="res://Assets/JuiceHouse/JuiceWorld.png" id="19_mbmfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivvtg"]
-size = Vector2(27, 41)
+size = Vector2(9.5, 12.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0t1"]
-size = Vector2(40, 56)
+size = Vector2(4, 56)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="house0" type="StaticBody2D"]
+z_index = 1
+position = Vector2(-504, 292)
+scale = Vector2(2, 2)
 script = ExtResource("1_qxtah")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.09, 0.09)
-texture = ExtResource("2_rcfv2")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(12, 16.5)
 shape = SubResource("RectangleShape2D_ivvtg")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -5)
 shape = SubResource("RectangleShape2D_pn0t1")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="type1" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(36, 20)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_rcfv2")
+
+[node name="Button" type="Button" parent="type1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -429.0
+offset_right = -264.0
+offset_bottom = -409.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type2" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(40, 25)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_kln3u")
+
+[node name="Button" type="Button" parent="type2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -478.0
+offset_top = -410.0
+offset_right = -478.0
+offset_bottom = -410.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type3" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(42.5, 20)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("4_aegsa")
+
+[node name="Button" type="Button" parent="type3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -567.5
+offset_top = -482.5
+offset_right = -567.5
+offset_bottom = -482.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type4" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(42.5, 6)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("5_ujbet")
+
+[node name="Button" type="Button" parent="type4"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -567.5
+offset_top = -635.5
+offset_right = -567.5
+offset_bottom = -635.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type5" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(40, 27.5)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("6_scc20")
+
+[node name="Button" type="Button" parent="type5"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -378.0
+offset_right = -520.0
+offset_bottom = -378.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type6" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(36, 4.5)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_nuut8")
+
+[node name="Button" type="Button" parent="type6"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -964.0
+offset_top = -916.0
+offset_right = -964.0
+offset_bottom = -916.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type7" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(40, -23)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_xomwp")
+
+[node name="Button" type="Button" parent="type7"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -375.5
+offset_top = -727.5
+offset_right = -375.5
+offset_bottom = -727.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type8" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(48, 34)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_mdeut")
+
+[node name="Button" type="Button" parent="type8"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1340.5
+offset_top = -995.5
+offset_right = -1340.5
+offset_bottom = -995.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type9" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(52, -2)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("10_hlg7u")
+
+[node name="Button" type="Button" parent="type9"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -780.5
+offset_top = -1100.5
+offset_right = -780.5
+offset_bottom = -1100.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type10" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(52, 30)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("11_6jdx1")
+
+[node name="Button" type="Button" parent="type10"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -855.5
+offset_top = -620.5
+offset_right = -855.5
+offset_bottom = -620.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type11" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(48, 22)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("12_m0lno")
+
+[node name="Button" type="Button" parent="type11"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -770.0
+offset_top = -750.0
+offset_right = -770.0
+offset_bottom = -750.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type12" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(32, -29)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_ovnei")
+
+[node name="Button" type="Button" parent="type12"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -513.0
+offset_right = -290.0
+offset_bottom = -513.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type13" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(44, -55.5)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("14_xjwjv")
+
+[node name="Button" type="Button" parent="type13"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -278.0
+offset_top = -883.0
+offset_right = -278.0
+offset_bottom = -883.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type14" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(64, 38)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_v3tpr")
+
+[node name="Button" type="Button" parent="type14"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -710.5
+offset_top = -555.5
+offset_right = -710.5
+offset_bottom = -555.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type15" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(70.5, 54)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("16_mraus")
+
+[node name="Button" type="Button" parent="type15"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1040.5
+offset_top = -555.5
+offset_right = -1040.5
+offset_bottom = -555.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type16" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(52, 18)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("17_n5f6v")
+
+[node name="Button" type="Button" parent="type16"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1000.5
+offset_top = -941.5
+offset_right = -1000.5
+offset_bottom = -941.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type17" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(56, 15)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("18_cw86b")
+
+[node name="Button" type="Button" parent="type17"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -780.0
+offset_top = -835.0
+offset_right = -780.0
+offset_bottom = -835.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type18" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(40, 6.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("19_mbmfs")
+
+[node name="Button" type="Button" parent="type18"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -614.5
+offset_top = -813.0
+offset_right = -614.5
+offset_bottom = -813.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="type19" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(40, 6.5)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("19_mbmfs")
+
+[node name="Button" type="Button" parent="type19"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -614.5
+offset_top = -813.0
+offset_right = -614.5
+offset_bottom = -813.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
