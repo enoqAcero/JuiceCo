@@ -16,8 +16,9 @@ enum UpgradeType { FEATURE, FARMER, FRUIT, TRANSPORT, JUICE }
 var save_path = "res://Save/PlayerSave.tres"
 
 func save():
-	player.time = Time.get_datetime_string_from_system()
+	
 	ResourceSaver.save(GlobalVariables.player, save_path)
+	print("Saving from global")
 	
 func _ready():
 	loadResource()
@@ -167,15 +168,3 @@ func getMoneyString(money : float):
 	result = newMoneyString + abb
 	
 	return result
-	
-#
-#func getHouseLvl():
-#	for i in range (0, 3):
-#		if i == 0:
-#			player.CurrentJuiceHouse[i].houseLvl = player.house0Id - 1
-#		elif i == 1:
-#			player.CurrentJuiceHouse[i].houseLvl = player.house1Id - 1
-#		elif i == 2:
-#			player.CurrentJuiceHouse[i].houseLvl = player.house2Id - 1
-#		elif i == 3:
-#			player.CurrentJuiceHouse[i].houseLvl = player.house3Id - 1

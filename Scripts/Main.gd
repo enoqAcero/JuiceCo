@@ -10,9 +10,11 @@ var controlEscenasMenu = false
 var controlEscenasShop = false
 var controlEscenasModalJuiceLvl = false
 
-var totalTransportCapacity = 0
-var totalJuiceHouseCapacity = 0
-
+#var totalTransportCapacity = 0
+#var totalJuiceHouseCapacity : float
+var house_capacity_occupation : Array:
+	get:
+		return get_total_house_capacity_occupation()
 var mango = preload("res://Scenes/Fruits/Mango.tscn")
 var aguacate = preload("res://Scenes/Fruits/Aguacate.tscn")
 var cereza = preload("res://Scenes/Fruits/Cereza.tscn")
@@ -51,6 +53,7 @@ var spawn_list : Array
 @onready var garage := $CanvasLayer/Garage
 @onready var houses := $CanvasLayer/JuiceHouse
 
+
 func _ready():
 	
 	runTimerNode = $CanvasLayer/runButton/RunTimer
@@ -61,7 +64,7 @@ func _ready():
 	juiceLevelIcon = $CanvasLayer/JuiceLvl/Icon
 	
 	GlobalVariables.loadResource()
-	SignalManager.loadData.connect(loadData)
+#	SignalManager.loadData.connect(loadData)
 	
 	SignalManager.loadData.emit()
 	SignalManager.loadHouses.emit()
@@ -69,23 +72,9 @@ func _ready():
 	spawn_spots.reverse()
 	
 	load_houses()
-	
-	reset_game()
-	reset_juice_level()
-	
-	print( Magnitudes.TRESVIGINTILLION.value )
 
 func _process(_delta):
 
-	# Control del marcador del multiplicador		
-#	if GlobalVariables.multiplier <= GlobalVariables.multiplierSteps/10:
-#		GlobalVariables.multiplier = 0
-
-	# Actualizacion del marcador del multiplicador
-#	if GlobalVariables.multiplier > 0:
-#		multiplierLabel.text = "x " + str("%.1f" % GlobalVariables.multiplier)
-	
-	# Actualizacion del icono de jugo
 	juiceLevelIcon.texture = GlobalVariables.player.JuiceLevel[GlobalVariables.player.juiceLevel].skin
 
 func load_houses():
@@ -99,27 +88,27 @@ func load_houses():
 			get_node("house" + str(i)).show_type( house.type )
 			
 #obtener la capacidad total de los transportes
-func getTotalTransportCapacity():
-	totalTransportCapacity = 0
-	var trasportIdArray = [GlobalVariables.player.transport0Id, GlobalVariables.player.transport1Id,GlobalVariables.player.transport2Id,GlobalVariables.player.transport3Id,GlobalVariables.player.transport4Id,GlobalVariables.player.transport5Id,GlobalVariables.player.transport6Id,GlobalVariables.player.transport7Id,GlobalVariables.player.transport8Id,GlobalVariables.player.transport9Id,GlobalVariables.player.transport10Id,GlobalVariables.player.transport11Id,GlobalVariables.player.transport12Id,GlobalVariables.player.transport13Id,GlobalVariables.player.transport14Id]
-	
-	for i in range (0, trasportIdArray.size()):
-		if trasportIdArray[i] >= 1:
-			var id = trasportIdArray[i]
-			totalTransportCapacity += GlobalVariables.player.Transport[id - 1].capacity
+#func getTotalTransportCapacity():
+#	totalTransportCapacity = 0
+#	var trasportIdArray = [GlobalVariables.player.transport0Id, GlobalVariables.player.transport1Id,GlobalVariables.player.transport2Id,GlobalVariables.player.transport3Id,GlobalVariables.player.transport4Id,GlobalVariables.player.transport5Id,GlobalVariables.player.transport6Id,GlobalVariables.player.transport7Id,GlobalVariables.player.transport8Id,GlobalVariables.player.transport9Id,GlobalVariables.player.transport10Id,GlobalVariables.player.transport11Id,GlobalVariables.player.transport12Id,GlobalVariables.player.transport13Id,GlobalVariables.player.transport14Id]
+#
+#	for i in range (0, trasportIdArray.size()):
+#		if trasportIdArray[i] >= 1:
+#			var id = trasportIdArray[i]
+#			totalTransportCapacity += GlobalVariables.player.Transport[id - 1].capacity
 
 #obtener la capacidad total de las casas de jugo
-func getJuiceHouseCapacity():
-	totalJuiceHouseCapacity = 0
-	GlobalVariables.houseCount = 0
-	
-	for i in range (4):
-		if GlobalVariables.player.CurrentJuiceHouse[i].type >= 1:
-			GlobalVariables.houseCount += 1
-			var id = GlobalVariables.player.CurrentJuiceHouse[i].type
-			totalJuiceHouseCapacity += GlobalVariables.player.JuiceHouse[id - 1].capacity
-	if GlobalVariables.houseCount >= 3:
-		GlobalVariables.houseCount = 3	
+#func getJuiceHouseCapacity():
+#	totalJuiceHouseCapacity = 0
+#	GlobalVariables.houseCount = 0
+#
+#	for i in range (4):
+#		if GlobalVariables.player.CurrentJuiceHouse[i].type >= 1:
+#			GlobalVariables.houseCount += 1
+#			var id = GlobalVariables.player.CurrentJuiceHouse[i].type
+#			totalJuiceHouseCapacity += GlobalVariables.player.JuiceHouse[id - 1].capacity
+#	if GlobalVariables.houseCount >= 3:
+#		GlobalVariables.houseCount = 3	
 				
 #func countFruits():
 #	for i in range(GlobalVariables.player.Fruits.size()):
@@ -132,60 +121,56 @@ func getJuiceHouseCapacity():
 #				GlobalVariables.total_fruit_count[j] += GlobalVariables.player.CurrentJuiceHouse[i].fruit_count[j]
 #				GlobalVariables.totalFruits += GlobalVariables.total_fruit_count[j]
 
-func calculateMoneyFromLiters(litrosPorSegundo : float):
-
-	var currentJuiceLevel = GlobalVariables.player.juiceLevel
-	var earningBonus = 1 + (GlobalVariables.player.seeds/100)
-	var moneyString : String
-	var multGananciasMultiplier = 1
-	
-	if GlobalVariables.player.multGananciasActive == true:
-		multGananciasMultiplier = 2
-		
-	#print("litros multiplier: ",multGananciasMultiplier)
-	if litrosPorSegundo >= totalTransportCapacity:
-		litrosPorSegundo = totalTransportCapacity
-		GlobalVariables.maxTransportCapacity = true 
-	
-	
-#	GlobalVariables.player.money += ((litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value * (GlobalVariables.multiplier + 1)) * multGananciasMultiplier) * earningBonus
-	moneyString = GlobalVariables.getMoneyString(GlobalVariables.player.money)
-	$CanvasLayer/JuiceLvl/Money.text = "$ " + moneyString
-	moneyString = GlobalVariables.getMoneyString(litrosPorSegundo * multGananciasMultiplier * earningBonus)
-	$CanvasLayer/moneyPerSec.text = "MoneyPerSec: " + moneyString
+#func calculateMoneyFromLiters(litrosPorSegundo : float):
+#
+#	var currentJuiceLevel = GlobalVariables.player.juiceLevel
+#	var earningBonus = 1 + (GlobalVariables.player.seeds/100)
+#	var moneyString : String
+#	var multGananciasMultiplier = 1
+#
+#	if GlobalVariables.player.multGananciasActive == true:
+#		multGananciasMultiplier = 2
+#
+#	if litrosPorSegundo >= totalTransportCapacity:
+#		litrosPorSegundo = totalTransportCapacity
+#		GlobalVariables.maxTransportCapacity = true 
+#
+#
+##	GlobalVariables.player.money += ((litrosPorSegundo * GlobalVariables.player.JuiceLevel[currentJuiceLevel].value * (GlobalVariables.multiplier + 1)) * multGananciasMultiplier) * earningBonus
+#	moneyString = GlobalVariables.getMoneyString(GlobalVariables.player.money)
+#	$CanvasLayer/JuiceLvl/Money.text = "$ " + moneyString
+#	moneyString = GlobalVariables.getMoneyString(litrosPorSegundo * multGananciasMultiplier * earningBonus)
+#	$CanvasLayer/moneyPerSec.text = "MoneyPerSec: " + moneyString
 
 
 #esta  funcion se manda a ejecturar despues de cargar el recurso en la variabale player
 #se usa para evitar utilizar una variable antes de cargar los datos de player
-func loadData():
-	getTotalTransportCapacity()
-	getJuiceHouseCapacity()
+#func loadData():
+#	getTotalTransportCapacity()
+#	getJuiceHouseCapacity()
 #	countFruits()
 
 
 func _notification(what):
-	return
-#	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
-#		GlobalVariables.player.time = Time.get_datetime_string_from_system()
-#		save()
-#		get_tree().paused = true
-#	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_READY:
-#		get_tree().paused = false
-#		calculateTime()
+	
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		GlobalVariables.player.time = Time.get_datetime_string_from_system()
+		GlobalVariables.save()
+		get_tree().paused = true
+	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_READY:
+#	if what == NOTIFICATION_APPLICATION_FOCUS_IN:
+		get_tree().paused = false
+		calculateTime()
 
 func calculateTime():
 	var maxTime = GlobalVariables.player.WaterTank.time * GlobalVariables.player.WaterTank.count
 	var prevTime = Time.get_unix_time_from_datetime_string(GlobalVariables.player.time)
 	var currentTime = Time.get_unix_time_from_datetime_string(Time.get_datetime_string_from_system())
 	var elapsedTime = currentTime - prevTime
-	
-	var timeProgressBarNode = $CanvasLayer/WaterTank.get_node("Panel/ProgressBar")
+
 	
 	if maxTime <= elapsedTime:
 		elapsedTime = maxTime
-	
-	timeProgressBarNode.max_value = maxTime
-	timeProgressBarNode.value = (maxTime - elapsedTime)
 	
 	calculateMoneyFromTime(elapsedTime)
 
@@ -200,48 +185,44 @@ func calculateMoneyFromTime(elapsedTime):
 	$CanvasLayer/WaterTank.show()
 	GlobalVariables.player.money += moneyEarned * earningBonus
 	calculateFruitsFromTime(elapsedTime)
-#	save()
+	GlobalVariables.save()
 	
 func calculateFruitsFromTime(elapsedTime):
 	var frutasTotal : float = 0
-	var litrosTotal : float = 0
-	var fruitsEarnedString : String
 	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Panel/Fruits")
+	var occupation_bar = $CanvasLayer/WaterTank.get_node("Panel/ProgressBar")
+	var any_earnings := false
 	
-	var fruit_count : Array[int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+	var fruit_count : Array[float] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 	
-	if not elapsedTime == 1:
-		for i in range(fruit_count.size()):
-			fruit_count[i] = ( elapsedTime / GlobalVariables.player.Fruits[i].speed ) * GlobalVariables.player.Fruits[i].level
-			
-			frutasTotal += fruit_count[i]
-			
-			for j in range( 0, GlobalVariables.houseCount ):
-				if GlobalVariables.player.CurrentJuiceHouse[j].type >= 1:
-					GlobalVariables.player.CurrentJuiceHouse[j].fruit_count[i] += (fruit_count[i] ) / GlobalVariables.houseCount
-				else:
-					GlobalVariables.player.CurrentJuiceHouse[i].fruit_count = 0
-					
-		if frutasTotal <= 999:
-			fruitsEarnedString = str(frutasTotal)
-		else:
-			fruitsEarnedString = GlobalVariables.getMoneyString(frutasTotal)
-		fruitsEarnedLabel.text = "Fruits Earned: \n" + fruitsEarnedString
+	# Calculate amount of fruits produced while away
+	for i in range(fruit_count.size()):
 		
-			
-	else:
-		for i in range( GlobalVariables.player.Fruits.size() ):
-			var fruit = GlobalVariables.player.Fruits[i]
-#			fruit_count[i] = (elapsedTime / fruit.speed) * fruit.level *fruit.liters
+		if not GlobalVariables.player.Fruits[i].acquired or not GlobalVariables.player.Farmer[i].active:
+			continue
 		
+		any_earnings = true
+		
+		fruit_count[i] = ( elapsedTime / GlobalVariables.player.Fruits[i].production_time ) * (GlobalVariables.player.Fruits[i].level + 1 )
+		frutasTotal += fruit_count[i]
+		
+		GlobalVariables.player.Fruits[i].produced_fruits += fruit_count[i]
+		
+	# If not production hide water tank
+	if not any_earnings: 
+		$CanvasLayer/WaterTank.hide()
+		return
 	
-#	countFruits()
+	# Calculate total capacity on Juice houses
+	var capacity_ocupation = house_capacity_occupation
+	occupation_bar.value = ( capacity_ocupation[1] / capacity_ocupation[0] ) * 100
+	
+	fruitsEarnedLabel.text = "Fruits Earned: \n" + GlobalVariables.getMoneyString( frutasTotal )
 	
 	
-func SandiasPorSeg(litros : float):
-	var sandias : float
-	sandias = litros/5047220699136000.00
-	return sandias
+	
+	print("Elapsed time: " + str(elapsedTime))
+	print("Fruits earned: " + str(frutasTotal))
 	
 # Oculta todas las escenas
 func hideScene():
@@ -280,15 +261,12 @@ func _on_menu_button_pressed():
 func _on_shop_button_pressed():
 	controlEscenasShop = showScene($CanvasLayer/Shop, controlEscenasShop)
 
-
 func juice_house_menu():
 	$CanvasLayer/JuiceHouse.show()
-
 
 func _on_button_2_pressed():
 	$CanvasLayer/Garage.show()
 	$CanvasLayer/Garage/VehicleList/ScrollContainer.fill_vehicle_list()
-
 
 func _on_run_button_pressed():
 	if runButtonControl == false:
@@ -342,7 +320,7 @@ func instanceFruit():
 	var fruit_data = GlobalVariables.player.Fruits[rand_i]
 
 	
-	
+	# Set target house
 	fruit_run.house = target_number
 	fruit_run.set_collision_layer_value( target_number+1, true )
 	fruit_run.set_collision_mask_value( target_number+1, true )
@@ -394,30 +372,15 @@ func fruit_spawner():
 			else:
 				continue
 
-
 func _on_run_timer_timeout():
 	runButtonControl = false
 
-
-#func _on_produce_juice_timer_timeout():
-#	var litros : float = 0.0
-#	var litrosPorSegundo : float = 0.0
-#
-#	for i in range( GlobalVariables.player.Fruits.size() ):
-#		litros = GlobalVariables.player.Fruits[i].produced_liters
-#
-#	litrosPorSegundo = litros * 0.1
-#
-#	GlobalVariables.player.litersPerSecond = litrosPorSegundo
-#	calculateMoneyFromLiters(litrosPorSegundo)
-
-
 func calculateFarmValue():
-	getJuiceHouseCapacity()
+#	getJuiceHouseCapacity()
 	calculateFruitsFromTime(1)
 	
 	var farmValueString : String
-	var houseCapacity = totalJuiceHouseCapacity
+#	var houseCapacity = totalJuiceHouseCapacity
 #	var P = GlobalVariables.total_fruit_count[14]
 #	var Pc = P * ((GlobalVariables.player.litersPerSecond/GlobalVariables.player.sandiasPerSecond) * 60)
 #	var Pu = (P - Pc)
@@ -436,11 +399,20 @@ func calculateFarmValue():
 	else:
 		farmValueString = GlobalVariables.getMoneyString(farmValue)
 	$CanvasLayer/FarmValue.text = "FarmValue: " + farmValueString
+
+func get_total_house_capacity_occupation():
+	var capacity : float
+	var occupation : float
+	# get total occupation and capacity
+	for house in GlobalVariables.player.CurrentJuiceHouse:
+		for liters in house.juice_liters:
+			occupation += liters
+		capacity += house.currentCapacity
 	
+	return [ capacity, occupation ]
 
 func _on_timer_timeout():
 	calculateFarmValue()
-
 
 func _on_juice_lvl_pressed():
 	controlEscenasModalJuiceLvl = showScene($CanvasLayer/ModalJuiceLvl, controlEscenasModalJuiceLvl)
@@ -452,8 +424,6 @@ func _on_spawn_timer_timeout():
 func _on_check_money_timer_timeout():
 	$CanvasLayer/JuiceLvl/Money.text = "$ " + GlobalVariables.getMoneyString( GlobalVariables.player.money )
 	$CanvasLayer/Field.loadAllPanelData()
-
-
 
 func _on_fruit_label_mult_timer_timeout():
 	$CanvasLayer/JuiceLvl/FruitMultiplier.text = ""
@@ -470,7 +440,6 @@ func reset_game():
 	garage.reset()
 	houses.reset()
 
-
 func _on_run_button_toggled(button_pressed):
 	print("Enabling switch")
 	if button_pressed:
@@ -478,6 +447,9 @@ func _on_run_button_toggled(button_pressed):
 	else:
 		$CanvasLayer/runButton/SwitchTimer.stop()
 
-
 func _on_switch_timer_timeout():
 	_on_run_button_pressed()
+
+func _on_save_timer_timeout():
+	GlobalVariables.save()
+	GlobalVariables.player.time = Time.get_datetime_string_from_system()

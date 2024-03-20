@@ -4,7 +4,7 @@ extends Node2D
 @onready var boosts_list := $Panel/ScrollContainer/VBoxContainer
 
 func _ready():
-	reset()
+
 	fill_boosts_list()
 	
 func fill_boosts_list():

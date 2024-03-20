@@ -5,7 +5,7 @@ class_name FruitData
 @export var name : String
 
 @export var cost : float # Cost to aqcuire the ability to produce a type of fruit
-var acquired : bool # If the ability to produce the fruit has been purchased
+@export var acquired : bool # If the ability to produce the fruit has been purchased
 
 @export var production_time : float
 @export var liters_per_fruit : float # Amount of liters a fruit can produce

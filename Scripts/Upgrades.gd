@@ -4,7 +4,7 @@ extends Node2D
 @onready var upgrades_list := $Panel/ScrollContainer/VBoxContainer
 
 func _ready():
-#	reset()
+
 	fill_upgrades_list()
 	
 	initialize_upgrades()

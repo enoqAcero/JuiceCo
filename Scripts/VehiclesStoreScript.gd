@@ -55,6 +55,7 @@ func purchase_vehicle(slot:int, item):
 		$"../../AnimationPlayer".play("venclose")
 	else:
 		item.upgrade_button.disabled = true
+	GlobalVariables.save()
 	
 func upgrade_vehicle(slot:int, item):
 	if GlobalVariables.player.money >= item.data.cost:
@@ -65,3 +66,5 @@ func upgrade_vehicle(slot:int, item):
 		$"../../AnimationPlayer".play("venclose")
 	else:
 		item.upgrade_button.disabled = true
+	GlobalVariables.save()
+

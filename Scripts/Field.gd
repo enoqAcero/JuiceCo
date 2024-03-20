@@ -17,13 +17,8 @@ var progress_calculation := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_fruit_production_timers()
-	reset_levels()
-	reset_farmers()
 	load_farmer_list()
-	hide_scrolls()
-#	for i in range(15):
-#		var meter = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i))
-#		
+	hide_scrolls()		
 	loadAllPanelData()
 	
 	$Panel/FruitsScroll.show()
@@ -141,32 +136,7 @@ func acquire_fruit(index:int):
 	loadAllPanelData()
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 	
-
-#func saveCurrentProgress(index : int):
-#		var currentProgressBar = get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar")
-#		var fullProgressBar = currentProgressBar.get_node("FullBar")
-#
-#		calculate_progress(index)
-#
-#		if GlobalVariables.player.Fruits[index].level >= 80:
-#			fullProgressBar.show()
-
-#func calculate_progress(index : int):
-#	var currentProgressValueInMin = (GlobalVariables.player.Fruits[index].currentProgress * GlobalVariables.player.Fruits[index].speed)/ 100
-#	var nextSpeed = GlobalVariables.player.Fruits[index].speed/2
-#	var nextProgressValueInPer
-#
-#	if currentProgressValueInMin >= GlobalVariables.player.Fruits[index].speed:
-#		currentProgressValueInMin = 0
-#	else:
-#		nextProgressValueInPer = (currentProgressValueInMin * 100)/nextSpeed
-#
-#	if currentProgressValueInMin == 0:
-#		GlobalVariables.player.Fruits[index].currentProgress = 0
-#	else:
-#		GlobalVariables.player.Fruits[index].currentProgress = nextProgressValueInPer
-#
-#	GlobalVariables.player.Fruits[index].speed = GlobalVariables.player.Fruits[index].speed / 2
+	GlobalVariables.save()	
 
 func cash_out(index : int):
 

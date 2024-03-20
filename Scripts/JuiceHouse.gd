@@ -147,9 +147,9 @@ func buyHouse(slot:int, index : int):
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("type", index + 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity) 
-		save()
+		GlobalVariables.save()
 	$AnimationPlayer.play("HideCatalog")
-	save()
+	GlobalVariables.save()
 	
 	# load Physical houses
 	get_parent().get_parent().load_houses()
@@ -162,17 +162,12 @@ func upgradeHouse(slot:int, index : int):
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("type", index + 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity) 
-		save()
+		GlobalVariables.save()
 	$AnimationPlayer.play("HideCatalog")
-	save()
+	GlobalVariables.save()
 	
 	# load Physical houses
 	get_parent().get_parent().load_houses()
-
-
-
-func save():
-	ResourceSaver.save(GlobalVariables.player, "res://Save/PlayerSave.tres")
 
 func _on_close_button_pressed():
 	hide()
@@ -191,7 +186,7 @@ func add_house(house):
 	
 	container.add_child(house)
 	
-	save()
+	GlobalVariables.save()
 	
 	# load Physical houses
 	get_parent().get_parent().load_houses()
@@ -215,7 +210,7 @@ func level_up(slot:int):
 		player_houses[slot].get_node("AnimationPlayer").play("level_up")
 		
 #		player_houses[slot].hide()
-		save()
+		GlobalVariables.save()
 #		print(GlobalVariables.player.money)
 	loadHouses()
 
