@@ -27,7 +27,7 @@ func fill_upgrades_list():
 		var item = item_scene.instantiate()
 
 		item.get_node("Icon").texture = upgrade.skin
-		item.get_node("Button").text = GlobalVariables.getMoneyString( upgrade.cost )
+		item.get_node("Button").text = GlobalVariables.getMoneyString( upgrade.cost * GlobalVariables.upgrade_cost_multiplier )
 		item.get_node("Button").show()
 		item.get_node("ButtonEpic").hide()
 		item.get_node("Name").text = upgrade.name
@@ -81,35 +81,71 @@ func buy_upgrade(index:int, epic:bool):
 	
 	print(index)	
 	
-	if GlobalVariables.player.money >= upgrade.cost:
-		GlobalVariables.player.money -= upgrade.cost
+	if GlobalVariables.player.money >= upgrade.cost * GlobalVariables.upgrade_cost_multiplier:
+		GlobalVariables.player.money -= upgrade.cost * GlobalVariables.upgrade_cost_multiplier
 		if epic:
 			GlobalVariables.player.Upgrades[index].epic_active = true
 			fill_epic_upgrades_list()
 		else:
 			GlobalVariables.player.Upgrades[index].active = true
 			fill_upgrades_list()
-			
-		
-		if upgrade.type == GlobalVariables.UpgradeType.FEATURE:
-			enable_feature_upgrade( index )
-			
-			GlobalVariables.save()
+		enable_feature_upgrade( index, true )
+		GlobalVariables.save()
 
 func initialize_upgrades():
 
 	for i in range( GlobalVariables.player.Upgrades.size() ):
+		
 		var upgrade = GlobalVariables.player.Upgrades[i]
-		if upgrade.active:
-			enable_feature_upgrade( i )
+		if upgrade.active or upgrade.epic_active:
+			enable_feature_upgrade( i, true )
+		
+		
 
-func enable_feature_upgrade( index ):
-	match index:
-		0: # Enable the fruit race switch
-			var run_switch = get_parent().get_node("runButton")
-			run_switch.toggle_mode = true
-			run_switch.button_pressed = true
-			print( "Enabling race switch" )
+func enable_feature_upgrade( index, enable ):
+	var upgrade = GlobalVariables.player.Upgrades[ index ]
+	match upgrade.type:
+		GlobalVariables.UpgradeType.FEATURE:
+			match index:
+				0: # Enable the fruit race switch
+					var run_switch = get_parent().get_node("runButton")
+					run_switch.toggle_mode = enable
+					run_switch.button_pressed = enable
+					if not enable:
+						run_switch.get_node("SwitchTimer").stop()
+						print( "Disabling switch" )
+		
+		GlobalVariables.UpgradeType.FARMER:
+			pass
+		GlobalVariables.UpgradeType.FRUIT_PRODUCTION:
+			if upgrade.target == -1:
+				GlobalVariables.production_multiplier *= upgrade.multiplier
+			else:
+				GlobalVariables.fruit_production_multiplier[ upgrade.target ] *= upgrade.multiplier
+			
+		GlobalVariables.UpgradeType.VEHICLE_CAPACITY:
+			GlobalVariables.vehicle_capacity_multiplier *= upgrade.multiplier
+			
+		GlobalVariables.UpgradeType.HOUSE_CAPACITY:
+			GlobalVariables.house_capacity_multiplier *= upgrade.multiplier
+			for i in GlobalVariables.player.CurrentJuiceHouse.size():
+				if GlobalVariables.player.CurrentJuiceHouse[i].type >= 0:
+					GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity *= GlobalVariables.house_capacity_multiplier
+			
+		GlobalVariables.UpgradeType.JUICE_VALUE:
+			GlobalVariables.juice_value_multiplier *= upgrade.multiplier
+			
+		GlobalVariables.UpgradeType.JUICE_PRODUCTION:
+			GlobalVariables.juice_production_multiplier *= upgrade.multiplier
+			
+		GlobalVariables.UpgradeType.RACE_SPEED:
+			GlobalVariables.fruit_race_multiplier *= upgrade.multiplier
+			
+		GlobalVariables.UpgradeType.RACE_SPAWN:
+			GlobalVariables.race_spawn_multiplier *= upgrade.multiplier
+			
+		GlobalVariables.UpgradeType.UPGRADE_COST:
+			GlobalVariables.upgrade_cost_multiplier *= upgrade.multiplier
 
 func _on_close_button_pressed():
 	hide()
@@ -121,7 +157,17 @@ func _on_button_2_pressed():
 	fill_epic_upgrades_list()
 
 func reset():
-	for upgrade in GlobalVariables.player.Upgrades:
+	for i in GlobalVariables.player.Upgrades.size():
+		var upgrade = GlobalVariables.player.Upgrades[i]
 		if upgrade != null:
-			upgrade.active = false
-			upgrade.epic_active = false
+			GlobalVariables.player.Upgrades[i].active = false
+			GlobalVariables.player.Upgrades[i].epic_active = false
+			
+			if upgrade.type == GlobalVariables.UpgradeType.FEATURE:
+				enable_feature_upgrade(i, false)
+			
+			GlobalVariables.save()
+		
+
+	
+	fill_upgrades_list()

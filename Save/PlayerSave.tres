@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Player" load_steps=221 format=3]
+[gd_resource type="Resource" script_class="Player" load_steps=222 format=3]
 
 [ext_resource type="Script" path="res://Resources/CurrentHouseData.gd" id="1_3qdky"]
 [ext_resource type="Script" path="res://Resources/BoostData.gd" id="1_4oj5t"]
@@ -68,6 +68,7 @@
 [ext_resource type="Texture2D" path="res://Assets/Juicelevel/ominjuice.png" id="35_00xnd"]
 [ext_resource type="Script" path="res://Resources/UpdateData.gd" id="64_j80cl"]
 [ext_resource type="Texture2D" path="res://Assets/Temp/JuiceGlassGlow.png" id="65_0hty7"]
+[ext_resource type="Texture2D" path="res://Assets/Buttons/scroll.png" id="67_sraiu"]
 
 [sub_resource type="Resource" id="Resource_vfgwi"]
 script = ExtResource("1_4oj5t")
@@ -76,6 +77,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_jh3su"]
 script = ExtResource("1_4oj5t")
@@ -84,6 +88,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_5q77g"]
 script = ExtResource("1_4oj5t")
@@ -92,6 +99,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_ghq0d"]
 script = ExtResource("1_4oj5t")
@@ -100,6 +110,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_laly7"]
 script = ExtResource("1_4oj5t")
@@ -108,6 +121,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_6puyd"]
 script = ExtResource("1_4oj5t")
@@ -116,6 +132,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_btkiy"]
 script = ExtResource("1_4oj5t")
@@ -124,6 +143,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_wowxl"]
 script = ExtResource("1_4oj5t")
@@ -132,6 +154,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_km4qm"]
 script = ExtResource("1_4oj5t")
@@ -140,6 +165,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_oa8ww"]
 script = ExtResource("1_4oj5t")
@@ -148,6 +176,9 @@ description = "Boost description"
 cost = 10000.0
 skin = ExtResource("65_0hty7")
 active = false
+type = 0
+target = 0
+multiplier = 0.0
 
 [sub_resource type="Resource" id="Resource_limjj"]
 script = ExtResource("1_3qdky")
@@ -155,7 +186,7 @@ houseLvl = 0
 upgradeLvl = 1
 type = 1
 currentCapacity = 250.0
-juice_liters = Array[float]([63.1, 186.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+juice_liters = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 
 [sub_resource type="Resource" id="Resource_61tbu"]
 script = ExtResource("1_3qdky")
@@ -188,7 +219,7 @@ description = "Meticulously overseeing the growth of each blueberry bush, AnaBer
 skin = ExtResource("3_uwhet")
 cost = 1000.0
 epic_cost = 1e+10
-active = true
+active = false
 epic = false
 
 [sub_resource type="Resource" id="Resource_e7y5q"]
@@ -198,7 +229,7 @@ description = "Passionately cultivating the sweetest and juiciest cherries, Cher
 skin = ExtResource("4_0k1dd")
 cost = 15000.0
 epic_cost = 9.22e+11
-active = true
+active = false
 epic = false
 
 [sub_resource type="Resource" id="Resource_n5wig"]
@@ -208,7 +239,7 @@ description = "With tender care and a sprinkle of love, Rosita tends to each str
 skin = ExtResource("5_wny7e")
 cost = 100000.0
 epic_cost = 4e+14
-active = true
+active = false
 epic = false
 
 [sub_resource type="Resource" id="Resource_lxdlw"]
@@ -218,7 +249,7 @@ description = "Sour yet steadfast, Simon Agrio is the mastermind behind the vibr
 skin = ExtResource("6_hmwih")
 cost = 500000.0
 epic_cost = 5e+17
-active = true
+active = false
 epic = false
 
 [sub_resource type="Resource" id="Resource_evpcw"]
@@ -228,7 +259,7 @@ description = "Quiet and patient, Momo nurtures succulent and aromatic peaches w
 skin = ExtResource("7_hwrg0")
 cost = 1.2e+06
 epic_cost = 6.6e+20
-active = true
+active = false
 epic = false
 
 [sub_resource type="Resource" id="Resource_4ie1y"]
@@ -334,12 +365,14 @@ epic = false
 script = ExtResource("1_hnv06")
 name = "Blueberry"
 cost = 5.0
-acquired = true
+acquired = false
 production_time = 1.0
 liters_per_fruit = 0.1
+level = 0
+level_cost = 5.0
 level_cost_multiplier = 5.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-produced_fruits = 97515
+produced_fruits = 0
 skin = ExtResource("2_vc0li")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdpd5"]
@@ -348,54 +381,64 @@ skin = ExtResource("2_vc0li")
 script = ExtResource("1_hnv06")
 name = "Cherry"
 cost = 70.0
-acquired = true
+acquired = false
 production_time = 3.0
-liters_per_fruit = 0.5
+liters_per_fruit = 7.0
+level = 0
+level_cost = 70.0
 level_cost_multiplier = 10.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-produced_fruits = 27755
+produced_fruits = 0
 skin = SubResource("AtlasTexture_vdpd5")
 
 [sub_resource type="Resource" id="Resource_fsb1x"]
 script = ExtResource("1_hnv06")
 name = "Strawberry"
 cost = 1053.7
-acquired = true
+acquired = false
 production_time = 6.0
-liters_per_fruit = 0.0
+liters_per_fruit = 63.0
+level = 0
+level_cost = 1053.7
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-produced_fruits = 8550
+produced_fruits = 0
 
 [sub_resource type="Resource" id="Resource_o2fer"]
 script = ExtResource("1_hnv06")
 name = "Lemon"
 cost = 10080.0
-acquired = true
+acquired = false
 production_time = 12.0
-liters_per_fruit = 0.0
+liters_per_fruit = 504.0
+level = 0
+level_cost = 10080.0
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-produced_fruits = 4030
+produced_fruits = 0
 
 [sub_resource type="Resource" id="Resource_uhsuw"]
 script = ExtResource("1_hnv06")
 name = "Peach"
 cost = 120960.0
-acquired = true
+acquired = false
 production_time = 24.0
-liters_per_fruit = 0.0
+liters_per_fruit = 5544.0
+level = 0
+level_cost = 120960.0
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-produced_fruits = 1877
+produced_fruits = 0
 
 [sub_resource type="Resource" id="Resource_dbe3j"]
 script = ExtResource("1_hnv06")
 name = "Apple"
 cost = 1.45152e+06
-acquired = true
+acquired = false
 production_time = 48.0
-liters_per_fruit = 0.0
+liters_per_fruit = 66528.0
+level = 0
+level_cost = 1.45152e+06
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -406,7 +449,9 @@ name = "Orange"
 cost = 1.74182e+07
 acquired = false
 production_time = 96.0
-liters_per_fruit = 0.0
+liters_per_fruit = 798336.0
+level = 0
+level_cost = 1.74182e+07
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -417,7 +462,9 @@ name = "Aguacate"
 cost = 2.09019e+08
 acquired = false
 production_time = 192.0
-liters_per_fruit = 0.0
+liters_per_fruit = 9.58003e+06
+level = 0
+level_cost = 2.09019e+08
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -428,7 +475,9 @@ name = "Mango"
 cost = 2.50823e+09
 acquired = false
 production_time = 384.0
-liters_per_fruit = 0.0
+liters_per_fruit = 1.1496e+08
+level = 0
+level_cost = 2.50823e+09
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -439,7 +488,9 @@ name = "Dragonfruit"
 cost = 3.00987e+10
 acquired = false
 production_time = 568.0
-liters_per_fruit = 0.0
+liters_per_fruit = 1.60945e+09
+level = 0
+level_cost = 3.00987e+10
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -450,7 +501,9 @@ name = "Cocoonut"
 cost = 3.61185e+11
 acquired = false
 production_time = 1136.0
-liters_per_fruit = 0.0
+liters_per_fruit = 2.25322e+10
+level = 0
+level_cost = 3.61185e+11
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -461,7 +514,9 @@ name = "Pineapple"
 cost = 4.33422e+12
 acquired = false
 production_time = 2272.0
-liters_per_fruit = 0.0
+liters_per_fruit = 3.15451e+11
+level = 0
+level_cost = 4.33422e+12
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -472,7 +527,9 @@ name = "Papaya"
 cost = 5.20106e+13
 acquired = false
 production_time = 4544.0
-liters_per_fruit = 0.0
+liters_per_fruit = 6.30903e+12
+level = 0
+level_cost = 5.20106e+13
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -483,7 +540,9 @@ name = "Melon"
 cost = 6.24127e+14
 acquired = false
 production_time = 9088.0
-liters_per_fruit = 0.0
+liters_per_fruit = 1.26181e+14
+level = 0
+level_cost = 6.24127e+14
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -494,7 +553,9 @@ name = "Watermelon"
 cost = 7.49852e+15
 acquired = false
 production_time = 18176.0
-liters_per_fruit = 0.0
+liters_per_fruit = 5.04722e+15
+level = 0
+level_cost = 7.49852e+15
 level_cost_multiplier = 0.0
 tier_multipliers = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 produced_fruits = 0
@@ -669,9 +730,9 @@ name = "Organic"
 description = "No one knows exactly what organic really means, but they sell like hotcakes."
 value = 1.25
 value_magnitude = 0
-limit = 10.0
+limit = 1.0
 limit_magnitude = 2
-cost = 68.0
+cost = 1.0
 cost_magnitude = 2
 skin = ExtResource("26_uodlu")
 
@@ -820,7 +881,7 @@ skin = ExtResource("35_00xnd")
 script = ExtResource("2_webxm")
 name = "Motorcycle"
 level = 0
-capacity = 5000.0
+capacity = 5.0
 delivery_time = 0.0
 cost = 23.0
 cost_magnitude = 0
@@ -940,127 +1001,127 @@ skin = ExtResource("15_x74sn")
 script = ExtResource("64_j80cl")
 name = "Fruit Race Switch"
 description = "Turns the fruit button into a switch so the fruits will keep coming"
+epic = true
+cost = 10000.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 0
+target = 0
+multiplier = 0.0
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_0jca6"]
+script = ExtResource("64_j80cl")
+name = "Fruit speed boost"
+description = "Increases the fruit speed!"
+epic = false
+cost = 1.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 7
+target = 0
+multiplier = 1.25
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_75n20"]
+script = ExtResource("64_j80cl")
+name = "Juice Value x2"
+description = "Increases the value of juice sales x2!"
+epic = false
+cost = 10000.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 5
+target = 0
+multiplier = 2.0
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_qf7lq"]
+script = ExtResource("64_j80cl")
+name = "Blueberry production x2"
+description = "Increases the blueberry production x2"
+epic = false
+cost = 10.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 2
+target = 0
+multiplier = 2.0
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_dtfy0"]
+script = ExtResource("64_j80cl")
+name = "Juice production boost"
+description = "Increases the amount of juice produced x2"
+epic = false
+cost = 10000.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 6
+target = 0
+multiplier = 2.0
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_p8fqa"]
+script = ExtResource("64_j80cl")
+name = "House capacity+"
+description = "Increases house capacity x1.5"
+epic = false
+cost = 10000.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 4
+target = 0
+multiplier = 1.5
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_rmtsb"]
+script = ExtResource("64_j80cl")
+name = "Vehicle Capacity"
+description = "Increases the amount of cargo vehicles can carry x1.5"
+epic = false
+cost = 10000.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 3
+target = 0
+multiplier = 1.5
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_g488l"]
+script = ExtResource("64_j80cl")
+name = "Fruits spawned+"
+description = "Increases the amount of fruits that spawn on the field x7"
+epic = false
+cost = 10000.0
+cost_magnitude = 0
+active = false
+epic_active = false
+type = 8
+target = 0
+multiplier = 7.0
+skin = ExtResource("67_sraiu")
+
+[sub_resource type="Resource" id="Resource_1qm68"]
+script = ExtResource("64_j80cl")
+name = "Upgrade discount"
+description = "Reduces the upgrades costs by 10%"
 epic = false
 cost = 10000.0
 cost_magnitude = 0
 active = true
 epic_active = false
-type = 0
+type = 9
 target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_562a6"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_75n20"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_qf7lq"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_dtfy0"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_p8fqa"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_rmtsb"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_g488l"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
-
-[sub_resource type="Resource" id="Resource_1qm68"]
-script = ExtResource("64_j80cl")
-name = "Upgrade name"
-description = "Upgrade description"
-epic = false
-cost = 10000.0
-cost_magnitude = 0
-active = false
-epic_active = false
-type = 0
-target = 0
-multiplier = 0.0
-skin = ExtResource("65_0hty7")
+multiplier = 0.9
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_c82fj"]
 script = ExtResource("64_j80cl")
@@ -1074,7 +1135,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_4ng7p"]
 script = ExtResource("64_j80cl")
@@ -1088,7 +1149,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_aoa6v"]
 script = ExtResource("64_j80cl")
@@ -1102,7 +1163,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_j8dxj"]
 script = ExtResource("64_j80cl")
@@ -1116,7 +1177,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_3m2kv"]
 script = ExtResource("64_j80cl")
@@ -1130,7 +1191,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_temmr"]
 script = ExtResource("64_j80cl")
@@ -1144,7 +1205,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_7n62h"]
 script = ExtResource("64_j80cl")
@@ -1158,7 +1219,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_k0w8l"]
 script = ExtResource("64_j80cl")
@@ -1172,7 +1233,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_qlnl7"]
 script = ExtResource("64_j80cl")
@@ -1186,7 +1247,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_o4exu"]
 script = ExtResource("64_j80cl")
@@ -1200,7 +1261,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_wvw5j"]
 script = ExtResource("64_j80cl")
@@ -1214,7 +1275,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_0wpj7"]
 script = ExtResource("64_j80cl")
@@ -1228,7 +1289,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_onw1m"]
 script = ExtResource("64_j80cl")
@@ -1242,7 +1303,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_eqb25"]
 script = ExtResource("64_j80cl")
@@ -1256,7 +1317,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_r6eo1"]
 script = ExtResource("64_j80cl")
@@ -1270,7 +1331,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_fxbmt"]
 script = ExtResource("64_j80cl")
@@ -1284,7 +1345,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_hmygr"]
 script = ExtResource("64_j80cl")
@@ -1298,7 +1359,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_ma71t"]
 script = ExtResource("64_j80cl")
@@ -1312,7 +1373,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_fu1oc"]
 script = ExtResource("64_j80cl")
@@ -1326,7 +1387,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_t11ie"]
 script = ExtResource("64_j80cl")
@@ -1340,7 +1401,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_loo78"]
 script = ExtResource("64_j80cl")
@@ -1354,7 +1415,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_p53e0"]
 script = ExtResource("64_j80cl")
@@ -1368,7 +1429,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_7owxh"]
 script = ExtResource("64_j80cl")
@@ -1382,7 +1443,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_c1deh"]
 script = ExtResource("64_j80cl")
@@ -1396,7 +1457,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_gel4j"]
 script = ExtResource("64_j80cl")
@@ -1410,7 +1471,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_ra1av"]
 script = ExtResource("64_j80cl")
@@ -1424,7 +1485,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_q1qiy"]
 script = ExtResource("64_j80cl")
@@ -1438,7 +1499,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_thuss"]
 script = ExtResource("64_j80cl")
@@ -1452,7 +1513,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_7j4hy"]
 script = ExtResource("64_j80cl")
@@ -1466,7 +1527,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_qf4lu"]
 script = ExtResource("64_j80cl")
@@ -1480,7 +1541,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_fvhou"]
 script = ExtResource("64_j80cl")
@@ -1494,7 +1555,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_jxixe"]
 script = ExtResource("64_j80cl")
@@ -1508,7 +1569,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_7ucir"]
 script = ExtResource("64_j80cl")
@@ -1522,7 +1583,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_c4kpd"]
 script = ExtResource("64_j80cl")
@@ -1536,7 +1597,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_gepyh"]
 script = ExtResource("64_j80cl")
@@ -1550,7 +1611,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_dvplp"]
 script = ExtResource("64_j80cl")
@@ -1564,7 +1625,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_d38vf"]
 script = ExtResource("64_j80cl")
@@ -1578,7 +1639,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_urirc"]
 script = ExtResource("64_j80cl")
@@ -1592,7 +1653,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_3lwlw"]
 script = ExtResource("64_j80cl")
@@ -1606,7 +1667,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_3xbqn"]
 script = ExtResource("64_j80cl")
@@ -1620,7 +1681,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_gemlb"]
 script = ExtResource("64_j80cl")
@@ -1634,7 +1695,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_bhil3"]
 script = ExtResource("64_j80cl")
@@ -1648,7 +1709,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_ia871"]
 script = ExtResource("64_j80cl")
@@ -1662,7 +1723,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_3tvsl"]
 script = ExtResource("64_j80cl")
@@ -1676,7 +1737,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_t7vdp"]
 script = ExtResource("64_j80cl")
@@ -1690,7 +1751,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_udjrc"]
 script = ExtResource("64_j80cl")
@@ -1704,7 +1765,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_a7ac4"]
 script = ExtResource("64_j80cl")
@@ -1718,7 +1779,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_woy4l"]
 script = ExtResource("64_j80cl")
@@ -1732,7 +1793,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_f3amg"]
 script = ExtResource("64_j80cl")
@@ -1746,7 +1807,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_egntr"]
 script = ExtResource("64_j80cl")
@@ -1760,7 +1821,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_3hgkq"]
 script = ExtResource("64_j80cl")
@@ -1774,7 +1835,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_1pe8q"]
 script = ExtResource("64_j80cl")
@@ -1788,7 +1849,7 @@ epic_active = false
 type = 0
 target = 0
 multiplier = 0.0
-skin = ExtResource("65_0hty7")
+skin = ExtResource("67_sraiu")
 
 [sub_resource type="Resource" id="Resource_kcdxj"]
 script = ExtResource("9_4vhif")
@@ -1799,12 +1860,12 @@ count = 12
 [resource]
 script = ExtResource("1_fhr83")
 liters = 0.0
-money = 1e+75
+money = 9.99e+06
 gems = 171
 litersPerSecond = 0.0
 sandiasPerSecond = 0.0
 farmValue = 0.0
-time = "2024-03-20T10:44:08"
+time = "2024-03-21T16:04:22"
 multGananciasActive = false
 gemYdineroActive = false
 gemasActive = false
@@ -1816,26 +1877,11 @@ JuiceHouse = Array[ExtResource("1_4wlhr")]([SubResource("Resource_yabiq"), SubRe
 CurrentJuiceHouse = Array[ExtResource("1_3qdky")]([SubResource("Resource_limjj"), SubResource("Resource_61tbu"), SubResource("Resource_trp01"), SubResource("Resource_uyfoj")])
 Fruits = Array[ExtResource("1_hnv06")]([SubResource("Resource_tjrh3"), SubResource("Resource_n854k"), SubResource("Resource_fsb1x"), SubResource("Resource_o2fer"), SubResource("Resource_uhsuw"), SubResource("Resource_dbe3j"), SubResource("Resource_12dog"), SubResource("Resource_ofpig"), SubResource("Resource_j6776"), SubResource("Resource_0xsga"), SubResource("Resource_bx84y"), SubResource("Resource_km0qy"), SubResource("Resource_ubmm6"), SubResource("Resource_norhs"), SubResource("Resource_welvk")])
 Transport = Array[ExtResource("2_webxm")]([SubResource("Resource_gv7iv"), SubResource("Resource_iblnd"), SubResource("Resource_2163h"), SubResource("Resource_8437x"), SubResource("Resource_tgqbg"), SubResource("Resource_pwg3q"), SubResource("Resource_qgl27"), SubResource("Resource_8k85f"), SubResource("Resource_btecv"), SubResource("Resource_rkygy"), SubResource("Resource_86tak"), SubResource("Resource_4niy6")])
-slots = 4
-transport0Id = 2
-transport1Id = 3
-transport2Id = 0
-transport3Id = 0
-transport4Id = 0
-transport5Id = 0
-transport6Id = 0
-transport7Id = 0
-transport8Id = 0
-transport9Id = 0
-transport10Id = 0
-transport11Id = 0
-transport12Id = 0
-transport13Id = 0
-transport14Id = 0
+Vehicles = Array[int]([1, 0, 0, 0])
 WaterTank = SubResource("Resource_kcdxj")
 JuiceLevel = Array[ExtResource("5_my2gi")]([SubResource("Resource_rcw28"), SubResource("Resource_mfqg6"), SubResource("Resource_r7u2g"), SubResource("Resource_il2wi"), SubResource("Resource_5lsx7"), SubResource("Resource_nykl3"), SubResource("Resource_yon72"), SubResource("Resource_5xnkg"), SubResource("Resource_sck10"), SubResource("Resource_t5w7e"), SubResource("Resource_jki7l"), SubResource("Resource_5eqn8"), SubResource("Resource_d1wvq"), SubResource("Resource_h1b82")])
 juiceLevel = 0
-Upgrades = Array[ExtResource("64_j80cl")]([SubResource("Resource_wsox3"), SubResource("Resource_562a6"), SubResource("Resource_75n20"), SubResource("Resource_qf7lq"), SubResource("Resource_dtfy0"), SubResource("Resource_p8fqa"), SubResource("Resource_rmtsb"), SubResource("Resource_g488l"), SubResource("Resource_1qm68"), SubResource("Resource_c82fj"), SubResource("Resource_4ng7p"), SubResource("Resource_aoa6v"), SubResource("Resource_j8dxj"), SubResource("Resource_3m2kv"), SubResource("Resource_temmr"), SubResource("Resource_7n62h"), SubResource("Resource_k0w8l"), SubResource("Resource_qlnl7"), SubResource("Resource_o4exu"), SubResource("Resource_wvw5j"), SubResource("Resource_0wpj7"), SubResource("Resource_onw1m"), SubResource("Resource_eqb25"), SubResource("Resource_r6eo1"), SubResource("Resource_fxbmt"), SubResource("Resource_hmygr"), SubResource("Resource_ma71t"), SubResource("Resource_fu1oc"), SubResource("Resource_t11ie"), SubResource("Resource_loo78"), SubResource("Resource_p53e0"), SubResource("Resource_7owxh"), SubResource("Resource_c1deh"), SubResource("Resource_gel4j"), SubResource("Resource_ra1av"), SubResource("Resource_q1qiy"), SubResource("Resource_thuss"), SubResource("Resource_7j4hy"), SubResource("Resource_qf4lu"), SubResource("Resource_fvhou"), SubResource("Resource_jxixe"), SubResource("Resource_7ucir"), SubResource("Resource_c4kpd"), SubResource("Resource_gepyh"), SubResource("Resource_dvplp"), SubResource("Resource_d38vf"), SubResource("Resource_urirc"), SubResource("Resource_3lwlw"), SubResource("Resource_3xbqn"), SubResource("Resource_gemlb"), SubResource("Resource_bhil3"), SubResource("Resource_ia871"), SubResource("Resource_3tvsl"), SubResource("Resource_t7vdp"), SubResource("Resource_udjrc"), SubResource("Resource_a7ac4"), SubResource("Resource_woy4l"), SubResource("Resource_f3amg"), SubResource("Resource_egntr"), SubResource("Resource_3hgkq"), SubResource("Resource_1pe8q")])
+Upgrades = Array[ExtResource("64_j80cl")]([SubResource("Resource_wsox3"), SubResource("Resource_0jca6"), SubResource("Resource_75n20"), SubResource("Resource_qf7lq"), SubResource("Resource_dtfy0"), SubResource("Resource_p8fqa"), SubResource("Resource_rmtsb"), SubResource("Resource_g488l"), SubResource("Resource_1qm68"), SubResource("Resource_c82fj"), SubResource("Resource_4ng7p"), SubResource("Resource_aoa6v"), SubResource("Resource_j8dxj"), SubResource("Resource_3m2kv"), SubResource("Resource_temmr"), SubResource("Resource_7n62h"), SubResource("Resource_k0w8l"), SubResource("Resource_qlnl7"), SubResource("Resource_o4exu"), SubResource("Resource_wvw5j"), SubResource("Resource_0wpj7"), SubResource("Resource_onw1m"), SubResource("Resource_eqb25"), SubResource("Resource_r6eo1"), SubResource("Resource_fxbmt"), SubResource("Resource_hmygr"), SubResource("Resource_ma71t"), SubResource("Resource_fu1oc"), SubResource("Resource_t11ie"), SubResource("Resource_loo78"), SubResource("Resource_p53e0"), SubResource("Resource_7owxh"), SubResource("Resource_c1deh"), SubResource("Resource_gel4j"), SubResource("Resource_ra1av"), SubResource("Resource_q1qiy"), SubResource("Resource_thuss"), SubResource("Resource_7j4hy"), SubResource("Resource_qf4lu"), SubResource("Resource_fvhou"), SubResource("Resource_jxixe"), SubResource("Resource_7ucir"), SubResource("Resource_c4kpd"), SubResource("Resource_gepyh"), SubResource("Resource_dvplp"), SubResource("Resource_d38vf"), SubResource("Resource_urirc"), SubResource("Resource_3lwlw"), SubResource("Resource_3xbqn"), SubResource("Resource_gemlb"), SubResource("Resource_bhil3"), SubResource("Resource_ia871"), SubResource("Resource_3tvsl"), SubResource("Resource_t7vdp"), SubResource("Resource_udjrc"), SubResource("Resource_a7ac4"), SubResource("Resource_woy4l"), SubResource("Resource_f3amg"), SubResource("Resource_egntr"), SubResource("Resource_3hgkq"), SubResource("Resource_1pe8q")])
 Farmer = Array[ExtResource("2_ubryv")]([SubResource("Resource_e6fa8"), SubResource("Resource_e7y5q"), SubResource("Resource_n5wig"), SubResource("Resource_lxdlw"), SubResource("Resource_evpcw"), SubResource("Resource_4ie1y"), SubResource("Resource_v3tqk"), SubResource("Resource_dgtvp"), SubResource("Resource_32o6p"), SubResource("Resource_ddpq3"), SubResource("Resource_wrqut"), SubResource("Resource_ol2n2"), SubResource("Resource_su6nn"), SubResource("Resource_kqfem"), SubResource("Resource_a10ef")])
-bankgems = null
+bankgems = 0
 Boosts = Array[ExtResource("1_4oj5t")]([SubResource("Resource_vfgwi"), SubResource("Resource_jh3su"), SubResource("Resource_5q77g"), SubResource("Resource_ghq0d"), SubResource("Resource_laly7"), SubResource("Resource_6puyd"), SubResource("Resource_btkiy"), SubResource("Resource_wowxl"), SubResource("Resource_km4qm"), SubResource("Resource_oa8ww")])

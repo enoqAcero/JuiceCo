@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmd40yhkd1pgk"]
+[gd_scene load_steps=18 format=3 uid="uid://bmd40yhkd1pgk"]
 
+[ext_resource type="Script" path="res://Scripts/JuiceHouseItem.gd" id="1_b6d68"]
 [ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="1_ct8uy"]
 [ext_resource type="PackedScene" path="res://Scenes/universe_animated_texture.tscn" id="2_5npvr"]
 
@@ -81,6 +82,21 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="Animation" id="Animation_bt54v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Owned:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_mjmjc"]
 resource_name = "level_up"
 length = 0.4
@@ -98,21 +114,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.917647, 0.847059, 0.576471, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_bt54v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Owned:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat64Array(0),
-"transitions": PackedFloat64Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bg8c2"]
 _data = {
 "RESET": SubResource("Animation_bt54v"),
@@ -123,6 +124,7 @@ _data = {
 custom_minimum_size = Vector2(175, 250)
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_b6d68")
 
 [node name="Empty" type="Panel" parent="."]
 visible = false

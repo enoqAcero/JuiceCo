@@ -491,14 +491,14 @@ autostart = true
 [node name="Spawners" type="Node2D" parent="NavigationRegion2D"]
 
 [node name="Spawner1" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-560, -592)
+position = Vector2(-438.054, -620.16)
 script = ExtResource("24_4lbbh")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner1"]
 shape = SubResource("RectangleShape2D_12ccj")
 
 [node name="Spawner2" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-520, -634)
+position = Vector2(-394.196, -582.088)
 script = ExtResource("24_4lbbh")
 id = 1
 
@@ -506,7 +506,7 @@ id = 1
 shape = SubResource("RectangleShape2D_bja8e")
 
 [node name="Spawner3" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-553, -549)
+position = Vector2(-559.708, -496.936)
 script = ExtResource("24_4lbbh")
 id = 2
 
@@ -514,7 +514,7 @@ id = 2
 shape = SubResource("RectangleShape2D_fqjev")
 
 [node name="Spawner4" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-518, -592)
+position = Vector2(-367.873, -506.954)
 script = ExtResource("24_4lbbh")
 id = 3
 
@@ -522,14 +522,14 @@ id = 3
 shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Spawner5" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-477, -643)
+position = Vector2(-366.741, -462.923)
 script = ExtResource("24_4lbbh")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner5"]
 shape = SubResource("RectangleShape2D_12ccj")
 
 [node name="Spawner6" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-476, -601)
+position = Vector2(-349.328, -564.8)
 script = ExtResource("24_4lbbh")
 id = 1
 
@@ -537,7 +537,7 @@ id = 1
 shape = SubResource("RectangleShape2D_bja8e")
 
 [node name="Spawner7" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-511, -549)
+position = Vector2(-493.018, -632.647)
 script = ExtResource("24_4lbbh")
 id = 2
 
@@ -545,7 +545,7 @@ id = 2
 shape = SubResource("RectangleShape2D_fqjev")
 
 [node name="Spawner8" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-511, -507)
+position = Vector2(-514.174, -543.847)
 script = ExtResource("24_4lbbh")
 id = 3
 
@@ -553,7 +553,7 @@ id = 3
 shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Spawner9" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-435, -643)
+position = Vector2(-457.018, -530.917)
 script = ExtResource("24_4lbbh")
 id = 3
 
@@ -561,14 +561,14 @@ id = 3
 shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Spawner10" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-434, -600)
+position = Vector2(-322.857, -517.468)
 script = ExtResource("24_4lbbh")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner10"]
 shape = SubResource("RectangleShape2D_12ccj")
 
 [node name="Spawner11" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-468, -559)
+position = Vector2(-371.809, -672.464)
 script = ExtResource("24_4lbbh")
 id = 1
 
@@ -576,7 +576,7 @@ id = 1
 shape = SubResource("RectangleShape2D_bja8e")
 
 [node name="Spawner12" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-468, -517)
+position = Vector2(-544.487, -599.255)
 script = ExtResource("24_4lbbh")
 id = 2
 
@@ -584,7 +584,7 @@ id = 2
 shape = SubResource("RectangleShape2D_fqjev")
 
 [node name="Spawner13" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-425, -557)
+position = Vector2(-454.482, -487.058)
 script = ExtResource("24_4lbbh")
 id = 3
 
@@ -592,14 +592,14 @@ id = 3
 shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Spawner14" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-392, -648)
+position = Vector2(-412.176, -461.619)
 script = ExtResource("24_4lbbh")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner14"]
 shape = SubResource("RectangleShape2D_12ccj")
 
 [node name="Spawner15" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-390, -604)
+position = Vector2(-304.534, -594.522)
 script = ExtResource("24_4lbbh")
 id = 1
 
@@ -607,7 +607,7 @@ id = 1
 shape = SubResource("RectangleShape2D_bja8e")
 
 [node name="Spawner16" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-381, -560)
+position = Vector2(-262.99, -581.1)
 script = ExtResource("24_4lbbh")
 id = 2
 
@@ -615,7 +615,7 @@ id = 2
 shape = SubResource("RectangleShape2D_fqjev")
 
 [node name="Spawner17" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-424, -512)
+position = Vector2(-365.063, -629.122)
 script = ExtResource("24_4lbbh")
 id = 3
 
@@ -623,14 +623,14 @@ id = 3
 shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Spawner18" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-468, -474)
+position = Vector2(-480.928, -586.399)
 script = ExtResource("24_4lbbh")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner18"]
 shape = SubResource("RectangleShape2D_12ccj")
 
 [node name="Spawner19" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-345, -629)
+position = Vector2(-516.908, -496.492)
 script = ExtResource("24_4lbbh")
 id = 1
 
@@ -638,7 +638,7 @@ id = 1
 shape = SubResource("RectangleShape2D_bja8e")
 
 [node name="Spawner20" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-301, -599)
+position = Vector2(-495.337, -454.258)
 script = ExtResource("24_4lbbh")
 id = 2
 
@@ -646,7 +646,7 @@ id = 2
 shape = SubResource("RectangleShape2D_fqjev")
 
 [node name="Spawner21" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-335, -557)
+position = Vector2(-411.216, -418.992)
 script = ExtResource("24_4lbbh")
 id = 3
 
@@ -654,7 +654,7 @@ id = 3
 shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Spawner22" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-379, -516)
+position = Vector2(-414.637, -539.683)
 script = ExtResource("24_4lbbh")
 id = 3
 
@@ -662,14 +662,14 @@ id = 3
 shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Spawner23" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-415, -467)
+position = Vector2(-280.278, -536.232)
 script = ExtResource("24_4lbbh")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner23"]
 shape = SubResource("RectangleShape2D_12ccj")
 
 [node name="Spawner24" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-291, -556)
+position = Vector2(-309.95, -644.438)
 script = ExtResource("24_4lbbh")
 id = 1
 
@@ -677,7 +677,7 @@ id = 1
 shape = SubResource("RectangleShape2D_bja8e")
 
 [node name="Spawner25" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-335, -514)
+position = Vector2(-434.975, -664.708)
 script = ExtResource("24_4lbbh")
 id = 2
 
@@ -685,16 +685,32 @@ id = 2
 shape = SubResource("RectangleShape2D_fqjev")
 
 [node name="Spawner26" type="Area2D" parent="NavigationRegion2D/Spawners"]
-position = Vector2(-371, -469)
+position = Vector2(-562.735, -556.407)
 script = ExtResource("24_4lbbh")
 id = 3
 
 [node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner26"]
 shape = SubResource("RectangleShape2D_6kflc")
 
+[node name="Spawner27" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-453.621, -439.432)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner27"]
+shape = SubResource("RectangleShape2D_6kflc")
+
+[node name="Spawner28" type="Area2D" parent="NavigationRegion2D/Spawners"]
+position = Vector2(-367.013, -418.72)
+script = ExtResource("24_4lbbh")
+id = 3
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NavigationRegion2D/Spawners/Spawner28"]
+shape = SubResource("RectangleShape2D_6kflc")
+
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(310, 268)
+position = Vector2(432, 240)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("30_vm702")
 
@@ -1083,6 +1099,10 @@ autostart = true
 wait_time = 2.0
 autostart = true
 
+[node name="TransportTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="pressed" from="CanvasLayer/fieldButton" to="." method="_on_field_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/upgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/boostButton" to="." method="_on_boost_button_pressed"]
@@ -1148,12 +1168,17 @@ autostart = true
 [connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner25" to="NavigationRegion2D/Spawners/Spawner25" method="_on_body_exited"]
 [connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner26" to="NavigationRegion2D/Spawners/Spawner26" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner26" to="NavigationRegion2D/Spawners/Spawner26" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner27" to="NavigationRegion2D/Spawners/Spawner27" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner27" to="NavigationRegion2D/Spawners/Spawner27" method="_on_body_exited"]
+[connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner28" to="NavigationRegion2D/Spawners/Spawner28" method="_on_body_entered"]
+[connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner28" to="NavigationRegion2D/Spawners/Spawner28" method="_on_body_exited"]
 [connection signal="pressed" from="Garage4/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Garage3/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Garage2/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Garage1/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="timeout" from="CheckMoneyTimer" to="." method="_on_check_money_timer_timeout"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
+[connection signal="timeout" from="TransportTimer" to="." method="_on_transport_timer_timeout"]
 
 [editable path="house0"]
 [editable path="house1"]

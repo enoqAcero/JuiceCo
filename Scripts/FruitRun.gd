@@ -40,7 +40,7 @@ func _physics_process(delta):
 	if follow == true:
 		direction = navAgent.get_next_path_position() - global_position
 		direction = direction.normalized()
-		velocity = velocity.lerp(direction * speed, accel * delta)
+		velocity = velocity.lerp(direction * speed, accel * delta) * GlobalVariables.fruit_race_multiplier
 		
 	else: 
 		direction = navAgent.get_next_path_position() - global_position

@@ -78,10 +78,13 @@ func loadPanelData(index : int):
 			if GlobalVariables.player.Fruits[index].production_timer.is_stopped():
 				produce_fruit(index)
 				fruit_item.get_node("Bar").start_progress(index)
+			
 		else:
 			fruit_item.get_node("Fruit/FullCircle").hide()
 			fruit_item.get_node("ProduceButton").disabled = false
-			
+		var fruits_per_sec = GlobalVariables.player.Fruits[ index ].level / GlobalVariables.player.Fruits[ index ].production_time
+		
+		fruit_item.get_node("Bar/Time").text = GlobalVariables.getMoneyString(fruits_per_sec) + " fruits / sec "
 		fruit_item.get_node("Amount").text = GlobalVariables.getMoneyString(fruit_data.produced_fruits) + " fruits"
 		fruit_item.get_node("Wood/Level").text = str( fruit_data.level + 1 ) + "/" + str( calculateTierLevel(index) )
 		
@@ -128,6 +131,8 @@ func levelUpFruit(index : int):
 	loadAllPanelData()
 	if not GlobalVariables.player.Farmer[index].active:
 		get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
+
+	GlobalVariables.save()
 
 func acquire_fruit(index:int):
 	if GlobalVariables.player.money >= GlobalVariables.player.Fruits[index].cost:
@@ -420,12 +425,14 @@ func buy_farmer(i:int):
 		get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(i) + "/Fruit/Sprite2D").play("walk")
 		loadAllPanelData()
 		load_farmer_list()
+	GlobalVariables.save()
 		
 func buy_epic_farmer(i:int):
 	if GlobalVariables.player.money >= GlobalVariables.player.Farmer[i].epic_cost:
 		GlobalVariables.player.money = GlobalVariables.player.money - GlobalVariables.player.Farmer[i].epic_cost
 		GlobalVariables.player.Farmer[i].epic = true
 		load_farmer_list()
+	GlobalVariables.save()
 		
 func reset_levels():
 	for i in range(15):
@@ -435,6 +442,7 @@ func reset_levels():
 		GlobalVariables.player.Fruits[i].level = 0
 		GlobalVariables.player.Fruits[i].produced_fruits = 0
 	loadAllPanelData()
+	GlobalVariables.save()
 	
 func reset_farmers():
 	for i in range(GlobalVariables.player.Farmer.size()):
@@ -443,6 +451,7 @@ func reset_farmers():
 		GlobalVariables.save()
 	load_epic_farmer_list()
 	load_farmer_list()
+	GlobalVariables.save()
 
 func _on_options_timer_timeout():
 	$Panel/Options/AnimationPlayer.play("hide")
@@ -471,11 +480,13 @@ func produce_fruit(index:int):
 func save_production( index: int ):
 	
 	var fruit = GlobalVariables.player.Fruits[index]
+	var fruit_multiplier = GlobalVariables.fruit_production_multiplier[ index ]
+	var general_multiplier = GlobalVariables.production_multiplier
 	
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar").tween.kill()
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar").value = 0
 #	print(" Producing : " + str(fruit.level + 1) + " fruits")
-	GlobalVariables.player.Fruits[index].produced_fruits += fruit.level +1
+	GlobalVariables.player.Fruits[index].produced_fruits += ( fruit.level +1 ) * fruit_multiplier * general_multiplier
 	
 	GlobalVariables.save()
 #	loadAllPanelData()

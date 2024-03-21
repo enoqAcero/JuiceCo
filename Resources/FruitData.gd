@@ -11,8 +11,8 @@ class_name FruitData
 @export var liters_per_fruit : float # Amount of liters a fruit can produce
 var production_timer := Timer.new()
 
-var level : int # Increases ( multiplies ) the amount of lters per fruit
-var level_cost : float # Cost to get to the nex fruit level
+@export var level : int # Increases ( multiplies ) the amount of lters per fruit
+@export var level_cost : float # Cost to get to the nex fruit level
 @export var level_cost_multiplier : float # Modifier to increase the cost for the nex level cost ( percentage )
 
 var tier : int # Second modifier for the liters per fruit

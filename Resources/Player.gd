@@ -33,22 +33,7 @@ class_name Player
 
 #Transport Variables
 @export var Transport : Array[TransportData]
-@export var slots = 4
-@export var transport0Id = 1
-@export var transport1Id : int
-@export var transport2Id : int
-@export var transport3Id : int
-@export var transport4Id : int
-@export var transport5Id : int
-@export var transport6Id : int
-@export var transport7Id : int
-@export var transport8Id : int
-@export var transport9Id : int
-@export var transport10Id : int
-@export var transport11Id : int
-@export var transport12Id : int
-@export var transport13Id : int
-@export var transport14Id : int
+@export var Vehicles : Array[int]
 
 #WaterTank variables
 @export var WaterTank : WaterTankData

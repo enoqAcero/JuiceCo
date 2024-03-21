@@ -3,24 +3,38 @@ extends Node
 
 var player 
 
-var maxHouseCapacity = false
-var houseCount : int
-var maxTransportCapacity = false
+#var maxHouseCapacity = false
+#var houseCount : int
+#var maxTransportCapacity = false
 
-var litersAbbreviation
-var moneyAbbreviation
+#var litersAbbreviation
+#var moneyAbbreviation
 var abbFactor : float
 
-enum UpgradeType { FEATURE, FARMER, FRUIT, TRANSPORT, JUICE }
+var fruit_race_multiplier : float = 1.0
+var juice_value_multiplier : float = 1.0
+var juice_production_multiplier : float = 1.0
+var fruit_production_multiplier : Array = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]
+var production_multiplier : float = 1.0
+var house_capacity_multiplier : float = 1.0
+var vehicle_capacity_multiplier : float = 1.0
+var race_spawn_multiplier : float = 1.0
+var upgrade_cost_multiplier : float = 1.0
+
+
+enum UpgradeType { FEATURE, FARMER, FRUIT_PRODUCTION, VEHICLE_CAPACITY, HOUSE_CAPACITY, JUICE_VALUE, JUICE_PRODUCTION, RACE_SPEED, RACE_SPAWN, UPGRADE_COST }
 
 var save_path = "res://Save/PlayerSave.tres"
 
 func save():
 	
 	ResourceSaver.save(GlobalVariables.player, save_path)
-	print("Saving from global")
+#	print("Saving from global")
 	
 func _ready():
+	
+	set_initial_values()
+	
 	loadResource()
 	
 	
@@ -168,3 +182,21 @@ func getMoneyString(money : float):
 	result = newMoneyString + abb
 	
 	return result
+	
+func set_initial_values():
+	fruit_race_multiplier = 1.0
+	juice_value_multiplier = 1.0
+	for i in fruit_production_multiplier.size():
+		fruit_production_multiplier[i] = 1.0
+	production_multiplier = 1.0
+	juice_production_multiplier = 1.0
+	house_capacity_multiplier = 1.0
+	vehicle_capacity_multiplier = 1.0
+	race_spawn_multiplier = 1.0
+	upgrade_cost_multiplier = 1.0
+	save()
+
+func reset():
+	set_initial_values()
+	player.money = 10000000.00
+	save()

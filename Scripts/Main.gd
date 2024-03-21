@@ -53,6 +53,7 @@ var spawn_list : Array
 @onready var garage := $CanvasLayer/Garage
 @onready var houses := $CanvasLayer/JuiceHouse
 
+var fruit_race_multiplier := 1.0
 
 func _ready():
 	
@@ -72,6 +73,8 @@ func _ready():
 	spawn_spots.reverse()
 	
 	load_houses()
+	
+	
 
 func _process(_delta):
 
@@ -190,7 +193,7 @@ func calculateMoneyFromTime(elapsedTime):
 func calculateFruitsFromTime(elapsedTime):
 	var frutasTotal : float = 0
 	var fruitsEarnedLabel = $CanvasLayer/WaterTank.get_node("Panel/Fruits")
-	var occupation_bar = $CanvasLayer/WaterTank.get_node("Panel/ProgressBar")
+#	var occupation_bar = $CanvasLayer/WaterTank.get_node("Panel/ProgressBar")
 	var any_earnings := false
 	
 	var fruit_count : Array[float] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -215,7 +218,7 @@ func calculateFruitsFromTime(elapsedTime):
 	
 	# Calculate total capacity on Juice houses
 	var capacity_ocupation = house_capacity_occupation
-	occupation_bar.value = ( capacity_ocupation[1] / capacity_ocupation[0] ) * 100
+#	occupation_bar.value = ( capacity_ocupation[1] / capacity_ocupation[0] ) * 100
 	
 	fruitsEarnedLabel.text = "Fruits Earned: \n" + GlobalVariables.getMoneyString( frutasTotal )
 	
@@ -239,6 +242,25 @@ func showScene(scene, controlEscenas):
 	if !controlEscenas:
 		scene.visible = true
 	return !controlEscenas
+
+func transport_cargo(id:int):
+	
+	# Check that it's house is acquired
+	if GlobalVariables.player.CurrentJuiceHouse[id].type == 0:
+		return
+	
+	var house = GlobalVariables.player.CurrentJuiceHouse[id]
+	var vehicle_type = GlobalVariables.player.Vehicles[ id ]
+	var vehicle_data = GlobalVariables.player.Transport[ vehicle_type - 1 ]
+	var sold_cargo = GlobalVariables.player.CurrentJuiceHouse[id].release_cargo( vehicle_data.capacity * GlobalVariables.vehicle_capacity_multiplier )
+	var juice_level = GlobalVariables.player.juiceLevel
+	var juice_level_data = GlobalVariables.player.JuiceLevel[ juice_level ]
+	var earned_money = sold_cargo * ( juice_level_data.value * GlobalVariables.juice_value_multiplier )
+	GlobalVariables.player.money += earned_money
+	
+	GlobalVariables.save()
+	print( "Cargo capacity: " + str( vehicle_data.capacity * GlobalVariables.vehicle_capacity_multiplier ) )
+	print("Sold " + str( sold_cargo ) + " liters for: " + GlobalVariables.getMoneyString( earned_money ) )
 
 #Abir Field
 func _on_field_button_pressed():
@@ -269,11 +291,15 @@ func _on_button_2_pressed():
 	$CanvasLayer/Garage/VehicleList/ScrollContainer.fill_vehicle_list()
 
 func _on_run_button_pressed():
+	var spawns = 1 * GlobalVariables.race_spawn_multiplier
+	
 	if runButtonControl == false:
-		if instanceFruit():
-			runTimerNode.start()
-			runButtonControl = true
-			runButton.get_node("Sprite2D").play("jump")
+		for i in spawns:
+			print("Trying to spawn")
+			if instanceFruit():
+				runTimerNode.start()
+				runButtonControl = true
+				runButton.get_node("Sprite2D").play("jump")
 	
 func instanceFruit():
 	
@@ -324,7 +350,7 @@ func instanceFruit():
 	fruit_run.house = target_number
 	fruit_run.set_collision_layer_value( target_number+1, true )
 	fruit_run.set_collision_mask_value( target_number+1, true )
-	print( "Aiming for house: " + str( target_number ) )
+#	print( "Aiming for house: " + str( target_number ) )
 	
 	
 	fruit_run.liters = fruit_data.level + 1
@@ -335,12 +361,12 @@ func instanceFruit():
 #	var mult = fruit_run.liters
 	GlobalVariables.player.Fruits[rand_i].produced_fruits = res
 	
-	print( str( fruit_run.liters ) + " fruits before calculation" )
-	fruit_run.liters *= fruit_data.liters_per_fruit
+#	print( str( fruit_run.liters ) + " fruits before calculation" )
+	fruit_run.liters *= fruit_data.liters_per_fruit * GlobalVariables.juice_production_multiplier
 	
 	# Apply juice multipliers
 	# Tier multiplier
-	fruit_run.liters += fruit_run.liters * fruit_data.tier_multipliers[rand_i]
+#	fruit_run.liters += fruit_run.liters * fruit_data.tier_multipliers[rand_i] * GlobalVariables.juice_production_multiplier
 
 	fruitInstance.append(fruit_run)
 	
@@ -433,15 +459,17 @@ func reset_juice_level():
 	GlobalVariables.player.juiceLevel = 0
 
 func reset_game():
+	GlobalVariables.reset()
 	field.reset()
 	upgrades.reset()
 	boosts.reset()
 	shop.reset()
 	garage.reset()
 	houses.reset()
+	
 
 func _on_run_button_toggled(button_pressed):
-	print("Enabling switch")
+#	print("Enabling switch")
 	if button_pressed:
 		$CanvasLayer/runButton/SwitchTimer.start()
 	else:
@@ -453,3 +481,17 @@ func _on_switch_timer_timeout():
 func _on_save_timer_timeout():
 	GlobalVariables.save()
 	GlobalVariables.player.time = Time.get_datetime_string_from_system()
+
+
+func _on_transport_timer_timeout():
+	for i in GlobalVariables.player.Vehicles.size():
+		if GlobalVariables.player.Vehicles[i] != 0:
+			transport_cargo(i)
+
+func total_reset():
+	reset_game()
+	reset_juice_level()
+	
+func _input(event):
+	if event.is_action_pressed("total_reset"):
+		total_reset()

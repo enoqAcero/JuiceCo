@@ -6,6 +6,7 @@ var catalog_item_scene := preload("res://Scenes/JuiceHouseCatalogItem.tscn")
 @onready var house_list := $"Menus/HouseList/ScrollContainer/VBoxContainer"
 @onready var house_catalog := $"Menus/HouseCatalog/ScrollContainer/VBoxContainer"
 
+var bars = [null,null, null, null]
 var player_houses : Array
 
 func _ready():
@@ -28,6 +29,10 @@ func _ready():
 	SignalManager.loadHouses.connect(loadHouses)
 
 	connect_house_buttons()
+	
+func _process(delta):
+	update_cpacity()
+	
 	
 func connect_house_buttons():
 	for i in range(4):
@@ -62,15 +67,8 @@ func loadHouses():
 			player_houses[i].get_node("Owned/Texture").visible = false
 			player_houses[i].get_node("Owned/UniverseAnimatedTexture").visible = true
 			
-		#Capacity
-		var percentage = 0
-		var total_liters = 0
-		var capacity = GlobalVariables.player.CurrentJuiceHouse[ i ].currentCapacity
-		for juice in GlobalVariables.player.CurrentJuiceHouse[ i ].juice_liters:
-			total_liters += juice
-		percentage = ( total_liters / capacity ) * 100
-#		print("Percentage " + str(percentage))
-		player_houses[i].get_node("Owned/ProgressBar").value = percentage
+		bars[i] = player_houses[i].get_node("Owned/ProgressBar")
+		
 
 		if id == 0:
 			player_houses[i].hide()
@@ -146,13 +144,15 @@ func buyHouse(slot:int, index : int):
 	if money >= cost:
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("type", index + 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", 1)
-		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity) 
+		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity * GlobalVariables.house_capacity_multiplier) 
 		GlobalVariables.save()
 	$AnimationPlayer.play("HideCatalog")
 	GlobalVariables.save()
 	
 	# load Physical houses
 	get_parent().get_parent().load_houses()
+	
+	print("House capacity: " + str( GlobalVariables.player.CurrentJuiceHouse[slot].currentCapacity ))
 
 func upgradeHouse(slot:int, index : int):
 	var money = GlobalVariables.player.money
@@ -161,13 +161,15 @@ func upgradeHouse(slot:int, index : int):
 	if money >= cost:
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("type", index + 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", 1)
-		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity) 
+		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity * GlobalVariables.house_capacity_multiplier) 
 		GlobalVariables.save()
 	$AnimationPlayer.play("HideCatalog")
 	GlobalVariables.save()
 	
 	# load Physical houses
 	get_parent().get_parent().load_houses()
+	
+	print("House capacity: " + str( GlobalVariables.player.CurrentJuiceHouse[slot].currentCapacity ))
 
 func _on_close_button_pressed():
 	hide()
@@ -204,15 +206,19 @@ func level_up(slot:int):
 	
 	var current_level = GlobalVariables.player.CurrentJuiceHouse[slot].upgradeLvl
 	var cost : float = GlobalVariables.player.JuiceHouse[house_type].cost[current_level]
+	var capacity = GlobalVariables.player.CurrentJuiceHouse[slot].currentCapacity
 	if GlobalVariables.player.money > cost:
 		GlobalVariables.player.set("money", float(GlobalVariables.player.money) - cost)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", current_level+1)
+		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity * 1.1) 
 		player_houses[slot].get_node("AnimationPlayer").play("level_up")
 		
 #		player_houses[slot].hide()
 		GlobalVariables.save()
 #		print(GlobalVariables.player.money)
 	loadHouses()
+	
+	print("House capacity: " + str( GlobalVariables.player.CurrentJuiceHouse[slot].currentCapacity ))
 
 func reset():
 
@@ -225,3 +231,9 @@ func reset():
 			GlobalVariables.player.CurrentJuiceHouse[i].juice_liters[j] = 0.0
 	buyHouse(0, 0)
 	loadHouses()
+	
+func update_cpacity():
+	for i in bars.size():
+		var bar = bars[i]
+		if bar != null:
+			bar.value = 100 * ( GlobalVariables.player.CurrentJuiceHouse[i].used_space() / GlobalVariables.player.CurrentJuiceHouse[i].currentCapacity )

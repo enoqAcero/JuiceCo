@@ -41,15 +41,15 @@ func fill_vehicle_catalog(transaction:String, slot:int, base_item = null):
 			'Upgrade':
 				item.upgrade_button.pressed.connect(Callable(upgrade_vehicle).bind(slot, item))
 				
-		if i > ( GlobalVariables.player.get("transport"+str(slot)+"Id") ):
+		if i > ( GlobalVariables.player.Vehicles[ slot ] ):
 			item.upgrade_button.disabled = true
 	
 	scroll_vertical = 0.0
 
 func purchase_vehicle(slot:int, item):
 	if GlobalVariables.player.money >= item.data.cost:
-		var vehicle_id = "transport" + str(slot) + "Id"
-		GlobalVariables.player.set(vehicle_id, item.id + 1)
+		var vehicle_id = GlobalVariables.player.Vehicles[ slot ]
+		GlobalVariables.player.Vehicles[ slot ] = item.id + 1
 		var remaining_mobey = float(GlobalVariables.player.money) - item.data.cost
 		GlobalVariables.player.set('money', remaining_mobey)
 		$"../../AnimationPlayer".play("venclose")
@@ -59,8 +59,8 @@ func purchase_vehicle(slot:int, item):
 	
 func upgrade_vehicle(slot:int, item):
 	if GlobalVariables.player.money >= item.data.cost:
-		var vehicle_id = "transport" + str(slot) + "Id"
-		GlobalVariables.player.set(vehicle_id, item.id + 1)
+		var vehicle_id = GlobalVariables.player.Vehicles[ slot ]
+		GlobalVariables.player.Vehicles[ slot ] = item.id + 1
 		var remaining_mobey = float(GlobalVariables.player.money) - item.data.cost
 		GlobalVariables.player.set('money', remaining_mobey)
 		$"../../AnimationPlayer".play("venclose")

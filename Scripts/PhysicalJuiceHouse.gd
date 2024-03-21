@@ -21,8 +21,8 @@ func _on_area_2d_body_entered(fruit):
 		var fruit_id = fruit.fruit_number
 		var liters_on_house = house.juice_liters[ fruit.fruit_number ] 
 		var liters_allowed = house.available_space()
-		print( str(fruit.liters) + " liters stored in house " + str(fruit.house))
-		print( str( liters_on_house + fruit.liters ) + " liters in total" )
+#		print( str(fruit.liters) + " liters stored in house " + str(fruit.house))
+#		print( str( liters_on_house + fruit.liters ) + " liters in total" )
 		GlobalVariables.player.CurrentJuiceHouse[ fruit.house ].juice_liters[ fruit.fruit_number ] = liters_on_house + min( liters_allowed, fruit.liters )
 		GlobalVariables.save()
 		get_parent().get_node("CanvasLayer/JuiceHouse").loadHouses()
