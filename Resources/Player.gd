@@ -54,3 +54,17 @@ class_name Player
 #Boosts
 @export var Boosts : Array[BoostData]
 
+# Stats
+@export var earnings : float
+@export var fruit_production : float
+@export var juice_production : float
+
+@export var networth_levels : Array[String]
+
+@export var total_earnings : float
+@export var total_fruit_production : float
+@export var total_juice_production : float
+@export var total_expenses : float
+@export var farm_value : float
+
+

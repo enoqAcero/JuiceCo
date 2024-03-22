@@ -5,9 +5,9 @@ extends Node2D
 
 func _ready():
 
-	fill_upgrades_list()
-	
 	initialize_upgrades()
+
+	fill_upgrades_list()
 
 func fill_upgrades_list():
 	
@@ -99,8 +99,6 @@ func initialize_upgrades():
 		var upgrade = GlobalVariables.player.Upgrades[i]
 		if upgrade.active or upgrade.epic_active:
 			enable_feature_upgrade( i, true )
-		
-		
 
 func enable_feature_upgrade( index, enable ):
 	var upgrade = GlobalVariables.player.Upgrades[ index ]
@@ -161,13 +159,11 @@ func reset():
 		var upgrade = GlobalVariables.player.Upgrades[i]
 		if upgrade != null:
 			GlobalVariables.player.Upgrades[i].active = false
-			GlobalVariables.player.Upgrades[i].epic_active = false
+#			GlobalVariables.player.Upgrades[i].epic_active = false
 			
-			if upgrade.type == GlobalVariables.UpgradeType.FEATURE:
+			if upgrade.type == GlobalVariables.UpgradeType.FEATURE and not upgrade.epic:
 				enable_feature_upgrade(i, false)
 			
 			GlobalVariables.save()
-		
 
-	
 	fill_upgrades_list()

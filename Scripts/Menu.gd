@@ -59,3 +59,18 @@ func _on_bankclose_pressed():
 
 func _on_close_button_pressed():
 	hide()
+
+
+func _on_texture_button_3_pressed():
+	hide()
+	var networth = get_tree().get_root().get_node("Main/CanvasLayer/Networth")
+	networth.show_list()
+	networth.show()
+
+
+func _on_texture_button_5_pressed():
+	hide()
+	var stats = get_tree().get_root().get_node("Main/CanvasLayer/Stats")
+	stats.show_stats()
+	stats.show()
+	

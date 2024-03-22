@@ -256,10 +256,12 @@ func transport_cargo(id:int):
 	var juice_level = GlobalVariables.player.juiceLevel
 	var juice_level_data = GlobalVariables.player.JuiceLevel[ juice_level ]
 	var earned_money = sold_cargo * ( juice_level_data.value * GlobalVariables.juice_value_multiplier )
+	earned_money *= GlobalVariables.earnings_multiplier
 	GlobalVariables.player.money += earned_money
+	GlobalVariables.player.total_earnings += earned_money
 	
 	GlobalVariables.save()
-	print( "Cargo capacity: " + str( vehicle_data.capacity * GlobalVariables.vehicle_capacity_multiplier ) )
+#	print( "Cargo capacity: " + str( vehicle_data.capacity * GlobalVariables.vehicle_capacity_multiplier ) )
 	print("Sold " + str( sold_cargo ) + " liters for: " + GlobalVariables.getMoneyString( earned_money ) )
 
 #Abir Field
@@ -274,7 +276,8 @@ func _on_upgrade_button_pressed():
 #Abir Boosts
 func _on_boost_button_pressed():
 	controlEscenasBoost = showScene($CanvasLayer/Boost, controlEscenasBoost)
-
+	$CanvasLayer/Boost.fill_boosts_list()
+	
 #Abir Menu
 func _on_menu_button_pressed():
 	controlEscenasMenu = showScene($CanvasLayer/Menu, controlEscenasMenu)
@@ -295,7 +298,7 @@ func _on_run_button_pressed():
 	
 	if runButtonControl == false:
 		for i in spawns:
-			print("Trying to spawn")
+#			print("Trying to spawn")
 			if instanceFruit():
 				runTimerNode.start()
 				runButtonControl = true
@@ -466,6 +469,7 @@ func reset_game():
 	shop.reset()
 	garage.reset()
 	houses.reset()
+
 	
 
 func _on_run_button_toggled(button_pressed):
@@ -495,3 +499,6 @@ func total_reset():
 func _input(event):
 	if event.is_action_pressed("total_reset"):
 		total_reset()
+		# Resets stats
+		GlobalVariables.hard_reset()
+

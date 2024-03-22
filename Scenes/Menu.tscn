@@ -212,44 +212,14 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_xqpcv")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_qlgat")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3imi")
 
-[node name="TextureButton" type="TextureButton" parent="Panel"]
-self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 0
-offset_left = 58.0
-offset_top = 158.0
-offset_right = 158.0
-offset_bottom = 258.0
-texture_normal = ExtResource("5_ajdgk")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Panel/TextureButton"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 23
-text = "HELP"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TextureButton2" type="TextureButton" parent="Panel"]
 self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
-offset_left = 170.0
-offset_top = 158.0
-offset_right = 270.0
-offset_bottom = 258.0
+offset_left = 88.0
+offset_top = 172.0
+offset_right = 188.0
+offset_bottom = 272.0
 texture_normal = ExtResource("5_ajdgk")
 ignore_texture_size = true
 stretch_mode = 5
@@ -268,7 +238,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 23
-text = "RESET"
+text = "LEVEL UP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -276,10 +246,10 @@ vertical_alignment = 1
 self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
-offset_left = 282.0
-offset_top = 156.0
-offset_right = 382.0
-offset_bottom = 256.0
+offset_left = 246.0
+offset_top = 170.0
+offset_right = 346.0
+offset_bottom = 270.0
 texture_normal = ExtResource("5_ajdgk")
 ignore_texture_size = true
 stretch_mode = 5
@@ -298,37 +268,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 23
-text = "SETTINGS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton4" type="TextureButton" parent="Panel"]
-self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 0
-offset_left = 58.0
-offset_top = 324.0
-offset_right = 158.0
-offset_bottom = 424.0
-texture_normal = ExtResource("5_ajdgk")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Panel/TextureButton4"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 23
-text = "ABOUT"
+text = "NETWORTH"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -336,10 +276,10 @@ vertical_alignment = 1
 self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
-offset_left = 170.0
-offset_top = 324.0
-offset_right = 270.0
-offset_bottom = 424.0
+offset_left = 88.0
+offset_top = 338.0
+offset_right = 188.0
+offset_bottom = 438.0
 texture_normal = ExtResource("5_ajdgk")
 ignore_texture_size = true
 stretch_mode = 5
@@ -366,10 +306,10 @@ vertical_alignment = 1
 self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
-offset_left = 282.0
-offset_top = 322.0
-offset_right = 382.0
-offset_bottom = 422.0
+offset_left = 246.0
+offset_top = 336.0
+offset_right = 346.0
+offset_bottom = 436.0
 texture_normal = ExtResource("5_ajdgk")
 ignore_texture_size = true
 stretch_mode = 5
@@ -388,7 +328,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 23
-text = "BANK"
+text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -396,5 +336,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="GridContainer/Label6/Sprite2D/bankbutton" to="." method="_on_bankbutton_pressed"]
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Panel/TextureButton2" to="." method="reset"]
+[connection signal="pressed" from="Panel/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="Panel/TextureButton5" to="." method="_on_texture_button_5_pressed"]
 
 [editable path="Panel"]

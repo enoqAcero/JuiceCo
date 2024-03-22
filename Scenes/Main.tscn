@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=66 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
@@ -27,9 +27,15 @@
 [ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="20_ccqtf"]
 [ext_resource type="Texture2D" uid="uid://d1oytfb3513v6" path="res://Assets/Garages/SmallGarage.png" id="21_hjrht"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="24_4lbbh"]
+[ext_resource type="Script" path="res://Scripts/Networth.gd" id="25_pfhmr"]
+[ext_resource type="PackedScene" path="res://Scenes/Panel.tscn" id="25_rwlx5"]
 [ext_resource type="Texture2D" uid="uid://b2blafnym4ws" path="res://Assets/Temp/vegetable-garden-box-icon-isometric-style-vector.png" id="27_6kpcr"]
+[ext_resource type="Script" path="res://Scripts/Stats.gd" id="27_pwgp0"]
 [ext_resource type="Texture2D" uid="uid://cno1utyefp2wl" path="res://Assets/Temp/fence3.png" id="28_pym28"]
 [ext_resource type="Texture2D" uid="uid://bvoc51l7hr8w7" path="res://Assets/Bg/BackgroundDivided.png" id="30_vm702"]
+[ext_resource type="Texture2D" uid="uid://c8xihithm5m4o" path="res://Assets/Anuncios/Dinero/Dinero1.png" id="31_qsdol"]
+[ext_resource type="Texture2D" uid="uid://bibpv3p4wt7vo" path="res://Assets/Anuncios/DineroGemas/DineroGemas1.png" id="35_efoln"]
+[ext_resource type="Texture2D" uid="uid://bvg3pabuqw14v" path="res://Assets/Anuncios/Gemas/Gema2.png" id="36_o2rwj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3ye8"]
 bg_color = Color(0.101961, 0.490196, 0.913725, 1)
@@ -65,6 +71,26 @@ variation_embolden = 1.0
 
 [sub_resource type="Theme" id="Theme_7g805"]
 default_font = SubResource("FontVariation_dds5r")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x15y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ssfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xseyl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yk8uv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u3ge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fsm0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_383jx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnnnj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eq8oo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxdpm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2x17k"]
 vertices = PackedVector2Array(-458.319, 386.836, -486.3, 669.539, -561.949, 610.435, -434.316, -404.044, -342.855, -436.647, -585.834, -582.067, -549.017, -653.555, -462.998, -684.065, -364.47, -699.724, -278.429, -660.42, -227.578, -611.807, -244.128, -543.521, -277.226, -488.163, -538.162, -443.3, -591.894, -497.971)
@@ -424,6 +450,114 @@ visible = false
 z_index = 1
 position = Vector2(-1, 42)
 
+[node name="Networth" type="Node2D" parent="CanvasLayer"]
+visible = false
+script = ExtResource("25_pfhmr")
+
+[node name="Panel" parent="CanvasLayer/Networth" instance=ExtResource("25_rwlx5")]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Wood Background" parent="CanvasLayer/Networth/Panel" index="0"]
+offset_bottom = 563.0
+
+[node name="Panel" parent="CanvasLayer/Networth/Panel" index="1"]
+visible = false
+
+[node name="Label2" parent="CanvasLayer/Networth/Panel" index="2"]
+text = "Networth"
+
+[node name="Panel2" parent="CanvasLayer/Networth/Panel" index="3"]
+visible = false
+
+[node name="Panel3" parent="CanvasLayer/Networth/Panel" index="4"]
+visible = false
+
+[node name="Label" parent="CanvasLayer/Networth/Panel" index="5"]
+offset_top = 111.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 17
+text = "Total earnings: 3.57B
+What you could afford with these numbers:"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" parent="CanvasLayer/Networth/Panel" index="6"]
+offset_top = 176.0
+offset_bottom = 548.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" parent="CanvasLayer/Networth/Panel/ScrollContainer" index="0"]
+theme_override_constants/separation = 10
+
+[node name="Button" parent="CanvasLayer/Networth/Panel" index="7"]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7x15y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0ssfm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xseyl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yk8uv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1u3ge")
+
+[node name="Label3" type="Label" parent="CanvasLayer/Networth/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 21.0
+
+[node name="Stats" type="Node2D" parent="CanvasLayer"]
+visible = false
+script = ExtResource("27_pwgp0")
+
+[node name="Panel" parent="CanvasLayer/Stats" instance=ExtResource("25_rwlx5")]
+offset_left = 20.0
+offset_top = 72.0
+offset_right = 20.0
+offset_bottom = 72.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Wood Background" parent="CanvasLayer/Stats/Panel" index="0"]
+offset_bottom = 530.0
+
+[node name="Panel" parent="CanvasLayer/Stats/Panel" index="1"]
+visible = false
+
+[node name="Label2" parent="CanvasLayer/Stats/Panel" index="2"]
+text = "Stats"
+
+[node name="Panel2" parent="CanvasLayer/Stats/Panel" index="3"]
+visible = false
+
+[node name="Panel3" parent="CanvasLayer/Stats/Panel" index="4"]
+visible = false
+
+[node name="Label" parent="CanvasLayer/Stats/Panel" index="5"]
+offset_bottom = 469.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_constants/line_spacing = 14
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="ScrollContainer" parent="CanvasLayer/Stats/Panel" index="6"]
+visible = false
+
+[node name="Button" parent="CanvasLayer/Stats/Panel" index="7"]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fsm0t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_383jx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jnnnj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eq8oo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gxdpm")
+
 [node name="house0" parent="." instance=ExtResource("10_wudyb")]
 z_index = 4
 
@@ -710,7 +844,7 @@ shape = SubResource("RectangleShape2D_6kflc")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(432, 240)
+position = Vector2(305, 272)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("30_vm702")
 
@@ -1103,6 +1237,26 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="Billboard" type="Sprite2D" parent="."]
+position = Vector2(-190.25, -261.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_qsdol")
+
+[node name="Billboard2" type="Sprite2D" parent="."]
+position = Vector2(-381.25, -153.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("35_efoln")
+
+[node name="Billboard3" type="Sprite2D" parent="."]
+position = Vector2(872, 225)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("36_o2rwj")
+
+[node name="Billboard4" type="Sprite2D" parent="."]
+position = Vector2(567, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_qsdol")
+
 [connection signal="pressed" from="CanvasLayer/fieldButton" to="." method="_on_field_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/upgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/boostButton" to="." method="_on_boost_button_pressed"]
@@ -1115,6 +1269,8 @@ autostart = true
 [connection signal="timeout" from="CanvasLayer/runButton/SwitchTimer" to="." method="_on_switch_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/JuiceLvl" to="." method="_on_juice_lvl_pressed"]
 [connection signal="timeout" from="CanvasLayer/JuiceLvl/FruitMultiplier/FruitLabelMultTimer" to="." method="_on_fruit_label_mult_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Networth/Panel/Button" to="CanvasLayer/Networth" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Stats/Panel/Button" to="CanvasLayer/Stats" method="_on_button_pressed"]
 [connection signal="timeout" from="NavigationRegion2D/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="NavigationRegion2D/Spawners/Spawner1" to="NavigationRegion2D/Spawners/Spawner1" method="_on_body_entered"]
 [connection signal="body_exited" from="NavigationRegion2D/Spawners/Spawner1" to="NavigationRegion2D/Spawners/Spawner1" method="_on_body_exited"]
@@ -1180,6 +1336,8 @@ autostart = true
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
 [connection signal="timeout" from="TransportTimer" to="." method="_on_transport_timer_timeout"]
 
+[editable path="CanvasLayer/Networth/Panel"]
+[editable path="CanvasLayer/Stats/Panel"]
 [editable path="house0"]
 [editable path="house1"]
 [editable path="house2"]

@@ -3,14 +3,9 @@ extends Node
 
 var player 
 
-#var maxHouseCapacity = false
-#var houseCount : int
-#var maxTransportCapacity = false
-
-#var litersAbbreviation
-#var moneyAbbreviation
 var abbFactor : float
 
+# Upgrades multipliers
 var fruit_race_multiplier : float = 1.0
 var juice_value_multiplier : float = 1.0
 var juice_production_multiplier : float = 1.0
@@ -21,8 +16,13 @@ var vehicle_capacity_multiplier : float = 1.0
 var race_spawn_multiplier : float = 1.0
 var upgrade_cost_multiplier : float = 1.0
 
+# Boosts multipliers
+var earnings_multiplier : float = 1.0
+#var farm_value_multiplier : float = 1.0
+#var seeds_multiplier : float = 1.0
 
 enum UpgradeType { FEATURE, FARMER, FRUIT_PRODUCTION, VEHICLE_CAPACITY, HOUSE_CAPACITY, JUICE_VALUE, JUICE_PRODUCTION, RACE_SPEED, RACE_SPAWN, UPGRADE_COST }
+enum BoostType { FEATURE, EARNINGS, FARM_VALUE, SEEDS }
 
 var save_path = "res://Save/PlayerSave.tres"
 
@@ -194,9 +194,21 @@ func set_initial_values():
 	vehicle_capacity_multiplier = 1.0
 	race_spawn_multiplier = 1.0
 	upgrade_cost_multiplier = 1.0
+	earnings_multiplier = 1.0
+#	farm_value_multiplier = 1.0
+#	seeds_multiplier = 1.0
 	save()
 
 func reset():
 	set_initial_values()
-	player.money = 10000000.00
+	player.money = 5
+	save()
+	
+func hard_reset():
+	player.total_earnings = 0
+	player.total_fruit_production = 0
+	player.total_juice_production = 0
+	player.total_expenses = 0
+	player.farm_value = 0
+	
 	save()

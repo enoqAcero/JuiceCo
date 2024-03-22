@@ -358,7 +358,7 @@ func load_farmer_list():
 			farmer_item.get_node("Aquired").show()
 			farmer_item.get_node("Button").hide()
 			
-		if farmer.cost >= GlobalVariables.player.money:
+		if farmer.cost > GlobalVariables.player.money:
 			farmer_item.get_node("Button").disabled = true
 		
 		farmer_list.add_child(farmer_item)
