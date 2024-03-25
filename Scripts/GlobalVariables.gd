@@ -22,7 +22,7 @@ var earnings_multiplier : float = 1.0
 #var seeds_multiplier : float = 1.0
 
 enum UpgradeType { FEATURE, FARMER, FRUIT_PRODUCTION, VEHICLE_CAPACITY, HOUSE_CAPACITY, JUICE_VALUE, JUICE_PRODUCTION, RACE_SPEED, RACE_SPAWN, UPGRADE_COST }
-enum BoostType { FEATURE, EARNINGS, FARM_VALUE, SEEDS }
+enum BoostType { FEATURE, EARNINGS, FRUIT_PRODUCTION, JUICE_VALUE }
 
 var save_path = "res://Save/PlayerSave.tres"
 
@@ -201,7 +201,7 @@ func set_initial_values():
 
 func reset():
 	set_initial_values()
-	player.money = 5
+	player.money = 1000000
 	save()
 	
 func hard_reset():

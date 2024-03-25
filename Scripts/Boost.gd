@@ -78,15 +78,12 @@ func enable_boost( index:int, enable:bool ):
 						pass
 			GlobalVariables.BoostType.EARNINGS:
 				GlobalVariables.earnings_multiplier *= boost.multiplier
-				print("Enabled earnings multiplier")
-			GlobalVariables.BoostType.EARNINGS:
-				pass
 			
-			GlobalVariables.BoostType.FARM_VALUE:
-				pass
+			GlobalVariables.BoostType.JUICE_VALUE:
+				GlobalVariables.juice_value_multiplier *= boost.multiplier
 				
-			GlobalVariables.BoostType.SEEDS:
-				pass
+			GlobalVariables.BoostType.FRUIT_PRODUCTION:
+				GlobalVariables.production_multiplier *= boost.multiplier
 
 		GlobalVariables.player.Boosts[ index ].timer.start()
 	else:
@@ -96,15 +93,14 @@ func enable_boost( index:int, enable:bool ):
 					0:
 						pass
 			GlobalVariables.BoostType.EARNINGS:
-				print("Disabling earnings multiplier")
-			GlobalVariables.BoostType.EARNINGS:
-				pass
+				GlobalVariables.earnings_multiplier /= boost.multiplier
 			
-			GlobalVariables.BoostType.FARM_VALUE:
-				pass
+			GlobalVariables.BoostType.JUICE_VALUE:
+				GlobalVariables.juice_value_multiplier /= boost.multiplier
 				
-			GlobalVariables.BoostType.SEEDS:
-				pass
+			GlobalVariables.BoostType.FRUIT_PRODUCTION:
+				GlobalVariables.production_multiplier /= boost.multiplier
+				
 		GlobalVariables.player.Boosts[ index ].active = false
 		GlobalVariables.player.Boosts[ index ].timer.stop()
 	

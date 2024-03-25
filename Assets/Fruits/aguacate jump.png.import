@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb2yocl475im7"
 path.s3tc="res://.godot/imported/aguacate jump.png-64f9b1a2d194883fd50b94c0dbc8b5f0.s3tc.ctex"
+path.etc2="res://.godot/imported/aguacate jump.png-64f9b1a2d194883fd50b94c0dbc8b5f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Fruits/aguacate jump.png"
-dest_files=["res://.godot/imported/aguacate jump.png-64f9b1a2d194883fd50b94c0dbc8b5f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/aguacate jump.png-64f9b1a2d194883fd50b94c0dbc8b5f0.s3tc.ctex", "res://.godot/imported/aguacate jump.png-64f9b1a2d194883fd50b94c0dbc8b5f0.etc2.ctex"]
 
 [params]
 
