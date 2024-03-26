@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var item_scene := load("res://Scenes/PurchaseItem.tscn")
 @onready var upgrades_list := $Panel/ScrollContainer/VBoxContainer

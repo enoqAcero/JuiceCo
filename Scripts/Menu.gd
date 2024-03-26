@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var button1
 var button2

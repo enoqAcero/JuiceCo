@@ -1,7 +1,6 @@
-[gd_scene load_steps=66 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=137 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
-[ext_resource type="PackedScene" uid="uid://bc8vtgcgh7vxg" path="res://Scenes/Field.tscn" id="2_cgc2k"]
 [ext_resource type="PackedScene" uid="uid://c33e12csse0rd" path="res://Scenes/Upgrades.tscn" id="3_uhmey"]
 [ext_resource type="PackedScene" uid="uid://c07rm36i3qevf" path="res://Scenes/Boost.tscn" id="4_n2rnl"]
 [ext_resource type="PackedScene" uid="uid://byddapaco8mng" path="res://Scenes/Alert.tscn" id="4_uput4"]
@@ -22,20 +21,71 @@
 [ext_resource type="Texture2D" uid="uid://b8oivrr5a2xfv" path="res://Assets/Fruits/fruitframes/mango/mango jump1.png" id="15_07gw1"]
 [ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="16_8wktm"]
 [ext_resource type="Texture2D" uid="uid://dyebxs2tvhe1x" path="res://Assets/ProgressBars/BackADVLong.png" id="17_odd6v"]
+[ext_resource type="Script" path="res://Scripts/Field.gd" id="18_od4gk"]
 [ext_resource type="Texture2D" uid="uid://dirvg562ql8p" path="res://Assets/Temp/JuiceGlass.png" id="19_3y31r"]
 [ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="19_cb5s8"]
+[ext_resource type="Texture2D" uid="uid://cdbf55j5esw47" path="res://Assets/Temp/Sin nombre.png" id="20_11f4x"]
 [ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="20_ccqtf"]
 [ext_resource type="Texture2D" uid="uid://d1oytfb3513v6" path="res://Assets/Garages/SmallGarage.png" id="21_hjrht"]
+[ext_resource type="PackedScene" uid="uid://c3omn1e8ou8bn" path="res://Scenes/FruitMeter.tscn" id="21_ulqyg"]
+[ext_resource type="PackedScene" uid="uid://vwl3qxu1h1ik" path="res://Scenes/Fruits/BlueberrySprite.tscn" id="22_fyxfj"]
+[ext_resource type="Texture2D" uid="uid://bh4w6k1h3m4ik" path="res://Assets/ProgressBars/Blueberry.png" id="23_63gjv"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="24_4lbbh"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarBlueBerry.tscn" id="24_ayvgc"]
+[ext_resource type="PackedScene" uid="uid://duojf0o2et7yc" path="res://Scenes/Fruits/CerezaSprite.tscn" id="25_3tmsv"]
 [ext_resource type="Script" path="res://Scripts/Networth.gd" id="25_pfhmr"]
 [ext_resource type="PackedScene" path="res://Scenes/Panel.tscn" id="25_rwlx5"]
+[ext_resource type="Texture2D" uid="uid://dy6yyfgds65l" path="res://Assets/ProgressBars/Cherry.png" id="26_b3d6n"]
 [ext_resource type="Texture2D" uid="uid://b2blafnym4ws" path="res://Assets/Temp/vegetable-garden-box-icon-isometric-style-vector.png" id="27_6kpcr"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarCereza.tscn" id="27_i1s71"]
 [ext_resource type="Script" path="res://Scripts/Stats.gd" id="27_pwgp0"]
+[ext_resource type="PackedScene" uid="uid://bxp8iwrrsfhjb" path="res://Scenes/Fruits/FresaSprite.tscn" id="28_5kmnb"]
 [ext_resource type="Texture2D" uid="uid://cno1utyefp2wl" path="res://Assets/Temp/fence3.png" id="28_pym28"]
+[ext_resource type="Texture2D" uid="uid://b1a51aamgk3g5" path="res://Assets/ProgressBars/Strawberry.png" id="29_7vkd4"]
 [ext_resource type="Texture2D" uid="uid://bvoc51l7hr8w7" path="res://Assets/Bg/BackgroundDivided.png" id="30_vm702"]
+[ext_resource type="PackedScene" uid="uid://boktnul7xc67k" path="res://Scenes/FullBarFresa.tscn" id="30_xnhaw"]
 [ext_resource type="Texture2D" uid="uid://c8xihithm5m4o" path="res://Assets/Anuncios/Dinero/Dinero1.png" id="31_qsdol"]
+[ext_resource type="PackedScene" uid="uid://801a8pd1o60l" path="res://Scenes/Fruits/LimonSprite.tscn" id="31_v1eyw"]
+[ext_resource type="Texture2D" uid="uid://bptw4o1pxwuls" path="res://Assets/ProgressBars/Lemon.png" id="32_501q5"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarLimon.tscn" id="33_addfi"]
+[ext_resource type="PackedScene" uid="uid://dtl6roi7cruco" path="res://Scenes/Fruits/DuraznoSprite.tscn" id="34_y2fgr"]
 [ext_resource type="Texture2D" uid="uid://bibpv3p4wt7vo" path="res://Assets/Anuncios/DineroGemas/DineroGemas1.png" id="35_efoln"]
+[ext_resource type="Texture2D" uid="uid://dsclgcjxohcn5" path="res://Assets/ProgressBars/Peach.png" id="35_ofjl7"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarDurazno.tscn" id="36_f4cic"]
 [ext_resource type="Texture2D" uid="uid://bvg3pabuqw14v" path="res://Assets/Anuncios/Gemas/Gema2.png" id="36_o2rwj"]
+[ext_resource type="PackedScene" uid="uid://cn4o8i624p4qf" path="res://Scenes/Fruits/ManzanaSprite.tscn" id="37_c1fuv"]
+[ext_resource type="Texture2D" uid="uid://dqtmnvec04gjs" path="res://Assets/ProgressBars/Apple.png" id="38_4bwko"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarManzana.tscn" id="39_r4mbh"]
+[ext_resource type="PackedScene" uid="uid://bk6uc1r817w42" path="res://Scenes/Fruits/NaranjaSprite.tscn" id="40_v6qdb"]
+[ext_resource type="Texture2D" uid="uid://d4febjlo64jnd" path="res://Assets/ProgressBars/Orange.png" id="41_w5fyd"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarNaranja.tscn" id="42_51j4g"]
+[ext_resource type="PackedScene" uid="uid://dkrqagwff34a0" path="res://Scenes/Fruits/AguacateSprite.tscn" id="43_01hyu"]
+[ext_resource type="Texture2D" uid="uid://d0wrbfw6tpyh3" path="res://Assets/ProgressBars/Avocado.png" id="44_rnx3d"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarAguacate.tscn" id="45_yyl15"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarMango.tscn" id="46_ohid3"]
+[ext_resource type="PackedScene" uid="uid://b0e5bpnmuddj4" path="res://Scenes/Fruits/DragonfruitSprite.tscn" id="47_5yiwx"]
+[ext_resource type="Texture2D" uid="uid://b112anyt8k762" path="res://Assets/ProgressBars/Dragonfruit.png" id="48_q3oft"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarDragonFruit.tscn" id="49_fcwpx"]
+[ext_resource type="PackedScene" uid="uid://0j3v1om18nkx" path="res://Scenes/Fruits/CocoSprite.tscn" id="50_3jlpv"]
+[ext_resource type="Texture2D" uid="uid://cr1wo5idhkvbs" path="res://Assets/ProgressBars/Coconut.png" id="51_bo34h"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarCoco.tscn" id="52_g3odt"]
+[ext_resource type="PackedScene" uid="uid://b2o7bxvxqlrw5" path="res://Scenes/Fruits/PineappleSprite.tscn" id="53_a02w5"]
+[ext_resource type="Texture2D" uid="uid://ck4td18scex41" path="res://Assets/ProgressBars/Pineapple.png" id="54_tvd57"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarPina.tscn" id="55_cpjg6"]
+[ext_resource type="PackedScene" uid="uid://1k2x01xv8gwy" path="res://Scenes/Fruits/PapayaSprite.tscn" id="56_ei217"]
+[ext_resource type="Texture2D" uid="uid://cu78sk6grl4q5" path="res://Assets/ProgressBars/Papaya.png" id="57_3n022"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarPapaya.tscn" id="58_u1r75"]
+[ext_resource type="PackedScene" uid="uid://disw2llry4ctb" path="res://Scenes/Fruits/MelonSprite.tscn" id="59_gk2gs"]
+[ext_resource type="Texture2D" uid="uid://dmenq3d567ovu" path="res://Assets/ProgressBars/Melon.png" id="60_2cvmy"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarMelon.tscn" id="61_ta8kl"]
+[ext_resource type="PackedScene" uid="uid://c4pvg5rhfv1es" path="res://Scenes/Fruits/SandiaSprite.tscn" id="62_60myk"]
+[ext_resource type="Texture2D" uid="uid://540l6x56v43" path="res://Assets/ProgressBars/Watermelon.png" id="63_n5axn"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarSandia.tscn" id="64_xd38v"]
+[ext_resource type="PackedScene" path="res://Scenes/FarmersSelection.tscn" id="65_484ih"]
+[ext_resource type="PackedScene" path="res://Scenes/FarmerGeneral.tscn" id="66_wft2o"]
+[ext_resource type="PackedScene" uid="uid://bp0vud0gopelm" path="res://Scenes/FarmerItem.tscn" id="67_po41x"]
+[ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="68_h2bjv"]
+[ext_resource type="Texture2D" uid="uid://dbicgk7bx30x1" path="res://Assets/Temp/wood arrow.png" id="69_cpko3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3ye8"]
 bg_color = Color(0.101961, 0.490196, 0.913725, 1)
@@ -55,6 +105,207 @@ corner_radius_bottom_left = 125
 shadow_size = 10
 shadow_offset = Vector2(5, 5)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtrw2"]
+texture = ExtResource("20_11f4x")
+
+[sub_resource type="FontVariation" id="FontVariation_dds5r"]
+base_font = ExtResource("20_ccqtf")
+variation_embolden = 1.0
+
+[sub_resource type="Theme" id="Theme_8cke2"]
+default_font = SubResource("FontVariation_dds5r")
+
+[sub_resource type="Theme" id="Theme_chiew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cdgj"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf8un"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aq5y"]
+bg_color = Color(0.74902, 0.74902, 0.74902, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_jaiut"]
+Panel/styles/panel = SubResource("StyleBoxFlat_6aq5y")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwni5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emc8l"]
+bg_color = Color(0.00784314, 0.00392157, 0, 0.909804)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iixvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_biiaf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2c5ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0r778"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fymfo"]
+
+[sub_resource type="Animation" id="Animation_8k5sv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [Vector2(90, 119)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5nd88"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 0.2),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(90, -190), Vector2(90, 119)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Menu/Burguer:button_pressed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6ut1e"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 0.2),
+"transitions": PackedFloat64Array(1, 1),
+"update": 0,
+"values": [Vector2(90, 119), Vector2(90, -190)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OptionsTimer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0.2),
+"transitions": PackedFloat64Array(1),
+"values": [{
+"args": [-1],
+"method": &"start"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(0.2),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat64Array(0.2),
+"transitions": PackedFloat64Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1m306"]
+_data = {
+"RESET": SubResource("Animation_8k5sv"),
+"hide": SubResource("Animation_5nd88"),
+"show": SubResource("Animation_6ut1e")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogvdg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wpgy"]
+bg_color = Color(0.133333, 0.294118, 0, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70q2k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dh2l3"]
@@ -65,12 +316,12 @@ shadow_offset = Vector2(5, 5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5623"]
 
-[sub_resource type="FontVariation" id="FontVariation_dds5r"]
+[sub_resource type="FontVariation" id="FontVariation_0n86n"]
 base_font = ExtResource("20_ccqtf")
 variation_embolden = 1.0
 
 [sub_resource type="Theme" id="Theme_7g805"]
-default_font = SubResource("FontVariation_dds5r")
+default_font = SubResource("FontVariation_0n86n")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x15y"]
 
@@ -133,10 +384,16 @@ script = ExtResource("7_4o3gd")
 
 [node name="fieldButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
-offset_left = 197.0
-offset_top = 672.0
-offset_right = 422.0
-offset_bottom = 863.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -191.0
+offset_right = 185.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("4_xkr0f")
 
@@ -156,10 +413,17 @@ scale = Vector2(1.4, 1.4)
 
 [node name="upgradeButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
-offset_left = 125.0
-offset_top = 681.0
-offset_right = 256.0
-offset_bottom = 822.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -174.0
+offset_right = 21.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_oox0e")
 
@@ -177,13 +441,22 @@ grow_horizontal = 0
 
 [node name="Upgrades" parent="CanvasLayer" instance=ExtResource("3_uhmey")]
 visible = false
+offset_top = -31.0
+offset_bottom = -31.0
 
 [node name="boostButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
-offset_left = 294.0
-offset_top = 681.0
-offset_right = 425.0
-offset_bottom = 822.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -176.0
+offset_right = 184.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_sex66")
 
@@ -204,10 +477,17 @@ visible = false
 
 [node name="menuButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
-offset_left = 362.0
-offset_top = 680.0
-offset_right = 493.0
-offset_bottom = 821.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -176.0
+offset_right = 251.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_rvhmu")
 
@@ -216,10 +496,17 @@ visible = false
 
 [node name="shopButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
-offset_left = 54.0
-offset_top = 681.0
-offset_right = 185.0
-offset_bottom = 822.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -179.0
+offset_top = -174.0
+offset_right = -48.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("12_h6o2h")
 
@@ -272,10 +559,17 @@ offset_right = 326.0
 offset_bottom = 199.0
 
 [node name="runButton" type="Button" parent="CanvasLayer"]
-offset_left = 20.0
-offset_top = 731.0
-offset_right = 1277.0
-offset_bottom = 1062.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -212.0
+offset_top = -119.0
+offset_right = 1005.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.35, 0.35)
 theme_override_styles/normal = SubResource("StyleBoxFlat_i3ye8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i3ye8")
@@ -307,15 +601,449 @@ position = Vector2(674.286, 128.571)
 [node name="SwitchTimer" type="Timer" parent="CanvasLayer/runButton"]
 wait_time = 0.5
 
-[node name="Field" parent="CanvasLayer" instance=ExtResource("2_cgc2k")]
+[node name="Field" type="Panel" parent="CanvasLayer"]
 visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wtrw2")
+script = ExtResource("18_od4gk")
+metadata/_edit_vertical_guides_ = [300.0]
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Control" parent="CanvasLayer/Field"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_8cke2")
+
+[node name="Wood Background" type="TextureRect" parent="CanvasLayer/Field/Panel"]
+visible = false
+self_modulate = Color(0.968627, 0.952941, 0.933333, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_11f4x")
+expand_mode = 1
+
+[node name="FruitsScroll" type="ScrollContainer" parent="CanvasLayer/Field/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 104.0
+offset_right = -8.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_chiew")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5cdgj")
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Field/Panel/FruitsScroll"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="FruitMeterExample" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+visible = false
+layout_mode = 2
+
+[node name="FruitMeter0" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter0/Fruit" index="1" instance=ExtResource("22_fyxfj")]
+position = Vector2(87, 36)
+scale = Vector2(0.488, 0.476667)
+animation = &"walk"
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter0" index="1"]
+texture_progress = ExtResource("23_63gjv")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter0/Bar" index="0" instance=ExtResource("24_ayvgc")]
+visible = false
+position = Vector2(168.5, 30)
+scale = Vector2(0.528571, 0.373333)
+
+[node name="FruitMeter1" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter1/Fruit" index="1" instance=ExtResource("25_3tmsv")]
+position = Vector2(102, 11)
+scale = Vector2(0.6, 0.6)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter1" index="1"]
+texture_progress = ExtResource("26_b3d6n")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter1/Bar" index="0" instance=ExtResource("27_i1s71")]
+visible = false
+position = Vector2(169, 29.5)
+scale = Vector2(0.530159, 0.366667)
+
+[node name="FruitMeter2" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter2/Fruit" index="1" instance=ExtResource("28_5kmnb")]
+position = Vector2(67, 53)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter2" index="1"]
+texture_progress = ExtResource("29_7vkd4")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter2/Bar" index="0" instance=ExtResource("30_xnhaw")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter3" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter3/Fruit" index="1" instance=ExtResource("31_v1eyw")]
+position = Vector2(88, 52)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter3" index="1"]
+texture_progress = ExtResource("32_501q5")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter3/Bar" index="0" instance=ExtResource("33_addfi")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter4" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter4/Fruit" index="1" instance=ExtResource("34_y2fgr")]
+position = Vector2(70, 52)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter4" index="1"]
+texture_progress = ExtResource("35_ofjl7")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter4/Bar" index="0" instance=ExtResource("36_f4cic")]
+visible = false
+position = Vector2(169.5, 30)
+scale = Vector2(0.528571, 0.373333)
+
+[node name="FruitMeter5" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter5/Fruit" index="1" instance=ExtResource("37_c1fuv")]
+position = Vector2(82, 35)
+scale = Vector2(0.468, 0.486667)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter5" index="1"]
+texture_progress = ExtResource("38_4bwko")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter5/Bar" index="0" instance=ExtResource("39_r4mbh")]
+visible = false
+position = Vector2(169.5, 30)
+scale = Vector2(0.528571, 0.373333)
+
+[node name="FruitMeter6" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter6/Fruit" index="1" instance=ExtResource("40_v6qdb")]
+position = Vector2(73, 46)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter6" index="1"]
+texture_progress = ExtResource("41_w5fyd")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter6/Bar" index="0" instance=ExtResource("42_51j4g")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter7" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter7/Fruit" index="1" instance=ExtResource("43_01hyu")]
+position = Vector2(64, 56)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter7" index="1"]
+texture_progress = ExtResource("44_rnx3d")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter7/Bar" index="0" instance=ExtResource("45_yyl15")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter8" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter8/Fruit" index="1" instance=ExtResource("16_8wktm")]
+position = Vector2(85, 54)
+scale = Vector2(0.4, 0.4)
+animation = &"walk"
+frame = 0
+frame_progress = 0.0
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter8/Bar" index="0" instance=ExtResource("46_ohid3")]
+visible = false
+position = Vector2(168.5, 30)
+scale = Vector2(0.528571, 0.373333)
+
+[node name="FruitMeter9" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter9/Fruit" index="1" instance=ExtResource("47_5yiwx")]
+position = Vector2(81, 53)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter9" index="1"]
+texture_progress = ExtResource("48_q3oft")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter9/Bar" index="0" instance=ExtResource("49_fcwpx")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter10" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter10/Fruit" index="1" instance=ExtResource("50_3jlpv")]
+position = Vector2(75, 55)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter10" index="1"]
+texture_progress = ExtResource("51_bo34h")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter10/Bar" index="0" instance=ExtResource("52_g3odt")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter11" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter11/Fruit" index="1" instance=ExtResource("53_a02w5")]
+position = Vector2(85, 60)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter11" index="1"]
+texture_progress = ExtResource("54_tvd57")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter11/Bar" index="0" instance=ExtResource("55_cpjg6")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter12" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter12/Fruit" index="1" instance=ExtResource("56_ei217")]
+position = Vector2(63, 59)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter12" index="1"]
+texture_progress = ExtResource("57_3n022")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter12/Bar" index="0" instance=ExtResource("58_u1r75")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter13" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter13/Fruit" index="1" instance=ExtResource("59_gk2gs")]
+position = Vector2(80, 55)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter13" index="1"]
+texture_progress = ExtResource("60_2cvmy")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter13/Bar" index="0" instance=ExtResource("61_ta8kl")]
+visible = false
+position = Vector2(169, 30)
+scale = Vector2(0.530159, 0.373333)
+
+[node name="FruitMeter14" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer" instance=ExtResource("21_ulqyg")]
+layout_mode = 2
+
+[node name="Sprite2D" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter14/Fruit" index="1" instance=ExtResource("62_60myk")]
+position = Vector2(70, 46)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter14" index="1"]
+texture_progress = ExtResource("63_n5axn")
+
+[node name="FullBar" parent="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter14/Bar" index="0" instance=ExtResource("64_xd38v")]
+visible = false
+position = Vector2(169.5, 30)
+scale = Vector2(0.528571, 0.373333)
+
+[node name="FarmerScroll" type="ScrollContainer" parent="CanvasLayer/Field/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -326.5
+offset_right = 232.0
+offset_bottom = 326.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_chiew")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nf8un")
+vertical_scroll_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Field/Panel/FarmerScroll"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FarmersSelection" parent="CanvasLayer/Field/Panel/FarmerScroll/VBoxContainer" instance=ExtResource("65_484ih")]
+layout_mode = 2
+
+[node name="General Info" parent="CanvasLayer/Field/Panel/FarmerScroll/VBoxContainer" instance=ExtResource("66_wft2o")]
+layout_mode = 2
+
+[node name="Farmer0" parent="CanvasLayer/Field/Panel/FarmerScroll/VBoxContainer" instance=ExtResource("67_po41x")]
+layout_mode = 2
+
+[node name="Menu" type="Panel" parent="CanvasLayer/Field/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -94.0
+offset_right = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_jaiut")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bwni5")
+
+[node name="Burguer" type="TextureButton" parent="CanvasLayer/Field/Panel/Menu"]
+self_modulate = Color(0.388235, 0.627451, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_normal = ExtResource("68_h2bjv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Alert" parent="CanvasLayer/Field/Panel/Menu/Burguer" instance=ExtResource("4_uput4")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 286.0
+offset_bottom = 35.0
+
+[node name="Button" type="TextureButton" parent="CanvasLayer/Field/Panel/Menu"]
+self_modulate = Color(1, 0.356863, 0.294118, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("69_cpko3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Options" type="Panel" parent="CanvasLayer/Field/Panel/Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 119.0
+offset_right = 150.0
+offset_bottom = 275.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_emc8l")
+
+[node name="Background" type="Button" parent="CanvasLayer/Field/Panel/Menu/Options"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.413
+anchor_top = -3.897
+anchor_right = 1.4
+anchor_bottom = 1.641
+offset_left = -0.1
+offset_top = -0.068
+offset_bottom = -0.996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iixvf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_biiaf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2c5ty")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0r778")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fymfo")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Field/Panel/Menu/Options"]
+autoplay = "RESET"
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_1m306")
+}
+
+[node name="Fruits" type="Button" parent="CanvasLayer/Field/Panel/Menu/Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ogvdg")
+text = "Fruits"
+
+[node name="Farmers" type="Button" parent="CanvasLayer/Field/Panel/Menu/Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 84.0
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wpgy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ogvdg")
+text = "Farmers"
+
+[node name="OptionsTimer" type="Timer" parent="CanvasLayer/Field/Panel/Menu/Options"]
+wait_time = 2.0
+one_shot = true
 
 [node name="JuiceLvl" type="Button" parent="CanvasLayer"]
 texture_filter = 6
-offset_left = 21.0
-offset_top = 9.0
-offset_right = 96.0
-offset_bottom = 90.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -217.0
+offset_top = 8.0
+offset_right = -142.0
+offset_bottom = 89.0
+grow_horizontal = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_70q2k")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dh2l3")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_n3dt1")
@@ -450,8 +1178,19 @@ visible = false
 z_index = 1
 position = Vector2(-1, 42)
 
-[node name="Networth" type="Node2D" parent="CanvasLayer"]
-visible = false
+[node name="Networth" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -415.0
+offset_right = -236.0
+offset_bottom = -415.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("25_pfhmr")
 
 [node name="Panel" parent="CanvasLayer/Networth" instance=ExtResource("25_rwlx5")]
@@ -1267,6 +2006,12 @@ texture = ExtResource("31_qsdol")
 [connection signal="toggled" from="CanvasLayer/runButton" to="." method="_on_run_button_toggled"]
 [connection signal="timeout" from="CanvasLayer/runButton/RunTimer" to="." method="_on_run_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/runButton/SwitchTimer" to="." method="_on_switch_timer_timeout"]
+[connection signal="toggled" from="CanvasLayer/Field/Panel/Menu/Burguer" to="CanvasLayer/Field" method="_on_burguer_toggled" flags=18]
+[connection signal="pressed" from="CanvasLayer/Field/Panel/Menu/Button" to="CanvasLayer/Field" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/Field/Panel/Menu/Options/Background" to="CanvasLayer/Field" method="_on_options_timer_timeout" flags=18]
+[connection signal="pressed" from="CanvasLayer/Field/Panel/Menu/Options/Fruits" to="CanvasLayer/Field" method="_on_fruits_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/Field/Panel/Menu/Options/Farmers" to="CanvasLayer/Field" method="_on_farmers_pressed" flags=18]
+[connection signal="timeout" from="CanvasLayer/Field/Panel/Menu/Options/OptionsTimer" to="CanvasLayer/Field" method="_on_options_timer_timeout" flags=18]
 [connection signal="pressed" from="CanvasLayer/JuiceLvl" to="." method="_on_juice_lvl_pressed"]
 [connection signal="timeout" from="CanvasLayer/JuiceLvl/FruitMultiplier/FruitLabelMultTimer" to="." method="_on_fruit_label_mult_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/Networth/Panel/Button" to="CanvasLayer/Networth" method="_on_button_pressed"]
@@ -1336,6 +2081,21 @@ texture = ExtResource("31_qsdol")
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
 [connection signal="timeout" from="TransportTimer" to="." method="_on_transport_timer_timeout"]
 
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter0"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter1"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter2"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter3"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter4"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter5"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter6"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter7"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter8"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter9"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter10"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter11"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter12"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter13"]
+[editable path="CanvasLayer/Field/Panel/FruitsScroll/VBoxContainer/FruitMeter14"]
 [editable path="CanvasLayer/Networth/Panel"]
 [editable path="CanvasLayer/Stats/Panel"]
 [editable path="house0"]

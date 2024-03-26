@@ -253,7 +253,9 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wpgy"]
 bg_color = Color(0.133333, 0.294118, 0, 1)
 
-[node name="Field" type="Node2D"]
+[node name="Field" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_dcyj0")
 metadata/_edit_vertical_guides_ = [300.0]
 
@@ -261,17 +263,21 @@ metadata/_edit_vertical_guides_ = [300.0]
 texture_filter = 6
 layout_mode = 3
 anchors_preset = 0
-offset_left = 22.0
-offset_right = 22.0
+offset_right = 480.0
+offset_bottom = 854.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = SubResource("Theme_8cke2")
+metadata/_edit_use_anchors_ = true
 
 [node name="Wood Background" type="TextureRect" parent="Panel"]
 self_modulate = Color(0.968627, 0.952941, 0.933333, 1)
-layout_mode = 0
-offset_left = -54.0
-offset_top = -8.0
-offset_right = 490.0
-offset_bottom = 855.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_6or35")
 expand_mode = 1
 
@@ -284,6 +290,7 @@ offset_bottom = 773.0
 theme = SubResource("Theme_chiew")
 theme_override_styles/panel = SubResource("StyleBoxFlat_5cdgj")
 vertical_scroll_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/FruitsScroll"]
 layout_mode = 2
@@ -530,6 +537,7 @@ offset_bottom = 756.0
 theme = SubResource("Theme_chiew")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nf8un")
 vertical_scroll_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/FarmerScroll"]
 layout_mode = 2
@@ -553,6 +561,7 @@ offset_right = 458.0
 offset_bottom = 855.0
 theme = SubResource("Theme_jaiut")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bwni5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Burguer" type="TextureButton" parent="Panel/Menu"]
 self_modulate = Color(0.388235, 0.627451, 1, 1)
@@ -589,11 +598,6 @@ stretch_mode = 5
 
 [node name="Options" type="Panel" parent="Panel"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = 70.0
 offset_top = 900.0
 offset_right = 370.0
@@ -601,6 +605,7 @@ offset_bottom = 1056.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_emc8l")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Button" parent="Panel/Options"]
 visible = false

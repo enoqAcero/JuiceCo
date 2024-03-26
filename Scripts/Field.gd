@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var error_message_scene := preload("res://Scenes/ErrorMessage.tscn")
 
@@ -280,29 +280,29 @@ func _on_button_pressed():
 
 func _on_burguer_toggled(button_pressed):
 	if button_pressed:
-		$Panel/Options/AnimationPlayer.play("show")
+		$Panel/Menu/Options/AnimationPlayer.play("show")
 	else:
-		$Panel/Options/AnimationPlayer.play("hide")
+		$Panel/Menu/Options/AnimationPlayer.play("hide")
 		
 func hide_scrolls():
 	$Panel/FruitsScroll.hide()
 	$Panel/FarmerScroll.hide()
-	$Panel/Options/AnimationPlayer.play("hide")
+	$Panel/Menu/Options/AnimationPlayer.play("hide")
 	$Panel/Menu/Burguer.button_pressed = false
 
 func _on_fruits_pressed():
 	hide_scrolls()
 	loadAllPanelData()
 	$Panel/FruitsScroll.show()
-	$Panel/Options/AnimationPlayer.play("hide")
-	$Panel/Options/OptionsTimer.stop()
+	$Panel/Menu/Options/AnimationPlayer.play("hide")
+	$Panel/Menu/Options/OptionsTimer.stop()
 
 func _on_farmers_pressed():
 	hide_scrolls()
 	load_farmer_list()
 	$Panel/FarmerScroll.show()
-	$Panel/Options/AnimationPlayer.play("hide")
-	$Panel/Options/OptionsTimer.stop()
+	$Panel/Menu/Options/AnimationPlayer.play("hide")
+	$Panel/Menu/Options/OptionsTimer.stop()
 	
 func load_farmer_list():
 	
@@ -454,8 +454,8 @@ func reset_farmers():
 	GlobalVariables.save()
 
 func _on_options_timer_timeout():
-	$Panel/Options/AnimationPlayer.play("hide")
-	$Panel/Options/OptionsTimer.stop()
+	$Panel/Menu/Options/AnimationPlayer.play("hide")
+	$Panel/Menu/Options/OptionsTimer.stop()
 #	print("Pressing background")
 
 func produce_fruit(index:int):

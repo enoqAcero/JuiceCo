@@ -4,7 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://mupvggqkndx7" path="res://Scenes/PurchasePanel.tscn" id="4_1rf2k"]
 [ext_resource type="PackedScene" uid="uid://cyjuxhkgdjydi" path="res://Scenes/PurchaseItem.tscn" id="6_sn2iw"]
 
-[node name="Shop" type="Node2D"]
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_tri17")
 
 [node name="Panel" parent="." instance=ExtResource("4_1rf2k")]

@@ -27,7 +27,8 @@ enum BoostType { FEATURE, EARNINGS, FRUIT_PRODUCTION, JUICE_VALUE }
 var save_path = "res://Save/PlayerSave.tres"
 
 func save():
-	
+	var dir = DirAccess.open("res://")
+	dir.make_dir("Save")
 	ResourceSaver.save(GlobalVariables.player, save_path)
 #	print("Saving from global")
 	

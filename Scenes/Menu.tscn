@@ -27,7 +27,13 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3imi"]
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ymngt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -179,8 +185,11 @@ offset_right = 98.0
 offset_bottom = 102.0
 
 [node name="Panel" parent="." instance=ExtResource("4_x2vir")]
-offset_top = 86.0
-offset_bottom = 86.0
+layout_mode = 1
+offset_left = -229.0
+offset_top = -310.0
+offset_right = -229.0
+offset_bottom = -310.0
 
 [node name="Wood Background" parent="Panel" index="0"]
 offset_left = 24.0
@@ -189,6 +198,10 @@ offset_right = 415.0
 offset_bottom = 531.0
 
 [node name="Window Title" parent="Panel" index="1"]
+offset_left = 37.0
+offset_top = 83.0
+offset_right = 413.0
+offset_bottom = 117.0
 text = "MAIN MENU"
 
 [node name="Window descritpion" parent="Panel" index="2"]

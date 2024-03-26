@@ -4,13 +4,46 @@
 [ext_resource type="PackedScene" uid="uid://mupvggqkndx7" path="res://Scenes/PurchasePanel.tscn" id="1_smoud"]
 [ext_resource type="PackedScene" uid="uid://cyjuxhkgdjydi" path="res://Scenes/PurchaseItem.tscn" id="3_1ryep"]
 
-[node name="Upgrades" type="Node2D"]
+[node name="Upgrades" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_m2rf7")
 
 [node name="Panel" parent="." instance=ExtResource("1_smoud")]
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Wood Background" parent="Panel" index="0"]
+offset_left = -219.0
+offset_top = -283.0
+offset_right = 223.0
+offset_bottom = 268.0
 
 [node name="Window Title" parent="Panel" index="1"]
+offset_left = -189.0
+offset_top = -272.0
+offset_right = 187.0
+offset_bottom = -238.0
 text = "Upgrades"
+
+[node name="Window descritpion" parent="Panel" index="2"]
+offset_left = -207.0
+offset_top = -238.0
+offset_right = 208.0
+offset_bottom = -178.0
+
+[node name="Options" parent="Panel" index="3"]
+offset_left = -190.0
+offset_top = -182.0
+offset_right = -190.0
+offset_bottom = -132.0
 
 [node name="Label" parent="Panel/Options/Button" index="0"]
 text = "COMMON"
@@ -21,8 +54,20 @@ text = "EPIC"
 [node name="Content Background" parent="Panel" index="4"]
 visible = false
 
+[node name="ScrollContainer" parent="Panel" index="5"]
+offset_left = -197.0
+offset_top = -123.0
+offset_right = 208.0
+offset_bottom = 250.0
+
 [node name="Item" parent="Panel/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("3_1ryep")]
 layout_mode = 2
+
+[node name="CloseButton" parent="Panel" index="6"]
+offset_left = 145.0
+offset_top = -270.0
+offset_right = 176.0
+offset_bottom = -240.0
 
 [connection signal="pressed" from="Panel/Options/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/Options/Button2" to="." method="_on_button_2_pressed"]
