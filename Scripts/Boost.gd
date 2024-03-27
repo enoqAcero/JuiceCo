@@ -23,7 +23,7 @@ func fill_boosts_list():
 		var item = item_scene.instantiate()
 
 		item.get_node("Icon").texture = boost.skin
-		item.get_node("Button").text = GlobalVariables.getMoneyString( boost.cost )
+		item.get_node("Button").text = "$ " + GlobalVariables.getMoneyString( boost.cost )
 		item.get_node("Button").show()
 		item.get_node("ButtonEpic").hide()
 		item.get_node("Name").text = boost.name

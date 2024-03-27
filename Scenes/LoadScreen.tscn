@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://crqfvcqq671a"]
+
+[ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="1_7gnvi"]
+[ext_resource type="Script" path="res://Scripts/LoadScreen.gd" id="1_b610v"]
+[ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="2_saxow"]
+[ext_resource type="PackedScene" uid="uid://bcceecf6p8c7x" path="res://Scenes/FullBarMango.tscn" id="3_otjx7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_radta"]
+bg_color = Color(0.317647, 0.541176, 0.737255, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_0n86n"]
+base_font = ExtResource("2_saxow")
+variation_embolden = 1.0
+
+[sub_resource type="Theme" id="Theme_ecrj4"]
+default_font = SubResource("FontVariation_0n86n")
+
+[node name="LoadScreen" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_radta")
+script = ExtResource("1_b610v")
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_7gnvi")]
+position = Vector2(280, 319)
+scale = Vector2(0.75, 0.75)
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.383432
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 3.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ecrj4")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 42
+text = "JuiceCo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 50.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ecrj4")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 25
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FullBarMango" parent="." instance=ExtResource("3_otjx7")]
+position = Vector2(240, 776)
+frame_progress = 0.723743

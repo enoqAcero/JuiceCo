@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_tri17")
 
 [node name="Panel" parent="." instance=ExtResource("4_1rf2k")]
+layout_mode = 1
 
 [node name="Window Title" parent="Panel" index="1"]
 text = "SHOP"
@@ -25,7 +26,8 @@ visible = false
 visible = false
 
 [node name="ScrollContainer" parent="Panel" index="5"]
-offset_top = 169.0
+offset_top = 114.0
+offset_bottom = 522.0
 
 [node name="Item" parent="Panel/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("6_sn2iw")]
 layout_mode = 2

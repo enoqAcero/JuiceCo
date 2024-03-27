@@ -24,11 +24,11 @@ var earnings_multiplier : float = 1.0
 enum UpgradeType { FEATURE, FARMER, FRUIT_PRODUCTION, VEHICLE_CAPACITY, HOUSE_CAPACITY, JUICE_VALUE, JUICE_PRODUCTION, RACE_SPEED, RACE_SPAWN, UPGRADE_COST }
 enum BoostType { FEATURE, EARNINGS, FRUIT_PRODUCTION, JUICE_VALUE }
 
-var save_path = "res://Save/PlayerSave.tres"
+var base_save_path := "res://Save/PlayerSave.tres"
+var save_path = "user://PlayerSave.tres"
 
 func save():
-	var dir = DirAccess.open("res://")
-	dir.make_dir("Save")
+	
 	ResourceSaver.save(GlobalVariables.player, save_path)
 #	print("Saving from global")
 	
@@ -40,12 +40,12 @@ func _ready():
 	
 	
 func loadResource():
-	if ResourceLoader.exists("res://Save/PlayerSave.tres"):
-		player = ResourceLoader.load("res://Save/PlayerSave.tres")
+	if ResourceLoader.exists("user://PlayerSave.tres"):
+		player = ResourceLoader.load("user://PlayerSave.tres")
 	else:
-		var newPlayerData = Player.new()
-		ResourceSaver.save(newPlayerData, ("res://Save/PlayerSave.tres"))
-		player = ResourceLoader.load("res://Save/PlayerSave.tres")
+		var player_data = ResourceLoader.load("res://Save/PlayerSave.tres")
+		ResourceSaver.save(player_data, "user://PlayerSave.tres")
+		player = ResourceLoader.load("user://PlayerSave.tres")
 	
 	SignalManager.loadData.emit()
 	SignalManager.loadHouses.emit()

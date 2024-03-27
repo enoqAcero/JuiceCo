@@ -27,7 +27,7 @@ func fill_upgrades_list():
 		var item = item_scene.instantiate()
 
 		item.get_node("Icon").texture = upgrade.skin
-		item.get_node("Button").text = GlobalVariables.getMoneyString( upgrade.cost * GlobalVariables.upgrade_cost_multiplier )
+		item.get_node("Button").text = "$ " + GlobalVariables.getMoneyString( upgrade.cost * GlobalVariables.upgrade_cost_multiplier )
 		item.get_node("Button").show()
 		item.get_node("ButtonEpic").hide()
 		item.get_node("Name").text = upgrade.name

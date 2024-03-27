@@ -362,6 +362,7 @@ func instanceFruit():
 		res = 0
 		fruit_run.liters = fruit_data.produced_fruits
 #	var mult = fruit_run.liters
+	var fruit_amount :int = fruit_run.liters
 	GlobalVariables.player.Fruits[rand_i].produced_fruits = res
 	
 #	print( str( fruit_run.liters ) + " fruits before calculation" )
@@ -383,7 +384,7 @@ func instanceFruit():
 	fruit_run.fruit_number = rand_i
 	
 	# Show fruit multiplier
-	$CanvasLayer/JuiceLvl/FruitMultiplier.text = "x " + GlobalVariables.getMoneyString( fruit_run.liters ) + " L"
+	$CanvasLayer/JuiceLvl/FruitMultiplier.text = "x " + GlobalVariables.getMoneyString( fruit_amount ) + " fruits"
 	$CanvasLayer/JuiceLvl/FruitMultiplier.show()
 	$CanvasLayer/JuiceLvl/FruitMultiplier/FruitLabelMultTimer.start()
 	
@@ -502,3 +503,9 @@ func _input(event):
 		# Resets stats
 		GlobalVariables.hard_reset()
 
+
+
+func _on_dev_reset_button_pressed():
+	total_reset()
+	# Resets stats
+	GlobalVariables.hard_reset()

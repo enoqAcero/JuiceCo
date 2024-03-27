@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/JuiceHouseItem.gd" id="1_b6d68"]
 [ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="1_ct8uy"]
-[ext_resource type="PackedScene" path="res://Scenes/universe_animated_texture.tscn" id="2_5npvr"]
+[ext_resource type="PackedScene" uid="uid://cqbm3y3nw60ls" path="res://Scenes/universe_animated_texture.tscn" id="2_5npvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whfrd"]
 bg_color = Color(0.858824, 0.858824, 0.858824, 1)
@@ -132,6 +132,7 @@ custom_minimum_size = Vector2(175, 250)
 layout_mode = 2
 offset_right = 175.0
 offset_bottom = 250.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_whfrd")
 
 [node name="Button" type="Button" parent="Empty"]
@@ -140,6 +141,7 @@ offset_left = 14.0
 offset_top = 120.0
 offset_right = 159.0
 offset_bottom = 152.0
+mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -155,6 +157,7 @@ custom_minimum_size = Vector2(175, 250)
 layout_mode = 2
 offset_right = 175.0
 offset_bottom = 250.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dk1sb")
 
 [node name="Label" type="Label" parent="Owned"]
@@ -192,6 +195,7 @@ offset_right = -7.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_ct8uy")
 expand_mode = 1
 stretch_mode = 5
@@ -210,6 +214,28 @@ offset_right = 142.0
 offset_bottom = 137.0
 grow_horizontal = 1
 grow_vertical = 1
+mouse_filter = 2
+
+[node name="TextureRect" parent="Owned/UniverseAnimatedTexture/Control" index="0"]
+mouse_filter = 2
+
+[node name="TextureRect2" parent="Owned/UniverseAnimatedTexture/Control" index="1"]
+mouse_filter = 2
+
+[node name="TextureRect3" parent="Owned/UniverseAnimatedTexture/Control" index="2"]
+mouse_filter = 2
+
+[node name="TextureRect4" parent="Owned/UniverseAnimatedTexture/Control" index="3"]
+mouse_filter = 2
+
+[node name="TextureRect5" parent="Owned/UniverseAnimatedTexture/Control" index="4"]
+mouse_filter = 2
+
+[node name="TextureRect6" parent="Owned/UniverseAnimatedTexture/Control" index="5"]
+mouse_filter = 2
+
+[node name="TextureRect7" parent="Owned/UniverseAnimatedTexture/Control" index="6"]
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="Owned"]
 visible = false
@@ -218,6 +244,7 @@ offset_left = 32.0
 offset_top = 208.0
 offset_right = 144.0
 offset_bottom = 240.0
+mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -235,6 +262,7 @@ offset_left = 32.0
 offset_top = 208.0
 offset_right = 144.0
 offset_bottom = 240.0
+mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -255,6 +283,7 @@ anchor_bottom = 0.78
 offset_left = -0.05
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_styles/background = SubResource("StyleBoxFlat_xfeem")

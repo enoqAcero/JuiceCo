@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://mupvggqkndx7"]
+[gd_scene load_steps=17 format=3 uid="uid://mupvggqkndx7"]
 
 [ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="1_mrg87"]
 [ext_resource type="Texture2D" uid="uid://cdbf55j5esw47" path="res://Assets/Temp/Sin nombre.png" id="2_iv8u3"]
@@ -11,6 +11,12 @@ variation_embolden = 1.0
 
 [sub_resource type="Theme" id="Theme_8cke2"]
 default_font = SubResource("FontVariation_dds5r")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr0js"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5np1"]
 bg_color = Color(1, 1, 1, 1)
@@ -54,11 +60,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_8cke2")
 
-[node name="Wood Background" type="TextureRect" parent="."]
+[node name="Wood Background" type="Panel" parent="."]
 modulate = Color(0.992157, 0.992157, 0.992157, 1)
+clip_children = 1
 layout_mode = 0
 offset_right = 442.0
 offset_bottom = 551.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cr0js")
+
+[node name="TextureRect" type="TextureRect" parent="Wood Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_iv8u3")
 expand_mode = 1
 

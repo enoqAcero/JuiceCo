@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var player = load("res://Save/PlayerSave.tres")
 var JuiceLevel = player.JuiceLevel
@@ -13,7 +13,8 @@ func updateJuiceInfo():
 	$"Panel/JuiceName".text = JuiceLevel[currentJuiceIndex].name
 	$Panel/JuiceDescription.text = JuiceLevel[currentJuiceIndex].description
 	var juice_value = GlobalVariables.player.JuiceLevel[currentJuiceIndex].cost
-	$Panel/JuiceValue.text = "$ " + ( GlobalVariables.getMoneyString( juice_value ) )
+	var juice_magnitude = Magnitudes.list[ GlobalVariables.player.JuiceLevel[currentJuiceIndex].cost_magnitude ].value
+	$Panel/JuiceValue.text = "$ " + ( GlobalVariables.getMoneyString( juice_value * juice_magnitude) )
 		
 	var juice_img = JuiceLevel[currentJuiceIndex].skin
 	if juice_img is Texture2D:

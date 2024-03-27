@@ -192,8 +192,6 @@ func add_house(house):
 	
 	# load Physical houses
 	get_parent().get_parent().load_houses()
-	
-
 
 func _on_close_pressed():
 	loadHouses()

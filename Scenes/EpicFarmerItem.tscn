@@ -53,6 +53,7 @@ corner_radius_bottom_left = 10
 
 [node name="Farmer0" type="Panel"]
 custom_minimum_size = Vector2(450, 130)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_18io2")
 
 [node name="Aquired" type="Panel" parent="."]
@@ -63,6 +64,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ctv3k")
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -78,6 +80,7 @@ offset_top = -60.0
 offset_right = 129.0
 offset_bottom = 40.0
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_102vv")
 expand_mode = 1
 stretch_mode = 5
@@ -149,6 +152,7 @@ offset_right = -314.0
 offset_bottom = 57.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_ymdkd")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=138 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://c33e12csse0rd" path="res://Scenes/Upgrades.tscn" id="3_uhmey"]
@@ -31,13 +31,13 @@
 [ext_resource type="PackedScene" uid="uid://vwl3qxu1h1ik" path="res://Scenes/Fruits/BlueberrySprite.tscn" id="22_fyxfj"]
 [ext_resource type="Texture2D" uid="uid://bh4w6k1h3m4ik" path="res://Assets/ProgressBars/Blueberry.png" id="23_63gjv"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="24_4lbbh"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarBlueBerry.tscn" id="24_ayvgc"]
+[ext_resource type="PackedScene" uid="uid://xpim3jhyynap" path="res://Scenes/FullBarBlueBerry.tscn" id="24_ayvgc"]
 [ext_resource type="PackedScene" uid="uid://duojf0o2et7yc" path="res://Scenes/Fruits/CerezaSprite.tscn" id="25_3tmsv"]
 [ext_resource type="Script" path="res://Scripts/Networth.gd" id="25_pfhmr"]
-[ext_resource type="PackedScene" path="res://Scenes/Panel.tscn" id="25_rwlx5"]
+[ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="25_rwlx5"]
 [ext_resource type="Texture2D" uid="uid://dy6yyfgds65l" path="res://Assets/ProgressBars/Cherry.png" id="26_b3d6n"]
 [ext_resource type="Texture2D" uid="uid://b2blafnym4ws" path="res://Assets/Temp/vegetable-garden-box-icon-isometric-style-vector.png" id="27_6kpcr"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarCereza.tscn" id="27_i1s71"]
+[ext_resource type="PackedScene" uid="uid://bm2ttvbj2k0j6" path="res://Scenes/FullBarCereza.tscn" id="27_i1s71"]
 [ext_resource type="Script" path="res://Scripts/Stats.gd" id="27_pwgp0"]
 [ext_resource type="PackedScene" uid="uid://bxp8iwrrsfhjb" path="res://Scenes/Fruits/FresaSprite.tscn" id="28_5kmnb"]
 [ext_resource type="Texture2D" uid="uid://cno1utyefp2wl" path="res://Assets/Temp/fence3.png" id="28_pym28"]
@@ -47,45 +47,61 @@
 [ext_resource type="Texture2D" uid="uid://c8xihithm5m4o" path="res://Assets/Anuncios/Dinero/Dinero1.png" id="31_qsdol"]
 [ext_resource type="PackedScene" uid="uid://801a8pd1o60l" path="res://Scenes/Fruits/LimonSprite.tscn" id="31_v1eyw"]
 [ext_resource type="Texture2D" uid="uid://bptw4o1pxwuls" path="res://Assets/ProgressBars/Lemon.png" id="32_501q5"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarLimon.tscn" id="33_addfi"]
+[ext_resource type="PackedScene" uid="uid://b6hb4noj7bjxw" path="res://Scenes/FullBarLimon.tscn" id="33_addfi"]
 [ext_resource type="PackedScene" uid="uid://dtl6roi7cruco" path="res://Scenes/Fruits/DuraznoSprite.tscn" id="34_y2fgr"]
 [ext_resource type="Texture2D" uid="uid://bibpv3p4wt7vo" path="res://Assets/Anuncios/DineroGemas/DineroGemas1.png" id="35_efoln"]
 [ext_resource type="Texture2D" uid="uid://dsclgcjxohcn5" path="res://Assets/ProgressBars/Peach.png" id="35_ofjl7"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarDurazno.tscn" id="36_f4cic"]
+[ext_resource type="PackedScene" uid="uid://b6g171hjety2a" path="res://Scenes/FullBarDurazno.tscn" id="36_f4cic"]
 [ext_resource type="Texture2D" uid="uid://bvg3pabuqw14v" path="res://Assets/Anuncios/Gemas/Gema2.png" id="36_o2rwj"]
 [ext_resource type="PackedScene" uid="uid://cn4o8i624p4qf" path="res://Scenes/Fruits/ManzanaSprite.tscn" id="37_c1fuv"]
 [ext_resource type="Texture2D" uid="uid://dqtmnvec04gjs" path="res://Assets/ProgressBars/Apple.png" id="38_4bwko"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarManzana.tscn" id="39_r4mbh"]
+[ext_resource type="PackedScene" uid="uid://j4roaghrh416" path="res://Scenes/FullBarManzana.tscn" id="39_r4mbh"]
 [ext_resource type="PackedScene" uid="uid://bk6uc1r817w42" path="res://Scenes/Fruits/NaranjaSprite.tscn" id="40_v6qdb"]
 [ext_resource type="Texture2D" uid="uid://d4febjlo64jnd" path="res://Assets/ProgressBars/Orange.png" id="41_w5fyd"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarNaranja.tscn" id="42_51j4g"]
+[ext_resource type="PackedScene" uid="uid://dhuqry8sl58d8" path="res://Scenes/FullBarNaranja.tscn" id="42_51j4g"]
 [ext_resource type="PackedScene" uid="uid://dkrqagwff34a0" path="res://Scenes/Fruits/AguacateSprite.tscn" id="43_01hyu"]
 [ext_resource type="Texture2D" uid="uid://d0wrbfw6tpyh3" path="res://Assets/ProgressBars/Avocado.png" id="44_rnx3d"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarAguacate.tscn" id="45_yyl15"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarMango.tscn" id="46_ohid3"]
+[ext_resource type="PackedScene" uid="uid://bhph5jtf4xw73" path="res://Scenes/FullBarAguacate.tscn" id="45_yyl15"]
+[ext_resource type="PackedScene" uid="uid://bcceecf6p8c7x" path="res://Scenes/FullBarMango.tscn" id="46_ohid3"]
 [ext_resource type="PackedScene" uid="uid://b0e5bpnmuddj4" path="res://Scenes/Fruits/DragonfruitSprite.tscn" id="47_5yiwx"]
 [ext_resource type="Texture2D" uid="uid://b112anyt8k762" path="res://Assets/ProgressBars/Dragonfruit.png" id="48_q3oft"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarDragonFruit.tscn" id="49_fcwpx"]
+[ext_resource type="PackedScene" uid="uid://c1wrd7d52pqs3" path="res://Scenes/FullBarDragonFruit.tscn" id="49_fcwpx"]
 [ext_resource type="PackedScene" uid="uid://0j3v1om18nkx" path="res://Scenes/Fruits/CocoSprite.tscn" id="50_3jlpv"]
 [ext_resource type="Texture2D" uid="uid://cr1wo5idhkvbs" path="res://Assets/ProgressBars/Coconut.png" id="51_bo34h"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarCoco.tscn" id="52_g3odt"]
+[ext_resource type="PackedScene" uid="uid://mi2d8xgpmbch" path="res://Scenes/FullBarCoco.tscn" id="52_g3odt"]
 [ext_resource type="PackedScene" uid="uid://b2o7bxvxqlrw5" path="res://Scenes/Fruits/PineappleSprite.tscn" id="53_a02w5"]
 [ext_resource type="Texture2D" uid="uid://ck4td18scex41" path="res://Assets/ProgressBars/Pineapple.png" id="54_tvd57"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarPina.tscn" id="55_cpjg6"]
+[ext_resource type="PackedScene" uid="uid://bn1jsjdcyy6af" path="res://Scenes/FullBarPina.tscn" id="55_cpjg6"]
 [ext_resource type="PackedScene" uid="uid://1k2x01xv8gwy" path="res://Scenes/Fruits/PapayaSprite.tscn" id="56_ei217"]
 [ext_resource type="Texture2D" uid="uid://cu78sk6grl4q5" path="res://Assets/ProgressBars/Papaya.png" id="57_3n022"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarPapaya.tscn" id="58_u1r75"]
+[ext_resource type="PackedScene" uid="uid://4chxtdfrlflj" path="res://Scenes/FullBarPapaya.tscn" id="58_u1r75"]
 [ext_resource type="PackedScene" uid="uid://disw2llry4ctb" path="res://Scenes/Fruits/MelonSprite.tscn" id="59_gk2gs"]
 [ext_resource type="Texture2D" uid="uid://dmenq3d567ovu" path="res://Assets/ProgressBars/Melon.png" id="60_2cvmy"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarMelon.tscn" id="61_ta8kl"]
+[ext_resource type="PackedScene" uid="uid://ifnmsvipf0il" path="res://Scenes/FullBarMelon.tscn" id="61_ta8kl"]
 [ext_resource type="PackedScene" uid="uid://c4pvg5rhfv1es" path="res://Scenes/Fruits/SandiaSprite.tscn" id="62_60myk"]
 [ext_resource type="Texture2D" uid="uid://540l6x56v43" path="res://Assets/ProgressBars/Watermelon.png" id="63_n5axn"]
-[ext_resource type="PackedScene" path="res://Scenes/FullBarSandia.tscn" id="64_xd38v"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmersSelection.tscn" id="65_484ih"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmerGeneral.tscn" id="66_wft2o"]
+[ext_resource type="PackedScene" uid="uid://dwckqff6jcmun" path="res://Scenes/FullBarSandia.tscn" id="64_xd38v"]
+[ext_resource type="PackedScene" uid="uid://y3xe2sk4d6uq" path="res://Scenes/FarmersSelection.tscn" id="65_484ih"]
+[ext_resource type="PackedScene" uid="uid://bg27rfktw40x" path="res://Scenes/FarmerGeneral.tscn" id="66_wft2o"]
 [ext_resource type="PackedScene" uid="uid://bp0vud0gopelm" path="res://Scenes/FarmerItem.tscn" id="67_po41x"]
 [ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="68_h2bjv"]
 [ext_resource type="Texture2D" uid="uid://dbicgk7bx30x1" path="res://Assets/Temp/wood arrow.png" id="69_cpko3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yepiw"]
+bg_color = Color(0.941176, 0.709804, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3ye8"]
 bg_color = Color(0.101961, 0.490196, 0.913725, 1)
@@ -389,9 +405,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = -41.0
 offset_top = -191.0
-offset_right = 185.0
+offset_right = 184.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
@@ -418,9 +434,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -110.0
+offset_left = -111.0
 offset_top = -174.0
-offset_right = 21.0
+offset_right = 20.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -441,8 +457,13 @@ grow_horizontal = 0
 
 [node name="Upgrades" parent="CanvasLayer" instance=ExtResource("3_uhmey")]
 visible = false
-offset_top = -31.0
-offset_bottom = -31.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_bottom = -32.0
 
 [node name="boostButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
@@ -451,9 +472,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 53.0
+offset_left = 52.0
 offset_top = -176.0
-offset_right = 184.0
+offset_right = 183.0
 offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -474,6 +495,13 @@ grow_horizontal = 0
 
 [node name="Boost" parent="CanvasLayer" instance=ExtResource("4_n2rnl")]
 visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
 
 [node name="menuButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
@@ -482,9 +510,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 120.0
+offset_left = 119.0
 offset_top = -176.0
-offset_right = 251.0
+offset_right = 250.0
 offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -493,6 +521,33 @@ texture_normal = ExtResource("10_rvhmu")
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("5_muedq")]
 visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Dev reset button" type="Button" parent="CanvasLayer/Menu"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_top = -202.5
+offset_right = 84.5
+offset_bottom = -171.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yepiw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yepiw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yepiw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yepiw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yepiw")
+text = "Developer Hard Reset"
 
 [node name="shopButton" type="TextureButton" parent="CanvasLayer"]
 texture_filter = 6
@@ -501,9 +556,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -179.0
+offset_left = -180.0
 offset_top = -174.0
-offset_right = -48.0
+offset_right = -49.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -525,6 +580,11 @@ grow_horizontal = 0
 
 [node name="Shop" parent="CanvasLayer" instance=ExtResource("6_feofs")]
 visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="WaterTank" parent="CanvasLayer" instance=ExtResource("10_lanya")]
 visible = false
@@ -549,7 +609,10 @@ offset_bottom = 60.0
 
 [node name="ModalJuiceLvl" parent="CanvasLayer" instance=ExtResource("12_gl3jr")]
 visible = false
-position = Vector2(-6, 56)
+offset_left = -6.0
+offset_top = 56.0
+offset_right = -6.0
+offset_bottom = 56.0
 
 [node name="adControl" parent="CanvasLayer" instance=ExtResource("12_3urwt")]
 visible = false
@@ -564,9 +627,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -212.0
+offset_left = -213.0
 offset_top = -119.0
-offset_right = 1005.0
+offset_right = 1004.0
 offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -626,7 +689,6 @@ size_flags_vertical = 3
 theme = SubResource("Theme_8cke2")
 
 [node name="Wood Background" type="TextureRect" parent="CanvasLayer/Field/Panel"]
-visible = false
 self_modulate = Color(0.968627, 0.952941, 0.933333, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -891,25 +953,26 @@ scale = Vector2(0.528571, 0.373333)
 [node name="FarmerScroll" type="ScrollContainer" parent="CanvasLayer/Field/Panel"]
 visible = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -232.0
-offset_top = -326.5
-offset_right = 232.0
-offset_bottom = 326.5
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = 113.0
+offset_right = 227.0
+offset_bottom = -94.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_chiew")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nf8un")
+horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Field/Panel/FarmerScroll"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 8
+alignment = 1
 
 [node name="FarmersSelection" parent="CanvasLayer/Field/Panel/FarmerScroll/VBoxContainer" instance=ExtResource("65_484ih")]
 layout_mode = 2
@@ -1136,7 +1199,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 254.0
+offset_left = 221.0
 offset_top = -17.5
 offset_right = 360.0
 offset_bottom = 16.5
@@ -1146,7 +1209,7 @@ theme = SubResource("Theme_7g805")
 theme_override_colors/font_color = Color(1, 0.933333, 0.639216, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 17
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 131
@@ -1156,7 +1219,7 @@ one_shot = true
 
 [node name="Multiplier" type="Label" parent="CanvasLayer"]
 visible = false
-offset_left = 378.0
+offset_left = 306.0
 offset_top = 29.0
 offset_right = 459.0
 offset_bottom = 69.0
@@ -1164,8 +1227,8 @@ theme = SubResource("Theme_7g805")
 theme_override_colors/font_color = Color(0.952941, 0.764706, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 26
-text = "x0.0"
+theme_override_font_sizes/font_size = 17
+text = "x0.0 fruits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1179,46 +1242,42 @@ z_index = 1
 position = Vector2(-1, 42)
 
 [node name="Networth" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -236.0
-offset_top = -415.0
-offset_right = -236.0
-offset_bottom = -415.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_pfhmr")
 
 [node name="Panel" parent="CanvasLayer/Networth" instance=ExtResource("25_rwlx5")]
-offset_left = 20.0
-offset_top = 60.0
-offset_right = 20.0
-offset_bottom = 60.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Wood Background" parent="CanvasLayer/Networth/Panel" index="0"]
-offset_bottom = 563.0
-
-[node name="Panel" parent="CanvasLayer/Networth/Panel" index="1"]
-visible = false
+offset_left = -186.0
+offset_top = -280.0
+offset_right = 190.0
+offset_bottom = 219.0
 
 [node name="Label2" parent="CanvasLayer/Networth/Panel" index="2"]
+offset_left = -186.0
+offset_top = -274.0
+offset_right = 190.0
+offset_bottom = -240.0
 text = "Networth"
 
-[node name="Panel2" parent="CanvasLayer/Networth/Panel" index="3"]
-visible = false
-
-[node name="Panel3" parent="CanvasLayer/Networth/Panel" index="4"]
-visible = false
-
 [node name="Label" parent="CanvasLayer/Networth/Panel" index="5"]
-offset_top = 111.0
-offset_bottom = 176.0
+visible = true
+offset_left = -170.0
+offset_top = -233.0
+offset_right = 166.0
+offset_bottom = -168.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
@@ -1228,8 +1287,10 @@ What you could afford with these numbers:"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" parent="CanvasLayer/Networth/Panel" index="6"]
-offset_top = 176.0
-offset_bottom = 548.0
+offset_left = -178.0
+offset_top = -168.0
+offset_right = 182.0
+offset_bottom = 204.0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
@@ -1237,6 +1298,10 @@ vertical_scroll_mode = 3
 theme_override_constants/separation = 10
 
 [node name="Button" parent="CanvasLayer/Networth/Panel" index="7"]
+offset_left = 148.0
+offset_top = -272.0
+offset_right = 179.0
+offset_bottom = -242.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7x15y")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0ssfm")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_xseyl")
@@ -1245,38 +1310,48 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1u3ge")
 
 [node name="Label3" type="Label" parent="CanvasLayer/Networth/Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 21.0
+offset_left = -218.0
+offset_top = -344.0
+offset_right = -178.0
+offset_bottom = -323.0
 
-[node name="Stats" type="Node2D" parent="CanvasLayer"]
+[node name="Stats" type="Control" parent="CanvasLayer"]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("27_pwgp0")
 
 [node name="Panel" parent="CanvasLayer/Stats" instance=ExtResource("25_rwlx5")]
-offset_left = 20.0
-offset_top = 72.0
-offset_right = 20.0
-offset_bottom = 72.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Wood Background" parent="CanvasLayer/Stats/Panel" index="0"]
-offset_bottom = 530.0
-
-[node name="Panel" parent="CanvasLayer/Stats/Panel" index="1"]
-visible = false
+offset_left = -189.0
+offset_top = -276.0
+offset_right = 187.0
+offset_bottom = 190.0
 
 [node name="Label2" parent="CanvasLayer/Stats/Panel" index="2"]
+offset_left = -189.0
+offset_top = -270.0
+offset_right = 187.0
+offset_bottom = -236.0
 text = "Stats"
 
-[node name="Panel2" parent="CanvasLayer/Stats/Panel" index="3"]
-visible = false
-
-[node name="Panel3" parent="CanvasLayer/Stats/Panel" index="4"]
-visible = false
-
 [node name="Label" parent="CanvasLayer/Stats/Panel" index="5"]
-offset_bottom = 469.0
+visible = true
+offset_left = -173.0
+offset_top = -213.0
+offset_right = 163.0
+offset_bottom = 129.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
@@ -1287,10 +1362,11 @@ vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 
-[node name="ScrollContainer" parent="CanvasLayer/Stats/Panel" index="6"]
-visible = false
-
 [node name="Button" parent="CanvasLayer/Stats/Panel" index="7"]
+offset_left = 145.0
+offset_top = -268.0
+offset_right = 176.0
+offset_bottom = -238.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fsm0t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_383jx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jnnnj")
@@ -2000,6 +2076,7 @@ texture = ExtResource("31_qsdol")
 [connection signal="pressed" from="CanvasLayer/upgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/boostButton" to="." method="_on_boost_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/menuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Dev reset button" to="." method="_on_dev_reset_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/shopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="timeout" from="CanvasLayer/FarmValue/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/runButton" to="." method="_on_run_button_pressed"]

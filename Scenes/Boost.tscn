@@ -30,7 +30,8 @@ visible = false
 visible = false
 
 [node name="ScrollContainer" parent="Panel" index="5"]
-offset_top = 173.0
+offset_top = 115.0
+offset_bottom = 531.0
 
 [node name="Item" parent="Panel/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("3_u3dxe")]
 layout_mode = 2

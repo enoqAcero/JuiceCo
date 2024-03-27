@@ -38,6 +38,7 @@ script = ExtResource("1_ymngt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 31.0
 offset_top = 102.0
 offset_right = 458.0
@@ -56,6 +57,7 @@ offset_bottom = 101.824
 
 [node name="GridContainer" type="GridContainer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 21.0
 offset_top = 117.0
 offset_right = 462.0
@@ -186,10 +188,10 @@ offset_bottom = 102.0
 
 [node name="Panel" parent="." instance=ExtResource("4_x2vir")]
 layout_mode = 1
-offset_left = -229.0
-offset_top = -310.0
-offset_right = -229.0
-offset_bottom = -310.0
+offset_left = -218.0
+offset_top = -338.0
+offset_right = -218.0
+offset_bottom = -338.0
 
 [node name="Wood Background" parent="Panel" index="0"]
 offset_left = 24.0
@@ -219,6 +221,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cmrux")
 visible = false
 
 [node name="CloseButton" parent="Panel" index="6"]
+offset_top = 82.0
+offset_bottom = 112.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n5l7x")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5210e")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_xqpcv")
