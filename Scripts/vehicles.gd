@@ -22,7 +22,7 @@ func fill_vehicle_list():
 			item.get_node("Panel").visible = true
 			item.image.texture = vehicle.skin
 			item.vehicle.text = vehicle.name
-			item.capacity.text = "Capacity: " + str(vehicle.capacity)
+			item.capacity.text = "Capacity: " + GlobalVariables.getMoneyString(vehicle.capacity) + ' Lts'
 			item.cost.visible = false
 			item.upgrade_button.pressed.connect(Callable(_on_upgrade_button_pressed).bind(item.slot, item))
 		elif i == 0 or (i > 0 and GlobalVariables.player.Vehicles[ i-1 ] != 0):

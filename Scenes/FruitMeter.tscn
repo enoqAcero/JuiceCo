@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3omn1e8ou8bn"]
+[gd_scene load_steps=10 format=3 uid="uid://c3omn1e8ou8bn"]
 
 [ext_resource type="Texture2D" uid="uid://bfakg5pe8hkrh" path="res://Assets/ProgressBars/BackADV2.png" id="1_flktn"]
 [ext_resource type="Texture2D" uid="uid://bccm2miawh00b" path="res://Assets/ProgressBars/CircleFull.png" id="2_js3t0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="3_alb22"]
 [ext_resource type="Script" path="res://Scripts/FieldProgressBar.gd" id="3_fi17s"]
 [ext_resource type="Texture2D" uid="uid://u2smqagbumyj" path="res://Assets/Buttons/WoodSign.png" id="4_ijesu"]
+[ext_resource type="Texture2D" uid="uid://do0gsgsqdxph7" path="res://Assets/Buttons/BotonBuyPressed.png" id="7_1r7fh"]
 [ext_resource type="Texture2D" uid="uid://btorl2i4nm8j0" path="res://Assets/Buttons/BotonBuy_1.png" id="7_jg21x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1w6g"]
@@ -93,6 +94,7 @@ offset_right = 373.0
 offset_bottom = 150.0
 mouse_filter = 1
 texture_normal = ExtResource("3_alb22")
+texture_pressed = ExtResource("7_1r7fh")
 texture_disabled = ExtResource("7_jg21x")
 ignore_texture_size = true
 stretch_mode = 0
@@ -164,6 +166,7 @@ offset_right = 306.0
 offset_bottom = 95.0
 mouse_filter = 1
 texture_normal = ExtResource("3_alb22")
+texture_pressed = ExtResource("7_1r7fh")
 texture_disabled = ExtResource("7_jg21x")
 ignore_texture_size = true
 stretch_mode = 0

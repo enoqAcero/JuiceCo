@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg5f77xqvjyrg"
-path="res://.godot/imported/JuiceGlassGlow.png-cfd075602bf4068068722f765bb5f970.ctex"
+uid="uid://do0gsgsqdxph7"
+path="res://.godot/imported/BotonBuyPressed.png-1924dc800ae5e5e54beaa5cdfeaf2f24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/JuiceGlassGlow.png"
-dest_files=["res://.godot/imported/JuiceGlassGlow.png-cfd075602bf4068068722f765bb5f970.ctex"]
+source_file="res://Assets/Buttons/BotonBuyPressed.png"
+dest_files=["res://.godot/imported/BotonBuyPressed.png-1924dc800ae5e5e54beaa5cdfeaf2f24.ctex"]
 
 [params]
 

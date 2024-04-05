@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byvljweu02781"
-path="res://.godot/imported/fence2.png-e677a3dd2381936de392a5402eaacc69.ctex"
+uid="uid://dhctrdn77xo1o"
+path="res://.godot/imported/BotonField (1)Pressed.png-d80ba5b549fbecf445177e6c95737d6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/fence2.png"
-dest_files=["res://.godot/imported/fence2.png-e677a3dd2381936de392a5402eaacc69.ctex"]
+source_file="res://Assets/Buttons/BotonField (1)Pressed.png"
+dest_files=["res://.godot/imported/BotonField (1)Pressed.png-d80ba5b549fbecf445177e6c95737d6c.ctex"]
 
 [params]
 

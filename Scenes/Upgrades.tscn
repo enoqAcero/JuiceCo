@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c33e12csse0rd"]
+[gd_scene load_steps=6 format=3 uid="uid://c33e12csse0rd"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades.gd" id="1_m2rf7"]
 [ext_resource type="PackedScene" uid="uid://mupvggqkndx7" path="res://Scenes/PurchasePanel.tscn" id="1_smoud"]
 [ext_resource type="PackedScene" uid="uid://cyjuxhkgdjydi" path="res://Scenes/PurchaseItem.tscn" id="3_1ryep"]
+[ext_resource type="Texture2D" uid="uid://do0gsgsqdxph7" path="res://Assets/Buttons/BotonBuyPressed.png" id="3_c7qhu"]
+[ext_resource type="Texture2D" uid="uid://bqbk1x53si01i" path="res://Assets/Buttons/BotonBuyViolepressedt.png" id="4_u1fr4"]
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -45,8 +47,14 @@ offset_top = -182.0
 offset_right = -190.0
 offset_bottom = -132.0
 
+[node name="Button" parent="Panel/Options" index="0"]
+texture_pressed = ExtResource("3_c7qhu")
+
 [node name="Label" parent="Panel/Options/Button" index="0"]
 text = "COMMON"
+
+[node name="Button2" parent="Panel/Options" index="1"]
+texture_pressed = ExtResource("4_u1fr4")
 
 [node name="Label" parent="Panel/Options/Button2" index="0"]
 text = "EPIC"

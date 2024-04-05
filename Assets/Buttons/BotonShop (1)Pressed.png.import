@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dexkma3lkg2l"
-path="res://.godot/imported/Piggy.png-a6e9d363ad46a5fed52f3ba91812cfe9.ctex"
+uid="uid://d0nprtts0l8xw"
+path="res://.godot/imported/BotonShop (1)Pressed.png-c6a562d60b86dc4e83eb0022588efdfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/Piggy.png"
-dest_files=["res://.godot/imported/Piggy.png-a6e9d363ad46a5fed52f3ba91812cfe9.ctex"]
+source_file="res://Assets/Buttons/BotonShop (1)Pressed.png"
+dest_files=["res://.godot/imported/BotonShop (1)Pressed.png-c6a562d60b86dc4e83eb0022588efdfa.ctex"]
 
 [params]
 

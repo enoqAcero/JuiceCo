@@ -84,6 +84,7 @@ func enable_boost( index:int, enable:bool ):
 				
 			GlobalVariables.BoostType.FRUIT_PRODUCTION:
 				GlobalVariables.production_multiplier *= boost.multiplier
+				print("CHANGING MULTIPLIER")
 
 		GlobalVariables.player.Boosts[ index ].timer.start()
 	else:
@@ -100,6 +101,7 @@ func enable_boost( index:int, enable:bool ):
 				
 			GlobalVariables.BoostType.FRUIT_PRODUCTION:
 				GlobalVariables.production_multiplier /= boost.multiplier
+				print("CHANGING MULTIPLIER")
 				
 		GlobalVariables.player.Boosts[ index ].active = false
 		GlobalVariables.player.Boosts[ index ].timer.stop()
@@ -112,7 +114,7 @@ func reset():
 		if boost != null:
 			GlobalVariables.player.Boosts[i].active = false
 			
-			enable_boost( i, false )
+#			enable_boost( i, false )
 				
 			GlobalVariables.save()
 			

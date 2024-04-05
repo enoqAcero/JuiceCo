@@ -29,14 +29,30 @@ func used_space():
 	return used_space
 	
 func release_cargo(liters:float):
+	
+	
+	
 	var allowed_release = min( used_space(), liters )
-	var selling_cargo : float
+	
+	print("Allowed cargo: " + str(allowed_release))
+	
+	var selling_cargo : float = allowed_release
+	
+	var sold_cargo = 0
+
 	if allowed_release != 0:
 
 		for i in juice_liters.size():
-			var percentage = juice_liters[i] / allowed_release
-			juice_liters[i] -= allowed_release * percentage
-			selling_cargo += allowed_release * percentage
-		GlobalVariables.save()
-		return selling_cargo
+			
+			if juice_liters[i] >= allowed_release:
+				juice_liters[i] -= allowed_release
+				sold_cargo += allowed_release
+				allowed_release = 0
+			else:
+				sold_cargo += allowed_release - juice_liters[i]
+				allowed_release -= juice_liters[i]
+				juice_liters[i] = 0
+				
+		print("Sold cargo: " + str(sold_cargo))
+		return sold_cargo
 	return 0

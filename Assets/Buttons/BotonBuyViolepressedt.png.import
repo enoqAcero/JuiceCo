@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be50i45vcs241"
-path="res://.godot/imported/the8monkey220300046.png-91e95119fb9add9a03b055be91ff33e5.ctex"
+uid="uid://bqbk1x53si01i"
+path="res://.godot/imported/BotonBuyViolepressedt.png-b2f4fbb46757af9819bcf85eb7079e11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/the8monkey220300046.png"
-dest_files=["res://.godot/imported/the8monkey220300046.png-91e95119fb9add9a03b055be91ff33e5.ctex"]
+source_file="res://Assets/Buttons/BotonBuyViolepressedt.png"
+dest_files=["res://.godot/imported/BotonBuyViolepressedt.png-b2f4fbb46757af9819bcf85eb7079e11.ctex"]
 
 [params]
 

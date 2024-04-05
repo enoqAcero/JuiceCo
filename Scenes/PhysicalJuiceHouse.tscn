@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bccmptrdswiew" path="res://Assets/JuiceHouse/JuiceWorld.png" id="19_mbmfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivvtg"]
-size = Vector2(9.5, 12.5)
+size = Vector2(9.5, 44.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn0t1"]
 size = Vector2(4, 56)
@@ -29,26 +29,27 @@ size = Vector2(4, 56)
 [node name="house0" type="StaticBody2D"]
 z_index = 1
 texture_filter = 6
-position = Vector2(-504, 292)
+position = Vector2(110, 213)
 scale = Vector2(2, 2)
 script = ExtResource("1_qxtah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12, 16.5)
+position = Vector2(2.5, 23.625)
 shape = SubResource("RectangleShape2D_ivvtg")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-8.5, 28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(8, -5)
 shape = SubResource("RectangleShape2D_pn0t1")
 
 [node name="type1" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
-position = Vector2(36, 20)
+position = Vector2(7, -19.5)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_rcfv2")
+flip_h = true
 
 [node name="Button" type="Button" parent="type1"]
 anchors_preset = 15
@@ -65,7 +66,7 @@ flat = true
 [node name="type2" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(40, 25)
+position = Vector2(19.5, -19.5)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("3_kln3u")
 
@@ -84,7 +85,7 @@ flat = true
 [node name="type3" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(42.5, 20)
+position = Vector2(30, -29.5)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("4_aegsa")
 
@@ -103,7 +104,7 @@ flat = true
 [node name="type4" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(42.5, 6)
+position = Vector2(33, -42.5)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("5_ujbet")
 
@@ -122,7 +123,7 @@ flat = true
 [node name="type5" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(40, 27.5)
+position = Vector2(40, -29.5)
 scale = Vector2(0.14, 0.14)
 texture = ExtResource("6_scc20")
 
@@ -141,9 +142,10 @@ flat = true
 [node name="type6" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(36, 4.5)
+position = Vector2(45, -53)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("7_nuut8")
+flip_h = true
 
 [node name="Button" type="Button" parent="type6"]
 anchors_preset = 15
@@ -160,7 +162,7 @@ flat = true
 [node name="type7" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(40, -23)
+position = Vector2(30, -66.5)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("8_xomwp")
 
@@ -179,9 +181,10 @@ flat = true
 [node name="type8" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(48, 34)
+position = Vector2(45, -29)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("9_mdeut")
+flip_h = true
 
 [node name="Button" type="Button" parent="type8"]
 anchors_preset = 15
@@ -198,7 +201,7 @@ flat = true
 [node name="type9" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(52, -2)
+position = Vector2(33, -83.5)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("10_hlg7u")
 
@@ -217,7 +220,7 @@ flat = true
 [node name="type10" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(52, 30)
+position = Vector2(39, -44)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("11_6jdx1")
 
@@ -236,9 +239,10 @@ flat = true
 [node name="type11" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(48, 22)
+position = Vector2(37, -48)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("12_m0lno")
+flip_h = true
 
 [node name="Button" type="Button" parent="type11"]
 anchors_preset = 15
@@ -255,7 +259,7 @@ flat = true
 [node name="type12" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(32, -29)
+position = Vector2(12, -82.5)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("13_ovnei")
 
@@ -274,9 +278,10 @@ flat = true
 [node name="type13" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(44, -55.5)
+position = Vector2(21, -110.5)
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("14_xjwjv")
+flip_h = true
 
 [node name="Button" type="Button" parent="type13"]
 anchors_preset = 15
@@ -293,7 +298,7 @@ flat = true
 [node name="type14" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(64, 38)
+position = Vector2(45, -45.5)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("15_v3tpr")
 
@@ -312,7 +317,7 @@ flat = true
 [node name="type15" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(70.5, 54)
+position = Vector2(40, -28)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("16_mraus")
 
@@ -331,7 +336,7 @@ flat = true
 [node name="type16" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(52, 18)
+position = Vector2(37, -55.5)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("17_n5f6v")
 
@@ -350,7 +355,7 @@ flat = true
 [node name="type17" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(56, 15)
+position = Vector2(49, -61.5)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("18_cw86b")
 
@@ -369,9 +374,10 @@ flat = true
 [node name="type18" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(40, 6.5)
+position = Vector2(22.5, -71.5)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("19_mbmfs")
+flip_h = true
 
 [node name="Button" type="Button" parent="type18"]
 anchors_preset = 15
@@ -388,9 +394,10 @@ flat = true
 [node name="type19" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(40, 6.5)
+position = Vector2(22.5, -71.5)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("19_mbmfs")
+flip_h = true
 
 [node name="Button" type="Button" parent="type19"]
 anchors_preset = 15

@@ -52,8 +52,11 @@ var spawn_list : Array
 @onready var shop := $CanvasLayer/Shop
 @onready var garage := $CanvasLayer/Garage
 @onready var houses := $CanvasLayer/JuiceHouse
+@onready var water_supply := $WaterSupply
 
 var fruit_race_multiplier := 1.0
+var cargo_index : int = 0
+
 
 func _ready():
 	
@@ -73,14 +76,42 @@ func _ready():
 	spawn_spots.reverse()
 	
 	load_houses()
+	check_garages()
 	
-	
+#	var index : int = 0
+#	for x in GlobalVariables.player.JuiceHouse.size():
+#		var house = GlobalVariables.player.JuiceHouse[x]
+#		index += 1
+#
+#		GlobalVariables.player.JuiceHouse[x].capacity = 200 * pow( 10,  x )
+#
+#
+#		for y in house.cost.size():
+#			var asigned_cost : int
+#			if y == 0:
+#				asigned_cost  = pow(10, index) 
+#			else:
+#				asigned_cost  = y * ( GlobalVariables.player.JuiceHouse[x].cost[0] * .15 )
+#			GlobalVariables.player.JuiceHouse[x].cost[y] = asigned_cost
+#			GlobalVariables.save()
+#		GlobalVariables.save()
+#
+#	for i in GlobalVariables.player.Transport.size():
+#		GlobalVariables.player.Transport[i].cost = 100 * pow(10, i)
+#		GlobalVariables.player.Transport[i].capacity = 50 * pow( 10, i )
+#	GlobalVariables.save()
+
+#	print( GlobalVariables.player.JuiceHouse[0].cost )
+
+	_on_run_button_pressed()
 
 func _process(_delta):
 
 	juiceLevelIcon.texture = GlobalVariables.player.JuiceLevel[GlobalVariables.player.juiceLevel].skin
 
 func load_houses():
+	
+	
 	for i in range( GlobalVariables.player.CurrentJuiceHouse.size() ):
 		
 		get_node("house" + str(i)).hide()
@@ -222,8 +253,6 @@ func calculateFruitsFromTime(elapsedTime):
 	
 	fruitsEarnedLabel.text = "Fruits Earned: \n" + GlobalVariables.getMoneyString( frutasTotal )
 	
-	
-	
 	print("Elapsed time: " + str(elapsedTime))
 	print("Fruits earned: " + str(frutasTotal))
 	
@@ -244,10 +273,11 @@ func showScene(scene, controlEscenas):
 	return !controlEscenas
 
 func transport_cargo(id:int):
-	
+
 	# Check that it's house is acquired
 	if GlobalVariables.player.CurrentJuiceHouse[id].type == 0:
 		return
+	
 	
 	var house = GlobalVariables.player.CurrentJuiceHouse[id]
 	var vehicle_type = GlobalVariables.player.Vehicles[ id ]
@@ -259,14 +289,19 @@ func transport_cargo(id:int):
 	earned_money *= GlobalVariables.earnings_multiplier
 	GlobalVariables.player.money += earned_money
 	GlobalVariables.player.total_earnings += earned_money
-	
+	if get_tree().get_root().get_node('Main/Money/AnimationPlayer').is_playing():
+		get_tree().get_root().get_node('Main/Money/AnimationPlayer').stop()
+	get_tree().get_root().get_node('Main/Money').text = "+ $" + GlobalVariables.getMoneyString( earned_money )
+	get_tree().get_root().get_node('Main/Money/AnimationPlayer').play('appear')
 	GlobalVariables.save()
 #	print( "Cargo capacity: " + str( vehicle_data.capacity * GlobalVariables.vehicle_capacity_multiplier ) )
-	print("Sold " + str( sold_cargo ) + " liters for: " + GlobalVariables.getMoneyString( earned_money ) )
+#	print("Sold " + str( sold_cargo ) + " liters for: " + GlobalVariables.getMoneyString( earned_money ) )
 
 #Abir Field
 func _on_field_button_pressed():
 	controlEscenasField = showScene($CanvasLayer/Field, controlEscenasField)
+	$CanvasLayer/Field/Panel/FarmerScroll.hide()
+	$CanvasLayer/Field/Panel/FruitsScroll.show()
 	$CanvasLayer/Field.loadAllPanelData()
 
 #Abir Upgrades
@@ -287,6 +322,7 @@ func _on_shop_button_pressed():
 	controlEscenasShop = showScene($CanvasLayer/Shop, controlEscenasShop)
 
 func juice_house_menu():
+	$CanvasLayer/JuiceHouse.loadHouses()
 	$CanvasLayer/JuiceHouse.show()
 
 func _on_button_2_pressed():
@@ -296,13 +332,12 @@ func _on_button_2_pressed():
 func _on_run_button_pressed():
 	var spawns = 1 * GlobalVariables.race_spawn_multiplier
 	
-	if runButtonControl == false:
-		for i in spawns:
+	for i in spawns:
 #			print("Trying to spawn")
-			if instanceFruit():
-				runTimerNode.start()
-				runButtonControl = true
-				runButton.get_node("Sprite2D").play("jump")
+		if instanceFruit():
+			runTimerNode.start()
+			runButtonControl = true
+			runButton.get_node("Sprite2D").play("jump")
 	
 func instanceFruit():
 	
@@ -403,7 +438,8 @@ func fruit_spawner():
 				continue
 
 func _on_run_timer_timeout():
-	runButtonControl = false
+	print('Racing fruit')
+	_on_run_button_pressed()
 
 func calculateFarmValue():
 #	getJuiceHouseCapacity()
@@ -464,14 +500,16 @@ func reset_juice_level():
 
 func reset_game():
 	GlobalVariables.reset()
+	
 	field.reset()
 	upgrades.reset()
 	boosts.reset()
 	shop.reset()
 	garage.reset()
 	houses.reset()
-
-	
+	water_supply.reset()
+	GlobalVariables.player.money = 10
+	GlobalVariables.save()
 
 func _on_run_button_toggled(button_pressed):
 #	print("Enabling switch")
@@ -480,8 +518,6 @@ func _on_run_button_toggled(button_pressed):
 	else:
 		$CanvasLayer/runButton/SwitchTimer.stop()
 
-func _on_switch_timer_timeout():
-	_on_run_button_pressed()
 
 func _on_save_timer_timeout():
 	GlobalVariables.save()
@@ -489,23 +525,47 @@ func _on_save_timer_timeout():
 
 
 func _on_transport_timer_timeout():
-	for i in GlobalVariables.player.Vehicles.size():
-		if GlobalVariables.player.Vehicles[i] != 0:
-			transport_cargo(i)
+
+	cargo_index = $VechicleNode.i - 1
+	if GlobalVariables.player.Vehicles[cargo_index] != 0:
+		transport_cargo(cargo_index)
+		
 
 func total_reset():
 	reset_game()
+	$CanvasLayer/Upgrades.reset_epic()
 	reset_juice_level()
+	check_garages()
+	delete_rogue_fruits()
+	
+func delete_rogue_fruits():
+	for child in get_children():
+		if child.is_in_group('Fruit'):
+			child.queue_free()
 	
 func _input(event):
 	if event.is_action_pressed("total_reset"):
 		total_reset()
 		# Resets stats
 		GlobalVariables.hard_reset()
-
-
+	elif event.is_action_pressed("money"):
+		GlobalVariables.player.money = Magnitudes.TRIGINTILLION.value
 
 func _on_dev_reset_button_pressed():
 	total_reset()
 	# Resets stats
 	GlobalVariables.hard_reset()
+	
+func check_garages():
+	$Garage1.hide()
+	$Garage2.hide()
+	$Garage3.hide()
+	var vehicles = GlobalVariables.player.Vehicles
+	var highest = vehicles.max()
+	if highest > 9 :
+		$Garage3.show()
+	elif highest > 4 :
+		$Garage2.show()
+	else:
+		$Garage1.show()
+	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pfs3gaplltqs"
-path="res://.godot/imported/fence.png-62c5c050c6dcdc0fb7b0d2a84c4756a8.ctex"
+uid="uid://b4g4b2baw01qj"
+path="res://.godot/imported/TrainStationMask.png-17115cd61266cd79200779b2b1016d1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/fence.png"
-dest_files=["res://.godot/imported/fence.png-62c5c050c6dcdc0fb7b0d2a84c4756a8.ctex"]
+source_file="res://Assets/Garages/TrainStationMask.png"
+dest_files=["res://.godot/imported/TrainStationMask.png-17115cd61266cd79200779b2b1016d1a.ctex"]
 
 [params]
 

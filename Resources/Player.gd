@@ -66,5 +66,9 @@ class_name Player
 @export var total_juice_production : float
 @export var total_expenses : float
 @export var farm_value : float
+@export var water_tanks : int = 1
+@export var water_supply_cost : Array[float]
+
+@export var new_version : bool
 
 

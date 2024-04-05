@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://culdbxjh6hpbl"
-path="res://.godot/imported/moni.jpg-181aa94a7478f26466d410197377f261.ctex"
+uid="uid://tw8rl1hfljny"
+path="res://.godot/imported/TrainStationMask.bmp-54e375fadc665548b9f1ce0a2ffe2804.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/moni.jpg"
-dest_files=["res://.godot/imported/moni.jpg-181aa94a7478f26466d410197377f261.ctex"]
+source_file="res://Assets/Garages/TrainStationMask.bmp"
+dest_files=["res://.godot/imported/TrainStationMask.bmp-54e375fadc665548b9f1ce0a2ffe2804.ctex"]
 
 [params]
 

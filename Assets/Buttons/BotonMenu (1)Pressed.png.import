@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://epolmr2nifko"
-path="res://.godot/imported/fruit_shop.png-fa1e1b07785f74ddf34548232b851224.ctex"
+uid="uid://su5ir6qs46ur"
+path="res://.godot/imported/BotonMenu (1)Pressed.png-2ba0d8f9074a02c15d27c08c8f33c503.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/fruit_shop.png"
-dest_files=["res://.godot/imported/fruit_shop.png-fa1e1b07785f74ddf34548232b851224.ctex"]
+source_file="res://Assets/Buttons/BotonMenu (1)Pressed.png"
+dest_files=["res://.godot/imported/BotonMenu (1)Pressed.png-2ba0d8f9074a02c15d27c08c8f33c503.ctex"]
 
 [params]
 

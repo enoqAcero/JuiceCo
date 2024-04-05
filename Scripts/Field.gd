@@ -279,6 +279,7 @@ func _on_button_pressed():
 	hide()
 
 func _on_burguer_toggled(button_pressed):
+	
 	if button_pressed:
 		$Panel/Menu/Options/AnimationPlayer.play("show")
 	else:
@@ -472,12 +473,13 @@ func produce_fruit(index:int):
 		time = fruit.production_time
 	GlobalVariables.player.Fruits[index].production_timer.wait_time = max( 0.01, time )
 	
-	
 	GlobalVariables.player.Fruits[index].production_timer.start()
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter" + str(index) + "/Bar").start_progress( index )
 	get_node("Panel/FruitsScroll/VBoxContainer/FruitMeter"+str(index)+"/Fruit/Sprite2D").play("jump")
 
 func save_production( index: int ):
+	
+	
 	
 	var fruit = GlobalVariables.player.Fruits[index]
 	var fruit_multiplier = GlobalVariables.fruit_production_multiplier[ index ]
@@ -490,6 +492,9 @@ func save_production( index: int ):
 	
 	GlobalVariables.save()
 #	loadAllPanelData()
+
+#	print('saving fruit production: ' + str(GlobalVariables.player.Fruits[index].produced_fruits))
+#	print( str( ( general_multiplier )  ) )
 	
 	if GlobalVariables.player.Farmer[index].active:
 		produce_fruit( index )
@@ -503,3 +508,4 @@ func reset():
 	reset_farmers()
 	reset_levels()
 	loadAllPanelData()
+	connect_fruit_meters()

@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmd40yhkd1pgk"]
+[gd_scene load_steps=19 format=3 uid="uid://bmd40yhkd1pgk"]
 
 [ext_resource type="Script" path="res://Scripts/JuiceHouseItem.gd" id="1_b6d68"]
 [ext_resource type="Texture2D" uid="uid://d1n1a5dpqmtpb" path="res://Assets/JuiceHouse/JuiceStand.png" id="1_ct8uy"]
-[ext_resource type="PackedScene" uid="uid://cqbm3y3nw60ls" path="res://Scenes/universe_animated_texture.tscn" id="2_5npvr"]
+[ext_resource type="PackedScene" path="res://Scenes/universe_animated_texture.tscn" id="2_5npvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whfrd"]
 bg_color = Color(0.858824, 0.858824, 0.858824, 1)
@@ -63,6 +63,13 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjf2m"]
 bg_color = Color(0.890196, 0.478431, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40srh"]
+bg_color = Color(0.619608, 0.603922, 0.537255, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -239,20 +246,19 @@ text = "UPGRADE"
 [node name="Button2" type="Button" parent="Owned"]
 visible = false
 layout_mode = 0
-offset_left = 32.0
+offset_left = 6.0
 offset_top = 208.0
-offset_right = 144.0
+offset_right = 169.0
 offset_bottom = 240.0
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_yjf2m")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yjf2m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yjf2m")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_yjf2m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_yjf2m")
-text = "LEVEL UP"
+theme_override_styles/disabled = SubResource("StyleBoxFlat_40srh")
+text = "LEVEL UP 10k"
 
 [node name="ProgressBar" type="ProgressBar" parent="Owned"]
 layout_mode = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtx3py1hdr6ma"
-path="res://.godot/imported/animations, page 1.png-e23e9fa30a6e4be33b99b58b38e3d399.ctex"
+uid="uid://bxd40mow2qdd6"
+path="res://.godot/imported/BotonUPG (1)pressed.png-4491fee577da5580c17f3c77381f33eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/animations, page 1.png"
-dest_files=["res://.godot/imported/animations, page 1.png-e23e9fa30a6e4be33b99b58b38e3d399.ctex"]
+source_file="res://Assets/Buttons/BotonUPG (1)pressed.png"
+dest_files=["res://.godot/imported/BotonUPG (1)pressed.png-4491fee577da5580c17f3c77381f33eb.ctex"]
 
 [params]
 

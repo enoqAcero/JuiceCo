@@ -48,10 +48,10 @@
 [ext_resource type="PackedScene" uid="uid://1k2x01xv8gwy" path="res://Scenes/Fruits/PapayaSprite.tscn" id="41_qrs4k"]
 [ext_resource type="PackedScene" uid="uid://disw2llry4ctb" path="res://Scenes/Fruits/MelonSprite.tscn" id="44_7jjqh"]
 [ext_resource type="PackedScene" uid="uid://c4pvg5rhfv1es" path="res://Scenes/Fruits/SandiaSprite.tscn" id="47_yusij"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmerItem.tscn" id="49_5kjnm"]
+[ext_resource type="PackedScene" uid="uid://bp0vud0gopelm" path="res://Scenes/FarmerItem.tscn" id="49_5kjnm"]
 [ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="49_8giwr"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmerGeneral.tscn" id="49_nabck"]
-[ext_resource type="PackedScene" path="res://Scenes/FarmersSelection.tscn" id="49_yby10"]
+[ext_resource type="PackedScene" uid="uid://ofl3ihfrnli0" path="res://Scenes/FarmerGeneral.tscn" id="49_nabck"]
+[ext_resource type="PackedScene" uid="uid://d3oowgfw7g7p8" path="res://Scenes/FarmersSelection.tscn" id="49_yby10"]
 [ext_resource type="Texture2D" uid="uid://dbicgk7bx30x1" path="res://Assets/Temp/wood arrow.png" id="50_ck85x"]
 [ext_resource type="PackedScene" uid="uid://byddapaco8mng" path="res://Scenes/Alert.tscn" id="54_yb6dy"]
 
@@ -282,6 +282,7 @@ texture = ExtResource("3_6or35")
 expand_mode = 1
 
 [node name="FruitsScroll" type="ScrollContainer" parent="Panel"]
+visible = false
 layout_mode = 0
 offset_left = -14.0
 offset_top = 112.0
@@ -528,7 +529,6 @@ position = Vector2(169.5, 30)
 scale = Vector2(0.528571, 0.373333)
 
 [node name="FarmerScroll" type="ScrollContainer" parent="Panel"]
-visible = false
 layout_mode = 0
 offset_left = -10.0
 offset_top = 103.0

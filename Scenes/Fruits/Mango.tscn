@@ -1,11 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://b35oolfdh7p4u"]
 
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_ykmew"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/MangoSprite.tscn" id="2_slcnn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_pcgm2"]
+[ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="2_slcnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pcgm2"]
+radius = 5.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 0
@@ -15,11 +16,8 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_ykmew")
 fruit_number = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.234638, 0)
-shape = SubResource("CircleShape2D_pcgm2")
-
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_30c4l")
@@ -27,8 +25,11 @@ shape = SubResource("RectangleShape2D_30c4l")
 [node name="Navigation" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+target_desired_distance = 25.0
+path_max_distance = 10.0
 avoidance_enabled = true
-radius = 20.0
+radius = 15.0
+max_neighbors = 50
 debug_enabled = true
 
 [node name="posTimer" type="Timer" parent="."]
@@ -39,8 +40,12 @@ autostart = true
 one_shot = true
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_slcnn")]
-position = Vector2(5, -1)
+position = Vector2(5, -4)
 scale = Vector2(0.09, 0.09)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.234638, 0)
+shape = SubResource("CircleShape2D_pcgm2")
 
 [connection signal="timeout" from="posTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="randPosTimer" to="." method="_on_rand_pos_timer_timeout"]

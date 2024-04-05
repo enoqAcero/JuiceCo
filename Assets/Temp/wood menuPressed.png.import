@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dirvg562ql8p"
-path="res://.godot/imported/JuiceGlass.png-be4b1cd59aaa89570ed4eea7c80d4830.ctex"
+uid="uid://wqnwfc3rdr5n"
+path="res://.godot/imported/wood menuPressed.png-7a470344c7009bba9ae9f1bcd3d6273b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/JuiceGlass.png"
-dest_files=["res://.godot/imported/JuiceGlass.png-be4b1cd59aaa89570ed4eea7c80d4830.ctex"]
+source_file="res://Assets/Temp/wood menuPressed.png"
+dest_files=["res://.godot/imported/wood menuPressed.png-7a470344c7009bba9ae9f1bcd3d6273b.ctex"]
 
 [params]
 

@@ -106,18 +106,20 @@ func enable_feature_upgrade( index, enable ):
 		GlobalVariables.UpgradeType.FEATURE:
 			match index:
 				0: # Enable the fruit race switch
-					var run_switch = get_parent().get_node("runButton")
-					run_switch.toggle_mode = enable
-					run_switch.button_pressed = enable
-					if not enable:
-						run_switch.get_node("SwitchTimer").stop()
-						print( "Disabling switch" )
+#					var run_switch = get_parent().get_node("runButton")
+#					run_switch.toggle_mode = enable
+#					run_switch.button_pressed = enable
+#					if not enable:
+#						run_switch.get_node("SwitchTimer").stop()
+#						print( "Disabling switch" )
+					pass
 		
 		GlobalVariables.UpgradeType.FARMER:
 			pass
 		GlobalVariables.UpgradeType.FRUIT_PRODUCTION:
 			if upgrade.target == -1:
 				GlobalVariables.production_multiplier *= upgrade.multiplier
+				print("CHANGING MULTIPLIER")
 			else:
 				GlobalVariables.fruit_production_multiplier[ upgrade.target ] *= upgrade.multiplier
 			
@@ -160,10 +162,27 @@ func reset():
 		if upgrade != null:
 			GlobalVariables.player.Upgrades[i].active = false
 #			GlobalVariables.player.Upgrades[i].epic_active = false
-			
-			if upgrade.type == GlobalVariables.UpgradeType.FEATURE and not upgrade.epic:
-				enable_feature_upgrade(i, false)
-			
-			GlobalVariables.save()
+		if upgrade != null:
+			if not upgrade.epic:
+				if upgrade.type == GlobalVariables.UpgradeType.FEATURE:
+					enable_feature_upgrade(i, false)
+				
+				GlobalVariables.save()
+
+	fill_upgrades_list()
+	
+func reset_epic():
+	for i in GlobalVariables.player.Upgrades.size():
+		var upgrade = GlobalVariables.player.Upgrades[i]
+		if upgrade != null:
+			if upgrade.epic:
+				
+				
+				
+				if upgrade.type == GlobalVariables.UpgradeType.FEATURE:
+					enable_feature_upgrade(i, false)
+				GlobalVariables.player.Upgrades[i].active = false
+				GlobalVariables.player.Upgrades[i].epic_active = false
+				GlobalVariables.save()
 
 	fill_upgrades_list()

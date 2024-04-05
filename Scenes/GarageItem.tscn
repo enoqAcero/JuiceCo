@@ -53,6 +53,7 @@ clip_contents = true
 custom_minimum_size = Vector2(359, 60)
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 theme = SubResource("Theme_65j0c")
 script = ExtResource("1_0475r")
 
@@ -61,7 +62,7 @@ visible = false
 layout_mode = 2
 offset_right = 359.0
 offset_bottom = 60.0
-mouse_filter = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_xaiqa")
 
 [node name="VehicleImage" type="TextureRect" parent="Panel"]
@@ -73,7 +74,6 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 50.0
 offset_bottom = 52.0
-mouse_filter = 2
 texture = ExtResource("1_knvv4")
 expand_mode = 1
 stretch_mode = 5
@@ -107,6 +107,7 @@ offset_left = 48.358
 offset_top = -7.52
 offset_right = 250.358
 offset_bottom = 15.48
+mouse_filter = 1
 theme_override_font_sizes/font_size = 14
 text = "Van"
 vertical_alignment = 1
@@ -123,6 +124,7 @@ offset_left = 48.358
 offset_top = 11.48
 offset_right = 250.358
 offset_bottom = 28.48
+mouse_filter = 1
 theme_override_font_sizes/font_size = 9
 text = "Capacity: 000.00"
 vertical_alignment = 1
@@ -139,6 +141,7 @@ offset_left = 48.358
 offset_top = 24.48
 offset_right = 250.358
 offset_bottom = 41.48
+mouse_filter = 1
 theme_override_font_sizes/font_size = 9
 text = "Cost: 000.00"
 vertical_alignment = 1
@@ -149,7 +152,7 @@ visible = false
 layout_mode = 2
 offset_right = 359.0
 offset_bottom = 60.0
-mouse_filter = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_it0l0")
 
 [node name="Button" type="Button" parent="PanelBuyVehicle"]
@@ -177,7 +180,7 @@ visible = false
 layout_mode = 2
 offset_right = 359.0
 offset_bottom = 60.0
-mouse_filter = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_it0l0")
 
 [node name="Label" type="Label" parent="PanelEmpty"]
@@ -187,6 +190,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/font_color = Color(0.247059, 0.247059, 0.247059, 1)
 text = "Available slot"
 horizontal_alignment = 1

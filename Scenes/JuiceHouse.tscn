@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://pyylsjt5onnc"]
+[gd_scene load_steps=19 format=3 uid="uid://pyylsjt5onnc"]
 
 [ext_resource type="Script" path="res://Scripts/JuiceHouse.gd" id="1_eijnn"]
 [ext_resource type="PackedScene" uid="uid://csa81m87x06kh" path="res://Scenes/JuiceHouseBox2.tscn" id="2_o7sdm"]
 [ext_resource type="PackedScene" uid="uid://cnjd2fjj2c4d8" path="res://Scenes/JuiceHouseBox1.tscn" id="3_pb1vb"]
-[ext_resource type="PackedScene" path="res://Scenes/Panel.tscn" id="4_y2w3t"]
+[ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="4_y2w3t"]
 [ext_resource type="PackedScene" path="res://Scenes/PanelSecondary.tscn" id="6_tvylr"]
 [ext_resource type="PackedScene" uid="uid://btcar6krop71o" path="res://Scenes/JuiceHouseCatalogItem.tscn" id="7_x7mws"]
 
@@ -83,6 +83,16 @@ _data = {
 "RESET": SubResource("Animation_p1vfg"),
 "ShowCatalog": SubResource("Animation_2b6vy")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_31evc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggxiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq15j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_as20s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t111h"]
 
 [node name="JuiceHouse" type="Node2D"]
 script = ExtResource("1_eijnn")
@@ -236,22 +246,16 @@ grow_vertical = 1
 [node name="Wood Background" parent="Menus/HouseList" index="0"]
 offset_bottom = 586.0
 
-[node name="Panel" parent="Menus/HouseList" index="1"]
-visible = false
-
 [node name="Label2" parent="Menus/HouseList" index="2"]
 text = "Owned houses"
 
 [node name="Panel2" parent="Menus/HouseList" index="3"]
-visible = false
 offset_bottom = 586.0
 
 [node name="Panel3" parent="Menus/HouseList" index="4"]
-visible = false
 offset_bottom = 586.0
 
 [node name="Label" parent="Menus/HouseList" index="5"]
-visible = false
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -278,6 +282,13 @@ text = "Available houses"
 
 [node name="Control2" parent="Menus/HouseCatalog/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("7_x7mws")]
 layout_mode = 2
+
+[node name="close" parent="Menus/HouseCatalog" index="3"]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_31evc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ggxiq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yq15j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_as20s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t111h")
 
 [connection signal="pressed" from="Panel3/VBoxContainer/Color/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="Menus/HouseList/Button" to="." method="_on_close_button_pressed"]

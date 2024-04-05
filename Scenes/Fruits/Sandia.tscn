@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://boqncvbtcf8yd"]
 
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_ngtcw"]
-[ext_resource type="PackedScene" path="res://Scenes/Fruits/SandiaSprite.tscn" id="2_h1sb0"]
+[ext_resource type="PackedScene" uid="uid://c4pvg5rhfv1es" path="res://Scenes/Fruits/SandiaSprite.tscn" id="2_h1sb0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jtjvv"]
 

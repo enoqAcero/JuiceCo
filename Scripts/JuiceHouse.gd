@@ -55,7 +55,14 @@ func loadHouses():
 		# Level up or upgrade
 		var level = GlobalVariables.player.CurrentJuiceHouse[i].upgradeLvl
 		if level < 4:
+			
 			player_houses[i].get_node("Owned/Button").hide()
+			player_houses[i].get_node("Owned/Button2").text = 'LEVEL UP $' + GlobalVariables.getMoneyString( GlobalVariables.player.JuiceHouse[id - 1].cost[level] )
+			var cost : float = GlobalVariables.player.JuiceHouse[id - 1].cost[level]
+			if GlobalVariables.player.money >= cost:
+				player_houses[i].get_node("Owned/Button2").disabled = false
+			else:
+				player_houses[i].get_node("Owned/Button2").disabled = true
 			player_houses[i].get_node("Owned/Button2").show()
 			
 		else:
@@ -92,8 +99,8 @@ func show_catalog(id:int):
 		var catalog_item = catalog_item_scene.instantiate()
 		catalog_item.get_node("Texture").texture = item.skin
 		catalog_item.get_node("Type").text = item.name
-		catalog_item.get_node("Cost").text = GlobalVariables.getMoneyString(item.cost[0])
-		catalog_item.get_node("Capacity").text = str(item.capacity)
+		catalog_item.get_node("Cost").text = "Cost: $" + GlobalVariables.getMoneyString(item.cost[0])
+		catalog_item.get_node("Capacity").text = "Capacity: " + GlobalVariables.getMoneyString(item.capacity) + " Lts"
 		catalog_item.get_node("Button").text = 'Buy'
 		catalog_item.get_node("Button").pressed.connect(Callable(buyHouse).bind(id, i))
 		
@@ -145,6 +152,7 @@ func buyHouse(slot:int, index : int):
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("type", index + 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", 1)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity * GlobalVariables.house_capacity_multiplier) 
+		GlobalVariables.player.money -= cost
 		GlobalVariables.save()
 	$AnimationPlayer.play("HideCatalog")
 	GlobalVariables.save()
@@ -198,17 +206,20 @@ func _on_close_pressed():
 	$AnimationPlayer.play("HideCatalog")
 	
 func level_up(slot:int):
+	
 	var house_type = GlobalVariables.player.CurrentJuiceHouse[slot].type
 	if house_type > 18:
 		return
 	
 	var current_level = GlobalVariables.player.CurrentJuiceHouse[slot].upgradeLvl
-	var cost : float = GlobalVariables.player.JuiceHouse[house_type].cost[current_level]
+	var cost : float = GlobalVariables.player.JuiceHouse[house_type -1].cost[current_level]
 	var capacity = GlobalVariables.player.CurrentJuiceHouse[slot].currentCapacity
-	if GlobalVariables.player.money > cost:
+	print( 'Cost: ' + str(cost) )
+	if GlobalVariables.player.money >= cost:
+		print('Upgrading house')
 		GlobalVariables.player.set("money", float(GlobalVariables.player.money) - cost)
 		GlobalVariables.player.CurrentJuiceHouse[slot].set("upgradeLvl", current_level+1)
-		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity * 1.1) 
+		GlobalVariables.player.CurrentJuiceHouse[slot].set("currentCapacity", capacity * 1.15) 
 		player_houses[slot].get_node("AnimationPlayer").play("level_up")
 		
 #		player_houses[slot].hide()

@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/FruitRun.gd" id="1_tc7np"]
 [ext_resource type="PackedScene" uid="uid://duojf0o2et7yc" path="res://Scenes/Fruits/CerezaSprite.tscn" id="2_26p67"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b6uda"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30c4l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6uda"]
+radius = 5.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 0
@@ -15,10 +16,6 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_tc7np")
 fruit_number = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.234638, 0)
-shape = SubResource("CircleShape2D_b6uda")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -27,21 +24,19 @@ shape = SubResource("RectangleShape2D_30c4l")
 [node name="Navigation" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+target_desired_distance = 25.0
+path_max_distance = 10.0
 avoidance_enabled = true
-radius = 20.0
+radius = 15.0
+max_neighbors = 50
 debug_enabled = true
-
-[node name="posTimer" type="Timer" parent="."]
-wait_time = 1.5
-autostart = true
-
-[node name="randPosTimer" type="Timer" parent="."]
-one_shot = true
+debug_path_custom_line_width = 3.0
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_26p67")]
 position = Vector2(6, -9)
 scale = Vector2(0.09, 0.09)
 autoplay = ""
 
-[connection signal="timeout" from="posTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="randPosTimer" to="." method="_on_rand_pos_timer_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.234638, 0)
+shape = SubResource("CircleShape2D_b6uda")

@@ -40,6 +40,19 @@ func _ready():
 	
 	
 func loadResource():
+	var base_path = "res://Save/PlayerSave.tres"
+	var base_save = ResourceLoader.load( base_path )
+	
+	if base_save.new_version:
+		print('This is a new version')
+		base_save.new_version = false
+		ResourceSaver.save(base_save, base_path)
+		ResourceSaver.save(base_save, "user://PlayerSave.tres")
+		
+		
+	else:
+		print('No new version')
+	
 	if ResourceLoader.exists("user://PlayerSave.tres"):
 		player = ResourceLoader.load("user://PlayerSave.tres")
 	else:
@@ -202,7 +215,7 @@ func set_initial_values():
 
 func reset():
 	set_initial_values()
-	player.money = 1000000
+	player.money = 10
 	save()
 	
 func hard_reset():

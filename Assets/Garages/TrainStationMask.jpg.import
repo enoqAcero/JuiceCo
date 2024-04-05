@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q2fiya7732nb"
-path="res://.godot/imported/fruit_crate.png-28b241948e20270a1cda21fc96d906dd.ctex"
+uid="uid://d4ittwlqeng0p"
+path="res://.godot/imported/TrainStationMask.jpg-2fdf4281b73bbad2dde784006dd78ea8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/fruit_crate.png"
-dest_files=["res://.godot/imported/fruit_crate.png-28b241948e20270a1cda21fc96d906dd.ctex"]
+source_file="res://Assets/Garages/TrainStationMask.jpg"
+dest_files=["res://.godot/imported/TrainStationMask.jpg-2fdf4281b73bbad2dde784006dd78ea8.ctex"]
 
 [params]
 

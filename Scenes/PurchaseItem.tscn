@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyjuxhkgdjydi"]
+[gd_scene load_steps=10 format=3 uid="uid://cyjuxhkgdjydi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru4su"]
 bg_color = Color(1, 1, 1, 1)
@@ -9,6 +9,13 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lofjp"]
 bg_color = Color(0.364706, 0.596078, 0.227451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea887"]
+bg_color = Color(0.203922, 0.345098, 0.121569, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -35,8 +42,8 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05gb6"]
-bg_color = Color(0.584314, 0.352941, 0.992157, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7cy4"]
+bg_color = Color(0.403922, 0.0509804, 0.776471, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -49,8 +56,8 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohu7o"]
-bg_color = Color(0.584314, 0.352941, 0.992157, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ns3b"]
+bg_color = Color(0.403922, 0.0509804, 0.776471, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -135,13 +142,12 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_lofjp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lofjp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lofjp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ea887")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_aj7xv")
-theme_override_styles/focus = SubResource("StyleBoxFlat_lofjp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ea887")
 text = "$XX.XX"
 
 [node name="ButtonEpic" type="Button" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -160,7 +166,7 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_xthe3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ea333")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_05gb6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g7cy4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_yo36b")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ohu7o")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8ns3b")
 text = "$XX.XX"

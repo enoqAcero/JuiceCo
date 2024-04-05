@@ -31,8 +31,8 @@ func fill_vehicle_catalog(transaction:String, slot:int, base_item = null):
 		item.cost.visible = true
 		item.image.texture = vehicle.skin
 		item.vehicle.text = vehicle.name
-		item.cost.text = "Cost: " + GlobalVariables.getMoneyString(vehicle.cost)
-		item.capacity.text = "Capacity" + str(vehicle.capacity)
+		item.cost.text = "Cost: $" + GlobalVariables.getMoneyString(vehicle.cost)
+		item.capacity.text = "Capacity: " + GlobalVariables.getMoneyString(vehicle.capacity) + " Lts"
 		item.upgrade_button.text = transaction
 		item.id = i
 		match transaction:
@@ -56,6 +56,7 @@ func purchase_vehicle(slot:int, item):
 	else:
 		item.upgrade_button.disabled = true
 	GlobalVariables.save()
+	get_tree().get_root().get_node("Main").check_garages()
 	
 func upgrade_vehicle(slot:int, item):
 	if GlobalVariables.player.money >= item.data.cost:
@@ -66,5 +67,6 @@ func upgrade_vehicle(slot:int, item):
 		$"../../AnimationPlayer".play("venclose")
 	else:
 		item.upgrade_button.disabled = true
+	get_tree().get_root().get_node("Main").check_garages()
 	GlobalVariables.save()
 

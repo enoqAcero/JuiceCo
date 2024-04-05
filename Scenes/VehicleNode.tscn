@@ -1,0 +1,188 @@
+[gd_scene load_steps=17 format=3 uid="uid://ce1njt2t57fte"]
+
+[ext_resource type="Script" path="res://Scripts/VehicleNode.gd" id="1_4jt03"]
+[ext_resource type="Texture2D" uid="uid://hvtxj5dklair" path="res://Assets/Vehicles/Train.png" id="1_o8ieu"]
+[ext_resource type="Texture2D" uid="uid://i3g1bmhan00h" path="res://Assets/Vehicles/SmallCar.png" id="2_pk3v8"]
+[ext_resource type="Texture2D" uid="uid://cn3wfxb6q3lxo" path="res://Assets/Vehicles/Motorcycle.png" id="2_rvwgx"]
+[ext_resource type="Texture2D" uid="uid://cvde4fb6cudi0" path="res://Assets/Vehicles/Car.png" id="3_527xx"]
+[ext_resource type="Texture2D" uid="uid://uwvjhm44h5fp" path="res://Assets/Vehicles/PickupTruck.png" id="4_mqed1"]
+[ext_resource type="Texture2D" uid="uid://bcbrwrda8hlsi" path="res://Assets/Vehicles/Van.png" id="5_twbka"]
+[ext_resource type="Texture2D" uid="uid://cjdyhpmaetge0" path="res://Assets/Vehicles/DeliveryVan.png" id="6_tm6yw"]
+[ext_resource type="Texture2D" uid="uid://dkakeg02thu6h" path="res://Assets/Vehicles/BoxTruck.png" id="7_cue7k"]
+[ext_resource type="Texture2D" uid="uid://bp0lylr7kh4xv" path="res://Assets/Vehicles/Micro.png" id="8_5nmcu"]
+[ext_resource type="Texture2D" uid="uid://5dtohxb5ybko" path="res://Assets/Vehicles/Bus.png" id="9_vmmet"]
+[ext_resource type="Texture2D" uid="uid://cc6jbdkx78cly" path="res://Assets/Vehicles/DobleBus.png" id="10_q1axa"]
+[ext_resource type="Texture2D" uid="uid://12qq86572wtm" path="res://Assets/Vehicles/LightTrain.png" id="12_4suhl"]
+
+[sub_resource type="Animation" id="Animation_fnw4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"update": 0,
+"values": [Vector2(1134, 438)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"values": [{
+"args": [],
+"method": &"set_vehicle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_631b0"]
+resource_name = "Travel"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat64Array(0, 2, 3, 5),
+"transitions": PackedFloat64Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1134, 438), Vector2(305.2, 940.32), Vector2(305.2, 940.32), Vector2(-346, 1335)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat64Array(0),
+"transitions": PackedFloat64Array(1),
+"values": [{
+"args": [],
+"method": &"set_vehicle"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat64Array(2.5),
+"transitions": PackedFloat64Array(1),
+"values": [{
+"args": [],
+"method": &"_on_transport_timer_timeout"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lafna"]
+_data = {
+"RESET": SubResource("Animation_fnw4c"),
+"Travel": SubResource("Animation_631b0")
+}
+
+[node name="VechicleNode" type="Node2D"]
+position = Vector2(1134, 438)
+script = ExtResource("1_4jt03")
+
+[node name="0" type="Sprite2D" parent="."]
+position = Vector2(319, -224)
+rotation = -0.020944
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_rvwgx")
+
+[node name="1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(316, -227)
+rotation = -0.020944
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_pk3v8")
+
+[node name="2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(315, -226)
+rotation = -0.020944
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_527xx")
+
+[node name="3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(321, -226)
+rotation = -0.020944
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_mqed1")
+
+[node name="4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(309, -222)
+rotation = -0.020944
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_twbka")
+
+[node name="5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(317, -227)
+rotation = -0.020944
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_tm6yw")
+
+[node name="6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(315, -230)
+rotation = -0.020944
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("7_cue7k")
+
+[node name="7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(315, -228)
+rotation = -0.020944
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_5nmcu")
+
+[node name="8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(321, -233)
+rotation = -0.020944
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("9_vmmet")
+
+[node name="9" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(345, -245)
+rotation = -0.020944
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("10_q1axa")
+
+[node name="10" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(281, -203)
+rotation = -0.020944
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_o8ieu")
+
+[node name="11" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(281, -203)
+rotation = -0.020944
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("12_4suhl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Travel"
+libraries = {
+"": SubResource("AnimationLibrary_lafna")
+}

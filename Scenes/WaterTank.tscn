@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cdbf55j5esw47" path="res://Assets/Temp/Sin nombre.png" id="3_r1xbw"]
 [ext_resource type="Texture2D" uid="uid://cthqt88acdwh0" path="res://Assets/Bg/WaterTank.png" id="4_t6wmh"]
 
-[sub_resource type="FontVariation" id="FontVariation_dds5r"]
+[sub_resource type="FontVariation" id="FontVariation_lqpav"]
 base_font = ExtResource("2_8lv10")
 variation_embolden = 1.0
 
 [sub_resource type="Theme" id="Theme_8cke2"]
-default_font = SubResource("FontVariation_dds5r")
+default_font = SubResource("FontVariation_lqpav")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2nry"]
 corner_radius_top_left = 20
@@ -50,10 +50,11 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1aia"]
-bg_color = Color(0, 0.541176, 0.0470588, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
+bg_color = Color(0.0470588, 0.556863, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hno2g"]
 
@@ -110,10 +111,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 32.0
-offset_top = 70.0
-offset_right = 408.0
-offset_bottom = 130.0
+offset_left = 37.0
+offset_top = 69.0
+offset_right = 413.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -135,20 +136,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_duh76")
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 176.0
-offset_right = 391.0
-offset_bottom = 343.0
+offset_left = 58.0
+offset_top = 166.0
+offset_right = 400.0
+offset_bottom = 358.0
 texture = ExtResource("4_t6wmh")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 116.0
-offset_right = 393.0
-offset_bottom = 188.0
+offset_left = 58.0
+offset_top = 95.0
+offset_right = 402.0
+offset_bottom = 167.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 20
@@ -158,25 +159,25 @@ vertical_alignment = 1
 
 [node name="Fruits" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 333.0
-offset_right = 352.0
-offset_bottom = 413.0
+offset_left = 229.0
+offset_top = 361.0
+offset_right = 357.0
+offset_bottom = 411.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-text = "Fruits Made"
+text = "Made"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Money" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 333.0
-offset_right = 216.0
-offset_bottom = 413.0
+offset_left = 93.0
+offset_top = 361.0
+offset_right = 221.0
+offset_bottom = 411.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-text = "Money Made"
+text = "Made"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -187,10 +188,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 171.0
-offset_top = 419.0
-offset_right = 283.0
-offset_bottom = 443.0
+offset_left = 176.0
+offset_top = 417.0
+offset_right = 288.0
+offset_bottom = 441.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -201,10 +202,10 @@ vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Panel"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 445.0
-offset_right = 334.0
-offset_bottom = 472.0
+offset_left = 117.0
+offset_top = 446.0
+offset_right = 347.0
+offset_bottom = 473.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_6puoc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jrog4")
@@ -212,10 +213,10 @@ value = 50.0
 
 [node name="RefillWaterTank" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 490.0
-offset_right = 344.0
-offset_bottom = 535.0
+offset_left = 109.0
+offset_top = 483.0
+offset_right = 355.0
+offset_bottom = 528.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_d1aia")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d1aia")
@@ -225,12 +226,11 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_d1aia")
 text = "Collect and Refill Water Tank"
 
 [node name="Button" type="Button" parent="Panel"]
-visible = false
 layout_mode = 0
-offset_left = 338.0
-offset_top = 78.0
-offset_right = 385.0
-offset_bottom = 122.0
+offset_left = 341.0
+offset_top = 54.0
+offset_right = 388.0
+offset_bottom = 98.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7

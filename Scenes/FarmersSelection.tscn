@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://y3xe2sk4d6uq"]
+[gd_scene load_steps=5 format=3 uid="uid://d3oowgfw7g7p8"]
 
 [ext_resource type="Texture2D" uid="uid://bm40aygmslhew" path="res://Assets/Buttons/BotonBuy.png" id="1_kui62"]
+[ext_resource type="Texture2D" uid="uid://do0gsgsqdxph7" path="res://Assets/Buttons/BotonBuyPressed.png" id="2_174bm"]
 [ext_resource type="Texture2D" uid="uid://chuwk8fofd7e7" path="res://Assets/Buttons/BotonBuyViolet.png" id="2_kfbxk"]
+[ext_resource type="Texture2D" uid="uid://bqbk1x53si01i" path="res://Assets/Buttons/BotonBuyViolepressedt.png" id="4_tb8rd"]
 
 [node name="FarmersSelection" type="Control"]
 custom_minimum_size = Vector2(460, 50)
@@ -14,6 +16,7 @@ offset_left = 72.0
 offset_right = 225.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_kui62")
+texture_pressed = ExtResource("2_174bm")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -37,6 +40,7 @@ offset_left = 238.0
 offset_right = 398.0
 offset_bottom = 40.0
 texture_normal = ExtResource("2_kfbxk")
+texture_pressed = ExtResource("4_tb8rd")
 ignore_texture_size = true
 stretch_mode = 5
 

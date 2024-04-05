@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfsbcwawjmq8d"
-path="res://.godot/imported/char_a_p1_1out_fstr_v04.png-a245ecb9bf56f412425e54e610f48df9.ctex"
+uid="uid://g2ansgjr47rq"
+path="res://.godot/imported/BigGarage.png-94ce02136f09d9bdcbdf699adf4bdd8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/char_a_p1_1out_fstr_v04.png"
-dest_files=["res://.godot/imported/char_a_p1_1out_fstr_v04.png-a245ecb9bf56f412425e54e610f48df9.ctex"]
+source_file="res://Assets/Garages/BigGarage.png"
+dest_files=["res://.godot/imported/BigGarage.png-94ce02136f09d9bdcbdf699adf4bdd8f.ctex"]
 
 [params]
 

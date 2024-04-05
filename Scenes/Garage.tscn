@@ -1,10 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3gg2wrxhabaq"]
+[gd_scene load_steps=15 format=3 uid="uid://b3gg2wrxhabaq"]
 
 [ext_resource type="Script" path="res://Scripts/Garage.gd" id="1_bjwhx"]
 [ext_resource type="Script" path="res://Scripts/vehicles.gd" id="1_urs3p"]
 [ext_resource type="PackedScene" uid="uid://buxqm5r3pm1y0" path="res://Scenes/Panel.tscn" id="2_rcs0u"]
 [ext_resource type="Script" path="res://Scripts/VehiclesStoreScript.gd" id="3_8njxs"]
-[ext_resource type="PackedScene" uid="uid://bkqy3jn8w0t35" path="res://Scenes/PanelSecondary.tscn" id="4_44wng"]
+[ext_resource type="PackedScene" path="res://Scenes/PanelSecondary.tscn" id="4_44wng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73nl6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05pq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_887ye"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2vibf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ci5a0"]
 
 [sub_resource type="Animation" id="Animation_me302"]
 length = 0.001
@@ -149,6 +159,13 @@ flat = true
 
 [node name="ScrollContainer" parent="VehicleCatalog" index="2"]
 script = ExtResource("3_8njxs")
+
+[node name="close" parent="VehicleCatalog" index="3"]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_73nl6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_05pq1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_887ye")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2vibf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ci5a0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 2.0

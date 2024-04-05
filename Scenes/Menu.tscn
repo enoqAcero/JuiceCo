@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dces421mjwxim"]
+[gd_scene load_steps=14 format=3 uid="uid://dces421mjwxim"]
 
 [ext_resource type="Texture2D" uid="uid://d0ytlx3x5mgme" path="res://a.png" id="1_6svht"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ymngt"]
 [ext_resource type="PackedScene" uid="uid://br5y6mgxlhsg7" path="res://Scenes/bank.tscn" id="2_ly6p1"]
 [ext_resource type="PackedScene" uid="uid://mupvggqkndx7" path="res://Scenes/PurchasePanel.tscn" id="4_x2vir"]
 [ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="5_ajdgk"]
+[ext_resource type="Texture2D" uid="uid://wqnwfc3rdr5n" path="res://Assets/Temp/wood menuPressed.png" id="6_8vrvs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8c4h0"]
 font_size = 26
@@ -238,6 +239,7 @@ offset_top = 172.0
 offset_right = 188.0
 offset_bottom = 272.0
 texture_normal = ExtResource("5_ajdgk")
+texture_pressed = ExtResource("6_8vrvs")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -260,7 +262,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton3" type="TextureButton" parent="Panel"]
-self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+self_modulate = Color(0.662745, 0.709804, 0.756863, 1)
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
 offset_left = 246.0
@@ -268,6 +270,7 @@ offset_top = 170.0
 offset_right = 346.0
 offset_bottom = 270.0
 texture_normal = ExtResource("5_ajdgk")
+texture_pressed = ExtResource("6_8vrvs")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -290,7 +293,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton5" type="TextureButton" parent="Panel"]
-self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+self_modulate = Color(0.662745, 0.709804, 0.756863, 1)
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
 offset_left = 88.0
@@ -298,6 +301,7 @@ offset_top = 338.0
 offset_right = 188.0
 offset_bottom = 438.0
 texture_normal = ExtResource("5_ajdgk")
+texture_pressed = ExtResource("6_8vrvs")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -320,7 +324,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton6" type="TextureButton" parent="Panel"]
-self_modulate = Color(0.592157, 0.717647, 0.854902, 1)
+self_modulate = Color(0.662745, 0.709804, 0.756863, 1)
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
 offset_left = 246.0
@@ -328,6 +332,7 @@ offset_top = 336.0
 offset_right = 346.0
 offset_bottom = 436.0
 texture_normal = ExtResource("5_ajdgk")
+texture_pressed = ExtResource("6_8vrvs")
 ignore_texture_size = true
 stretch_mode = 5
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb8pkvxlexpmd"
-path="res://.godot/imported/istockphoto-682394968-612x612.png-c01c7f038fd9b387bf5ba6ddbeed3706.ctex"
+uid="uid://li3nv6o6c6tr"
+path="res://.godot/imported/TrainStation.png-28c1e1ecadff848b008b6e2f81698c79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/istockphoto-682394968-612x612.png"
-dest_files=["res://.godot/imported/istockphoto-682394968-612x612.png-c01c7f038fd9b387bf5ba6ddbeed3706.ctex"]
+source_file="res://Assets/Garages/TrainStation.png"
+dest_files=["res://.godot/imported/TrainStation.png-28c1e1ecadff848b008b6e2f81698c79.ctex"]
 
 [params]
 
