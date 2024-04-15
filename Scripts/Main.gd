@@ -537,6 +537,10 @@ func total_reset():
 	reset_juice_level()
 	check_garages()
 	delete_rogue_fruits()
+	reset_tutorial()
+	
+func reset_tutorial():
+	$CanvasLayer/Tutorial.reset()
 	
 func delete_rogue_fruits():
 	for child in get_children():

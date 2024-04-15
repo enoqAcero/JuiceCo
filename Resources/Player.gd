@@ -69,6 +69,9 @@ class_name Player
 @export var water_tanks : int = 1
 @export var water_supply_cost : Array[float]
 
+@export var current_tutorial : int
+@export var tutorial_data : Array[TutorialData]
+
 @export var new_version : bool
 
 

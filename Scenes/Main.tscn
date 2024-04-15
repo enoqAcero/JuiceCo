@@ -1,4 +1,4 @@
-[gd_scene load_steps=210 format=3 uid="uid://yqpe165f0q3"]
+[gd_scene load_steps=204 format=3 uid="uid://yqpe165f0q3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dpbrn"]
 [ext_resource type="PackedScene" uid="uid://c33e12csse0rd" path="res://Scenes/Upgrades.tscn" id="3_uhmey"]
@@ -90,7 +90,6 @@
 [ext_resource type="Texture2D" uid="uid://cxqc6jjoiftuh" path="res://Assets/Temp/wood menu.png" id="68_h2bjv"]
 [ext_resource type="Texture2D" uid="uid://dbicgk7bx30x1" path="res://Assets/Temp/wood arrow.png" id="69_cpko3"]
 [ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="83_m1efh"]
-[ext_resource type="Script" path="res://Scripts/TutorialData.gd" id="84_6wqda"]
 [ext_resource type="Texture2D" uid="uid://g2ansgjr47rq" path="res://Assets/Garages/BigGarage.png" id="89_p8705"]
 [ext_resource type="Texture2D" uid="uid://li3nv6o6c6tr" path="res://Assets/Garages/TrainStation.png" id="90_cse4a"]
 [ext_resource type="Texture2D" uid="uid://cthqt88acdwh0" path="res://Assets/Bg/WaterTank.png" id="94_1l8pj"]
@@ -440,28 +439,14 @@ corner_radius_bottom_left = 10
 [sub_resource type="Theme" id="Theme_majr6"]
 default_font = SubResource("FontVariation_0n86n")
 
-[sub_resource type="Resource" id="Resource_xage6"]
-script = ExtResource("84_6wqda")
-text = ""
-
-[sub_resource type="Resource" id="Resource_rky5p"]
-script = ExtResource("84_6wqda")
-text = ""
-
-[sub_resource type="Resource" id="Resource_couf1"]
-script = ExtResource("84_6wqda")
-text = ""
-
-[sub_resource type="Resource" id="Resource_wed0x"]
-script = ExtResource("84_6wqda")
-text = ""
-
-[sub_resource type="Resource" id="Resource_ctm8c"]
-script = ExtResource("84_6wqda")
-text = ""
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy6wc"]
 bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -1264,9 +1249,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -150.0
+offset_left = 90.0
 offset_top = 119.0
-offset_right = 150.0
+offset_right = 390.0
 offset_bottom = 275.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_emc8l")
@@ -1735,6 +1720,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_e1hll")
 text = "X"
 
 [node name="Tutorial" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1743,7 +1729,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_majr6")
 script = ExtResource("83_m1efh")
-data = Array[ExtResource("84_6wqda")]([SubResource("Resource_xage6"), SubResource("Resource_rky5p"), SubResource("Resource_couf1"), SubResource("Resource_wed0x"), SubResource("Resource_ctm8c")])
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Tutorial"]
 layout_mode = 1
@@ -1760,7 +1745,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gy6wc")
 
-[node name="Label" type="Label" parent="CanvasLayer/Tutorial/Panel"]
+[node name="Text" type="Label" parent="CanvasLayer/Tutorial/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1773,26 +1758,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "Welcome to JuiceCo!
-This is a tutorial section that will help you get started!
-Click on this button to open your fruit field"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Tutorial/Panel"]
+[node name="Image" type="TextureRect" parent="CanvasLayer/Tutorial/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 59.0
+offset_left = 53.0
 offset_top = 223.0
-offset_right = -60.0
+offset_right = -52.0
 offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_xkr0f")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="Button" type="Button" parent="CanvasLayer/Tutorial/Panel"]
 layout_mode = 1
