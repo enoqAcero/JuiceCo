@@ -508,7 +508,7 @@ func reset_game():
 	garage.reset()
 	houses.reset()
 	water_supply.reset()
-	GlobalVariables.player.money = 10
+	GlobalVariables.player.money = 5000
 	GlobalVariables.save()
 
 func _on_run_button_toggled(button_pressed):

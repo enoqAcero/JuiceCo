@@ -215,7 +215,7 @@ func set_initial_values():
 
 func reset():
 	set_initial_values()
-	player.money = 10
+	player.money = 5000
 	save()
 	
 func hard_reset():

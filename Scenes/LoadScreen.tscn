@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://djljx0nfir5ia" path="res://Scenes/Fruits/MangoSprite.tscn" id="1_7gnvi"]
 [ext_resource type="Script" path="res://Scripts/LoadScreen.gd" id="1_b610v"]
 [ext_resource type="FontFile" uid="uid://ms3aoe2yfr47" path="res://Assets/Temp/Dosis-VariableFont_wght.ttf" id="2_saxow"]
-[ext_resource type="PackedScene" uid="uid://bcceecf6p8c7x" path="res://Scenes/FullBarMango.tscn" id="3_otjx7"]
+[ext_resource type="PackedScene" path="res://Scenes/FullBarMango.tscn" id="3_otjx7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_radta"]
 bg_color = Color(0.317647, 0.541176, 0.737255, 1)
@@ -29,6 +29,7 @@ position = Vector2(280, 319)
 scale = Vector2(0.75, 0.75)
 animation = &"walk"
 autoplay = "walk"
+frame = 0
 frame_progress = 0.383432
 
 [node name="Label" type="Label" parent="."]
